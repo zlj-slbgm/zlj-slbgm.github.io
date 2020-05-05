@@ -6,21 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | 十里不故梦的Blog</title>
+  <title>CSS3各种对齐问题 | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="十里不故梦的Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/index.html">
+  <meta name="description" content="使div中的文字水平垂直居中水平居中:text-align: center垂直居中:line-height: 100px(100px为div的高度)使内部盒子水平垂直居中(同时解决了margin-top父盒子下落问题) 使图片与文字垂直对齐(图片默认与文字的基线对齐)vertical-align:middle(使图片垂直方向与文字中线对齐)使checkbox与文字垂直对齐checkbox和文字样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3各种对齐问题">
+<meta property="og:url" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="使div中的文字水平垂直居中水平居中:text-align: center垂直居中:line-height: 100px(100px为div的高度)使内部盒子水平垂直居中(同时解决了margin-top父盒子下落问题) 使图片与文字垂直对齐(图片默认与文字的基线对齐)vertical-align:middle(使图片垂直方向与文字中线对齐)使checkbox与文字垂直对齐checkbox和文字样">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E7%9B%92%E5%AD%90%E5%A4%96%E8%BE%B9%E8%B7%9D.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/translate.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E6%96%87%E5%AD%97.png">
+<meta property="article:published_time" content="2020-05-05T08:32:48.000Z">
+<meta property="article:modified_time" content="2020-05-05T09:22:59.670Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="web前端">
-<meta property="article:tag" content="VScode">
-<meta property="article:tag" content="Jquery">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E7%9B%92%E5%AD%90%E5%A4%96%E8%BE%B9%E8%B7%9D.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦的Blog" type="application/atom+xml">
   
@@ -181,35 +185,79 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-CSS3各种对齐问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      CSS3各种对齐问题
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/" class="archive-article-date">
+
+        <!--显示阅读次数-->
+        
+        <br />
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/" class="archive-article-date">
   	<time datetime="2020-05-05T08:32:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/">CSS3各种对齐问题</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h1 id="使div中的文字水平垂直居中"><a href="#使div中的文字水平垂直居中" class="headerlink" title="使div中的文字水平垂直居中"></a>使div中的文字水平垂直居中</h1><h2 id="水平居中-text-align-center"><a href="#水平居中-text-align-center" class="headerlink" title="水平居中:text-align: center"></a>水平居中:text-align: center</h2><h2 id="垂直居中-line-height-100px-100px为div的高度"><a href="#垂直居中-line-height-100px-100px为div的高度" class="headerlink" title="垂直居中:line-height: 100px(100px为div的高度)"></a>垂直居中:line-height: 100px(100px为div的高度)</h2><h1 id="使内部盒子水平垂直居中-同时解决了margin-top父盒子下落问题"><a href="#使内部盒子水平垂直居中-同时解决了margin-top父盒子下落问题" class="headerlink" title="使内部盒子水平垂直居中(同时解决了margin-top父盒子下落问题)"></a>使内部盒子水平垂直居中(同时解决了margin-top父盒子下落问题)</h1><p><img src="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E7%9B%92%E5%AD%90%E5%A4%96%E8%BE%B9%E8%B7%9D.png" alt><br><img src="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D.png" alt><br><img src="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/translate.png" alt></p>
+<h1 id="使图片与文字垂直对齐-图片默认与文字的基线对齐"><a href="#使图片与文字垂直对齐-图片默认与文字的基线对齐" class="headerlink" title="使图片与文字垂直对齐(图片默认与文字的基线对齐)"></a>使图片与文字垂直对齐(图片默认与文字的基线对齐)</h1><h2 id="vertical-align-middle-使图片垂直方向与文字中线对齐"><a href="#vertical-align-middle-使图片垂直方向与文字中线对齐" class="headerlink" title="vertical-align:middle(使图片垂直方向与文字中线对齐)"></a>vertical-align:middle(使图片垂直方向与文字中线对齐)</h2><h1 id="使checkbox与文字垂直对齐"><a href="#使checkbox与文字垂直对齐" class="headerlink" title="使checkbox与文字垂直对齐"></a>使checkbox与文字垂直对齐</h1><h2 id="checkbox和文字样式都加vertical-align-text-bottom"><a href="#checkbox和文字样式都加vertical-align-text-bottom" class="headerlink" title="checkbox和文字样式都加vertical-align:text-bottom"></a>checkbox和文字样式都加vertical-align:text-bottom</h2><h1 id="附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图"><a href="#附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图" class="headerlink" title="附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图"></a>附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图</h1><p><img src="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E6%96%87%E5%AD%97.png" alt></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -221,122 +269,143 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
-  	<time datetime="2020-05-04T23:54:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/05/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VScode快捷键</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/">VScode快捷键</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使div中的文字水平垂直居中"><span class="toc-number">1.</span> <span class="toc-text">使div中的文字水平垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#水平居中-text-align-center"><span class="toc-number">1.1.</span> <span class="toc-text">水平居中:text-align: center</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垂直居中-line-height-100px-100px为div的高度"><span class="toc-number">1.2.</span> <span class="toc-text">垂直居中:line-height: 100px(100px为div的高度)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使内部盒子水平垂直居中-同时解决了margin-top父盒子下落问题"><span class="toc-number">2.</span> <span class="toc-text">使内部盒子水平垂直居中(同时解决了margin-top父盒子下落问题)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使图片与文字垂直对齐-图片默认与文字的基线对齐"><span class="toc-number">3.</span> <span class="toc-text">使图片与文字垂直对齐(图片默认与文字的基线对齐)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vertical-align-middle-使图片垂直方向与文字中线对齐"><span class="toc-number">3.1.</span> <span class="toc-text">vertical-align:middle(使图片垂直方向与文字中线对齐)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使checkbox与文字垂直对齐"><span class="toc-number">4.</span> <span class="toc-text">使checkbox与文字垂直对齐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#checkbox和文字样式都加vertical-align-text-bottom"><span class="toc-number">4.1.</span> <span class="toc-text">checkbox和文字样式都加vertical-align:text-bottom</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图"><span class="toc-number">5.</span> <span class="toc-text">附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-02T10:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hexo博客搭建</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/MarKdown%E6%96%87%E6%A1%A3%E7%BC%96%E5%86%99/" class="archive-article-date">
-  	<time datetime="2020-05-02T09:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/MarKdown%E6%96%87%E6%A1%A3%E7%BC%96%E5%86%99/">MarKdown文档编写</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+
+      <div id="gitalk-container"></div>
+      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '6e75a816882be5261996',
+  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
+  	repo: 'zlj-slbgm.github.io',
+  	owner: 'zlj-slbgm',
+  	admin: ['zlj-slbgm'],
+  	id: 'Tue May 05 2020 16:32:48 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
 
 
           </div>
@@ -374,8 +443,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
