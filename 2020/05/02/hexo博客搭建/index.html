@@ -16,7 +16,7 @@
 <meta property="og:description" content="hexo博客搭建需要安装node.js和git还需要一个github账号">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-02T10:15:21.000Z">
-<meta property="article:modified_time" content="2020-05-05T00:54:55.345Z">
+<meta property="article:modified_time" content="2020-05-05T02:37:48.623Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -225,7 +225,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server简写为$ hexo s <span class="comment">#部署到本地服务器</span></span><br><span class="line">$ hexo s -p 1998 <span class="comment">#更改部署本地服务器的端口号(默认是4000但是可能4000端口号被占用)</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy简写为hexo d <span class="comment">#部署到github</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="踩坑系列-尼玛太坑了！！！"><a href="#踩坑系列-尼玛太坑了！！！" class="headerlink" title="踩坑系列(尼玛太坑了！！！)"></a>踩坑系列(尼玛太坑了！！！)</h1><h2 id="git出现Branch-master-set-up-to-track-remote-branch-master无法将代码提交到github解决方法"><a href="#git出现Branch-master-set-up-to-track-remote-branch-master无法将代码提交到github解决方法" class="headerlink" title="git出现Branch master set up to track remote branch master无法将代码提交到github解决方法"></a>git出现Branch master set up to track remote branch master无法将代码提交到github解决方法</h2><ol>
+<li>git init</li>
+<li>git add . 添加到本地仓库</li>
+<li>git commit -m ‘commit’ 添加提交描述</li>
+<li>git push origin master 提交前先从远程仓库主分支中拉取请求</li>
+<li>git push -u origin master 把本地仓库代码提交</li>
+</ol>
 <h2 id="B站hexo博客搭建"><a href="#B站hexo博客搭建" class="headerlink" title="B站hexo博客搭建"></a>B站hexo博客搭建</h2><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=62400697&bvid=BV1pt411K7o9&cid=108441400&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
+
+
+
       
 
       
@@ -383,7 +394,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo博客搭建需要安装node-js和git还需要一个github账号"><span class="toc-number">1.</span> <span class="toc-text">hexo博客搭建需要安装node.js和git还需要一个github账号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo常用命令"><span class="toc-number">2.</span> <span class="toc-text">hexo常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B站hexo博客搭建"><span class="toc-number">3.</span> <span class="toc-text">B站hexo博客搭建</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo博客搭建需要安装node-js和git还需要一个github账号"><span class="toc-number">1.</span> <span class="toc-text">hexo博客搭建需要安装node.js和git还需要一个github账号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo常用命令"><span class="toc-number">2.</span> <span class="toc-text">hexo常用命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#踩坑系列-尼玛太坑了！！！"><span class="toc-number"></span> <span class="toc-text">踩坑系列(尼玛太坑了！！！)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git出现Branch-master-set-up-to-track-remote-branch-master无法将代码提交到github解决方法"><span class="toc-number">1.</span> <span class="toc-text">git出现Branch master set up to track remote branch master无法将代码提交到github解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B站hexo博客搭建"><span class="toc-number">2.</span> <span class="toc-text">B站hexo博客搭建</span></a></li></ol>
                     </div>
                 </span>
             </div>
