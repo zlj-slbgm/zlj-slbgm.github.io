@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/2.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/3.png">
 <meta property="article:published_time" content="2020-05-06T04:52:32.000Z">
-<meta property="article:modified_time" content="2020-05-08T06:39:59.134Z">
+<meta property="article:modified_time" content="2020-05-12T14:28:44.347Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -293,6 +293,13 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1, 2, 3, 4, 5, 6];</span><br><span class="line">&#x2F;&#x2F; 将数组的每一个成员都填充为0 </span><br><span class="line">arr.fill(0); </span><br><span class="line">&#x2F;&#x2F; 将数组的从第二个开始往后都填充为0 </span><br><span class="line">arr.fill(0, 1);</span><br><span class="line">&#x2F;&#x2F; 将数组的从第二个开始到第四个填充为0</span><br><span class="line">arr.fill(0, 1, 4);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>reduce()为数组中的每一个元素依次执行回调函数,不包括数组中被删除或从未被赋值的元素</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr.reduce(callback,[initialValue])</span><br><span class="line">callback(执行数组中每个值的函数,包含四个参数)</span><br><span class="line">    1、previousValue(上一次调用回调返回的值或者是提供的初始值(initialValue))</span><br><span class="line">    2、currentValue(数组中当前被处理的元素)</span><br><span class="line">    3、index(当前元素在数组中的索引)</span><br><span class="line">    4、array(调用 reduce 的数组)</span><br><span class="line">initialValue(作为第一次调用callback的第一个参数)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1, 2, 3, 4];</span><br><span class="line">var sum &#x3D; arr.reduce(function(prev, cur, index, arr) &#123;</span><br><span class="line">    console.log(prev, cur, index);</span><br><span class="line">    return prev + cur;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(arr, sum);</span><br><span class="line">打印结果:</span><br><span class="line">1 2 1</span><br><span class="line">3 3 2</span><br><span class="line">6 4 3</span><br><span class="line">[1, 2, 3, 4] 10</span><br><span class="line">可以看出index是从1开始的,第一次的prev的值是数组的第一个值,数组长度是4,但是reduce函数循环3次</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var  arr &#x3D; [1, 2, 3, 4];</span><br><span class="line">var sum &#x3D; arr.reduce(function(prev, cur, index, arr) &#123;</span><br><span class="line">    console.log(prev, cur, index);</span><br><span class="line">    return prev + cur;</span><br><span class="line">&#125;, 0) &#x2F;&#x2F;注意这里设置了初始值</span><br><span class="line">console.log(arr, sum);</span><br><span class="line">打印结果:</span><br><span class="line">0 1 0</span><br><span class="line">1 2 1</span><br><span class="line">3 3 2</span><br><span class="line">6 4 3</span><br><span class="line">[1, 2, 3, 4] 10</span><br><span class="line">可以看出index是从0开始的,第一次的prev的值是我们设置的初始值0,数组长度是4,reduce函数循环4次</span><br></pre></td></tr></table></figure>
 
 <h2 id="ES6新增的数组方法"><a href="#ES6新增的数组方法" class="headerlink" title="ES6新增的数组方法"></a>ES6新增的数组方法</h2><ul>
 <li>Array.from() find() finIndex() includes()</li>
@@ -627,11 +634,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
