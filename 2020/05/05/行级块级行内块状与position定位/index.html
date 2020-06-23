@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/3.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/position%E5%AE%9A%E4%BD%8D.jpg">
 <meta property="article:published_time" content="2020-05-05T10:11:56.000Z">
-<meta property="article:modified_time" content="2020-05-08T06:40:30.596Z">
+<meta property="article:modified_time" content="2020-06-23T08:24:51.638Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
@@ -239,6 +239,13 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h2 id="inline、block、inline-block元素的区别"><a href="#inline、block、inline-block元素的区别" class="headerlink" title="inline、block、inline-block元素的区别"></a>inline、block、inline-block元素的区别</h2><p><img src="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/1.png" alt></p>
 <p><img src="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/2.png" alt></p>
 <p><img src="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/3.png" alt></p>
+<h2 id="行内元素需要注意的几个点"><a href="#行内元素需要注意的几个点" class="headerlink" title="行内元素需要注意的几个点:"></a>行内元素需要注意的几个点:</h2><ul>
+<li>img确实是行内元素,但它也是置换元素。置换元素就是浏览器根据元素的标签和属性,来决定元素的具体显示内容。例如浏览器会根据img标签的src属性的值来读取图片信息并显示出来,而如果查看(X)HTML代码,则看不到图片的实际内容。又例如根据input标签的type属性来决定是显示输入框,还是单选按钮等。所以 img  input  select  textarea  button  label 等,他们被称为可置换元素(Replaced element)。他们确实是行内元素但他们的性质相当设置了display:inline-block</li>
+<li>行内元素同样具有盒子模型</li>
+<li>行内元素的padding-top、padding-bottom、margin-top、margin-bottom属性设置是无效的</li>
+<li>行内元素的padding-left、padding-right、margin-left、margin-right属性设置是有效的</li>
+<li>行内元素的padding-top、padding-bottom从显示的效果上是增加的,但其实设置的是无效的,并不会对他周围的元素产生任何影响</li>
+</ul>
 <h2 id="position定位"><a href="#position定位" class="headerlink" title="position定位"></a>position定位</h2><p><img src="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/position%E5%AE%9A%E4%BD%8D.jpg" alt></p>
 <h2 id="行级块级行内块状与position定位的关系"><a href="#行级块级行内块状与position定位的关系" class="headerlink" title="行级块级行内块状与position定位的关系"></a>行级块级行内块状与position定位的关系</h2><h3 id="第一种float覆盖情况-行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖"><a href="#第一种float覆盖情况-行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖" class="headerlink" title="第一种float覆盖情况:行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖"></a>第一种float覆盖情况:行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖</h3><h3 id="第二种position覆盖情况-行级元素也可以使用定位-行级或块级元素只要加了position-absolute或者position-fixed-不管是否定位了-原本区域空间就空出来了-即跟浮动一样其他元素就跑到这个空间来了"><a href="#第二种position覆盖情况-行级元素也可以使用定位-行级或块级元素只要加了position-absolute或者position-fixed-不管是否定位了-原本区域空间就空出来了-即跟浮动一样其他元素就跑到这个空间来了" class="headerlink" title="第二种position覆盖情况:行级元素也可以使用定位,行级或块级元素只要加了position:absolute或者position:fixed(不管是否定位了)原本区域空间就空出来了(即跟浮动一样其他元素就跑到这个空间来了)"></a>第二种position覆盖情况:行级元素也可以使用定位,行级或块级元素只要加了position:absolute或者position:fixed(不管是否定位了)原本区域空间就空出来了(即跟浮动一样其他元素就跑到这个空间来了)</h3><h3 id="任何标签只要一浮动-类型就会被转为行内-块级标签"><a href="#任何标签只要一浮动-类型就会被转为行内-块级标签" class="headerlink" title="任何标签只要一浮动,类型就会被转为行内-块级标签"></a>任何标签只要一浮动,类型就会被转为行内-块级标签</h3><h3 id="任何标签只要设置position属性，类型就会被转为行内-块级标签"><a href="#任何标签只要设置position属性，类型就会被转为行内-块级标签" class="headerlink" title="任何标签只要设置position属性，类型就会被转为行内-块级标签"></a>任何标签只要设置position属性，类型就会被转为行内-块级标签</h3>
       
@@ -393,7 +400,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#行级块级行内块状与position定位"><span class="toc-number">1.</span> <span class="toc-text">行级块级行内块状与position定位</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#inline、block、inline-block元素的区别"><span class="toc-number">1.1.</span> <span class="toc-text">inline、block、inline-block元素的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#position定位"><span class="toc-number">1.2.</span> <span class="toc-text">position定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行级块级行内块状与position定位的关系"><span class="toc-number">1.3.</span> <span class="toc-text">行级块级行内块状与position定位的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种float覆盖情况-行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖"><span class="toc-number">1.3.1.</span> <span class="toc-text">第一种float覆盖情况:行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种position覆盖情况-行级元素也可以使用定位-行级或块级元素只要加了position-absolute或者position-fixed-不管是否定位了-原本区域空间就空出来了-即跟浮动一样其他元素就跑到这个空间来了"><span class="toc-number">1.3.2.</span> <span class="toc-text">第二种position覆盖情况:行级元素也可以使用定位,行级或块级元素只要加了position:absolute或者position:fixed(不管是否定位了)原本区域空间就空出来了(即跟浮动一样其他元素就跑到这个空间来了)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任何标签只要一浮动-类型就会被转为行内-块级标签"><span class="toc-number">1.3.3.</span> <span class="toc-text">任何标签只要一浮动,类型就会被转为行内-块级标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任何标签只要设置position属性，类型就会被转为行内-块级标签"><span class="toc-number">1.3.4.</span> <span class="toc-text">任何标签只要设置position属性，类型就会被转为行内-块级标签</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#行级块级行内块状与position定位"><span class="toc-number">1.</span> <span class="toc-text">行级块级行内块状与position定位</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#inline、block、inline-block元素的区别"><span class="toc-number">1.1.</span> <span class="toc-text">inline、block、inline-block元素的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行内元素需要注意的几个点"><span class="toc-number">1.2.</span> <span class="toc-text">行内元素需要注意的几个点:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#position定位"><span class="toc-number">1.3.</span> <span class="toc-text">position定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行级块级行内块状与position定位的关系"><span class="toc-number">1.4.</span> <span class="toc-text">行级块级行内块状与position定位的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种float覆盖情况-行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖"><span class="toc-number">1.4.1.</span> <span class="toc-text">第一种float覆盖情况:行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种position覆盖情况-行级元素也可以使用定位-行级或块级元素只要加了position-absolute或者position-fixed-不管是否定位了-原本区域空间就空出来了-即跟浮动一样其他元素就跑到这个空间来了"><span class="toc-number">1.4.2.</span> <span class="toc-text">第二种position覆盖情况:行级元素也可以使用定位,行级或块级元素只要加了position:absolute或者position:fixed(不管是否定位了)原本区域空间就空出来了(即跟浮动一样其他元素就跑到这个空间来了)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任何标签只要一浮动-类型就会被转为行内-块级标签"><span class="toc-number">1.4.3.</span> <span class="toc-text">任何标签只要一浮动,类型就会被转为行内-块级标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任何标签只要设置position属性，类型就会被转为行内-块级标签"><span class="toc-number">1.4.4.</span> <span class="toc-text">任何标签只要设置position属性，类型就会被转为行内-块级标签</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -568,11 +575,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
