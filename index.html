@@ -531,6 +531,17 @@ gitalk.render('gitalk-container')
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="浏览器渲染页面的主体流程"><a href="#浏览器渲染页面的主体流程" class="headerlink" title="浏览器渲染页面的主体流程"></a>浏览器渲染页面的主体流程</h2><p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%BB%E4%BD%93%E6%B5%81%E7%A8%8B/1.jpg" alt></p>
+<p>补充：</p>
+<ul>
+<li>浏览器渲染引擎主要包括：HTML 解析器，css 解析器，javascript 引擎，布局 layout 模块，绘图模块，以上模块还依赖很多其他基础模块包括网络，存储，2D/3D 图像，音频视频解码器，图片解码器</li>
+</ul>
+<h2 id="查看浏览器渲染页面步骤"><a href="#查看浏览器渲染页面步骤" class="headerlink" title="查看浏览器渲染页面步骤"></a>查看浏览器渲染页面步骤</h2><ol>
+<li>F12</li>
+<li>Performance 下的 Network 可以调整网速</li>
+<li>把 Network 下的 Disable cache 勾选，不走缓存</li>
+<li>点击 Performance 左上角的刷新，等待几秒</li>
+<li>Event Log 查看浏览器渲染页面基本过程</li>
+</ol>
 
       
 
@@ -1354,15 +1365,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
             
             <div class="clearfix"></div>
