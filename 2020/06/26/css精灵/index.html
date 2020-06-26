@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>行级元素之间产生水平空隙问题 | 十里不故梦的Blog</title>
+  <title>css精灵 | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="行级元素之间产生水平空隙问题">
+  <meta name="description" content="CSS Sprites">
 <meta property="og:type" content="article">
-<meta property="og:title" content="行级元素之间产生水平空隙问题">
-<meta property="og:url" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E4%BA%A7%E7%94%9F%E6%B0%B4%E5%B9%B3%E7%A9%BA%E9%9A%99%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="css精灵">
+<meta property="og:url" content="http://yoursite.com/2020/06/26/css%E7%B2%BE%E7%81%B5/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="行级元素之间产生水平空隙问题">
+<meta property="og:description" content="CSS Sprites">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E4%BA%A7%E7%94%9F%E6%B0%B4%E5%B9%B3%E7%A9%BA%E9%9A%99%E9%97%AE%E9%A2%98/1.png">
-<meta property="article:published_time" content="2020-05-05T11:15:08.000Z">
-<meta property="article:modified_time" content="2020-05-06T02:32:20.190Z">
+<meta property="article:published_time" content="2020-06-26T08:23:55.000Z">
+<meta property="article:modified_time" content="2020-06-26T08:38:00.003Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="HTML5CSS3">
+<meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E4%BA%A7%E7%94%9F%E6%B0%B4%E5%B9%B3%E7%A9%BA%E9%9A%99%E9%97%AE%E9%A2%98/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦的Blog" type="application/atom+xml">
   
@@ -200,14 +198,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-行级元素之间产生水平空隙问题" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-css精灵" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      行级元素之间产生水平空隙问题
+      css精灵
     </h1>
   
 
@@ -223,18 +221,30 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E4%BA%A7%E7%94%9F%E6%B0%B4%E5%B9%B3%E7%A9%BA%E9%9A%99%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-05T11:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+        <a href="/2020/06/26/css%E7%B2%BE%E7%81%B5/" class="archive-article-date">
+  	<time datetime="2020-06-26T08:23:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="行级元素之间产生水平空隙问题"><a href="#行级元素之间产生水平空隙问题" class="headerlink" title="行级元素之间产生水平空隙问题"></a>行级元素之间产生水平空隙问题</h1><a id="more"></a>
+        <h2 id="CSS-Sprites"><a href="#CSS-Sprites" class="headerlink" title="CSS Sprites"></a>CSS Sprites</h2><a id="more"></a>
 
-<p><img src="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E4%BA%A7%E7%94%9F%E6%B0%B4%E5%B9%B3%E7%A9%BA%E9%9A%99%E9%97%AE%E9%A2%98/1.png" alt></p>
-<h2 id="去除行级元素之间产生水平空隙方法-————-vertical-align-top或者font-size-0"><a href="#去除行级元素之间产生水平空隙方法-————-vertical-align-top或者font-size-0" class="headerlink" title="去除行级元素之间产生水平空隙方法 ———— vertical-align: top或者font-size: 0"></a>去除行级元素之间产生水平空隙方法 ———— vertical-align: top或者font-size: 0</h2>
+<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>CSS Sprites在国内很多人叫css精灵，是一种网页图片应用处理方式。它允许将一个页面涉及到的所有零星图片都包含到一张大图中， 利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位， 访问页面时避免图片载入缓慢的现象</p>
+<h3 id="2-优点"><a href="#2-优点" class="headerlink" title="2.优点"></a>2.优点</h3><ol>
+<li>CSS Sprites能很好地减少网页的http请求，从而大大的提高页面的性能，这是CSS Sprites最大的优点，也是其被广泛传播和应用的主要原因</li>
+<li>CSS Sprites能减少图片的字节</li>
+<li>CSS Sprites解决了网页设计师在图片命名上的困扰，只需对一张集合的图片命名，不需要对每一个小图片进行命名，从而提高了网页制作效率</li>
+<li>CSS Sprites只需要修改一张或少张图片的颜色或样式来改变整个网页的风格</li>
+</ol>
+<h3 id="3-缺点"><a href="#3-缺点" class="headerlink" title="3.缺点"></a>3.缺点</h3><ol>
+<li>图片合并麻烦：图片合并时，需要把多张图片有序的合理的合并成一张图片，并留好足够的空间防止版块出现不必要的背景</li>
+<li>图片适应性差：在高分辨的屏幕下自适应页面，若图片不够宽会出现背景断裂</li>
+<li>图片定位繁琐：开发时需要通过工具测量计算每个背景单元的精确位置</li>
+<li>可维护性差：页面背景需要少许改动，可能要修改部分或整张已合并的图片，进而要改动css。在避免改动图片的前提下，又只能（最好）往下追加图片，但这样增加了图片字节</li>
+</ol>
+
       
 
       
@@ -278,7 +288,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML5CSS3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
         		</li>
       		
 		</ul>
@@ -335,7 +345,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/05/%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E4%BA%A7%E7%94%9F%E6%B0%B4%E5%B9%B3%E7%A9%BA%E9%9A%99%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/06/26/css%E7%B2%BE%E7%81%B5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,18 +359,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/05/05/HTML5CSS3%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/06/26/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E7%A7%81%E6%9C%89%E5%89%8D%E7%BC%80/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          HTML5CSS3知识点
+          主流浏览器内核及私有前缀
         
       </div>
     </a>
   
   
-    <a href="/2020/05/05/%E7%88%B6%E5%85%83%E7%B4%A0%E5%92%8C%E5%AD%90%E5%85%83%E7%B4%A0%E5%AE%B9%E7%BA%B3%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">父元素和子元素容纳问题</div>
+    <a href="/2020/06/26/%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">回调函数</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -387,7 +397,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#行级元素之间产生水平空隙问题"><span class="toc-number">1.</span> <span class="toc-text">行级元素之间产生水平空隙问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#去除行级元素之间产生水平空隙方法-————-vertical-align-top或者font-size-0"><span class="toc-number">1.1.</span> <span class="toc-text">去除行级元素之间产生水平空隙方法 ———— vertical-align: top或者font-size: 0</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-Sprites"><span class="toc-number">1.</span> <span class="toc-text">CSS Sprites</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介"><span class="toc-number">1.1.</span> <span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-优点"><span class="toc-number">1.2.</span> <span class="toc-text">2.优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-缺点"><span class="toc-number">1.3.</span> <span class="toc-text">3.缺点</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -423,7 +433,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Tue May 05 2020 19:15:08 GMT+0800',
+  	id: 'Fri Jun 26 2020 16:23:55 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
