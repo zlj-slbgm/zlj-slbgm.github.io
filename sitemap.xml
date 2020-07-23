@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/</loc>
+    
+    <lastmod>2020-07-22T09:20:10.792Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/05/05/HTML5CSS3%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
+    
+    <lastmod>2020-07-22T02:42:13.960Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/05/06/JS%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     
-    <lastmod>2020-07-20T01:07:22.439Z</lastmod>
+    <lastmod>2020-07-22T02:39:42.753Z</lastmod>
     
   </url>
   
@@ -114,13 +128,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/05/05/HTML5CSS3%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    
-    <lastmod>2020-06-26T08:10:40.985Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2020/05/23/CSS%E7%99%BE%E5%88%86%E6%AF%94%E9%83%BD%E6%98%AF%E7%9B%B8%E5%AF%B9%E4%BA%8E%E8%B0%81%E8%AE%A1%E7%AE%97%E7%9A%84/</loc>
     
     <lastmod>2020-06-24T12:50:03.009Z</lastmod>
@@ -180,13 +187,6 @@
     <loc>http://yoursite.com/2020/05/17/MongoDB/</loc>
     
     <lastmod>2020-05-17T07:57:19.261Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/</loc>
-    
-    <lastmod>2020-05-15T10:59:38.020Z</lastmod>
     
   </url>
   
