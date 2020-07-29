@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/07/27/cookie%E5%92%8Csession/</loc>
+    
+    <lastmod>2020-07-29T09:49:20.848Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/29/javascript%E7%BB%84%E6%88%90/</loc>
+    
+    <lastmod>2020-07-29T09:48:19.927Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/06/26/%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E5%92%8C%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0/</loc>
     
     <lastmod>2020-07-29T09:39:03.177Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://yoursite.com/2020/05/06/%E5%AF%B9%E8%B1%A1/</loc>
     
     <lastmod>2020-07-29T09:14:45.085Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/07/29/javascript%E7%BB%84%E6%88%90/</loc>
-    
-    <lastmod>2020-07-29T08:27:01.500Z</lastmod>
     
   </url>
   
@@ -131,13 +138,6 @@
     <loc>http://yoursite.com/2020/05/06/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     
     <lastmod>2020-07-29T03:26:13.068Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/07/27/cookie%E5%92%8Csession/</loc>
-    
-    <lastmod>2020-07-29T02:28:05.198Z</lastmod>
     
   </url>
   
