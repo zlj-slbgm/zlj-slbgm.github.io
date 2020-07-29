@@ -16,7 +16,7 @@
 <meta property="og:description" content="JSONP—JSON with Padding">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-27T01:26:22.000Z">
-<meta property="article:modified_time" content="2020-07-27T02:05:42.336Z">
+<meta property="article:modified_time" content="2020-07-29T07:29:53.593Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -229,30 +229,23 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>JSONP—JSON with Padding</strong></p>
-<a id="more"></a>
+        <h2 id="JSONP—JSON-with-Padding"><a href="#JSONP—JSON-with-Padding" class="headerlink" title="JSONP—JSON with Padding"></a><strong>JSONP—JSON with Padding</strong></h2><a id="more"></a>
 
-<p>JSONP它不属于Ajax请求，但是它可以模拟Ajax请求，利用的是script标签中的src属性，因为src属性是不受同源政策的影响的，比如：我们经常在HTML文件中引入jQuery：</p>
+<p>JSONP 它不属于 Ajax 请求，但是它可以模拟 Ajax 请求，利用的是 script 标签中的 src 属性，因为 src 属性是不受同源政策的影响的，比如：我们经常在 HTML 文件中引入 jQuery：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;jquery&#x2F;3.3.1&#x2F;jquery.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
 <p>客户端：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	在fn函数内部对服务器返回的数据进行处理</span><br><span class="line">	function fn(data)&#123;</span><br><span class="line">    	console.log(&#39;客户端的函数fn被调用了&#39;);&#x2F;&#x2F;客户端的函数fn被调用了那肯定是服务器端返回的代码被执行了</span><br><span class="line">    	console.log(data);            </span><br><span class="line">	&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;非同源的服务器地址&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	在fn函数内部对服务器返回的数据进行处理</span><br><span class="line">	function fn(data)&#123;</span><br><span class="line">    	console.log(&#39;客户端的函数fn被调用了&#39;);&#x2F;&#x2F;客户端的函数fn被调用了那肯定是服务器端返回的代码被执行了</span><br><span class="line">    	console.log(data);</span><br><span class="line">	&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;非同源的服务器地址&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
 <p>服务器端：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">服务器端响应数据必须是一个函数的调用，真正要发送给客户端的数据需要作为函数调用的参数</span><br><span class="line">app.get(&#39;&#x2F;test&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">	const result &#x3D; &#39;fn(&#123;name: &quot;张三&quot;&#125;)&#39;;</span><br><span class="line">	res.send(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-
-
-<p><strong>CORS—Cross Origin Resource Sharing</strong></p>
-<p>CORS即跨域资源共享，它允许浏览器向跨域服务器发送Ajax请求，克服了Ajax只能同源使用的限制</p>
+<h2 id="CORS—Cross-Origin-Resource-Sharing"><a href="#CORS—Cross-Origin-Resource-Sharing" class="headerlink" title="CORS—Cross Origin Resource Sharing"></a><strong>CORS—Cross Origin Resource Sharing</strong></h2><p>CORS 即跨域资源共享，它允许浏览器向跨域服务器发送 Ajax 请求，克服了 Ajax 只能同源使用的限制</p>
 <p>使用方式：客户端不需要做改变，服务器端加上两个响应头即可</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1.允许哪些客户端访问我 * 代表允许所有的客户端访问我</span><br><span class="line">res.header(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;)</span><br><span class="line">&#x2F;&#x2F; 2.允许客户端使用哪些请求方法访问我</span><br><span class="line">res.header(&#39;Access-Control-Allow-Methods&#39;, &#39;get, post&#39;)</span><br></pre></td></tr></table></figure>
 
-
-
-<p><strong>服务器端的方案—“曲线救国”</strong></p>
-<p>因为服务器端不存在同源政策的限制，假设1号客户端请求2号服务器端，可以采用1号服务器端访问2号服务器端，然后把数据响应给1号客户端，这样就绕开了浏览器的同源政策的限制。</p>
-<p>1号服务器端访问2号服务器端需要依赖三方模块request：</p>
+<h2 id="服务器端的方案—“曲线救国”"><a href="#服务器端的方案—“曲线救国”" class="headerlink" title="服务器端的方案—“曲线救国”"></a><strong>服务器端的方案—“曲线救国”</strong></h2><p>因为服务器端不存在同源政策的限制，假设 1 号客户端请求 2 号服务器端，可以采用 1 号服务器端访问 2 号服务器端，然后把数据响应给 1 号客户端，这样就绕开了浏览器的同源政策的限制</p>
+<p>1 号服务器端访问 2 号服务器端需要依赖三方模块 request(向其他服务器请求数据的模块)：</p>
 <ol>
 <li>安装</li>
 </ol>
@@ -261,27 +254,23 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <ol start="2">
 <li>引入</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const request &#x3D; require(&#39;request&#39;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const request &#x3D; require(&quot;request&quot;);</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
-<li>在1号服务器端的请求中请求2号服务器端</li>
+<li>在 1 号服务器端的请求中请求 2 号服务器端</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">request(&#39;2号服务器地址&#39;, (err, response, body) &#x3D;&gt; &#123;</span><br><span class="line">	&#x2F;&#x2F; body 是请求回来的数据</span><br><span class="line">	res.send(body);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.get(&quot;&#x2F;test&quot;,(req,res)&#x3D;&gt;&#123;</span><br><span class="line">	request(&quot;2号服务器地址&quot;, (err, response, body) &#x3D;&gt; &#123;</span><br><span class="line">		&#x2F;&#x2F; body 是请求回来的数据</span><br><span class="line">		res.send(body);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-
-
-<p><strong>withCredentials</strong></p>
-<p>在使用Ajax技术发送跨域请求时，默认不会再请求中携带cookie信息，如果希望携带cookie信息，需要设置withCredentials属性</p>
+<h2 id="withCredentials"><a href="#withCredentials" class="headerlink" title="withCredentials"></a><strong>withCredentials</strong></h2><p>在使用 Ajax 技术发送跨域请求时，默认不会再请求中携带 cookie 信息，如果希望携带 cookie 信息，需要设置 withCredentials 属性</p>
 <ol>
-<li>客户端配置Ajax对象携带cookie信息</li>
+<li>客户端配置 Ajax 对象携带 cookie 信息</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.withCredentials &#x3D; true</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>服务器端允许客户端请求携带cookie</li>
+<li>服务器端允许客户端请求携带 cookie</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.header(&#39;Access-Control-Allow-Credentials&#39;, &#39;true&#39;)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.header(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;)</span><br></pre></td></tr></table></figure>
 
       
 
@@ -397,6 +386,15 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
+    <a href="/2020/07/27/cookie%E5%92%8Csession/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          cookie和session
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/07/24/git/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">git</div>
@@ -426,7 +424,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP—JSON-with-Padding"><span class="toc-number">1.</span> <span class="toc-text">JSONP—JSON with Padding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS—Cross-Origin-Resource-Sharing"><span class="toc-number">2.</span> <span class="toc-text">CORS—Cross Origin Resource Sharing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器端的方案—“曲线救国”"><span class="toc-number">3.</span> <span class="toc-text">服务器端的方案—“曲线救国”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#withCredentials"><span class="toc-number">4.</span> <span class="toc-text">withCredentials</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -605,11 +603,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
             
             <div class="clearfix"></div>
