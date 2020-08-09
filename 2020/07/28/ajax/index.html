@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>HTML5新增的语义化标签 | 十里不故梦的Blog</title>
+  <title>ajax | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTML5新增的语义化标签">
+  <meta name="description" content="原生js中ajax 的 readyState 有 5 个状态">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5新增的语义化标签">
-<meta property="og:url" content="http://yoursite.com/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/index.html">
+<meta property="og:title" content="ajax">
+<meta property="og:url" content="http://yoursite.com/2020/07/28/ajax/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="HTML5新增的语义化标签">
+<meta property="og:description" content="原生js中ajax 的 readyState 有 5 个状态">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/1.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/2.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/3.png">
-<meta property="article:published_time" content="2020-05-05T12:03:46.000Z">
-<meta property="article:modified_time" content="2020-07-28T10:35:25.652Z">
+<meta property="article:published_time" content="2020-07-28T00:37:25.000Z">
+<meta property="article:modified_time" content="2020-08-09T08:41:27.925Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="HTML5CSS3">
+<meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦的Blog" type="application/atom+xml">
   
@@ -92,6 +88,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
+				<li><a href="/tags/VUE">VUE</a></li>
+	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
 			</ul>
@@ -158,6 +156,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -176,17 +176,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUE">VUE</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -202,14 +204,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-HTML5新增的语义化标签" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-ajax" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HTML5新增的语义化标签
+      ajax
     </h1>
   
 
@@ -225,20 +227,75 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/" class="archive-article-date">
-  	<time datetime="2020-05-05T12:03:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+        <a href="/2020/07/28/ajax/" class="archive-article-date">
+  	<time datetime="2020-07-28T00:37:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="HTML5新增的语义化标签"><a href="#HTML5新增的语义化标签" class="headerlink" title="HTML5新增的语义化标签"></a>HTML5新增的语义化标签</h1><a id="more"></a>
+        <p><strong>原生js中ajax 的 readyState 有 5 个状态</strong></p>
+<a id="more"></a>
 
-<img src="/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/1.png">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0: 还没调用open方法</span><br><span class="line">1: 未调用send方法，也就是还没发送数据给服务器</span><br><span class="line">2: 还没有接收到响应</span><br><span class="line">3: 开始接收到了部分数据</span><br><span class="line">4: 接收完成，数据可以在客户端使用了</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/2.png" alt></p>
-<p><img src="/2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/3.png" alt></p>
+<p><strong>$.ajax()方法发送ajax请求</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">	type: &quot;get&quot;,</span><br><span class="line">	url: &quot;http:&#x2F;&#x2F;www.test.com&quot;,</span><br><span class="line">	data: &#123;</span><br><span class="line">		name: &quot;张三&quot;,</span><br><span class="line">		age: 20</span><br><span class="line">	&#125;,</span><br><span class="line">	contentType: &quot;application&#x2F;x-www-form-urlencoded&quot;,</span><br><span class="line">	beforeSend: function ()&#123;</span><br><span class="line">		return false</span><br><span class="line">	&#125;,</span><br><span class="line">	success: function (response)&#123;</span><br><span class="line">		&#x2F;&#x2F;response为服务器端返回的数据</span><br><span class="line">	&#125;,</span><br><span class="line">	error: function (xhr)&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>data</strong>（类型为String）</p>
+<p>data为发送到服务器的数据，将自动转换为请求字符串格式(如：data：”name=张三&amp;age=20”)，get 请求中将附加在 url 后</p>
+<p><strong>contentType</strong></p>
+<p>发送信息至服务器时内容编码类型，默认值为”application/x-www-form-urlencoded”</p>
+<p><strong>data和contentType配合使用</strong></p>
+<ol>
+<li>contentType: “application/x-www-form-urlencoded”——data：”name=张三&amp;age=20”</li>
+<li>contentType: “application/json”——data:  JSON.stringify({name:  “张三”,age:  20})相当于{“name”:  “张三”,”age”:  20}</li>
+</ol>
+<p><strong>processData</strong></p>
+<p>默认为true。默认情况下，发送的数据将被转换为对象（从技术角度来讲并非字符串）以配合默认内容类型”application/x-www-form-urlencoded”。如果要发送DOM树信息或者其他不希望转换的信息，请设置为false</p>
+<p><strong>dataType</strong></p>
+<p>预期服务器返回的数据类型</p>
+<ul>
+<li>“xml”: 返回 XML 文档，可用 jQuery 处理</li>
+<li>“html”: 返回纯文本 HTML 信息；包含的 script 标签会在插入 dom 时执行</li>
+<li>“script”: 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了 “cache” 参数。注意：在远程请求时(不在同一个域下)，所有 POST 请求都将转为 GET 请求（因为将使用 DOM 的 script标签来加载）</li>
+<li>“json”: 返回 JSON 数据 </li>
+<li>“jsonp”: JSONP 格式。使用 JSONP 形式调用函数时，如 “myurl?callback=?” jQuery 将自动替换后一个”?”为正确的函数名，以执行回调函数</li>
+<li>“text”: 返回纯文本字符串</li>
+</ul>
+<p><strong>async</strong></p>
+<p>默认值: true，默认设置下所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。</p>
+<p>注意：同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。</p>
+<p><strong>beforeSend</strong></p>
+<p>在发送请求之前调用。在beforeSend中如果返回false可以取消本次ajax请求</p>
+<p><strong>success</strong></p>
+<p>在请求成功服务器端返回数据之后被调用。如果服务器端以json对象作为响应数据格式，<u>但在http请求与响应中，无论是请求参数还是响应内容，如果是对象类型，最终会被转换为对象字符串进行传输</u>，但在$.ajax()内部会自动转换为json对象（服务器端是json对象—客户端接收到的是json对象字符串—客户端$.ajax处理得到json对象）</p>
+<p><strong>error</strong></p>
+<p>请求失败时调用此函数</p>
+<p><strong>serialize()</strong></p>
+<p>序列化表单内容为字符串,用于Ajax请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var data &#x3D; $(&quot;form&quot;).serialize();</span><br><span class="line">&#x2F;&#x2F; name&#x3D;张三&amp;age&#x3D;20</span><br></pre></td></tr></table></figure>
+
+<p><strong>serializeArray()</strong></p>
+<p>将表单序列化成一个json对象数组,用于Ajax请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var jsonData &#x3D; $(&quot;form&quot;).serializeArray();</span><br><span class="line">&#x2F;&#x2F; [&#123;name:&quot;张三&quot;,age:&quot;20&quot;&#125;,&#123;…&#125;]</span><br></pre></td></tr></table></figure>
+
+<p><strong>$.ajax()还提供了两个快捷的方法</strong></p>
+<ul>
+<li>$.get()用于发送get请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.get(&quot;http:&#x2F;&#x2F;www.test.com&quot;,&#123;name: &quot;张三&quot;,age: 20&#125;,function(response)&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>$.post用于发送post请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.post(&quot;http:&#x2F;&#x2F;www.test.com&quot;,&#123;name: &quot;张三&quot;,age: 20&#125;,function(response)&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>$.ajax()全局事件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 当页面中有ajax请求发送时触发</span><br><span class="line">$(document).on(&quot;ajaxStart&quot;,function ()&#123;</span><br><span class="line">	console.log(&quot;start&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 当页面中有ajax请求完成时触发</span><br><span class="line">$(document).on(&quot;ajaxComplete&quot;,function ()&#123;</span><br><span class="line">	console.log(&quot;complete&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -283,7 +340,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML5CSS3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
         		</li>
       		
 		</ul>
@@ -340,7 +397,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/05/HTML5%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/07/28/ajax/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -354,18 +411,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/05/05/CSS3%E5%AE%9E%E7%8E%B0%E9%9A%90%E8%97%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/29/javascript%E7%BB%84%E6%88%90/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          CSS3实现隐藏
+          javascript组成
         
       </div>
     </a>
   
   
-    <a href="/2020/05/05/img%E5%92%8C%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">img和背景图片的区别</div>
+    <a href="/2020/07/27/cookie%E5%92%8Csession/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cookie和session</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -392,7 +449,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML5新增的语义化标签"><span class="toc-number">1.</span> <span class="toc-text">HTML5新增的语义化标签</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -428,7 +485,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Tue May 05 2020 20:03:46 GMT+0800',
+  	id: 'Tue Jul 28 2020 08:37:25 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -567,15 +624,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
             
             <div class="clearfix"></div>
@@ -631,15 +692,15 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
+              <a href="https://element.eleme.cn/#/zh-CN" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Element-UI官网</a>
+            </li>
+          
+            <li class="search-li">
               <a href="https://jquery.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Jquery官网</a>
             </li>
           
             <li class="search-li">
               <a href="https://nodejs.org/en/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Node.js官网</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://www.npmjs.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>npm第三方模块</a>
             </li>
           
             <li class="search-li">

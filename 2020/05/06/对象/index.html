@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/06/%E5%AF%B9%E8%B1%A1/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/%E5%AF%B9%E8%B1%A1/5.jpg">
 <meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
-<meta property="article:modified_time" content="2020-07-29T09:14:45.085Z">
+<meta property="article:modified_time" content="2020-08-09T08:09:45.879Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -94,6 +94,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
+				<li><a href="/tags/VUE">VUE</a></li>
+	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
 			</ul>
@@ -160,6 +162,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -178,17 +182,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUE">VUE</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -242,9 +248,24 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>宿主对象由JS运行环境提供的对象: DOM BOM</li>
 <li>自定义对象由开发人员自己创建的对象</li>
 </ol>
-<h3 id="创建对象的方法"><a href="#创建对象的方法" class="headerlink" title="创建对象的方法"></a>创建对象的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F;创建对象的方法</span><br><span class="line">        &#x2F;&#x2F;第一种：json方式创建对象</span><br><span class="line">        var object&#x3D;&#123;</span><br><span class="line">            name: &#39;cat&#39;,</span><br><span class="line">            age: 18,</span><br><span class="line">            sayHi: function ()&#123;</span><br><span class="line">                console.log(&#39;name:&#39;+this.name+&#39;age:&#39;+this.age);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;给json对象添加属性</span><br><span class="line">        object.color&#x3D;&#39;red&#39;;&#x2F;&#x2F;js是个动态语言直接.出来添加,其它语言直接.出本身没有的属性会报错</span><br><span class="line">        &#x2F;&#x2F;给json对象添加方法</span><br><span class="line">        object.show&#x3D;function ()&#123;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;json缺点:不能把json对象当成一个模板通过new来构造一个新对象</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;第二种：先通过object构造器new一个对象，再往里丰富成员信息</span><br><span class="line">        var o&#x3D;new object();</span><br><span class="line">        o.age&#x3D;18;</span><br><span class="line">        o.show&#x3D;function()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;第三种：通过”构造函数“方式创建</span><br><span class="line">        function Cat()&#123;</span><br><span class="line">            this.age&#x3D;18;</span><br><span class="line">            this.show&#x3D;function ()&#123;</span><br><span class="line">                console.log(this.age);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        var cat&#x3D;new Cat();&#x2F;&#x2F;通过构造函数,构造一个对象出来</span><br><span class="line">        cat.show();</span><br><span class="line">        &#x2F;&#x2F;优点：可当成一个模板通过new来构造一个新对象</span><br><span class="line">        &#x2F;&#x2F;还有其它创建对象方法：使用工厂模式创建对象 原型创建对象模式 组合使用构造函数模式和原型模式</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
+<h3 id="创建对象的方法"><a href="#创建对象的方法" class="headerlink" title="创建对象的方法"></a>创建对象的方法</h3><ol>
+<li><p><strong>(字面式)json方式创建对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var object&#x3D;&#123;</span><br><span class="line">    name: &#39;cat&#39;,</span><br><span class="line">    age: 18,</span><br><span class="line">    sayHi: function ()&#123;</span><br><span class="line">        console.log(&#39;name:&#39;+this.name+&#39;age:&#39;+this.age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">object.color&#x3D;&#39;red&#39;; &#x2F;&#x2F;js是个动态语言直接.出来添加,其它语言直接.出本身没有的属性会报错</span><br><span class="line">object.show&#x3D;function ()&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>先通过object构造器new一个对象，再往里丰富成员信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var o&#x3D;new object();</span><br><span class="line">o.age&#x3D;18;</span><br><span class="line">o.show&#x3D;function()&#123;&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>工厂模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1和2方法在使用同一接口创建多个对象时，会产生大量重复代码，为了解决此问题工厂模式被开发</span><br><span class="line">function createPerson(name,age,family) &#123;</span><br><span class="line">    var o &#x3D; new Object();</span><br><span class="line">    o.name &#x3D; name;</span><br><span class="line">    o.age &#x3D; age;</span><br><span class="line">    o.family &#x3D; family;</span><br><span class="line">    o.say &#x3D; function()&#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">    return o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person1 &#x3D;  createPerson(&quot;lisi&quot;,21,[&quot;lida&quot;,&quot;lier&quot;,&quot;wangwu&quot;]); &#x2F;&#x2F;instanceof无法判断它是谁的实例，只能判断他是对象，构造函数都可以判断出</span><br><span class="line">var person2 &#x3D;  createPerson(&quot;wangwu&quot;,18,[&quot;lida&quot;,&quot;lier&quot;,&quot;lisi&quot;]);</span><br><span class="line">console.log(person1 instanceof Object); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure></li>
+<li><p>通过构造函数方式创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">工厂模式解决了重复实例化多个对象的问题，但没有解决对象识别的问题(但是工厂模式却无从识别对象的类型，因为全部都是Object，不像Date、Array等，本例中得到的都是o对象，对象的类型都是Object，因此出现了构造函数模式)</span><br><span class="line">function Person(name,age,family) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">    this.family &#x3D; family;</span><br><span class="line">    this.say &#x3D; function()&#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var person1 &#x3D; new Person(&quot;lisi&quot;,21,[&quot;lida&quot;,&quot;lier&quot;,&quot;wangwu&quot;]);</span><br><span class="line">var person2 &#x3D; new Person(&quot;lisi&quot;,21,[&quot;lida&quot;,&quot;lier&quot;,&quot;lisi&quot;]);</span><br><span class="line">console.log(person1 instanceof Object); &#x2F;&#x2F;true</span><br><span class="line">console.log(person1 instanceof Person); &#x2F;&#x2F;true</span><br><span class="line">console.log(person2 instanceof Object); &#x2F;&#x2F;true</span><br><span class="line">console.log(person2 instanceof Person); &#x2F;&#x2F;true</span><br><span class="line">&#x2F;&#x2F;构造函数知道自己从哪里来(通过 instanceof可以看出其既是Object的实例，又是Person的实例)</span><br></pre></td></tr></table></figure></li>
+<li><p>原型模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;构造函数也有其缺陷，每个实例都包含不同的Function实例(构造函数内的方法在做同一件事，但是实例化后却产生了不同的对象，函数也是对象)，因此产生了原型模式</span><br><span class="line">function Person() &#123; &#x2F;&#x2F;Person构造函数</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name &#x3D; &quot;lisi&quot;;</span><br><span class="line">Person.prototype.age &#x3D; 21;</span><br><span class="line">Person.prototype.family &#x3D; [&quot;lida&quot;,&quot;lier&quot;,&quot;wangwu&quot;];</span><br><span class="line">Person.prototype.say &#x3D; function()&#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">&#125;;</span><br><span class="line">var person1 &#x3D; new Person();       &#x2F;&#x2F;创建一个实例person1</span><br><span class="line">console.log(person1.name);        &#x2F;&#x2F;lisi</span><br><span class="line">var person2 &#x3D; new Person();       &#x2F;&#x2F;创建实例person2</span><br><span class="line">person2.name &#x3D; &quot;wangwu&quot;;          &#x2F;&#x2F;为自己设置私有属性</span><br><span class="line">person2.family &#x3D; [&quot;lida&quot;,&quot;lier&quot;,&quot;lisi&quot;];</span><br><span class="line">console.log(person2);            &#x2F;&#x2F;Person &#123;name: &quot;wangwu&quot;, family: Array[3]&#125;</span><br><span class="line">console.log(person2.prototype.name);   &#x2F;&#x2F;报错</span><br><span class="line">console.log(person2.age);              &#x2F;&#x2F;21</span><br><span class="line">&#x2F;&#x2F;原型模式的好处是所有对象实例共享它的属性和方法，此外还可以如person2.name &#x3D; &quot;wangwu&quot;;那样设置实例自己的属性(方法)(即所谓的私有属性)，可以覆盖原型对象上的同名属性(方法)</span><br></pre></td></tr></table></figure></li>
+<li><p>混合模式(构造函数模式+原型模式)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性</span><br><span class="line">function Person(name,age,family)&#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">    this.family &#x3D; family;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype &#x3D; &#123;</span><br><span class="line">    constructor: Person,  &#x2F;&#x2F;每个函数都有prototype属性，指向该函数原型对象，原型对象都有constructor属性，这是一个指向prototype属性所在函数的指针</span><br><span class="line">    say: function()&#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var person1 &#x3D; new Person(&quot;lisi&quot;,21,[&quot;lida&quot;,&quot;lier&quot;,&quot;wangwu&quot;]);</span><br><span class="line">console.log(person1);</span><br><span class="line">var person2 &#x3D; new Person(&quot;wangwu&quot;,21,[&quot;lida&quot;,&quot;lier&quot;,&quot;lisi&quot;]);</span><br><span class="line">console.log(person2);</span><br><span class="line">&#x2F;&#x2F;可以看出混合模式共享着对相同方法的引用，又保证了每个实例有自己的私有属性，最大限度的节省了内存</span><br></pre></td></tr></table></figure></li>
+<li><p>高程中还提到了动态原型模式，寄生构造函数模式，稳妥构造函数模式</p>
 <h3 id="操作对象属性名和属性值"><a href="#操作对象属性名和属性值" class="headerlink" title="操作对象属性名和属性值"></a>操作对象属性名和属性值</h3><p><img src="/2020/05/06/%E5%AF%B9%E8%B1%A1/1.png" alt><br><img src="/2020/05/06/%E5%AF%B9%E8%B1%A1/2.png" alt></p>
+</li>
+</ol>
 <h2 id="原生JS数据类型"><a href="#原生JS数据类型" class="headerlink" title="原生JS数据类型"></a>原生JS数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
 <li>Number</li>
 <li>String</li>
@@ -595,15 +616,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
             
             <div class="clearfix"></div>
@@ -659,15 +684,15 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
+              <a href="https://element.eleme.cn/#/zh-CN" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Element-UI官网</a>
+            </li>
+          
+            <li class="search-li">
               <a href="https://jquery.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Jquery官网</a>
             </li>
           
             <li class="search-li">
               <a href="https://nodejs.org/en/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Node.js官网</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://www.npmjs.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>npm第三方模块</a>
             </li>
           
             <li class="search-li">

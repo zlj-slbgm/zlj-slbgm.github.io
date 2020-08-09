@@ -16,7 +16,7 @@
 <meta property="og:description" content="js 包装对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-25T10:59:12.000Z">
-<meta property="article:modified_time" content="2020-07-28T10:29:44.638Z">
+<meta property="article:modified_time" content="2020-08-03T23:38:15.014Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -88,6 +88,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
+				<li><a href="/tags/VUE">VUE</a></li>
+	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
 			</ul>
@@ -154,6 +156,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -172,17 +176,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUE">VUE</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -234,6 +240,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h3 id="JS-中-String-基本数据类型为什么会有-length-属性、以及其他字符串方法？？？"><a href="#JS-中-String-基本数据类型为什么会有-length-属性、以及其他字符串方法？？？" class="headerlink" title="JS 中 String 基本数据类型为什么会有 length 属性、以及其他字符串方法？？？"></a>JS 中 String 基本数据类型为什么会有 length 属性、以及其他字符串方法？？？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str &#x3D; &#39;abc&#39;;</span><br><span class="line">console.log(str.length); &#x2F;&#x2F;3</span><br><span class="line">原因:基本数据类型在调用方法的时候,JS引擎会先对原始类型数据进行包装</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">步骤:</span><br><span class="line">创建基本类型的一个实例</span><br><span class="line">在实例上调用指定的方法</span><br><span class="line">销毁这个实例</span><br><span class="line">代码说明:</span><br><span class="line">var str &#x3D; &quot;我是String基本数据类型的值&quot;;</span><br><span class="line">var new_str &#x3D; new String(&quot;我是String基本数据类型的值&quot;); &#x2F;&#x2F;包装处理</span><br><span class="line">var my_str &#x3D; new_str.substring(5,8);</span><br><span class="line">new_str &#x3D; null; &#x2F;&#x2F;方法调用之后销毁实例</span><br><span class="line">var str1 &#x3D; &quot;abc&quot;;</span><br><span class="line">str1.age &#x3D; 18;</span><br><span class="line">console.log(str.age); &#x2F;&#x2F;undefined</span><br><span class="line">可见，并非string调用了自身的方法,而是后台创建了一个基本包装类型String,从而进行下一步操作</span><br><span class="line">基本数据类型的“销毁性”致使我们不能为基本数据类型添加属性和方法</span><br></pre></td></tr></table></figure>
+
+<h3 id="123和new-Number-123-的区别"><a href="#123和new-Number-123-的区别" class="headerlink" title="123和new Number(123)的区别"></a>123和new Number(123)的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var v1 &#x3D; new Number(123);&#x2F;&#x2F;把原始类型的值包装成对象</span><br><span class="line">v1 &#x3D;&#x3D;&#x3D; 123;&#x2F;&#x2F;false</span><br><span class="line">v1 &#x3D;&#x3D; 123;&#x2F;&#x2F;true</span><br><span class="line">原因：v1是object而123是number，&#x3D;&#x3D;&#x3D;不会隐式自动转换而&#x3D;&#x3D;会隐式自动转换</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -387,7 +396,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#js-包装对象"><span class="toc-number">1.</span> <span class="toc-text">js 包装对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-中-String-基本数据类型为什么会有-length-属性、以及其他字符串方法？？？"><span class="toc-number">1.1.</span> <span class="toc-text">JS 中 String 基本数据类型为什么会有 length 属性、以及其他字符串方法？？？</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#js-包装对象"><span class="toc-number">1.</span> <span class="toc-text">js 包装对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-中-String-基本数据类型为什么会有-length-属性、以及其他字符串方法？？？"><span class="toc-number">1.1.</span> <span class="toc-text">JS 中 String 基本数据类型为什么会有 length 属性、以及其他字符串方法？？？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#123和new-Number-123-的区别"><span class="toc-number">1.2.</span> <span class="toc-text">123和new Number(123)的区别</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -562,15 +571,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
             
             <div class="clearfix"></div>
@@ -626,15 +639,15 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
+              <a href="https://element.eleme.cn/#/zh-CN" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Element-UI官网</a>
+            </li>
+          
+            <li class="search-li">
               <a href="https://jquery.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Jquery官网</a>
             </li>
           
             <li class="search-li">
               <a href="https://nodejs.org/en/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Node.js官网</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://www.npmjs.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>npm第三方模块</a>
             </li>
           
             <li class="search-li">

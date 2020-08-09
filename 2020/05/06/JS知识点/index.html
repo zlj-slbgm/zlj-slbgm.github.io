@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E7%9F%A5%E8%AF%86%E7%82%B9/2.png">
 <meta property="article:published_time" content="2020-05-06T01:21:21.000Z">
-<meta property="article:modified_time" content="2020-07-28T10:28:44.176Z">
+<meta property="article:modified_time" content="2020-08-09T08:31:11.202Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -90,6 +90,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
+				<li><a href="/tags/VUE">VUE</a></li>
+	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
 			</ul>
@@ -156,6 +158,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -174,17 +178,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUE">VUE</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -234,17 +240,17 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         <h2 id="JS-知识点"><a href="#JS-知识点" class="headerlink" title="JS 知识点"></a>JS 知识点</h2><a id="more"></a>
 
 <ul>
-<li><p>如果两个函数内容一样,可以用=合并两个函数</p>
+<li><p>如果两个函数内容一样，可以用=合并两个函数</p>
 </li>
 <li><p>getElementsByTagName 或者 getElementsByClassName 都是返回文档中所有指定标签或者类名的元素集合(因为 id 唯一但是 calss 可以多个)</p>
 </li>
 <li><p>出现 Uncaught TypeError: Cannot set property ‘className’ of undefined 错误是由于 index 超出数组长度</p>
 </li>
-<li><p>切记 var timer=null(定时器的定义)要放在外面使得共用一个定时器,不能放在函数内部(每次调用函数都会新建一个 var timer 出现多个定时器)</p>
+<li><p>切记 var timer=null(定时器的定义)要放在外面使得共用一个定时器，不能放在函数内部(每次调用函数都会新建一个 var timer 出现多个定时器)</p>
 </li>
-<li><p>setInterval 中的 function 是匿名函数,setInterval(“Move()”, 2000) 或者 setInterval(Move, 2000)</p>
+<li><p>setInterval 中的 function 是匿名函数，setInterval(“Move()”， 2000) 或者 setInterval(Move， 2000)</p>
 </li>
-<li><p>声明变量,定义变量和未定义属性的区别</p>
+<li><p>声明变量，定义变量和未定义属性的区别</p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a;&#x2F;&#x2F;是声明变量</span><br><span class="line">var a&#x3D;1;&#x2F;&#x2F;是声明且定义变量</span><br></pre></td></tr></table></figure>
@@ -259,20 +265,13 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>Jquery 的 append()与 html()向标签内添加内容的区别<br><img src="/2020/05/06/JS%E7%9F%A5%E8%AF%86%E7%82%B9/2.png" alt></li>
 </ul>
 <ul>
-<li><p>jquery 获取或设置表单的值用 val(),但是像 form 表单中 label 标签不能用 val()只能用 text()或者 html()</p>
-</li>
-<li><p>js 获取 td 中的内容时前面会带有很多空格,使用 trim()将空格去掉</p>
-</li>
+<li>appendChild方法会将原来的dom树中的节点添加到虚拟的节点对象中，并且会删除原来的节点</li>
+<li>jquery 获取或设置表单的值用 val()，但是像 form 表单中 label 标签不能用 val()只能用 text()或者 html()</li>
+<li>js 获取 td 中的内容时前面会带有很多空格，使用 trim()将空格去掉</li>
 </ul>
 <ul>
-<li><p>想设置一个固定值可以使用自定义属性(有奇效)</p>
-</li>
-<li><p>只要协议,域名,端口有任何一个不同,都被当作是不同的域</p>
-</li>
-<li><p>ajax 的 readyState 有 5 个状态</p>
-</li>
+<li>想设置一个固定值可以使用自定义属性(有奇效)</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0: 还没调用open方法</span><br><span class="line">1: 未调用send方法，也就是还没发送数据给服务器</span><br><span class="line">2: 还没有接收到响应</span><br><span class="line">3: 开始接收到了部分数据</span><br><span class="line">4: 接收完成，数据可以在客户端使用了</span><br></pre></td></tr></table></figure>
 
       
 
@@ -601,15 +600,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
             
             <div class="clearfix"></div>
@@ -665,15 +668,15 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
+              <a href="https://element.eleme.cn/#/zh-CN" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Element-UI官网</a>
+            </li>
+          
+            <li class="search-li">
               <a href="https://jquery.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Jquery官网</a>
             </li>
           
             <li class="search-li">
               <a href="https://nodejs.org/en/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Node.js官网</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://www.npmjs.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>npm第三方模块</a>
             </li>
           
             <li class="search-li">
