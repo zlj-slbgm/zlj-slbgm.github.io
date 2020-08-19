@@ -16,7 +16,7 @@
 <meta property="og:description" content="vue脚手架取消eslint 校验代码 (实测有效)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-03T02:38:13.000Z">
-<meta property="article:modified_time" content="2020-08-16T03:41:31.797Z">
+<meta property="article:modified_time" content="2020-08-19T00:22:03.284Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="VUE">
 <meta name="twitter:card" content="summary">
@@ -244,6 +244,22 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 <p><strong>vue实战项目遇到的问题</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; axios请求拦截(就是每次前端向后端发送请求时拦截，为其添加token保证拥有获取数据的权限)</span><br><span class="line">axios.interceptors.request.use(config &#x3D;&gt; &#123;</span><br><span class="line">  config.headers.Authorization &#x3D; window.sessionStorage.getItem(&#39;token&#39;);</span><br><span class="line">  return config</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;请求头这里config.headers.Authorization不能为中文但是我之前token设置为张三所以报错，我这个项目中也没有涉及权限问题干脆删掉</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>assets</strong>：在项目编译的过程中会被webpack处理解析为模块依赖，只支持相对路径的形式，如&lt; img src=’./logo.png‘&gt;和background:url(./logo.png)，‘./logo.png‘是相对资源路径，将有webpack解析为模块依赖</p>
+<p><strong>static</strong>：在这个目录下文件不会被webpack处理，简单就是说存放第三方文件的地方，不会被webpack解析，他会直接被复制到最终的打包目录(默认是dist/static)下，必须使用绝对路径引用这些文件</p>
+<p>vue图片路径解决的三种方案</p>
+<ol>
+<li><p>用<strong>网络图片</strong>直链(可以使用自己博客地址作为图片外链)</p>
+</li>
+<li><p><strong>import</strong>引入图片</p>
+</li>
+<li><p>用<strong>require</strong>引入</p>
+</li>
+</ol>
+<p>同时放在assets中的所有图片，编译后都会放在<strong>static</strong>下，同一个文件夹<strong>img</strong>中。但是我们在<strong>assets</strong>中不同的文件夹下面是可以有相同名称的图片的，那么编译后，它们会在同一个文件夹下，我们应该如何分辨是哪个图片呢？为了区别两个同名的图片，就会在图片名称的后面添加一个hash值的字符串，不仅是图片如此，<strong>多媒体资源文件，字体资源文件</strong>等都会产生hash值</p>
+<p><strong>后台获取商品数据列表图片无法显示解决方法</strong>(虽然有点弊端)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">require全部的图片，这样所有图片才能被编译放在img文件夹下</span><br><span class="line">去除编译后图片多余的hash值，vue.config.js下添加</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  filenameHashing: false</span><br><span class="line">&#125;</span><br><span class="line">数据库图片路径为&#x2F;img&#x2F;图片名</span><br></pre></td></tr></table></figure>
 
 
       
@@ -577,11 +593,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
