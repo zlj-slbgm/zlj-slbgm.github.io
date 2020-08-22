@@ -16,10 +16,8 @@
 <meta property="og:description" content="数组">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/1.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/2.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/3.png">
 <meta property="article:published_time" content="2020-05-06T04:52:32.000Z">
-<meta property="article:modified_time" content="2020-08-19T10:32:53.109Z">
+<meta property="article:modified_time" content="2020-08-22T10:17:59.763Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -302,10 +300,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1, 2, 3, 4, 5];</span><br><span class="line">&#x2F;&#x2F;将3移除</span><br><span class="line">var result &#x3D; arr.splice(2, 1);</span><br><span class="line">console.log(arr); &#x2F;&#x2F;[1, 2, 4, 5]</span><br><span class="line">console.log(result); &#x2F;&#x2F;返回的是删除后的元素数组[3]</span><br><span class="line">&#x2F;&#x2F;将4,5移除</span><br><span class="line">arr.splice(2);</span><br><span class="line">&#x2F;&#x2F;将3替换成9</span><br><span class="line">arr.splice(2, 1, 9);</span><br><span class="line">&#x2F;&#x2F;在3前面插入3个1</span><br><span class="line">arr.splice(2, 0, 1, 1, 1);</span><br></pre></td></tr></table></figure>
 
-<h3 id="ES5-新增的数组方法"><a href="#ES5-新增的数组方法" class="headerlink" title="ES5 新增的数组方法"></a>ES5 新增的数组方法</h3><ul>
-<li>forEach() map() filter() some() every()</li>
-</ul>
-<p><img src="/2020/05/06/%E6%95%B0%E7%BB%84/1.png" alt></p>
+<h3 id="ES5-新增的数组方法"><a href="#ES5-新增的数组方法" class="headerlink" title="ES5 新增的数组方法"></a>ES5 新增的数组方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;forEach() map() filter() some() every()</span><br><span class="line"></span><br><span class="line">var arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; foeEach迭代(遍历)数组 (map和forEach基本相似)</span><br><span class="line">arr.forEach(function (value, index, array) &#123;</span><br><span class="line">	console.log(value); &#x2F;&#x2F;输出每个数组元素的值</span><br><span class="line">    console.log(index); &#x2F;&#x2F;输出每个数组元素的索引号</span><br><span class="line">    console.log(array); &#x2F;&#x2F;输出数组本身</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; filter筛选数组</span><br><span class="line">var newarr &#x3D; arr.filter(function (value, index, array) &#123;</span><br><span class="line">	return value &gt;&#x3D; 2;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(newarr[0]); &#x2F;&#x2F;2</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; filter是查找满足条件的元素,返回的是一个数组,而且是把所有满足条件的元素返回回来</span><br><span class="line">&#x2F;&#x2F; some是查找满足条件的元素是否存在,返回的是一个布尔值,如果查找到第一满足条件的元素就终止循环 (every和some基本相似)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>indexOf()和 lastIndexOf()跟字符串是一样的,返回的是数组索引</li>
 </ul>
@@ -325,14 +321,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var  arr &#x3D; [1, 2, 3, 4];</span><br><span class="line">var sum &#x3D; arr.reduce(function(prev, cur, index, arr) &#123;</span><br><span class="line">    console.log(prev, cur, index);</span><br><span class="line">    return prev + cur;</span><br><span class="line">&#125;, 0) &#x2F;&#x2F;注意这里设置了初始值</span><br><span class="line">console.log(arr, sum);</span><br><span class="line">打印结果:</span><br><span class="line">0 1 0</span><br><span class="line">1 2 1</span><br><span class="line">3 3 2</span><br><span class="line">6 4 3</span><br><span class="line">[1, 2, 3, 4] 10</span><br><span class="line">可以看出index是从0开始的,第一次的prev的值是我们设置的初始值0,数组长度是4,reduce函数循环4次</span><br></pre></td></tr></table></figure>
 
-<h3 id="ES6-新增的数组方法"><a href="#ES6-新增的数组方法" class="headerlink" title="ES6 新增的数组方法"></a>ES6 新增的数组方法</h3><ul>
-<li>Array.from() find() finIndex() includes()</li>
-</ul>
-<p><img src="/2020/05/06/%E6%95%B0%E7%BB%84/2.png" alt></p>
+<h3 id="ES6-新增的数组方法"><a href="#ES6-新增的数组方法" class="headerlink" title="ES6 新增的数组方法"></a>ES6 新增的数组方法</h3><p><img src="/2020/05/06/%E6%95%B0%E7%BB%84/1.png" alt></p>
 <h3 id="最简单的数组去重法"><a href="#最简单的数组去重法" class="headerlink" title="最简单的数组去重法"></a>最简单的数组去重法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">新建一新数组，遍历数组，值不在新数组就push进该新数组中</span><br><span class="line">var array &#x3D; [1,2,2,4,9,6,7,5,2,3,5,6,5];</span><br><span class="line">var temp &#x3D; []; &#x2F;&#x2F;一个新的临时数组</span><br><span class="line">for(var i &#x3D; 0; i &lt; array.length; i++)&#123;</span><br><span class="line">    if(temp.indexOf(array[i]) &#x3D;&#x3D; -1)&#123;</span><br><span class="line">        temp.push(array[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="json-和数组的比较"><a href="#json-和数组的比较" class="headerlink" title="json 和数组的比较"></a>json 和数组的比较</h3><p><img src="/2020/05/06/%E6%95%B0%E7%BB%84/3.png" alt></p>
-
+<h3 id="json-和数组的比较"><a href="#json-和数组的比较" class="headerlink" title="json 和数组的比较"></a>json 和数组的比较</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var json&#x3D;&#123;a: 12,b: 15, c: 18&#125;;&#x2F;&#x2F;json没有length</span><br><span class="line">var arr&#x3D;[12,15,18];</span><br><span class="line">alert(json.a)</span><br><span class="line">alert(json[&#39;a&#39;])&#x2F;&#x2F;两种都行</span><br><span class="line"></span><br><span class="line">for(var i in json)&#123; &#x2F;&#x2F;for in没涉及到length,可以用于数组也可以用于json</span><br><span class="line">	alert(i+&#39;&#x3D;&#39;+json[i]);&#x2F;&#x2F;这里不能用json.i  弹出的结果是a&#x3D;12 b&#x3D;15 c&#x3D;18</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">	alert(i+&#39;&#x3D;&#39;+arr[i]);&#x2F;&#x2F;弹出的结果是:0&#x3D;12 1&#x3D;15 2&#x3D;18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -728,10 +720,6 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="https://element.eleme.cn/#/zh-CN" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Element-UI官网</a>
-            </li>
-          
-            <li class="search-li">
               <a href="https://jquery.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Jquery官网</a>
             </li>
           
@@ -744,11 +732,19 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
+              <a href="https://element.eleme.cn/#/zh-CN" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Element-UI官网</a>
+            </li>
+          
+            <li class="search-li">
               <a href="https://cn.vuejs.org/v2/guide/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Vue官网</a>
             </li>
           
             <li class="search-li">
               <a href="https://echarts.apache.org/zh/index.html" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Echarts官网</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://uniapp.dcloud.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Uniapp官网</a>
             </li>
           
         </ul>
