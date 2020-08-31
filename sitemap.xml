@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/</loc>
+    <loc>http://yoursite.com/2020/07/28/ajax/</loc>
     
-    <lastmod>2020-08-24T02:54:14.094Z</lastmod>
+    <lastmod>2020-08-31T02:44:52.561Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/</loc>
     
-    <lastmod>2020-08-22T10:17:59.763Z</lastmod>
+    <lastmod>2020-08-27T06:28:50.115Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/</loc>
+    
+    <lastmod>2020-08-24T02:54:14.094Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2020/08/09/VUE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</loc>
     
     <lastmod>2020-08-20T00:03:39.598Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/07/28/ajax/</loc>
-    
-    <lastmod>2020-08-16T03:33:57.032Z</lastmod>
     
   </url>
   
