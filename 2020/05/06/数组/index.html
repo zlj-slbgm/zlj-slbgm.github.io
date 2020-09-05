@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/1.png">
 <meta property="article:published_time" content="2020-05-06T04:52:32.000Z">
-<meta property="article:modified_time" content="2020-08-27T06:28:50.115Z">
+<meta property="article:modified_time" content="2020-09-03T09:22:31.221Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -340,6 +340,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h3 id="最简单的数组去重法"><a href="#最简单的数组去重法" class="headerlink" title="最简单的数组去重法"></a>最简单的数组去重法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">新建一新数组，遍历数组，值不在新数组就push进该新数组中</span><br><span class="line">var array &#x3D; [1,2,2,4,9,6,7,5,2,3,5,6,5];</span><br><span class="line">var temp &#x3D; []; &#x2F;&#x2F;一个新的临时数组</span><br><span class="line">for(var i &#x3D; 0; i &lt; array.length; i++)&#123;</span><br><span class="line">    if(temp.indexOf(array[i]) &#x3D;&#x3D; -1)&#123;</span><br><span class="line">        temp.push(array[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="json-和数组的比较"><a href="#json-和数组的比较" class="headerlink" title="json 和数组的比较"></a>json 和数组的比较</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var json&#x3D;&#123;a: 12,b: 15, c: 18&#125;;&#x2F;&#x2F;json没有length</span><br><span class="line">var arr&#x3D;[12,15,18];</span><br><span class="line">alert(json.a)</span><br><span class="line">alert(json[&#39;a&#39;])&#x2F;&#x2F;两种都行</span><br><span class="line"></span><br><span class="line">for(var i in json)&#123; &#x2F;&#x2F;for in没涉及到length,可以用于数组也可以用于json</span><br><span class="line">	alert(i+&#39;&#x3D;&#39;+json[i]);&#x2F;&#x2F;这里不能用json.i  弹出的结果是a&#x3D;12 b&#x3D;15 c&#x3D;18</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">	alert(i+&#39;&#x3D;&#39;+arr[i]);&#x2F;&#x2F;弹出的结果是:0&#x3D;12 1&#x3D;15 2&#x3D;18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何判断一个变量foo是数组"><a href="#如何判断一个变量foo是数组" class="headerlink" title="如何判断一个变量foo是数组"></a>如何判断一个变量foo是数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foo instanceof Array</span><br><span class="line">foo.constructor &#x3D;&#x3D; Array</span><br><span class="line">Array.isArray(foo)</span><br><span class="line">Object.prototype.toString.call(foo)&#x3D;&#x3D;&quot;[object Array]&quot;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -492,7 +496,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">1.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个数组有三种方法"><span class="toc-number">1.1.</span> <span class="toc-text">创建一个数组有三种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原生-js-数组方法"><span class="toc-number">1.2.</span> <span class="toc-text">原生 js 数组方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES5-新增的数组方法"><span class="toc-number">1.3.</span> <span class="toc-text">ES5 新增的数组方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-新增的数组方法"><span class="toc-number">1.4.</span> <span class="toc-text">ES6 新增的数组方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最简单的数组去重法"><span class="toc-number">1.5.</span> <span class="toc-text">最简单的数组去重法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#json-和数组的比较"><span class="toc-number">1.6.</span> <span class="toc-text">json 和数组的比较</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">1.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个数组有三种方法"><span class="toc-number">1.1.</span> <span class="toc-text">创建一个数组有三种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原生-js-数组方法"><span class="toc-number">1.2.</span> <span class="toc-text">原生 js 数组方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES5-新增的数组方法"><span class="toc-number">1.3.</span> <span class="toc-text">ES5 新增的数组方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-新增的数组方法"><span class="toc-number">1.4.</span> <span class="toc-text">ES6 新增的数组方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最简单的数组去重法"><span class="toc-number">1.5.</span> <span class="toc-text">最简单的数组去重法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#json-和数组的比较"><span class="toc-number">1.6.</span> <span class="toc-text">json 和数组的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何判断一个变量foo是数组"><span class="toc-number">1.7.</span> <span class="toc-text">如何判断一个变量foo是数组</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -667,15 +671,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
