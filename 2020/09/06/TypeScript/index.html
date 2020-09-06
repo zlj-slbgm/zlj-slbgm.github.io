@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>图片懒加载 | 十里不故梦的Blog</title>
+  <title>TypeScript | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原生js实现图片懒加载">
+  <meta name="description" content="typescript中的数据类型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图片懒加载">
-<meta property="og:url" content="http://yoursite.com/2020/09/03/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/index.html">
+<meta property="og:title" content="TypeScript">
+<meta property="og:url" content="http://yoursite.com/2020/09/06/TypeScript/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="原生js实现图片懒加载">
+<meta property="og:description" content="typescript中的数据类型">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-03T07:31:36.000Z">
-<meta property="article:modified_time" content="2020-09-03T07:40:50.298Z">
+<meta property="article:published_time" content="2020-09-06T07:00:32.000Z">
+<meta property="article:modified_time" content="2020-09-06T08:08:41.148Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -204,14 +204,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-图片懒加载" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-TypeScript" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      图片懒加载
+      TypeScript
     </h1>
   
 
@@ -227,24 +227,51 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/09/03/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
-  	<time datetime="2020-09-03T07:31:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
+        <a href="/2020/09/06/TypeScript/" class="archive-article-date">
+  	<time datetime="2020-09-06T07:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>原生js实现图片懒加载</strong></p>
+        <p><strong>typescript中的数据类型</strong></p>
 <a id="more"></a>
 
-<p>图片懒加载的原理：img标签的src属性暂时先改成一个自定义属性，这样页面就不会去加载图片，当img标签所在区域进入屏幕可视区域后，从存放图片路径的自定义属性中获取图片地址，并动态的设置给对应img标签的src属性，这样浏览器就会自动帮助我们去请求对应的图片资源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            padding: 0;</span><br><span class="line">            margin: 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ul &#123;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        li &#123;</span><br><span class="line">            height: 900px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        img &#123;</span><br><span class="line">            display: block;</span><br><span class="line">            margin: 0px auto;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;img data-src&#x3D;&quot;images&#x2F;轮播图1.jpg&quot;&gt;&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;&lt;img data-src&#x3D;&quot;images&#x2F;轮播图2.jpg&quot;&gt;&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;&lt;img data-src&#x3D;&quot;images&#x2F;轮播图3.jpg&quot;&gt;&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;&lt;img data-src&#x3D;&quot;images&#x2F;轮播图4.jpg&quot;&gt;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; dataset访问元素上设置的所有自定义数据属性(data-*)集</span><br><span class="line">        &#x2F;&#x2F; getBoundingClientRect用于获得页面中某个元素的上下左右分别相对浏览器视窗的位置</span><br><span class="line">        window.onload &#x3D; imgonLoad;</span><br><span class="line"></span><br><span class="line">        function imgonLoad() &#123;</span><br><span class="line">            let img &#x3D; document.querySelectorAll(&quot;img&quot;);</span><br><span class="line">            img.forEach(function (value, index, array) &#123;</span><br><span class="line">                &#x2F;&#x2F; 如果图片的上边到可视窗口的距离小于窗口高度（也就是图片就进入了可视区域了）</span><br><span class="line">                if (value.getBoundingClientRect().top &lt; window.innerHeight) &#123;</span><br><span class="line">                    value.setAttribute(&#39;src&#39;, value.dataset.src)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 滚动条滚动的再次调用图片加载函数</span><br><span class="line">        window.onscroll &#x3D; function () &#123;</span><br><span class="line">            setTimeout(imgonLoad, 2000)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>图片懒加载插件：</p>
 <ul>
-<li>jquery.lazyload</li>
-<li>vue-lazyload</li>
+<li><p>布尔类型（boolean）</p>
+</li>
+<li><p>数字类型（number）</p>
+</li>
+<li><p>字符串类型（string）</p>
+</li>
+<li><p>数组类型（array）</p>
+<p>第一种定义数组的方式：<code>let arr:number[]=[1,2,3,4,5]</code></p>
+<p>第二种定义数组的方式：<code>let arr:Array&lt;number&gt;=[1,2,3,4,5]</code></p>
+</li>
+<li><p>元组类型（tuple）</p>
+<p><code>let arr:[string,number,boolean]=[&quot;ts&quot;,3.18,true]</code>相当于js中的<code>var arr=[&quot;ts&quot;,3.18,true]</code></p>
+</li>
+<li><p>枚举类型（enum）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">enum Flag &#123;</span><br><span class="line">	success&#x3D;1,error&#x3D;-1</span><br><span class="line">&#125;</span><br><span class="line">var f:Flag&#x3D;Flag.success</span><br><span class="line">console.log(f)&#x2F;&#x2F;1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enum Color&#123;</span><br><span class="line">	red,blue&#x3D;5,orange</span><br><span class="line">&#125;</span><br><span class="line">var a:Color&#x3D;Color.red</span><br><span class="line">var b:Color&#x3D;Color.blue</span><br><span class="line">var c:Color&#x3D;Color.orange</span><br><span class="line">&#x2F;&#x2F;枚举项没有赋值的话输出的是索引</span><br><span class="line">console.log(a) &#x2F;&#x2F;0</span><br><span class="line">console.log(b) &#x2F;&#x2F;5</span><br><span class="line">console.log(c) &#x2F;&#x2F;6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>任意类型（any）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:any&#x3D;123;</span><br><span class="line">a&#x3D;&quot;qwe&quot;;</span><br><span class="line">console.log(a); &#x2F;&#x2F;qwe</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>void类型（一般用于定义方法时方法没有返回值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法没有返回值</span><br><span class="line">function run():void&#123;</span><br><span class="line">	console.log(&quot;run&quot;);</span><br><span class="line">&#125;</span><br><span class="line">run();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法有返回值</span><br><span class="line">function run():number&#123;</span><br><span class="line">	return 123;</span><br><span class="line">&#125;</span><br><span class="line">run();</span><br></pre></td></tr></table></figure></li>
+<li><p>undefined和null（never类型的子类型）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var num:number;</span><br><span class="line">console.log(num) &#x2F;&#x2F;输出undefined 报错</span><br><span class="line"></span><br><span class="line">var num:undefined;</span><br><span class="line">console.log(num) &#x2F;&#x2F;输出undefined 未报错</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;一个元素可能是number类型可能是null可能是undefined</span><br><span class="line">var num:number | null | undefined</span><br><span class="line">num&#x3D;123;</span><br><span class="line">console.log(num) &#x2F;&#x2F;123</span><br></pre></td></tr></table></figure></li>
+<li><p>never类型 （代表从不会出现的值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a:never;</span><br><span class="line">a&#x3D;(()&#x3D;&gt;&#123;</span><br><span class="line">	throw new Error(&quot;异常&quot;);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 
       
@@ -347,7 +374,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/09/03/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/09/06/TypeScript/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -361,18 +388,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/09/05/%E5%8E%9F%E7%94%9Fjs%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          原生js变量作用域
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/09/%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BA%8B%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">函数与事件</div>
+    <a href="/2020/09/05/%E5%8E%9F%E7%94%9Fjs%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">原生js变量作用域</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -435,7 +453,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Thu Sep 03 2020 15:31:36 GMT+0800',
+  	id: 'Sun Sep 06 2020 15:00:32 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
