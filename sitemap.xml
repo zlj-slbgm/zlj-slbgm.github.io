@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/</loc>
+    
+    <lastmod>2020-09-11T13:08:02.473Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/09/06/TypeScript/</loc>
     
     <lastmod>2020-09-11T03:04:36.740Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://yoursite.com/2020/05/07/this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-09-05T02:30:17.016Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/05/06/%E6%95%B0%E7%BB%84/</loc>
-    
-    <lastmod>2020-09-03T09:22:31.221Z</lastmod>
     
   </url>
   
