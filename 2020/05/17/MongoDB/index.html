@@ -16,7 +16,7 @@
 <meta property="og:description" content="安装 MongoDB">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-17T05:45:14.000Z">
-<meta property="article:modified_time" content="2020-07-28T10:26:46.088Z">
+<meta property="article:modified_time" content="2020-09-17T08:47:47.406Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="NODEJS">
 <meta name="twitter:card" content="summary">
@@ -240,7 +240,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>安装比较容易,难点在启动 Mongodb 的服务以及将 MongoDB 设置成 Windows 服务,加配置文件在 windows 的“服务”中找到</li>
 <li>MongoDBCompass 连接出现 authentication failed,要进行创建用户！！！,项目或第三方工具才能使用用户名密码连接 MongoDB 指定的数据库！！！(详情参考:<a href="https://www.cnblogs.com/iTlijun/p/7169538.html" target="_blank" rel="noopener">https://www.cnblogs.com/iTlijun/p/7169538.html</a>)</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">D:\programs\mongoDB\bin&gt;mongo</span><br><span class="line"> MongoDB shell version v3.4.3</span><br><span class="line"> connecting to: mongodb:&#x2F;&#x2F;127.0.0.1:27017</span><br><span class="line"> MongoDB server version: 3.4.3</span><br><span class="line"> &gt; db</span><br><span class="line"> test</span><br><span class="line"> &gt; use admin</span><br><span class="line"> switched to db admin　　</span><br><span class="line"> &gt;db.createUser(</span><br><span class="line">    &#123;</span><br><span class="line">      user: &quot;root&quot;,</span><br><span class="line">      pwd: &quot;rootpwd&quot;,</span><br><span class="line">      roles: [ &#123;role:&quot;root&quot;, db:&quot;admin&quot;&#125; ]</span><br><span class="line">    &#125;</span><br><span class="line"> )</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">D:\programs\mongoDB\bin&gt;mongo</span><br><span class="line"> MongoDB shell version v3.4.3</span><br><span class="line"> connecting to: mongodb://127.0.0.1:27017</span><br><span class="line"> MongoDB server version: 3.4.3</span><br><span class="line"> &gt; db</span><br><span class="line"> <span class="built_in">test</span></span><br><span class="line"> &gt; use admin</span><br><span class="line"> switched to db admin　　</span><br><span class="line"> &gt;db.createUser(</span><br><span class="line">    &#123;</span><br><span class="line">      user: <span class="string">"root"</span>,</span><br><span class="line">      <span class="built_in">pwd</span>: <span class="string">"rootpwd"</span>,</span><br><span class="line">      roles: [ &#123;role:<span class="string">"root"</span>, db:<span class="string">"admin"</span>&#125; ]</span><br><span class="line">    &#125;</span><br><span class="line"> )</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用用户名root,密码rootpwd登录localhost的zlj数据库</span><br><span class="line">mongodb:&#x2F;&#x2F;root:rootpwd@localhost:27017&#x2F;zlj</span><br></pre></td></tr></table></figure>
 
@@ -567,19 +567,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
