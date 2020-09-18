@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png">
 <meta property="article:published_time" content="2020-05-25T11:29:23.000Z">
-<meta property="article:modified_time" content="2020-07-29T04:08:07.814Z">
+<meta property="article:modified_time" content="2020-09-18T03:41:26.529Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -238,21 +238,24 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="浏览器渲染页面的主体流程"><a href="#浏览器渲染页面的主体流程" class="headerlink" title="浏览器渲染页面的主体流程"></a>浏览器渲染页面的主体流程</h2><a id="more"></a>
+        <p><strong>浏览器渲染页面的主体流程</strong></p>
+<a id="more"></a>
 
 <p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg" alt><br>补充：</p>
 <ul>
 <li>浏览器加载资源是异步的</li>
 <li>浏览器渲染引擎主要包括：HTML 解析器，css 解析器，javascript 引擎，布局 layout 模块，绘图模块，以上模块还依赖很多其他基础模块包括网络，存储，2D/3D 图像，音频视频解码器，图片解码器</li>
 </ul>
-<h2 id="查看浏览器渲染页面步骤"><a href="#查看浏览器渲染页面步骤" class="headerlink" title="查看浏览器渲染页面步骤"></a>查看浏览器渲染页面步骤</h2><ol>
+<p><strong>查看浏览器渲染页面步骤</strong></p>
+<ol>
 <li>F12</li>
 <li>Performance 下的 Network 可以调整网速</li>
 <li>把 Network 下的 Disable cache 勾选，不走缓存</li>
 <li>点击 Performance 左上角的刷新，等待几秒</li>
 <li>Event Log 查看浏览器渲染页面基本过程</li>
 </ol>
-<h2 id="新建DOM的过程"><a href="#新建DOM的过程" class="headerlink" title="新建DOM的过程"></a>新建DOM的过程</h2><ol>
+<p><strong>新建DOM的过程</strong></p>
+<ol>
 <li>获取 DOM 后分割为多个图层</li>
 <li>对每个图层的节点计算样式结果（Recalculate style–样式重计算）</li>
 <li>为每个节点生成图形和位置（Layout–回流和重排）</li>
@@ -260,14 +263,16 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>图层作为纹理上传至 GPU</li>
 <li>符合多个图层到页面上生成最终屏幕图像（Composite Layers–图层重组）</li>
 </ol>
-<h2 id="chrome-浏览器满足以下任意情况就会创建图层："><a href="#chrome-浏览器满足以下任意情况就会创建图层：" class="headerlink" title="chrome 浏览器满足以下任意情况就会创建图层："></a>chrome 浏览器满足以下任意情况就会创建图层：</h2><ol>
+<p><strong>chrome浏览器满足以下任意情况就会创建图层：</strong></p>
+<ol>
 <li>拥有具有 3D 变换的 css 属性</li>
 <li>使用加速视频解码的 video 节点</li>
 <li>canvas 节点</li>
 <li>css3 动画节点</li>
 <li>拥有 css 加速属性的元素(will-change)</li>
 </ol>
-<h2 id="重排重绘性能优化"><a href="#重排重绘性能优化" class="headerlink" title="重排重绘性能优化"></a>重排重绘性能优化</h2><ol>
+<p><strong>重排重绘性能优化</strong></p>
+<ol>
 <li>用 translate 替代 top left 等变化</li>
 <li>用 opacity 替代 visibility</li>
 <li>不要一条一条地修改 DOM 的样式，预先定义好 class，然后修改 DOM 的 className</li>
@@ -278,7 +283,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>对于动画新建图层，但是图层过多也会影响性能，只将需要重绘的部分做图层，其它尽量减少图层，will-change: transform 也可以新建一个图层</li>
 <li>启用 GPU 硬件加速</li>
 </ol>
-<h2 id="css-阻塞"><a href="#css-阻塞" class="headerlink" title="css 阻塞"></a>css 阻塞</h2><p>声明：只有link引入的外部css才会产生阻塞</p>
+<p><strong>css阻塞</strong></p>
+<p>声明：只有link引入的外部css才会产生阻塞</p>
 <ol>
 <li>style标签中的样式：</li>
 </ol>
@@ -296,18 +302,21 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>阻塞其后的 js 语句执行。原因：如果后面的 js 的内容是获取元素的样式，如果不等样式解析完毕，后面的 js 就会获得错误信息。由于浏览器也不知道后续 js 的具体内容，所以只好等前面所有的样式解析完毕后，再执行 js。例如 Firefox 在样式表加载和解析过程中，会禁止所有的脚本。注意：现代浏览器越发注重用户体验，对于 webkit 内核的浏览器而言，仅当脚本尝试访问样式属性或可能受尚未加载的样式表影响，它才会禁止该脚本</li>
 <li>不阻塞 DOM 解析。原因：DOM 解析和 css 解析是并行执行的进程</li>
 </ul>
-<h2 id="优化核心理念：尽可能快的提高外部-css-加载速度"><a href="#优化核心理念：尽可能快的提高外部-css-加载速度" class="headerlink" title="优化核心理念：尽可能快的提高外部 css 加载速度"></a>优化核心理念：尽可能快的提高外部 css 加载速度</h2><ol>
+<p><strong>优化核心理念：尽可能快的提高外部 css 加载速度</strong></p>
+<ol>
 <li>使用 CDN 节点进行外部资源加速<br><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png" alt></li>
 <li>对 css 压缩(利用打包工具，比如 webpack,gulp 等)</li>
 <li>减少 http 请求数，将多个 css 文件合并</li>
 <li>优化样式表代码</li>
 </ol>
-<h2 id="js-阻塞"><a href="#js-阻塞" class="headerlink" title="js 阻塞"></a>js 阻塞</h2><ol>
+<p><strong>js 阻塞</strong></p>
+<ol>
 <li>阻塞 DOM 解析。原因：浏览器不知道后续脚本的内容，如果先去解析了下面的 DOM，而随后的 js 删除了后面所有的 DOM，那么浏览器就做了无用功，索性全部停止等脚本执行完毕再继续向下解析 DOM</li>
 <li>阻塞页面渲染。原因：js 中可以操作 css 样式，索性全部停止等脚本执行完毕，避免做无用功</li>
 <li>阻塞后续 js 执行。原因：维护依赖关系，如必须先引入 jquery 再引入 bootstrap</li>
 </ol>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
+<p><strong>补充</strong></p>
+<ul>
 <li>script标签的defer属性规定当页面已完成加载后，才会执行js脚本</li>
 <li>css 解析和 js 执行时互斥的，即 css 解析的时候 js 停止执行，js 执行的时候 css 停止解析</li>
 <li>无论css阻塞还是js阻塞，都不会阻塞浏览器加载外部资源(图片、视频、样式、脚本)</li>
@@ -465,7 +474,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器渲染页面的主体流程"><span class="toc-number">1.</span> <span class="toc-text">浏览器渲染页面的主体流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看浏览器渲染页面步骤"><span class="toc-number">2.</span> <span class="toc-text">查看浏览器渲染页面步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建DOM的过程"><span class="toc-number">3.</span> <span class="toc-text">新建DOM的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chrome-浏览器满足以下任意情况就会创建图层："><span class="toc-number">4.</span> <span class="toc-text">chrome 浏览器满足以下任意情况就会创建图层：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重排重绘性能优化"><span class="toc-number">5.</span> <span class="toc-text">重排重绘性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-阻塞"><span class="toc-number">6.</span> <span class="toc-text">css 阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化核心理念：尽可能快的提高外部-css-加载速度"><span class="toc-number">7.</span> <span class="toc-text">优化核心理念：尽可能快的提高外部 css 加载速度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-阻塞"><span class="toc-number">8.</span> <span class="toc-text">js 阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-number">9.</span> <span class="toc-text">补充</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -636,11 +645,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
