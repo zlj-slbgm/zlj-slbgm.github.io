@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png">
 <meta property="article:published_time" content="2020-05-25T11:29:23.000Z">
-<meta property="article:modified_time" content="2020-09-18T03:41:26.529Z">
+<meta property="article:modified_time" content="2020-09-23T06:25:23.840Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -93,6 +93,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/VUE">VUE</a></li>
 	        
+				<li><a href="/tags/React">React</a></li>
+	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
 			</ul>
@@ -161,6 +163,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -179,19 +183,21 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 12.5%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 12.5%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 12.5%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 12.5%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 12.5%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/VUE">VUE</a></li>
+					<li style="width: 12.5%"><a href="/tags/VUE">VUE</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 12.5%"><a href="/tags/React">React</a></li>
+		        
+					<li style="width: 12.5%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -285,36 +291,47 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ol>
 <p><strong>css阻塞</strong></p>
 <p>声明：只有link引入的外部css才会产生阻塞</p>
-<ol>
-<li>style标签中的样式：</li>
-</ol>
+<ul>
+<li><p>style标签中的样式：</p>
 <ul>
 <li>由 html 解析器进行解析的，并且是异步解析</li>
 <li>不阻塞浏览器渲染(可能会产生”闪屏现象”)</li>
 <li>不阻塞 DOM 解析</li>
 </ul>
-<ol start="2">
-<li>link引入的外部css样式(推荐使用)</li>
-</ol>
+</li>
+<li><p>link引入的外部css样式(推荐使用)</p>
 <ul>
-<li>由 css 解析器进行解析的，并且是同步解析</li>
-<li>阻塞浏览器渲染(利用这种阻塞避免”闪屏现象”)</li>
-<li>阻塞其后的 js 语句执行。原因：如果后面的 js 的内容是获取元素的样式，如果不等样式解析完毕，后面的 js 就会获得错误信息。由于浏览器也不知道后续 js 的具体内容，所以只好等前面所有的样式解析完毕后，再执行 js。例如 Firefox 在样式表加载和解析过程中，会禁止所有的脚本。注意：现代浏览器越发注重用户体验，对于 webkit 内核的浏览器而言，仅当脚本尝试访问样式属性或可能受尚未加载的样式表影响，它才会禁止该脚本</li>
-<li>不阻塞 DOM 解析。原因：DOM 解析和 css 解析是并行执行的进程</li>
+<li><p>由 css 解析器进行解析的，并且是同步解析</p>
+</li>
+<li><p>阻塞浏览器渲染(利用这种阻塞避免”闪屏现象”)</p>
+</li>
+<li><p>阻塞其后的 js 语句执行。原因：如果后面的 js 的内容是获取元素的样式，如果不等样式解析完毕，后面的 js 就会获得错误信息。由于浏览器也不知道后续 js 的具体内容，所以只好等前面所有的样式解析完毕后，再执行 js。例如 Firefox 在样式表加载和解析过程中，会禁止所有的脚本。注意：现代浏览器越发注重用户体验，对于 webkit 内核的浏览器而言，仅当脚本尝试访问样式属性或可能受尚未加载的样式表影响，它才会禁止该脚本</p>
+</li>
+<li><p>不阻塞 DOM 解析。原因：DOM 解析和 css 解析是并行执行的进程</p>
+</li>
+</ul>
+</li>
 </ul>
 <p><strong>优化核心理念：尽可能快的提高外部 css 加载速度</strong></p>
-<ol>
-<li>使用 CDN 节点进行外部资源加速<br><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png" alt></li>
-<li>对 css 压缩(利用打包工具，比如 webpack,gulp 等)</li>
-<li>减少 http 请求数，将多个 css 文件合并</li>
-<li>优化样式表代码</li>
-</ol>
+<ul>
+<li><p>使用 CDN 节点进行外部资源加速<br><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png" alt></p>
+</li>
+<li><p>对 css 压缩(利用打包工具，比如 webpack,gulp 等)</p>
+</li>
+<li><p>减少 http 请求数，将多个 css 文件合并</p>
+</li>
+<li><p>优化样式表代码</p>
+</li>
+</ul>
 <p><strong>js 阻塞</strong></p>
-<ol>
-<li>阻塞 DOM 解析。原因：浏览器不知道后续脚本的内容，如果先去解析了下面的 DOM，而随后的 js 删除了后面所有的 DOM，那么浏览器就做了无用功，索性全部停止等脚本执行完毕再继续向下解析 DOM</li>
-<li>阻塞页面渲染。原因：js 中可以操作 css 样式，索性全部停止等脚本执行完毕，避免做无用功</li>
-<li>阻塞后续 js 执行。原因：维护依赖关系，如必须先引入 jquery 再引入 bootstrap</li>
-</ol>
+<ul>
+<li><p>阻塞 DOM 解析。原因：浏览器不知道后续脚本的内容，如果先去解析了下面的 DOM，而随后的 js 删除了后面所有的 DOM，那么浏览器就做了无用功，索性全部停止等脚本执行完毕再继续向下解析 DOM</p>
+</li>
+<li><p>阻塞页面渲染。原因：js 中可以操作 css 样式，索性全部停止等脚本执行完毕，避免做无用功</p>
+</li>
+<li><p>阻塞后续 js 执行。原因：维护依赖关系，如必须先引入 jquery 再引入 bootstrap</p>
+</li>
+</ul>
 <p><strong>补充</strong></p>
 <ul>
 <li>script标签的defer属性规定当页面已完成加载后，才会执行js脚本</li>
@@ -645,15 +662,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,7 +674,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
             
             <div class="clearfix"></div>

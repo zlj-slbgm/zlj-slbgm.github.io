@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>行级块级行内块状与position定位 | 十里不故梦的Blog</title>
+  <title>虚拟DOM | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="行级，块级，行内块级与position定位">
+  <meta name="description" content="虚拟DOM（Virtual Document Object Model）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="行级块级行内块状与position定位">
-<meta property="og:url" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/index.html">
+<meta property="og:title" content="虚拟DOM">
+<meta property="og:url" content="http://yoursite.com/2020/09/24/%E8%99%9A%E6%8B%9FDOM/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="行级，块级，行内块级与position定位">
+<meta property="og:description" content="虚拟DOM（Virtual Document Object Model）">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/1.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/2.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/3.jpg">
-<meta property="article:published_time" content="2020-05-05T10:11:56.000Z">
-<meta property="article:modified_time" content="2020-09-18T03:51:35.797Z">
+<meta property="article:published_time" content="2020-09-24T06:33:21.000Z">
+<meta property="article:modified_time" content="2020-09-24T07:35:17.267Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="HTML5CSS3">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦的Blog" type="application/atom+xml">
   
@@ -94,6 +90,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/VUE">VUE</a></li>
 	        
+				<li><a href="/tags/React">React</a></li>
+	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
 			</ul>
@@ -162,6 +160,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -180,19 +180,21 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 12.5%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 12.5%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 12.5%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 12.5%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 12.5%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/VUE">VUE</a></li>
+					<li style="width: 12.5%"><a href="/tags/VUE">VUE</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 12.5%"><a href="/tags/React">React</a></li>
+		        
+					<li style="width: 12.5%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -208,14 +210,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-行级块级行内块状与position定位" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-虚拟DOM" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      行级块级行内块状与position定位
+      虚拟DOM
     </h1>
   
 
@@ -231,42 +233,42 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T10:11:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+        <a href="/2020/09/24/%E8%99%9A%E6%8B%9FDOM/" class="archive-article-date">
+  	<time datetime="2020-09-24T06:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="行级，块级，行内块级与position定位"><a href="#行级，块级，行内块级与position定位" class="headerlink" title="行级，块级，行内块级与position定位"></a>行级，块级，行内块级与position定位</h3><a id="more"></a>
+        <p><strong>虚拟DOM（Virtual Document Object Model）</strong></p>
+<a id="more"></a>
 
-<p><strong>inline、block、inline-block元素的区别</strong></p>
-<img src="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/1.png">
-
-<p><img src="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/2.png" alt></p>
-<p><strong>行内元素需要注意的几个点:</strong></p>
 <ul>
-<li>img确实是行内元素,但它也是置换元素。置换元素就是浏览器根据元素的标签和属性,来决定元素的具体显示内容。例如浏览器会根据img标签的src属性的值来读取图片信息并显示出来,而如果查看(X)HTML代码,则看不到图片的实际内容。又例如根据input标签的type属性来决定是显示输入框,还是单选按钮等。所以 img  input  select  textarea  button  label 等,他们被称为可置换元素(Replaced element)。他们确实是行内元素但他们的性质相当设置了display:inline-block</li>
-<li>行内元素同样具有盒子模型</li>
-<li>行内元素设置水平方向的padding和margin是可以生效的，但是设置垂直方向的padding和margin虽然看起来对标签起作用，但实际并没有对周围元素产生任何影响，所以行内元素设置垂直方向的padding和margin是无效的</li>
+<li>DOM的本质：DOM是浏览器中的概念，用js对象来表示页面上的元素，并提供操作DOM对象的API</li>
+<li>React中的虚拟DOM的本质：虚拟DOM是框架中的概念，是程序员用js对象来模拟页面上的DOM和DOM嵌套</li>
+<li>虚拟DOM的目的：为了实现页面中DOM元素的高效更新</li>
 </ul>
-<p><strong>position定位</strong></p>
-<p><img src="/2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/3.jpg" alt></p>
-<p>注意点：</p>
-<ol>
-<li>固定定位的盒子必须有宽度</li>
-<li>固定定位的盒子跟父级盒子无关，它是以屏幕（body）为准，在标准流中不占位置</li>
-</ol>
-<p><strong>行级块级行内块状与position定位的关系</strong></p>
+<p><strong>数据渲染</strong></p>
 <ul>
-<li><p>第一种float覆盖情况:行级元素和行级元素会覆盖、行级元素与块级元素会覆盖、块级元素与块级元素会覆盖</p>
+<li>全部重新渲染：如表格价格数据排序，从数据库中查询到的数据以对象数组的形式存放到了浏览器的内存中，点击排序之后，把内存中的对象数组重新排序，再把最新的对象数组重新渲染到页面，该方案可能有些数据并没有任何变化但又重新被渲染了，存在性能问题</li>
+<li>按需渲染：只重新渲染更新的数据所对应的页面元素，该方案性能最优</li>
+</ul>
+<p><strong>实现数据的按需更新</strong></p>
+<ul>
+<li><p>原理：获取内存中的新旧两颗DOM进行对比，得到需要被按需更新的DOM元素</p>
 </li>
-<li><p>第二种position覆盖情况:行级元素也可以使用定位,行级或块级元素只要加了position:absolute或者position:fixed(不管是否定位了)原本区域空间就空出来了(即跟浮动一样其他元素就跑到这个空间来了)</p>
+<li><p>获取：浏览器中并没有直接提供获取DOM树的API，因此我们无法拿到浏览器内存中的DOM树</p>
 </li>
-<li><p>任何标签只要一浮动,类型就会被转为行内-块级标签</p>
-</li>
-<li><p>任何标签只要设置position属性，类型就会被转为行内-块级标签</p>
+<li><p>模拟：程序员可以手动模拟新旧两颗DOM树（这就是React中虚拟DOM的概念）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;mydiv&quot; title&#x3D;&quot;人名&quot; data-index&#x3D;&quot;0&quot;&gt;</span><br><span class="line">	小明</span><br><span class="line">	&lt;p&gt;哈哈哈&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var div&#x3D;&#123;</span><br><span class="line">	tagName: &#39;div&#39;,</span><br><span class="line">	attrs:&#123;</span><br><span class="line">		id: &#39;mydiv&#39;</span><br><span class="line">		title: &#39;人名&#39;,</span><br><span class="line">		&#39;data-index&#39;; &#39;0&#39;</span><br><span class="line">	&#125;,</span><br><span class="line">	childrens:[</span><br><span class="line">		&#39;小明&#39;,</span><br><span class="line">		&#123;</span><br><span class="line">			tagName: &#39;p&#39;,</span><br><span class="line">			attrs: &#123;&#125;,</span><br><span class="line">			childrens:[</span><br><span class="line">				&quot;哈哈哈&quot;</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var div&#x3D;&#123;</span><br><span class="line">	tagName: &#39;div&#39;,</span><br><span class="line">	attrs:&#123;</span><br><span class="line">		id: &#39;mydiv&#39;</span><br><span class="line">		title: &#39;人名性别&#39;,</span><br><span class="line">		&#39;data-index&#39;; &#39;0&#39;</span><br><span class="line">	&#125;,</span><br><span class="line">	childrens:[</span><br><span class="line">		&#39;小明&#39;,</span><br><span class="line">		&#123;</span><br><span class="line">			tagName: &#39;p&#39;,</span><br><span class="line">			attrs: &#123;&#125;,</span><br><span class="line">			childrens:[</span><br><span class="line">				&quot;哈哈哈qwq&quot;</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 
@@ -313,7 +315,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML5CSS3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
         		</li>
       		
 		</ul>
@@ -370,7 +372,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/05/%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E8%A1%8C%E5%86%85%E5%9D%97%E7%8A%B6%E4%B8%8Eposition%E5%AE%9A%E4%BD%8D/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/09/24/%E8%99%9A%E6%8B%9FDOM/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -384,18 +386,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/05/05/%E7%88%B6%E5%85%83%E7%B4%A0%E5%92%8C%E5%AD%90%E5%85%83%E7%B4%A0%E5%AE%B9%E7%BA%B3%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/24/Math%E5%AF%B9%E8%B1%A1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          父元素和子元素容纳问题
+          Math对象
         
       </div>
     </a>
   
   
-    <a href="/2020/05/05/CSS3%E9%80%89%E6%8B%A9%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSS3选择器</div>
+    <a href="/2020/09/17/CSS%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS常用单位</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -422,7 +424,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#行级，块级，行内块级与position定位"><span class="toc-number">1.</span> <span class="toc-text">行级，块级，行内块级与position定位</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -458,7 +460,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Tue May 05 2020 18:11:56 GMT+0800',
+  	id: 'Thu Sep 24 2020 14:33:21 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -593,15 +595,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,7 +607,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
             
             <div class="clearfix"></div>
