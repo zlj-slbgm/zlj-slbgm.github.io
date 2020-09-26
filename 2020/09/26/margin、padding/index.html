@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CSS3各种对齐问题 | 十里不故梦的Blog</title>
+  <title>margin、padding | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CSS3各种对齐问题">
+  <meta name="description" content="margin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3各种对齐问题">
-<meta property="og:url" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="margin、padding">
+<meta property="og:url" content="http://yoursite.com/2020/09/26/margin%E3%80%81padding/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="CSS3各种对齐问题">
+<meta property="og:description" content="margin">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E6%96%87%E5%AD%97.png">
-<meta property="article:published_time" content="2020-05-05T08:32:48.000Z">
-<meta property="article:modified_time" content="2020-09-17T08:17:41.664Z">
+<meta property="og:image" content="http://yoursite.com/2020/09/26/margin%E3%80%81padding/blog/source/_posts/margin%E3%80%81padding/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/09/26/margin%E3%80%81padding/blog/source/_posts/margin%E3%80%81padding/2.png">
+<meta property="article:published_time" content="2020-09-26T02:34:58.000Z">
+<meta property="article:modified_time" content="2020-09-26T15:19:06.013Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E6%96%87%E5%AD%97.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/09/26/margin%E3%80%81padding/blog/source/_posts/margin%E3%80%81padding/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦的Blog" type="application/atom+xml">
   
@@ -212,14 +213,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-CSS3各种对齐问题" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-margin、padding" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      CSS3各种对齐问题
+      margin、padding
     </h1>
   
 
@@ -235,68 +236,101 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-05T08:32:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+        <a href="/2020/09/26/margin%E3%80%81padding/" class="archive-article-date">
+  	<time datetime="2020-09-26T02:34:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="CSS3各种对齐问题"><a href="#CSS3各种对齐问题" class="headerlink" title="CSS3各种对齐问题"></a>CSS3各种对齐问题</h3><a id="more"></a>
+        <h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><a id="more"></a>
 
 <ul>
-<li><p><strong>使 div 中的文字水平垂直居中</strong></p>
+<li><pre><code class="css"><span class="comment">/* 上右下左 */</span>
+<span class="selector-tag">margin</span><span class="selector-pseudo">:10px</span> 5<span class="selector-tag">px</span> 15<span class="selector-tag">px</span> 20<span class="selector-tag">px</span>;
+&lt;!<span class="selector-tag">--</span>￼0<span class="selector-tag">--</span>&gt;</code></pre>
+</li>
+<li><pre><code class="css"><span class="comment">/* (上下)(右左) */</span>
+<span class="selector-tag">margin</span><span class="selector-pseudo">:10px</span> 5<span class="selector-tag">px</span>;
+&lt;!<span class="selector-tag">--</span>￼1<span class="selector-tag">--</span>&gt;</code></pre>
+</li>
+<li><p>嵌套块元素垂直外边距的塌陷</p>
 <ul>
-<li><p>水平居中:text-align: center</p>
+<li><p>概念：对于两个嵌套关系（父子关系的块元素，父元素有上外边距同时子元素也有上外边距，<strong>此时父元素会塌陷较大的外边距值</strong>）</p>
 </li>
-<li><p>垂直居中:line-height: 100px(100px 为 div 的高度)</p>
+<li><p>原因：所有毗邻的两个或更多盒元素的margin将会合并为一个margin共享之，毗邻的定义为：同级或者嵌套的盒元素，并且<strong>它们之间</strong>没有非空内容、padding或border分隔（一般针对于margin-top，margin-left不存在margin共享）</p>
 </li>
+<li><p>解决方案：</p>
+</li>
+<li><p>为父元素定义上边框</p>
+<ul>
+<li>为父元素定义上内边距</li>
+<li>为父元素添加overflow:hidden</li>
+<li>浮动、固定、绝对定位的盒子不会有塌陷的问题</li>
 </ul>
 </li>
-<li><p><strong>使图片与文字垂直对齐(图片默认与文字的基线对齐)</strong></p>
-<p>vertical-align:middle(使图片垂直方向与文字中线对齐)</p>
-</li>
-<li><p><strong>使 div 中的图片水平垂直居中</strong></p>
-<ul>
-<li>首先先将 div 中的文字水平垂直居中</li>
-<li>再 vertical-align:middle(使图片垂直方向与文字中线对齐)</li>
 </ul>
-</li>
-<li><p><strong>使 checkbox 与文字垂直对齐</strong></p>
-<p>checkbox 和文字样式都加 vertical-align:text-bottom</p>
-</li>
-<li><p><strong>使内部盒子水平垂直居中(同时解决了 margin-top 父盒子下落问题)</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.father</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="comment">/* border: 1px solid transparent; */</span></span><br><span class="line">    <span class="comment">/* padding: 1px; */</span></span><br><span class="line">    <span class="comment">/* overflow: hidden; */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.son</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div class="father"&gt;</span><br><span class="line">	&lt;div class="son"&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>相邻块元素垂直外边距的合并</p>
 <ul>
-<li><p><strong>盒子外边距使内部盒子水平垂直居中</strong></p>
-<p>所有毗邻的两个或更多盒元素的margin将会合并为一个margin共享之，毗邻的定义为：同级或者嵌套的盒元素，并且它们之间没有非空内容、Padding或Border分隔</p>
-<p>解决margin-top 父盒子下落办法：</p>
-<ul>
-<li><p>父级或子元素使用浮动或者绝对定位absolute,浮动或绝对定位不参与margin的折叠</p>
-</li>
-<li><p>父级overflow:hidden;</p>
-</li>
-<li><p>父级设置padding（破坏非空白的折叠条件）</p>
-</li>
-<li><p>父级设置border</p>
-</li>
+<li>概念：当上下相邻的两个元素（兄弟关系）相遇时，如果上面的元素有下边距margin-bottom，下面的元素有上外边距margin-top，则他们之间的垂直间距不是margin-bottom与margin-top之和，取两个值中的较大者这种现象被称为相邻块元素垂直外边距的合并</li>
+<li>原因：所有毗邻的两个或更多盒元素的margin将会合并为一个margin共享之，毗邻的定义为：同级或者嵌套的盒元素，并且<strong>它们之间</strong>没有非空内容、padding或border分隔（一般针对于margin-top，margin-left不存在margin共享）</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>无标题文档<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">		div &#123;</span><br><span class="line">			width: 200px;</span><br><span class="line">			height: 200px;</span><br><span class="line"><span class="css">			<span class="selector-tag">background</span>: <span class="selector-id">#FF0</span>;</span></span><br><span class="line">		&#125;</span><br><span class="line"><span class="css">		<span class="comment">/*此时子div加了position:absolute就可以解决margin-top父div下落的问题*/</span></span></span><br><span class="line"><span class="css">		<span class="selector-tag">div</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span></span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 100px;</span><br><span class="line"><span class="css">			<span class="selector-tag">background</span>: <span class="selector-id">#F00</span>;</span></span><br><span class="line">			position: absolute;</span><br><span class="line">			margin-left: 50px;</span><br><span class="line">			margin-top: 50px;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b1</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b2</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div class="b1"&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class="b2"&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>绝对定位使内部盒子水平垂直居中</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>无标题文档<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">		div &#123;</span><br><span class="line">			width: 200px;</span><br><span class="line">			height: 200px;</span><br><span class="line"><span class="css">			<span class="selector-tag">background</span>: <span class="selector-id">#FF0</span>;</span></span><br><span class="line">			position: relative;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="css">		<span class="selector-tag">div</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span></span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 100px;</span><br><span class="line"><span class="css">			<span class="selector-tag">background</span>: <span class="selector-id">#F00</span>;</span></span><br><span class="line">			position: absolute;</span><br><span class="line">			left: 50px;</span><br><span class="line">			top: 50px</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>负margin</p>
+<ul>
+<li><p>正margin-left使div右移，负margin-left使div左移</p>
 </li>
-<li><p><strong>translate使内部盒子水平垂直居中</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>无标题文档<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">		div &#123;</span><br><span class="line">			width: 200px;</span><br><span class="line">			height: 200px;</span><br><span class="line"><span class="css">			<span class="selector-tag">background</span>: <span class="selector-id">#FF0</span>;</span></span><br><span class="line">		&#125;</span><br><span class="line"><span class="css">		<span class="selector-tag">div</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span></span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 100px;</span><br><span class="line"><span class="css">			<span class="selector-tag">background</span>: <span class="selector-id">#F00</span>;</span></span><br><span class="line">			-webkit-transform: translate(50%, 50%);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><img src="/2020/09/26/margin%E3%80%81padding/blog\source\_posts\margin、padding\1.png" alt="1" style="zoom: 67%;">
 </li>
-<li><p><strong>万能方法</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line"><span class="selector-tag">top</span>: 50%;</span><br><span class="line"><span class="selector-tag">left</span>: 50%;</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">-50</span>%,<span class="selector-tag">-50</span>%);</span><br></pre></td></tr></table></figure>
+<li><img src="/2020/09/26/margin%E3%80%81padding/blog\source\_posts\margin、padding\2.png" alt="2" style="zoom: 67%;">
+</li>
+<li><p>圣杯布局（两边固定中间自适应）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* center的宽度占据了整个父级的宽度 */</span></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">float</span>: left</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">    <span class="comment">/* 使left不覆盖center左边 */</span></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">left</span>: -<span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: burlywood;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">80px</span>;</span><br><span class="line">    <span class="comment">/* 使right不覆盖center右边 */</span></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">right</span>: -<span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div class="box"&gt;</span><br><span class="line">    &lt;div class="center"&gt;center&lt;/div&gt;</span><br><span class="line">    &lt;div class="left"&gt;left&lt;/div&gt;</span><br><span class="line">    &lt;div class="right"&gt;right&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>双飞翼布局（两边固定中间自适应）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box2</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span> <span class="selector-class">.center-box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span> <span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: aquamarine;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span> <span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span> <span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: antiquewhite;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div class="box2"&gt;</span><br><span class="line">    &lt;div class="center-box"&gt;</span><br><span class="line">        &lt;div class="center"&gt;center&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class="left"&gt;left&lt;/div&gt;</span><br><span class="line">    &lt;div class="right"&gt;right&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>flex布局实现两边固定中间自适应</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: burlywood;</span><br><span class="line">    <span class="attribute">display</span>: flex;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</span><br><span class="line">	<span class="comment">/*flex属性定义子项目分配剩余空间,用flex来表示占多少份*/</span></span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="selector-tag">section</span>&gt;</span><br><span class="line">    &lt;div&gt;left&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;center&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;right&lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure>
+
 
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图"><a href="#附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图" class="headerlink" title="附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图"></a>附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图</h3><p><img src="/2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/%E6%96%87%E5%AD%97.png" alt></p>
+<h3 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h3><ul>
+<li><pre><code class="css"><span class="comment">/* 上右下左 */</span>
+<span class="selector-tag">padding</span><span class="selector-pseudo">:10px</span> 5<span class="selector-tag">px</span> 15<span class="selector-tag">px</span> 20<span class="selector-tag">px</span>;
+&lt;!<span class="selector-tag">--</span>￼7<span class="selector-tag">--</span>&gt;</code></pre>
+</li>
+<li><pre><code class="css"><span class="comment">/* (上下)(右左) */</span>
+<span class="selector-tag">padding</span><span class="selector-pseudo">:10px</span> 5<span class="selector-tag">px</span>;
+&lt;!<span class="selector-tag">--</span>￼8<span class="selector-tag">--</span>&gt;</code></pre>
+</li>
+<li><p>padding会影响盒子的实际大小</p>
+<ul>
+<li>padding-top、padding-right、padding-bottom、padding-left都会影响盒子实际大小</li>
+<li>传统盒子模型的盒子宽度=css中设置的width+border+padding</li>
+<li>解决方法：盒子宽度或高度减去多出来的内边距大小即可</li>
+</ul>
+</li>
+<li><p>只有一种情况padding不会撑开盒子大小</p>
+<ul>
+<li><p>盒子本身没有指定width或height属性，则此时padding不会撑开盒子大小</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 不给div宽度自动填满body宽度 */</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line"><span class="comment">/*此时盒子宽度不会被撑开20px但是高度还是会撑开20px*/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>盒子一旦指定width或height属性，则padding会撑开盒子大小</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* div宽度给了百分之百也没用，盒子宽度还是会撑开20px(会出现水平方向滚动条) */</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
 
       
 
@@ -398,7 +432,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/05/CSS3%E5%90%84%E7%A7%8D%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/09/26/margin%E3%80%81padding/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -412,18 +446,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/05/05/CSS3%E9%80%89%E6%8B%A9%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          CSS3选择器
+          CSS垂直居中对齐
         
       </div>
     </a>
   
   
-    <a href="/2020/05/05/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">VScode快捷键</div>
+    <a href="/2020/09/24/Math%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Math对象</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -450,7 +484,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3各种对齐问题"><span class="toc-number">1.</span> <span class="toc-text">CSS3各种对齐问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图"><span class="toc-number">2.</span> <span class="toc-text">附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#margin"><span class="toc-number">1.</span> <span class="toc-text">margin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padding"><span class="toc-number">2.</span> <span class="toc-text">padding</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -486,7 +520,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Tue May 05 2020 16:32:48 GMT+0800',
+  	id: 'Sat Sep 26 2020 10:34:58 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -621,11 +655,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
