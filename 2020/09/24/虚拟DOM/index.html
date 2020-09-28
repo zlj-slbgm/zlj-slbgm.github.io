@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="十里不故梦的Blog">
 <meta property="og:description" content="虚拟DOM（Virtual Document Object Model）">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/09/24/%E8%99%9A%E6%8B%9FDOM/blog/source/_posts/%E8%99%9A%E6%8B%9FDOM/1.png">
 <meta property="article:published_time" content="2020-09-24T06:33:21.000Z">
-<meta property="article:modified_time" content="2020-09-25T03:11:10.108Z">
+<meta property="article:modified_time" content="2020-09-27T08:23:54.848Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/09/24/%E8%99%9A%E6%8B%9FDOM/blog/source/_posts/%E8%99%9A%E6%8B%9FDOM/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦的Blog" type="application/atom+xml">
   
@@ -268,10 +270,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var div=&#123;</span><br><span class="line">	tagName: 'div',</span><br><span class="line">	attrs:&#123;</span><br><span class="line">		id: 'mydiv'</span><br><span class="line">		title: '人名性别',</span><br><span class="line">		'data-index'; '0'</span><br><span class="line">	&#125;,</span><br><span class="line">	childrens:[</span><br><span class="line">		'小明',</span><br><span class="line">		&#123;</span><br><span class="line">			tagName: 'p',</span><br><span class="line">			attrs: &#123;&#125;,</span><br><span class="line">			childrens:[</span><br><span class="line">				"哈哈哈qwq"</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-
 </li>
 </ul>
-
+<p><strong>Diff算法</strong></p>
+<ul>
+<li>tree diff：新旧两颗DOM树，逐层对比的过程，就是Tree Diff，当整颗DOM逐层对比完毕，则所有需要被按需更新的元素必然能够找到</li>
+<li>component diff：在进行Tree Diff的时候，每一层中组件级别的对比，叫做Component Diff<ul>
+<li>如果对比前后，组件的类型相同，则暂时认为此组件不需要被更新</li>
+<li>如果对比前后，组件的类型不同，则需要移除旧组件，创建新组件并追加到页面上</li>
+</ul>
+</li>
+<li>element diff：在进行组件对比的时候，如果两个组件的类型相同，则需要进行元素级别的对比，这叫做Element Diff</li>
+</ul>
+<img src="/2020/09/24/%E8%99%9A%E6%8B%9FDOM/blog\source\_posts\虚拟DOM\1.png" alt="1" style="zoom: 67%;">
       
 
       
@@ -595,19 +606,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
