@@ -16,7 +16,7 @@
 <meta property="og:description" content="js变量作用域">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-05T02:57:54.000Z">
-<meta property="article:modified_time" content="2020-09-28T07:10:25.554Z">
+<meta property="article:modified_time" content="2020-09-29T15:19:28.993Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -297,9 +297,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>标记清除：mark and sweep<br>原理：排除全局变量和闭包所形成的AO里面的那些变量，然后排除之后还存在的变量将被视为要被销毁的变量</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a=<span class="number">0</span>; <span class="comment">//进入环境</span></span><br><span class="line">&#125;</span><br><span class="line">test(); <span class="comment">//a离开环境</span></span><br><span class="line"><span class="keyword">var</span> b=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> c=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>引用计数：reference counting<br>原理：这种方式常常会引起内存泄漏，低版本的IE使用这种方式，当引用次数为0时就会被回收</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">//a=1;</span></span><br><span class="line">	<span class="keyword">var</span> b=<span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">//b=1;</span></span><br><span class="line">	<span class="comment">//var c=a; //a++=&gt;2</span></span><br><span class="line">	<span class="comment">//var c=b; //a--=&gt;1</span></span><br><span class="line">	<span class="comment">//循环引用</span></span><br><span class="line">	a.prop=b; <span class="comment">//b=2</span></span><br><span class="line">	b.prop=a; <span class="comment">//a=2</span></span><br><span class="line">    <span class="comment">//解除引用</span></span><br><span class="line">    a=<span class="literal">null</span>;</span><br><span class="line">    b=<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">//a=1;</span></span><br><span class="line">	<span class="keyword">var</span> b=<span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">//b=1;</span></span><br><span class="line">	<span class="comment">//var c=a; //a++=&gt;2</span></span><br><span class="line">	<span class="comment">//var c=b; //a--=&gt;1</span></span><br><span class="line">	<span class="comment">//循环引用</span></span><br><span class="line">	a.prop=b; <span class="comment">//b=2</span></span><br><span class="line">	b.prop=a; <span class="comment">//a=2</span></span><br><span class="line">    <span class="comment">//解除引用</span></span><br><span class="line">    a=<span class="literal">null</span>;</span><br><span class="line">    b=<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -426,8 +424,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     </a>
   
   
-    <a href="/2020/09/03/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">图片懒加载</div>
+    <a href="/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">懒加载</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -633,11 +631,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

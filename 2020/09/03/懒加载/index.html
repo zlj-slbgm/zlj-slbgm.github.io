@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>this指向问题 | 十里不故梦的Blog</title>
+  <title>懒加载 | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="函数内this指向">
+  <meta name="description" content="原生js实现图片懒加载">
 <meta property="og:type" content="article">
-<meta property="og:title" content="this指向问题">
-<meta property="og:url" content="http://yoursite.com/2020/05/07/this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="懒加载">
+<meta property="og:url" content="http://yoursite.com/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="函数内this指向">
+<meta property="og:description" content="原生js实现图片懒加载">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-07T02:05:24.000Z">
-<meta property="article:modified_time" content="2020-09-28T02:23:23.846Z">
+<meta property="article:published_time" content="2020-09-03T07:31:36.000Z">
+<meta property="article:modified_time" content="2020-10-08T07:26:13.197Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="JSJQUERYES5ES6">
+<meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦的Blog" type="application/atom+xml">
@@ -210,14 +210,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-this指向问题" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-懒加载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      this指向问题
+      懒加载
     </h1>
   
 
@@ -233,91 +233,70 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/05/07/this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-07T02:05:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
+        <a href="/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
+  	<time datetime="2020-09-03T07:31:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>函数内this指向</strong></p>
+        <p><strong>原生js实现图片懒加载</strong></p>
 <a id="more"></a>
 
-<table>
-<thead>
-<tr>
-<th>调用方式</th>
-<th>this指向</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>普通函数调用</td>
-<td>window</td>
-</tr>
-<tr>
-<td>构造函数调用</td>
-<td>实例对象   原型对象里面的方法也指向实例对象</td>
-</tr>
-<tr>
-<td>对象方法调用</td>
-<td>该方法所属对象</td>
-</tr>
-<tr>
-<td>事件绑定方法</td>
-<td>绑定事件对象</td>
-</tr>
-<tr>
-<td>定时器函数</td>
-<td>window</td>
-</tr>
-<tr>
-<td>立即执行函数</td>
-<td>window</td>
-</tr>
-</tbody></table>
+<p>图片懒加载的原理：img标签的src属性暂时先改成一个自定义属性，这样页面就不会去加载图片，当img标签所在区域进入屏幕可视区域后，从存放图片路径的自定义属性中获取图片地址，并动态的设置给对应img标签的src属性，这样浏览器就会自动帮助我们去请求对应的图片资源</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        * &#123;</span><br><span class="line">            padding: 0;</span><br><span class="line">            margin: 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ul &#123;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        li &#123;</span><br><span class="line">            height: 900px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        img &#123;</span><br><span class="line">            display: block;</span><br><span class="line">            margin: 0px auto;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图1.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图2.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图3.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图4.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// dataset访问元素上设置的所有自定义数据属性(data-*)集</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// getBoundingClientRect用于获得页面中某个元素的上下左右分别相对浏览器视窗的位置</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload = imgonLoad;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="function"><span class="keyword">function</span> <span class="title">imgonLoad</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> img = <span class="built_in">document</span>.querySelectorAll(<span class="string">"img"</span>);</span></span><br><span class="line"><span class="actionscript">            img.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(value, index, array)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                <span class="comment">// 如果图片的上边到可视窗口的距离小于窗口高度（也就是图片就进入了可视区域了）</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (value.getBoundingClientRect().top &lt; <span class="built_in">window</span>.innerHeight) &#123;</span></span><br><span class="line"><span class="actionscript">                    value.setAttribute(<span class="string">'src'</span>, value.dataset.src)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"><span class="actionscript">        <span class="comment">// 滚动条滚动的再次调用图片加载函数</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">            setTimeout(imgonLoad, 2000)</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>图片懒加载插件：</strong></p>
+<ul>
+<li>jquery.lazyload</li>
+<li>vue-lazyload</li>
+</ul>
+<p><strong>vue-lazyload插件的使用：</strong></p>
+<ol>
+<li><p>安装：npm install vue-lazyload –save-dev</p>
+</li>
+<li><p>main.js中全局引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span></span><br><span class="line">Vue.use(VueLazyLoad, &#123;</span><br><span class="line">  preLoad: <span class="number">1</span>,</span><br><span class="line">  error: <span class="built_in">require</span>(<span class="string">'./assets/img/error.jpg'</span>),</span><br><span class="line">  loading: <span class="built_in">require</span>(<span class="string">'./assets/img/loading.jpg'</span>),</span><br><span class="line">  attempt: <span class="number">2</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>页面中使用：</p>
 <blockquote>
-<p>这些this的指向，是当我们调用函数的时候确定的，调用方式的不同决定了this的指向不同，一般指向我们的调用者</p>
+<img v-lazy="require('./assets/product_1@1x.e059b93.png')" :key="1" alt>
+
+<p>:key=” “必须要加，否则就会出现页面刷新其他内容都刷新了，但是只有图片不刷新的情况 ，因为key可能相同所以页面不会更新</p>
 </blockquote>
-<p><strong>call方法</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.call()可以调用函数 2.call()可以改变函数的this指向</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//原来this指向的是Window对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(x + y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    name: <span class="string">"pink"</span></span><br><span class="line">&#125;</span><br><span class="line">fn.call(o, <span class="number">1</span>, <span class="number">2</span>); <span class="comment">//此时fn这个函数的this就指向了o这个对象</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    Father.call(<span class="keyword">this</span>, name, age); <span class="comment">//将父类的this指向子类的this,借用构造函数继承父类</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">"刘德华"</span>, <span class="number">18</span>);</span><br><span class="line"><span class="built_in">console</span>.log(son);</span><br></pre></td></tr></table></figure>
-<p><strong>apply方法</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.apply()可以调用函数 2.apply()可以改变函数的this指向 3.apply()参数必须为数组</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    name: <span class="string">"pink"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arry</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(arry); <span class="comment">//只输出1</span></span><br><span class="line">&#125;</span><br><span class="line">fn.apply(o, [<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>]);</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// apply()借助数学内置对象求最大值,也就是Math.max(1,4,7,9,17);</span></span><br><span class="line"><span class="keyword">var</span> arry = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">17</span>];</span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, arry); <span class="comment">//最好指向函数的调用者Math</span></span><br><span class="line"><span class="built_in">console</span>.log(max);</span><br></pre></td></tr></table></figure>
-<p><strong>bind方法</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 1.bind()不会调用原来函数 2.bind()可以改变函数的this指向 3.bind()返回的是原函数改变this之后产生的新函数</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> o = &#123;</span></span><br><span class="line"><span class="actionscript">        name: <span class="string">"pink"</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">(x, y)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//结果为o这个对象</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(x + y);<span class="comment">//结果为3</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> f = fn.bind(o, <span class="number">1</span>, <span class="number">2</span>); <span class="comment">//f为改变this之后产生的新函数</span></span></span><br><span class="line">    f();</span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span></span><br><span class="line"><span class="actionscript">    btn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.disabled = <span class="literal">true</span>; <span class="comment">//这个this指向btn这个按钮</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> that = <span class="keyword">this</span>; <span class="comment">//第一种解决方式</span></span></span><br><span class="line"><span class="actionscript">        setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="comment">// this.disabled = false; 定时器里的这个this指向的是window</span></span></span><br><span class="line"><span class="actionscript">            that.disabled = <span class="literal">false</span>;</span></span><br><span class="line">        &#125;, 2000);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span></span><br><span class="line"><span class="actionscript">    btn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.disabled = <span class="literal">true</span>; <span class="comment">//这个this指向btn这个按钮</span></span></span><br><span class="line"><span class="actionscript">        setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="comment">// this.disabled = false; 定时器里的这个this指向的是window</span></span></span><br><span class="line"><span class="actionscript">            <span class="keyword">this</span>.disabled = <span class="literal">false</span>; <span class="comment">//此时定时器的这个this指向的是btn这个按钮了</span></span></span><br><span class="line"><span class="actionscript">        &#125;.bind(<span class="keyword">this</span>), <span class="number">2000</span>); <span class="comment">//第二种解决方式</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>call()、apply()、bind()总结</strong></p>
 <ul>
-<li>相同点：都可以改变函数内部的this指向</li>
-<li>区别点：<ul>
-<li>call和apply会调用函数，并且改变函数内部this指向</li>
-<li>call和apply传递的参数不一样，call传递参数aru1,aru2…形式，apply必须数组形式[arg]</li>
-<li>bind不会调用函数，可以改变函数内部this指向</li>
+<li>img中使用图片懒加载，v-lazy代替v-bind:src </li>
+<li>背景图中使用图片懒加载，v-lazy:background-image = “ “;</li>
 </ul>
 </li>
-<li>主要应用场景：<ul>
-<li>call经常做继承</li>
-<li>apply经常跟数组有关系，比如借助于数学对象实现数组最大值最小值</li>
-<li>bind不调用函数，但还是可以改变this指向，比如改变定时器内部的this指向</li>
-</ul>
+<li><p>img加载时有三种状态：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="selector-tag">img</span><span class="selector-attr">[lazy=loading]</span> &#123;</span><br><span class="line">    <span class="comment">/*your style here*/</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">img</span><span class="selector-attr">[lazy=error]</span> &#123;</span><br><span class="line">    <span class="comment">/*your style here*/</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">img</span><span class="selector-attr">[lazy=loaded]</span> &#123;</span><br><span class="line">    <span class="comment">/*your style here*/</span></span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p><strong>caller和callee的区别</strong></p>
-<ul>
-<li><p>caller：函数fun.caller返回调用fun的函数对象，即<strong>fun的执行环境</strong>，如果fun的执行环境为window则返回null</p>
+<li><p>vue-lazyload官网详解：<a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">https://github.com/hilongjw/vue-lazyload</a></p>
 </li>
-<li><p>callee：callee是函数的arguments这个特殊对象的一个属性，<strong>指向函数本身</strong></p>
+</ol>
+<p><strong>万能懒加载插件：vue-view-lazy</strong>（实现图片或者其他资源进入可视区域后再加载）</p>
+<ol>
+<li><p>安装：npm install –save-dev vue-view-lazy</p>
 </li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用的是函数名完成递归调用，会增强耦合性</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(num&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> num*factorial(num<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">用callee解决阶乘的计算可以降低耦合性</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(num&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> num*<span class="built_in">arguments</span>.callee(num<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>main.js中全局引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vView <span class="keyword">from</span> <span class="string">'vue-view-lazy'</span></span><br><span class="line">Vue.use(vView,&#123;</span><br><span class="line">    error:<span class="string">'./assets/images/loading.png'</span>,</span><br><span class="line">    loading:<span class="string">'./assets/images/loading.gif'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>懒加载图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;ul id&#x3D;&#39;img&#39;&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;in&quot; v-for&#x3D;&quot;(item,i) in imgs&quot; :key&#x3D;&quot;i&quot;&gt;</span><br><span class="line">            &lt;img src&#x3D;&quot;#&quot; alt&#x3D;&quot;图片&quot; v-view-lazy&#x3D;&quot;item.src&quot;&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        data () &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                imgs:[</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img1.jpg&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img2.png&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img2.jpg&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img3.jpg&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img4.jpg&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img5.jpeg&#39;&#125;,  </span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        mounted()&#123;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>懒加载其他资源</p>
+<blockquote>
+<p>@model自定义事件是在该元素在第一次出现在可视区域内时触发的方法</p>
+<p>也可以写成 v-view-lazy=”(e) =&gt; method(e,arg)”</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;icons&quot; v-view-lazy @model&#x3D;&quot;(e) &#x3D;&gt; animate(e)&quot;&gt;</span><br><span class="line">	&lt;svg-icon icon-class&#x3D;&quot;company_ic_vision&quot; class-name&#x3D;&quot;icon&quot;&gt;&lt;&#x2F;svg-icon&gt;</span><br><span class="line">	&lt;div&gt;我是一个好人&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    methods:&#123;</span><br><span class="line">     	&#x2F;&#x2F;e就是绑定事件的元素   </span><br><span class="line">        animate(e) &#123;</span><br><span class="line">      		e.style.opacity &#x3D; 1;</span><br><span class="line">      		e.style.transform &#x3D; &quot;translateY(0)&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-<p><strong>this指向问题1</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">    name: <span class="string">"My Object"</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(object.getName()); <span class="comment">//"My Object"</span></span><br><span class="line"><span class="built_in">console</span>.log((object.getName)()); <span class="comment">//"My Object"</span></span><br><span class="line"><span class="built_in">console</span>.log((object.getName = object.getName)()); <span class="comment">//"The Window"(在非严格模式下)</span></span><br><span class="line"><span class="comment">//前两个都是对象方法调用,指向这个对象object</span></span><br><span class="line"><span class="comment">//赋值语句本身就是一个表达式,它也有返回值,返回值是所赋的值(this在赋值时会出现隐式丢失)</span></span><br><span class="line"><span class="comment">//第三个先赋值再调用,第一个object.getName只是一个接收返回值的普通函数名而这个返回值就是对象里的getName函数,此时调用函数就是普通函数调用了,指向window</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>this指向问题2</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> length = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.length);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    length: <span class="number">5</span>,</span><br><span class="line">    method: <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">        fn();</span><br><span class="line">        <span class="built_in">arguments</span>[<span class="number">0</span>]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.method(fn, <span class="number">1</span>);<span class="comment">//10 2</span></span><br><span class="line"><span class="comment">//fn();此时this指向window，所以this.length=10</span></span><br><span class="line"><span class="comment">//arguments[0]是第一个参数即fn，arguments[0]()的this永远指向arguments，而arguments本身有一个length属性就是参数的个数</span></span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
 
       
 
@@ -362,7 +341,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSJQUERYES5ES6</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
         		</li>
       		
 		</ul>
@@ -419,7 +398,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/07/this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -433,18 +412,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/05/07/%E4%BA%86%E8%A7%A3Node-js/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/05/js%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90%E3%80%81%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          了解Node.js
+          js变量作用域、预解析、立即执行函数、闭包、垃圾回收机制
         
       </div>
     </a>
   
   
-    <a href="/2020/05/06/Number/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Number对象</div>
+    <a href="/2020/08/09/%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BA%8B%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">函数与事件</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -507,7 +486,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Thu May 07 2020 10:05:24 GMT+0800',
+  	id: 'Thu Sep 03 2020 15:31:36 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -650,11 +629,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
