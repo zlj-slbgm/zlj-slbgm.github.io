@@ -16,7 +16,7 @@
 <meta property="og:description" content="原生js实现图片懒加载">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-03T07:31:36.000Z">
-<meta property="article:modified_time" content="2020-10-08T08:17:02.432Z">
+<meta property="article:modified_time" content="2020-10-08T11:13:46.018Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -241,26 +241,23 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>原生js实现图片懒加载</strong></p>
-<a id="more"></a>
+        <h3 id="原生js实现图片懒加载"><a href="#原生js实现图片懒加载" class="headerlink" title="原生js实现图片懒加载"></a><strong>原生js实现图片懒加载</strong></h3><a id="more"></a>
 
 <p>图片懒加载的原理：img标签的src属性暂时先改成一个自定义属性，这样页面就不会去加载图片，当img标签所在区域进入屏幕可视区域后，从存放图片路径的自定义属性中获取图片地址，并动态的设置给对应img标签的src属性，这样浏览器就会自动帮助我们去请求对应的图片资源</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        * &#123;</span><br><span class="line">            padding: 0;</span><br><span class="line">            margin: 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ul &#123;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        li &#123;</span><br><span class="line">            height: 900px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        img &#123;</span><br><span class="line">            display: block;</span><br><span class="line">            margin: 0px auto;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图1.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图2.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图3.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图4.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// dataset访问元素上设置的所有自定义数据属性(data-*)集</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// getBoundingClientRect用于获得页面中某个元素的上下左右分别相对浏览器视窗的位置</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload = imgonLoad;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="function"><span class="keyword">function</span> <span class="title">imgonLoad</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> img = <span class="built_in">document</span>.querySelectorAll(<span class="string">"img"</span>);</span></span><br><span class="line"><span class="actionscript">            img.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(value, index, array)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                <span class="comment">// 如果图片的上边到可视窗口的距离小于窗口高度（也就是图片就进入了可视区域了）</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (value.getBoundingClientRect().top &lt; <span class="built_in">window</span>.innerHeight) &#123;</span></span><br><span class="line"><span class="actionscript">                    value.setAttribute(<span class="string">'src'</span>, value.dataset.src)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"><span class="actionscript">        <span class="comment">// 滚动条滚动的再次调用图片加载函数</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">            setTimeout(imgonLoad, 2000)</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width， initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        * &#123;</span><br><span class="line">            padding: 0;</span><br><span class="line">            margin: 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ul &#123;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        li &#123;</span><br><span class="line">            height: 900px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        img &#123;</span><br><span class="line">            display: block;</span><br><span class="line">            margin: 0px auto;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图1.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图2.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图3.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">"images/轮播图4.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// dataset访问元素上设置的所有自定义数据属性(data-*)集</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// getBoundingClientRect用于获得页面中某个元素的上下左右分别相对浏览器视窗的位置</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload = imgonLoad;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="function"><span class="keyword">function</span> <span class="title">imgonLoad</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> img = <span class="built_in">document</span>.querySelectorAll(<span class="string">"img"</span>);</span></span><br><span class="line"><span class="actionscript">            img.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(value， index， array)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                <span class="comment">// 如果图片的上边到可视窗口的距离小于窗口高度（也就是图片就进入了可视区域了）</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (value.getBoundingClientRect().top &lt; <span class="built_in">window</span>.innerHeight) &#123;</span></span><br><span class="line"><span class="actionscript">                    value.setAttribute(<span class="string">'src'</span>， value.dataset.src)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"><span class="actionscript">        <span class="comment">// 滚动条滚动的再次调用图片加载函数</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">            setTimeout(imgonLoad， 2000)</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>图片懒加载插件：</strong></p>
-<ul>
+<h3 id="图片懒加载插件："><a href="#图片懒加载插件：" class="headerlink" title="图片懒加载插件："></a>图片懒加载插件：</h3><ul>
 <li>jquery.lazyload</li>
 <li>vue-lazyload</li>
 </ul>
-<p><strong>vue-lazyload插件的使用：</strong></p>
-<blockquote>
+<h3 id="vue-lazyload插件的使用："><a href="#vue-lazyload插件的使用：" class="headerlink" title="vue-lazyload插件的使用："></a>vue-lazyload插件的使用：</h3><blockquote>
 <p>vue-lazyload官网详解：<a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">https://github.com/hilongjw/vue-lazyload</a></p>
 </blockquote>
 <ul>
 <li><p>安装：npm install vue-lazyload –save-dev</p>
 </li>
 <li><p>main.js中全局引入：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span></span><br><span class="line">Vue.use(VueLazyLoad, &#123;</span><br><span class="line">  preLoad: <span class="number">1</span>,</span><br><span class="line">  error: <span class="built_in">require</span>(<span class="string">'./assets/img/error.jpg'</span>),</span><br><span class="line">  loading: <span class="built_in">require</span>(<span class="string">'./assets/img/loading.jpg'</span>),</span><br><span class="line">  attempt: <span class="number">2</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span></span><br><span class="line">Vue.use(VueLazyLoad， &#123;</span><br><span class="line">  preLoad: <span class="number">1</span>，</span><br><span class="line">  error: <span class="built_in">require</span>(<span class="string">'./assets/img/error.jpg'</span>)，</span><br><span class="line">  loading: <span class="built_in">require</span>(<span class="string">'./assets/img/loading.jpg'</span>)，</span><br><span class="line">  attempt: <span class="number">2</span>，</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>页面中使用：</p>
 <blockquote>
@@ -278,30 +275,115 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
-<p><strong>万能懒加载插件：vue-view-lazy</strong>（实现图片或者其他资源进入可视区域后再加载）</p>
+<h3 id="万能懒加载插件：vue-view-lazy"><a href="#万能懒加载插件：vue-view-lazy" class="headerlink" title="万能懒加载插件：vue-view-lazy"></a>万能懒加载插件：vue-view-lazy</h3><blockquote>
+<p>实现图片或者其他资源进入可视区域后再加载</p>
+</blockquote>
 <ul>
 <li><p>安装：npm install –save-dev vue-view-lazy</p>
 </li>
 <li><p>main.js中全局引入：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vView <span class="keyword">from</span> <span class="string">'vue-view-lazy'</span></span><br><span class="line">Vue.use(vView,&#123;</span><br><span class="line">    error:<span class="string">'./assets/images/loading.png'</span>,</span><br><span class="line">    loading:<span class="string">'./assets/images/loading.gif'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vView <span class="keyword">from</span> <span class="string">'vue-view-lazy'</span></span><br><span class="line">Vue.use(vView，&#123;</span><br><span class="line">    error:<span class="string">'./assets/images/loading.png'</span>，</span><br><span class="line">    loading:<span class="string">'./assets/images/loading.gif'</span>，</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>懒加载图片</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;ul id&#x3D;&#39;img&#39;&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;in&quot; v-for&#x3D;&quot;(item,i) in imgs&quot; :key&#x3D;&quot;i&quot;&gt;</span><br><span class="line">            &lt;img src&#x3D;&quot;#&quot; alt&#x3D;&quot;图片&quot; v-view-lazy&#x3D;&quot;item.src&quot;&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        data () &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                imgs:[</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img1.jpg&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img2.png&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img2.jpg&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img3.jpg&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img4.jpg&#39;&#125;,</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img5.jpeg&#39;&#125;,  </span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        mounted()&#123;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;ul id&#x3D;&#39;img&#39;&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;in&quot; v-for&#x3D;&quot;(item，i) in imgs&quot; :key&#x3D;&quot;i&quot;&gt;</span><br><span class="line">            &lt;img src&#x3D;&quot;#&quot; alt&#x3D;&quot;图片&quot; v-view-lazy&#x3D;&quot;item.src&quot;&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        data () &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                imgs:[</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img1.jpg&#39;&#125;，</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img2.png&#39;&#125;，</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img2.jpg&#39;&#125;，</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img3.jpg&#39;&#125;，</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img4.jpg&#39;&#125;，</span><br><span class="line">                    &#123;src:&#39;..&#x2F;..&#x2F;static&#x2F;images&#x2F;img5.jpeg&#39;&#125;，  </span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;，</span><br><span class="line">        mounted()&#123;</span><br><span class="line">        &#125;，</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>懒加载其他资源</p>
 <blockquote>
 <p>@model自定义事件是在该元素在第一次出现在可视区域内时触发的方法</p>
-<p>也可以写成 v-view-lazy=”(e) =&gt; method(e,arg)”</p>
+<p>也可以写成 v-view-lazy=”(e) =&gt; method(e，arg)”</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;icons&quot; v-view-lazy @model&#x3D;&quot;(e) &#x3D;&gt; animate(e)&quot;&gt;</span><br><span class="line">	&lt;svg-icon icon-class&#x3D;&quot;company_ic_vision&quot; class-name&#x3D;&quot;icon&quot;&gt;&lt;&#x2F;svg-icon&gt;</span><br><span class="line">	&lt;div&gt;我是一个好人&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    methods:&#123;</span><br><span class="line">     	&#x2F;&#x2F;e就是绑定事件的元素   </span><br><span class="line">        animate(e) &#123;</span><br><span class="line">      		e.style.opacity &#x3D; 1;</span><br><span class="line">      		e.style.transform &#x3D; &quot;translateY(0)&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-
-
-
-
+</li>
+</ul>
+<h3 id="vue-lazy-render插件"><a href="#vue-lazy-render插件" class="headerlink" title="vue-lazy-render插件"></a>vue-lazy-render插件</h3><blockquote>
+<p>用于vue组件的延迟渲染，改善初次进入页面或者数据量较大的页面操作时出现卡顿的情况</p>
+</blockquote>
+<ul>
+<li><p>安装：npm install vue-lazy-render</p>
+</li>
+<li><p>main.js中全局引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> LazyRender <span class="keyword">from</span> <span class="string">'vue-lazy-render'</span></span><br><span class="line">Vue.use(LazyRender)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在页面中使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;lazy-render :data&#x3D;&quot;myArray&quot; :time&#x3D;&quot;300&quot; :limit&#x3D;&quot;50&quot; track-by-data&gt;</span><br><span class="line">    &lt;my-component :data&#x3D;&quot;myArray&quot;&gt;&lt;&#x2F;my-component&gt;</span><br><span class="line">    &lt;div slot&#x3D;&quot;tip&quot;&gt;this is a tip&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;lazy-render&gt;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+<th align="left">type</th>
+<th align="left">default</th>
+<th align="left">required</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">time</td>
+<td align="left">多长时间后开始渲染组件</td>
+<td align="left">Number</td>
+<td align="left">10</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">immediately</td>
+<td align="left">是否立即开启延迟渲染，vue-lazy-render组件会在路由切换时，会进行一次延迟渲染，如果在同一个路由中需经常对某个组件进行延迟渲染，可以将immediately由false设为true，就会马上开启一次延迟渲染</td>
+<td align="left">Boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">data</td>
+<td align="left">如果需要延迟加载的组件是由数组渲染的，可以将数据的数据prop进vue-lazy-render组件，组件会根据配置监测数组变化，决定开启延迟加载的时机</td>
+<td align="left">array</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">trackByData</td>
+<td align="left">是否根据data的变化来开启延迟加载，如果设为true，需将data prop进来，并且路由切换时不会再进行延迟渲染</td>
+<td align="left">Boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td align="left">在数据超过多少后才开启延迟渲染，需要data和将trackByData设为true</td>
+<td align="left">Number</td>
+<td align="left">30</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">maskClass</td>
+<td align="left">等待渲染时的遮罩层样式</td>
+<td align="left">String</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">tip</td>
+<td align="left">等待渲染时的提示文字(支持直接写html)</td>
+<td align="left">String</td>
+<td align="left">正在渲染，请稍候</td>
+<td align="left">false</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">事件名</th>
+<th align="left">描述</th>
+<th align="left">参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">loaded</td>
+<td align="left">延迟渲染完成后的回调</td>
+<td align="left">—</td>
+</tr>
+</tbody></table>
 
       
 
@@ -455,7 +537,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原生js实现图片懒加载"><span class="toc-number">1.</span> <span class="toc-text">原生js实现图片懒加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片懒加载插件："><span class="toc-number">2.</span> <span class="toc-text">图片懒加载插件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-lazyload插件的使用："><span class="toc-number">3.</span> <span class="toc-text">vue-lazyload插件的使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#万能懒加载插件：vue-view-lazy"><span class="toc-number">4.</span> <span class="toc-text">万能懒加载插件：vue-view-lazy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-lazy-render插件"><span class="toc-number">5.</span> <span class="toc-text">vue-lazy-render插件</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -626,15 +708,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,11 +720,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
             
             <div class="clearfix"></div>
