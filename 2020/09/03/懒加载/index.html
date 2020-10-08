@@ -16,7 +16,7 @@
 <meta property="og:description" content="原生js实现图片懒加载">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-03T07:31:36.000Z">
-<meta property="article:modified_time" content="2020-10-08T07:26:13.197Z">
+<meta property="article:modified_time" content="2020-10-08T08:17:02.432Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -253,7 +253,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>vue-lazyload</li>
 </ul>
 <p><strong>vue-lazyload插件的使用：</strong></p>
-<ol>
+<blockquote>
+<p>vue-lazyload官网详解：<a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">https://github.com/hilongjw/vue-lazyload</a></p>
+</blockquote>
+<ul>
 <li><p>安装：npm install vue-lazyload –save-dev</p>
 </li>
 <li><p>main.js中全局引入：</p>
@@ -267,17 +270,16 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </blockquote>
 <ul>
 <li>img中使用图片懒加载，v-lazy代替v-bind:src </li>
-<li>背景图中使用图片懒加载，v-lazy:background-image = “ “;</li>
+<li>背景图中使用图片懒加载，v-lazy:background-image = “ “</li>
 </ul>
 </li>
 <li><p>img加载时有三种状态：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="selector-tag">img</span><span class="selector-attr">[lazy=loading]</span> &#123;</span><br><span class="line">    <span class="comment">/*your style here*/</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">img</span><span class="selector-attr">[lazy=error]</span> &#123;</span><br><span class="line">    <span class="comment">/*your style here*/</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">img</span><span class="selector-attr">[lazy=loaded]</span> &#123;</span><br><span class="line">    <span class="comment">/*your style here*/</span></span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>vue-lazyload官网详解：<a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">https://github.com/hilongjw/vue-lazyload</a></p>
-</li>
-</ol>
+</ul>
 <p><strong>万能懒加载插件：vue-view-lazy</strong>（实现图片或者其他资源进入可视区域后再加载）</p>
-<ol>
+<ul>
 <li><p>安装：npm install –save-dev vue-view-lazy</p>
 </li>
 <li><p>main.js中全局引入：</p>
@@ -295,8 +297,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 
 
+
+
+
 </li>
-</ol>
+</ul>
 
       
 
@@ -621,11 +626,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
