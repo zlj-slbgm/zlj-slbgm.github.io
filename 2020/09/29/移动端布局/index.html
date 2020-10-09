@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/09/29/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/1.jpeg">
 <meta property="article:published_time" content="2020-09-29T07:40:49.000Z">
-<meta property="article:modified_time" content="2020-10-08T07:40:19.651Z">
+<meta property="article:modified_time" content="2020-10-09T06:18:27.536Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -344,9 +344,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>flex-start：上对齐</li>
 <li>flex-end：下对齐</li>
 <li>center：垂直对齐</li>
+<li>baseline: 以第一行文字的基线对齐</li>
 </ul>
-</li>
-<li><p>baseline: 以第一行文字的基线对齐</p>
 </li>
 <li><p><strong>align-content：设置侧轴上的元素排列方式（只适用于多行的flex容器，也就是flex容器中的子项不止一行时该属性才有效果）</strong></p>
 <ul>
@@ -511,7 +510,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 <li><p>自适应DPR加载图片的三种方法</p>
 <ul>
-<li><p>使用 picture 标签</p>
+<li><p>使用picture标签</p>
 <ul>
 <li><p>picture标签通过包含零或多个source元素和一个img元素来为不同的显示设备提供图像版本，source元素依据媒体条件，如果匹配条件为false，则这个source元素被跳过，如果都没有匹配，则选择 img</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">srcset</span>=<span class="string">"photo@3x.jpg"</span> <span class="attr">media</span>=<span class="string">"(min-width: 800px)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">srcset</span>=<span class="string">"photo@2x.jpg"</span> <span class="attr">media</span>=<span class="string">"(min-width: 600px)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">srcset</span>=<span class="string">"photo.jpg"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -734,6 +733,17 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>每一列默认有左右15像素的padding</p>
 </blockquote>
 </li>
+</ul>
+</li>
+<li><p>响应式布局需要注意点</p>
+<ul>
+<li>设置viewport</li>
+<li>注意兼容性</li>
+<li>配合媒体查询</li>
+<li>字体需要适配</li>
+<li>移动端多倍图的适配</li>
+<li>页面布局可配合flex，grid</li>
+<li>可使用现成的UI框架</li>
 </ul>
 </li>
 </ul>
@@ -1077,11 +1087,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
             
             <div class="clearfix"></div>
