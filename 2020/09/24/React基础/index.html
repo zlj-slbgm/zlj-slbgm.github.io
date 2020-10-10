@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/09/24/React%E5%9F%BA%E7%A1%80/1.png">
 <meta property="article:published_time" content="2020-09-24T06:33:21.000Z">
-<meta property="article:modified_time" content="2020-09-28T10:01:59.029Z">
+<meta property="article:modified_time" content="2020-10-09T08:49:38.373Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
@@ -247,7 +247,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 <ul>
 <li>DOM的本质：DOM是浏览器中的概念，用js对象来表示页面上的元素，并提供操作DOM对象的API</li>
-<li>React中的虚拟DOM的本质：虚拟DOM是框架中的概念，是程序员用js对象来模拟页面上的DOM和DOM嵌套</li>
+<li>React中的虚拟DOM的本质：虚拟DOM是框架中的概念，是程序员<strong>用js对象来模拟页面上的DOM和DOM嵌套</strong></li>
 <li>虚拟DOM的目的：为了实现页面中DOM元素的高效更新</li>
 </ul>
 <p><strong>数据渲染</strong></p>
@@ -284,11 +284,37 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <img src="/2020/09/24/React%E5%9F%BA%E7%A1%80/1.png" alt="1" style="zoom: 67%;">
 
 <h3 id="React脚手架"><a href="#React脚手架" class="headerlink" title="React脚手架"></a>React脚手架</h3><ul>
-<li><p>全局安装脚手架：<code>npm install -g create-react-app</code></p>
+<li>全局安装脚手架：<code>npm install -g create-react-app</code></li>
+<li>创建项目：<code>create-react-app helloworld</code></li>
+<li>启动项目：<code>npm run start</code></li>
+</ul>
+<h3 id="jsx语法"><a href="#jsx语法" class="headerlink" title="jsx语法"></a>jsx语法</h3><blockquote>
+<p>创建虚拟DOM元素：</p>
+<p>const mydiv = React.createElement( ‘div’, { id: ‘mydiv’ , title: ‘这是一个div’ } , ‘div内容’ )</p>
+<p>ReactDOM.render( mydiv , document.getElementById(‘root’) )</p>
+</blockquote>
+<ul>
+<li><p>介绍：jsx就是符合xml规范的js语法（语法格式相对来说要比HTML严谨很多）</p>
 </li>
-<li><p>创建项目：<code>create-react-app helloworld</code></p>
+<li><p>本质：并不是直接把jsx渲染到页面上，而是内部先转换成了createElement形式再渲染</p>
 </li>
-<li><p>启动项目：<code>npm run start</code></p>
+<li><p>语法：</p>
+<blockquote>
+<p>将普通字符串数组转为jsx数组并渲染到页面上：</p>
+<p>方法1：forEach()</p>
+<p>方法2：map()</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 10</span><br><span class="line">let str &#x3D; &quot;哈哈哈&quot;</span><br><span class="line">let boo &#x3D; false</span><br><span class="line">let title &#x3D; &quot;888&quot;</span><br><span class="line">&#x2F;&#x2F;jsx元素</span><br><span class="line">const h1 &#x3D; &lt;h1&gt;哈哈哈&lt;&#x2F;h1&gt;</span><br><span class="line">&#x2F;&#x2F;jsx元素数组</span><br><span class="line">const arr &#x3D; [</span><br><span class="line">  &lt;h1&gt;这是h1&lt;&#x2F;h1&gt;,</span><br><span class="line">  &lt;h2&gt;这是h2&lt;&#x2F;h2&gt;</span><br><span class="line">]</span><br><span class="line">&#x2F;&#x2F;普通字符串数组</span><br><span class="line">const arrStr &#x3D; [&#39;喜洋洋&#39;,&#39;懒洋洋&#39;,&#39;灰太狼&#39;]</span><br><span class="line">const nameArr &#x3D; []</span><br><span class="line">arrStr.forEach(item&#x3D;&gt;&#123;</span><br><span class="line">  const temp &#x3D; &lt;h2 key&#x3D;&#123;item&#125;&gt;&#123;item&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">  nameArr.push(temp)</span><br><span class="line">&#125;)</span><br><span class="line">ReactDOM.render(</span><br><span class="line">&lt;div&gt; </span><br><span class="line">  &#123;a + 2&#125; </span><br><span class="line">  &#123;str&#125;</span><br><span class="line">  &#123;boo ? &quot;条件为真&quot; : &quot;条件为假&quot;&#125;</span><br><span class="line">  &lt;p title&#x3D;&#123;title&#125;&gt;ppp&lt;&#x2F;p&gt;</span><br><span class="line">  &#123;h1&#125;</span><br><span class="line">  &#123;arr&#125;</span><br><span class="line">  &#123;nameArr&#125;</span><br><span class="line">  &#123;arrStr.map(item&#x3D;&gt;&lt;h2 key&#x3D;&#123;item&#125;&gt;&#123;item&#125;&lt;&#x2F;h2&gt;)&#125;</span><br><span class="line">&lt;&#x2F;div&gt;, document.getElementById(&quot;root&quot;));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>jsx写注释：</p>
+<ul>
+<li>单行注释：{ // 这是注释 }</li>
+<li>多行注释：{ /* 这是注释 */ }</li>
+</ul>
+</li>
+<li><p>需要使用<code>className</code>来替换class，<code>htmlFor</code>替换label的for属性</p>
+</li>
+<li><p>当编译引擎在编译jsx代码的时候，如果遇到了<code>&lt;</code>那么就把它当作HTML代码去编译，如果遇到了<code>{}</code>就把花括号内部的代码当作普通js代码去编译</p>
 </li>
 </ul>
 
@@ -444,7 +470,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟DOM（Virtual-Document-Object-Model）"><span class="toc-number">1.</span> <span class="toc-text">虚拟DOM（Virtual Document Object Model）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React脚手架"><span class="toc-number">2.</span> <span class="toc-text">React脚手架</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟DOM（Virtual-Document-Object-Model）"><span class="toc-number">1.</span> <span class="toc-text">虚拟DOM（Virtual Document Object Model）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React脚手架"><span class="toc-number">2.</span> <span class="toc-text">React脚手架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsx语法"><span class="toc-number">3.</span> <span class="toc-text">jsx语法</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -623,11 +649,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
