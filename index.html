@@ -216,6 +216,142 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue之引入插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/">Vue之引入插件</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2020-10-11T07:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Vuecli3-中引入-bootstrap"><a href="#Vuecli3-中引入-bootstrap" class="headerlink" title="Vuecli3 中引入 bootstrap"></a>Vuecli3 中引入 bootstrap</h3><blockquote>
+<p>在vue项目中引入bootstrap，首先要引入两个依赖：jQuery和popper</p>
+</blockquote>
+<p>npm安装方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install bootstrap --save-dev</span><br><span class="line">npm install jquery --save-dev</span><br><span class="line">npm install popper.js --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>可视化窗口安装方式：</p>
+<ul>
+<li>找到：项目&gt; 依赖&gt; +安装依赖&gt; 运行依赖<br>搜索并安装 jquery 和 popper.js</li>
+<li>找到：项目&gt; 依赖&gt; +安装依赖&gt; 开发依赖<br>搜索并安装 bootstrap</li>
+</ul>
+<p>在mian.js中引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入jQuery、bootstrap</span></span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'bootstrap'</span></span><br><span class="line"><span class="comment">// 引入bootstrap样式</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'bootstrap/dist/css/bootstrap.min.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'bootstrap/dist/js/bootstrap.min.js'</span></span><br><span class="line"><span class="comment">// 全局注册 $</span></span><br><span class="line">Vue.prototype.$ = $</span><br></pre></td></tr></table></figure>
+
+<p>在vue.config.js中配置jQuery：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	<span class="comment">// 配置插件参数</span></span><br><span class="line">	configureWebpack: &#123;</span><br><span class="line">		plugins: [</span><br><span class="line">			<span class="comment">// 配置jQuery插件的参数</span></span><br><span class="line">			<span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">				$: <span class="string">'jquery'</span>,</span><br><span class="line">				jQuery: <span class="string">'jquery'</span>,</span><br><span class="line">				<span class="string">'window.jQuery'</span>: <span class="string">'jquery'</span>,</span><br><span class="line">				Popper: [<span class="string">'popper.js'</span>, <span class="string">'default'</span>]</span><br><span class="line">			&#125;)</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue中引入Swiper插件"><a href="#Vue中引入Swiper插件" class="headerlink" title="Vue中引入Swiper插件"></a>Vue中引入Swiper插件</h3><blockquote>
+<p>详情链接：<a href="https://www.cnblogs.com/toggle/p/7676473.html和https://www.swiper.com.cn/" target="_blank" rel="noopener">https://www.cnblogs.com/toggle/p/7676473.html和https://www.swiper.com.cn/</a></p>
+</blockquote>
+<ul>
+<li><p>安装：npm install swiper –save-dev</p>
+</li>
+<li><p>在组件中引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"swiper/swiper-bundle.css"</span>;</span><br><span class="line"><span class="keyword">import</span> Swiper <span class="keyword">from</span> <span class="string">"swiper"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在mounted()中初始化插件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">	<span class="keyword">new</span> Swiper(<span class="string">".swiper-container"</span>, &#123;</span><br><span class="line">		direction: <span class="string">"horizontal"</span>,</span><br><span class="line">      	loop: <span class="literal">true</span>,</span><br><span class="line">      	autoplay: <span class="number">5000</span>,</span><br><span class="line">        <span class="comment">// 设置slider容器能够同时显示的slide数量</span></span><br><span class="line">      	slidesPerView: <span class="string">"1.5"</span>,</span><br><span class="line">        <span class="comment">// 设定为true时，活动块会居中，而不是默认状态下的居左</span></span><br><span class="line">      	centeredSlides: <span class="literal">true</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DOM</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>slide1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>slide2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>slide3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CSS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.swiper-container&#123;</span><br><span class="line">	width: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.swiper-container .swiper-wrapper .swiper-slide-prev &#123;</span><br><span class="line">	margin-top: 1rem;</span><br><span class="line">&#125;</span><br><span class="line">.swiper-container .swiper-wrapper .swiper-slide-next &#123;</span><br><span class="line">	margin-top: 1rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      <div id="gitalk-container"></div>
+      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '6e75a816882be5261996',
+  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
+  	repo: 'zlj-slbgm.github.io',
+  	owner: 'zlj-slbgm',
+  	admin: ['zlj-slbgm'],
+  	id: '',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
     <article id="post-SVG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1134,108 +1270,6 @@ gitalk.render('gitalk-container')
 
 
   
-    <article id="post-判断数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/09/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">判断数据类型</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/09/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-09-09T06:29:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="原生JS数据类型"><a href="#原生JS数据类型" class="headerlink" title="原生JS数据类型"></a>原生JS数据类型</h3>
-        
-          <a class="article-more-a" href="/2020/09/09/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/09/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next»</a>
@@ -1377,11 +1411,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
