@@ -6,25 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>十里不故梦的Blog</title>
+  <title>颜色 | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="十里不故梦的Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="rgb()函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="颜色">
+<meta property="og:url" content="http://yoursite.com/2020/10/12/%E9%A2%9C%E8%89%B2/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="rgb()函数">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/10/12/%E9%A2%9C%E8%89%B2/1.png">
+<meta property="article:published_time" content="2020-10-12T08:51:10.000Z">
+<meta property="article:modified_time" content="2020-10-12T15:46:31.918Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="Web前端">
-<meta property="article:tag" content="Html5">
-<meta property="article:tag" content="Css">
-<meta property="article:tag" content="Js">
-<meta property="article:tag" content="Jquery">
-<meta property="article:tag" content="nodejs">
-<meta property="article:tag" content="vue">
-<meta property="article:tag" content="Uniapp">
+<meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/10/12/%E9%A2%9C%E8%89%B2/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦的Blog" type="application/atom+xml">
   
@@ -215,36 +212,179 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-CSS3高级用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-颜色" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/15/CSS3%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/">CSS3高级用法</a>
+    <h1 class="article-title" itemprop="name">
+      颜色
     </h1>
   
 
         <!--显示阅读次数-->
         
+        <br />
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/09/15/CSS3%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-09-15T02:36:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
+        <a href="/2020/10/12/%E9%A2%9C%E8%89%B2/" class="archive-article-date">
+  	<time datetime="2020-10-12T08:51:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="CSS3高级用法"><a href="#CSS3高级用法" class="headerlink" title="CSS3高级用法"></a>CSS3高级用法</h3>
-        
-          <a class="article-more-a" href="/2020/09/15/CSS3%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/#more">more >></a>
-        
+        <h3 id="rgb-函数"><a href="#rgb-函数" class="headerlink" title="rgb()函数"></a>rgb()函数</h3><a id="more"></a>
+
+<blockquote>
+<p>两位十六进制最大为FF对应十进制为255</p>
+</blockquote>
+<ul>
+<li>定义：<ul>
+<li>使用红(R)、绿(G)、蓝(B)的叠加来生成各式各样的颜色</li>
+<li>红色（R）0 到 255 间的整数，代表颜色中的红色成分</li>
+<li>绿色（G）0 到 255 间的整数，代表颜色中的绿色成分</li>
+<li>蓝色（B）0 到 255 间的整数，代表颜色中的蓝色成分</li>
+</ul>
+</li>
+<li>使用：<ul>
+<li><code>background-color: rgb(255,0,0)</code> 红色</li>
+<li><code>background-color: rgb(0,255,0)</code> 绿色</li>
+<li><code>background-color: rgb(0,0,255)</code> 蓝色</li>
+</ul>
+</li>
+</ul>
+<h3 id="rgba-函数"><a href="#rgba-函数" class="headerlink" title="rgba()函数"></a>rgba()函数</h3><ul>
+<li>定义：<ul>
+<li>使用红(R)、绿(G)、蓝(B)、透明度(A)的叠加来生成各式各样的颜色</li>
+<li>透明度（A）取值 0~1 之间， 代表透明度（0：完全透明，1：完全不透明）</li>
+</ul>
+</li>
+<li>使用：<ul>
+<li><code>background-color: rgba(255,0,0,0.3)</code></li>
+</ul>
+</li>
+</ul>
+<img src="/2020/10/12/%E9%A2%9C%E8%89%B2/1.png" style="zoom: 50%;">
+
+<h3 id="hsl-函数"><a href="#hsl-函数" class="headerlink" title="hsl()函数"></a>hsl()函数</h3><ul>
+<li>定义：<ul>
+<li>使用色相、饱和度、亮度来定义颜色</li>
+<li>色相（H）是色彩的基本属性，也就是颜色名称如红色、黄色等，取 0~360 的数值</li>
+<li>饱和度（S）是指色彩的纯度，越高色彩越纯，低则逐渐变灰，取 0~100% 的数值</li>
+<li>亮度（L），定义亮度 0% 为暗, 50% 为普通, 100% 为白</li>
+</ul>
+</li>
+<li>使用：<ul>
+<li><code>hsl(120,100%,75%)</code>浅绿</li>
+</ul>
+</li>
+</ul>
+<h3 id="hsla-函数"><a href="#hsla-函数" class="headerlink" title="hsla()函数"></a>hsla()函数</h3><ul>
+<li>定义：<ul>
+<li>使用色相、饱和度、亮度、透明度来定义颜色</li>
+<li>透明度（A）取值 0~1 之间， 代表透明度（0：完全透明，1：完全不透明）</li>
+</ul>
+</li>
+<li>使用：<ul>
+<li><code>hsl(120,100%,75%,0.3)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="CSS3颜色渐变"><a href="#CSS3颜色渐变" class="headerlink" title="CSS3颜色渐变"></a>CSS3颜色渐变</h3><blockquote>
+<p>渐变不是单一个色，它产生的是图像，所以不能用background-color可用background-image或者background</p>
+</blockquote>
+<ul>
+<li><p>线性渐变</p>
+<ul>
+<li>定义：linear-gradient(方向,开始颜色 位置 颜色2 位置 … 结束颜色 位置)</li>
+<li>渐变方向取值：<ul>
+<li>to top——0deg</li>
+<li>to right——90deg</li>
+<li>to bottom——180deg（默认值）</li>
+<li>to left——270deg</li>
+</ul>
+</li>
+<li>使用：<code>background:linear-gradient(to right,yellow 0%,red 100%)</code></li>
+</ul>
+</li>
+<li><p>径向渐变</p>
+<blockquote>
+<p>默认值：渐变的中心点是center（中心点），渐变的形状是ellipse（椭圆形），渐变的大小是farthest-corner（表示到最远的角落）</p>
+</blockquote>
+<ul>
+<li>定义：<code>background:radial-gradient(shape size at position,start-color,...,last-color)</code></li>
+<li>shape（渐变形状）取值：<ul>
+<li>ellipse</li>
+<li>circle</li>
+</ul>
+</li>
+<li>size（渐变大小）取值：<ul>
+<li>closest-side（指定径向渐变的半径长度为从圆心到离圆心最近的边）</li>
+<li>closest-corner（指定径向渐变的半径长度为从圆心到离圆心最近的角）</li>
+<li>farthest-side（指定径向渐变的半径长度为从圆心到离圆心最远的边）</li>
+<li>farthest-corner（指定径向渐变的半径长度为从圆心到离圆心最远的角）</li>
+</ul>
+</li>
+<li>position（渐变中心点）取值：<ul>
+<li>具体数值</li>
+<li>百分比</li>
+<li>方位名词</li>
+</ul>
+</li>
+<li>使用：background:radial-gradient(closest-side at 60% 55%, red, yellow, black)</li>
+</ul>
+</li>
+<li><p>重复渐变</p>
+<ul>
+<li>重复的线性渐变：<code>background:repeating-linear-gradient()</code></li>
+<li>重复的径向渐变：<code>background:repeating-radial-gradient()</code></li>
+</ul>
+</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -255,7 +395,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML5CSS3</a>
         		</li>
       		
 		</ul>
@@ -264,16 +404,76 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/15/CSS3%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/10/12/%E9%A2%9C%E8%89%B2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue之引入插件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -288,10 +488,33 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#rgb-函数"><span class="toc-number">1.</span> <span class="toc-text">rgb()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rgba-函数"><span class="toc-number">2.</span> <span class="toc-text">rgba()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hsl-函数"><span class="toc-number">3.</span> <span class="toc-text">hsl()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hsla-函数"><span class="toc-number">4.</span> <span class="toc-text">hsla()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3颜色渐变"><span class="toc-number">5.</span> <span class="toc-text">CSS3颜色渐变</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
       <div id="gitalk-container"></div>
@@ -308,939 +531,13 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: '',
+  	id: 'Mon Oct 12 2020 16:51:10 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
 }
 </script>
 
-
-
-  
-    <article id="post-图标和字体的使用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/12/%E5%9B%BE%E6%A0%87%E5%92%8C%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">图标和字体的使用方法</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/12/%E5%9B%BE%E6%A0%87%E5%92%8C%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-09-12T01:55:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Iconfont阿里巴巴矢量图标库使用方法"><a href="#Iconfont阿里巴巴矢量图标库使用方法" class="headerlink" title="Iconfont阿里巴巴矢量图标库使用方法"></a>Iconfont阿里巴巴矢量图标库使用方法</h3>
-        
-          <a class="article-more-a" href="/2020/09/12/%E5%9B%BE%E6%A0%87%E5%92%8C%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/12/%E5%9B%BE%E6%A0%87%E5%92%8C%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-判断数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/09/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">判断数据类型</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/09/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-09-09T06:29:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="原生JS数据类型"><a href="#原生JS数据类型" class="headerlink" title="原生JS数据类型"></a>原生JS数据类型</h3>
-        
-          <a class="article-more-a" href="/2020/09/09/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/09/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-TypeScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/06/TypeScript/">TypeScript</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/06/TypeScript/" class="archive-article-date">
-  	<time datetime="2020-09-06T07:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="typescript中的数据类型"><a href="#typescript中的数据类型" class="headerlink" title="typescript中的数据类型"></a>typescript中的数据类型</h3>
-        
-          <a class="article-more-a" href="/2020/09/06/TypeScript/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/06/TypeScript/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-js变量作用域、预解析、立即执行函数、闭包、垃圾回收机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/js%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90%E3%80%81%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">js变量作用域、预解析、立即执行函数、闭包、垃圾回收机制</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/05/js%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90%E3%80%81%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-09-05T02:57:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>js变量作用域</strong></p>
-        
-          <a class="article-more-a" href="/2020/09/05/js%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90%E3%80%81%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSJQUERYES5ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/05/js%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90%E3%80%81%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-懒加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/">懒加载</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
-  	<time datetime="2020-09-03T07:31:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="原生js实现图片懒加载"><a href="#原生js实现图片懒加载" class="headerlink" title="原生js实现图片懒加载"></a><strong>原生js实现图片懒加载</strong></h3>
-        
-          <a class="article-more-a" href="/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-函数与事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/09/%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BA%8B%E4%BB%B6/">函数与事件</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/08/09/%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-08-09T08:17:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>js中函数有哪些定义方式</strong></p>
-        
-          <a class="article-more-a" href="/2020/08/09/%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BA%8B%E4%BB%B6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSJQUERYES5ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/09/%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BA%8B%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-VUE源码解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/09/VUE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">VUE源码解析</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/08/09/VUE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-08-09T03:32:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Vue源码解析之MVVM实现原理"><a href="#Vue源码解析之MVVM实现原理" class="headerlink" title="Vue源码解析之MVVM实现原理"></a>Vue源码解析之MVVM实现原理</h3>
-        
-          <a class="article-more-a" href="/2020/08/09/VUE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/09/VUE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-Vue踩过的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/">Vue踩过的坑</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-08-03T02:38:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="vue脚手架取消eslint-校验代码"><a href="#vue脚手架取消eslint-校验代码" class="headerlink" title="vue脚手架取消eslint 校验代码"></a>vue脚手架取消eslint 校验代码</h3>
-        
-          <a class="article-more-a" href="/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-javascript组成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/29/javascript%E7%BB%84%E6%88%90/">javascript组成</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/07/29/javascript%E7%BB%84%E6%88%90/" class="archive-article-date">
-  	<time datetime="2020-07-29T08:19:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="javascript组成"><a href="#javascript组成" class="headerlink" title="javascript组成"></a>javascript组成</h2>
-        
-          <a class="article-more-a" href="/2020/07/29/javascript%E7%BB%84%E6%88%90/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSJQUERYES5ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/29/javascript%E7%BB%84%E6%88%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">«Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next»</a>
-    </nav>
-  
 
 
           </div>
@@ -1277,8 +574,8 @@ gitalk.render('gitalk-container')
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
