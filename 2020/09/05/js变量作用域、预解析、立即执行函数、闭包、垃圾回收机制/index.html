@@ -16,7 +16,7 @@
 <meta property="og:description" content="js变量作用域">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-05T02:57:54.000Z">
-<meta property="article:modified_time" content="2020-09-29T15:19:28.993Z">
+<meta property="article:modified_time" content="2020-10-13T02:11:42.617Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -244,39 +244,65 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         <p><strong>js变量作用域</strong></p>
 <a id="more"></a>
 
+<blockquote>
+<p>作用域链：就近原则</p>
+</blockquote>
 <ul>
-<li>全局变量：在任何一个地方都可以使用,只有在浏览器关闭时才会被销毁,因此比较占内存 </li>
-<li>局部变量：当其所在的代码块被执行时,会被初始化,当代码块运行结束后,就会被销毁,因此更节省内存空间</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> num=<span class="number">10</span>;<span class="comment">//全局变量</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(num);</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> num1=<span class="number">18</span>;<span class="comment">//局部变量,只能在函数内部使用</span></span></span><br><span class="line"><span class="actionscript">        num2=<span class="number">20</span>;<span class="comment">//在函数内部没有声明直接赋值的变量也是一种全局变量</span></span></span><br><span class="line">    &#125;</span><br><span class="line">    fun();</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(num1);<span class="comment">//在这里程序就报错了,不会再输出num2了</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(num2);</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 原生js是没有块级作用域的,es6新增了块级作用域</span></span></span><br><span class="line">    if(3&lt;5)&#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> num3=<span class="number">10</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    alert(num3);</span><br><span class="line"><span class="actionscript">    <span class="comment">// 但在比如java中有块级作用域,外面是不能调用块级内的变量</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 作用域链:就近原则</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>例1：</p>
+<li><p>全局变量：在任何一个地方都可以使用,只有在浏览器关闭时才会被销毁,因此比较占内存 </p>
+</li>
+<li><p>局部变量：当其所在的代码块被执行时,会被初始化,当代码块运行结束后,就会被销毁,因此更节省内存空间</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">//全局变量</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> num=<span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(num);</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">//局部变量,只能在函数内部使用</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> num1=<span class="number">18</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">//在函数内部没有声明直接赋值的变量也是一种全局变量</span></span></span><br><span class="line">        num2=20;</span><br><span class="line">    &#125;</span><br><span class="line">    fun();</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(num1);<span class="comment">//在这里程序就报错了,不会再输出num2了</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(num2);</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 原生js是没有块级作用域的，es6新增了块级作用域，但比如java中有块级作用域,外面是不能调用块级内的变量</span></span></span><br><span class="line">    if(3&lt;5)&#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> num3=<span class="number">10</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    alert(num3);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例1：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a=b=<span class="number">5</span>;</span><br><span class="line">	alert(<span class="keyword">typeof</span> a);<span class="comment">//number</span></span><br><span class="line">	alert(<span class="keyword">typeof</span> b);<span class="comment">//number</span></span><br><span class="line">&#125;)()</span><br><span class="line">alert(<span class="keyword">typeof</span> a);<span class="comment">//undefined</span></span><br><span class="line">alert(<span class="keyword">typeof</span> b);<span class="comment">//number</span></span><br><span class="line"><span class="comment">//立即执行函数会开辟一个局部作用域，var a=b=5，var只会修饰a，所以a是一个局部变量，b是一个全局变量</span></span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
 <p><strong>js预解析</strong></p>
 <ul>
-<li>我们js引擎运行js分两步：预解析、代码执行</li>
-<li>预解析：所有的var和function提升到当前作用域的最前面</li>
-<li>预解析分为变量预解析(变量提升)和函数预解析(函数提升)<ul>
+<li><p>我们js引擎运行js分两步：预解析、代码执行</p>
+</li>
+<li><p>预解析：所有的var和function提升到当前作用域的最前面</p>
+</li>
+<li><p>预解析分为变量预解析(变量提升)和函数预解析(函数提升)</p>
+<ul>
 <li>变量预解析：将所有变量声明提升到前作用域的最前面但不提升赋值操作</li>
 <li>函数预解析：将所有函数声明提升到前作用域的最前面但不调用函数</li>
 </ul>
 </li>
-<li>代码执行：按照代码书写顺序从上往下执行</li>
-</ul>
+<li><p>代码执行：按照代码书写顺序从上往下执行</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(num);<span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> num=<span class="number">10</span>;</span><br><span class="line"><span class="comment">//相当于执行了以下代码</span></span><br><span class="line"><span class="keyword">var</span> num;</span><br><span class="line"><span class="built_in">console</span>.log(num);</span><br><span class="line">num=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fun();<span class="comment">//正常输出20</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">20</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fun();<span class="comment">//报错fun is not a function</span></span><br><span class="line"><span class="keyword">var</span> fun=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//相当于执行了以下代码</span></span><br><span class="line"><span class="keyword">var</span> fun;</span><br><span class="line">fun();</span><br><span class="line">fun=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
 <p><strong>立即执行函数</strong></p>
 <ul>
-<li>函数定义完立即被调用,这种函数叫做立即执行函数</li>
-<li>立即执行函数往往只会执行一次</li>
-</ul>
+<li><p>函数定义完立即被调用,这种函数叫做立即执行函数</p>
+</li>
+<li><p>立即执行函数往往只会执行一次</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写法一</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(a+b);</span><br><span class="line">&#125;)(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="comment">//写法二</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(a+b);</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
+<blockquote>
 <p>javascript中没有私有作用域的概念，如果在多人开发的项目上，你在全局或局部作用域中声明了一些变量，可能会被其他人不小心用同名的变量给覆盖掉，根据javascript函数作用域链的特性，使用这种技术可以模仿一个私有作用域，用匿名函数作为一个“容器”，“容器”内部可以访问外部的变量，而外部不能访问“容器”内部的变量，jQuery使用的就是这种方法，将jQuery代码包裹在<code>(function(window,undefined){jquery代码})(window)</code>中，在全局作用域中调用jQuery代码时，可以达到保护jQuery内部变量的作用</p>
+</blockquote>
 <p><strong>闭包</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//闭包最实用的功能,就是将你想操作的变量或对象隐藏起来,只允许特定的方法才能访问它</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aaa</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">18</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bbb</span>(<span class="params"></span>)</span>&#123;<span class="comment">//闭包:子函数可以使用父函数的局部变量</span></span><br><span class="line">        alert(a);</span><br><span class="line">    &#125;</span><br><span class="line">    bbb();</span><br><span class="line">&#125;</span><br><span class="line">aaa();</span><br><span class="line"><span class="comment">// 想实现一个计数器,最简单的方法就是定义一个全局变量,计数的时候将其加1,但是全局变量有风险,哪里都有可能不小心改掉它</span></span><br><span class="line"><span class="comment">// 想让计数器全局使用,又不想让这个变量被随便修改怎么办,这就需要闭包了</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;<span class="comment">//闭包:子函数可以使用父函数的局部变量</span></span><br><span class="line">        <span class="keyword">return</span> ++i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//c1=count();已经把i变量带出来了，i不在局限于局部了（return出函数其实是把count()的AO带出来了，这就是形成闭包的关键）</span></span><br><span class="line">c1=count();<span class="comment">//第一次调用count()返回的是匿名函数function ()&#123;return ++i;&#125;</span></span><br><span class="line">alert(c1());<span class="comment">//第一次调用匿名函数function ()&#123;return ++i;&#125;返回的是1</span></span><br><span class="line">alert(c1());<span class="comment">//第二次调用匿名函数function ()&#123;return ++i;&#125;返回的是2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>闭包最实用的功能：就是将你想操作的变量或对象隐藏起来，只允许特定的方法才能访问它</p>
+</blockquote>
+<ul>
+<li><p>闭包的基本使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aaa</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">18</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bbb</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//闭包:子函数可以使用父函数的局部变量</span></span><br><span class="line">        alert(a);</span><br><span class="line">    &#125;</span><br><span class="line">    bbb();</span><br><span class="line">&#125;</span><br><span class="line">aaa();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>闭包的实际用处</p>
+<blockquote>
+<p>想实现一个计数器，最简单的方法就是定义一个全局变量，计数的时候将其加1，但是全局变量有风险，哪里都有可能不小心改掉它，想让计数器全局使用，又不想让这个变量被随便修改怎么办，这就需要闭包了</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ++i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//c1=count()已经把i变量带出来了,i不在局限于局部了(return出函数其实是把count()的AO带出来了,这就是形成闭包的关键)</span></span><br><span class="line">c1=count(); <span class="comment">//第一次调用count()返回的是匿名函数function ()&#123;return ++i;&#125;</span></span><br><span class="line">alert(c1()); <span class="comment">//第一次调用匿名函数function ()&#123;return ++i;&#125;返回的是1</span></span><br><span class="line">alert(c1()); <span class="comment">//第二次调用匿名函数function ()&#123;return ++i;&#125;返回的是2</span></span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
 <p><strong>垃圾回收（GC）机制</strong></p>
 <ul>
 <li><p>概念</p>
@@ -631,11 +657,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
