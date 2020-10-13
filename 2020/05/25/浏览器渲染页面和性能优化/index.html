@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png">
 <meta property="article:published_time" content="2020-05-25T11:29:23.000Z">
-<meta property="article:modified_time" content="2020-09-30T01:21:49.338Z">
+<meta property="article:modified_time" content="2020-10-13T07:14:53.371Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -247,12 +247,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         <p><strong>浏览器渲染页面的主体流程</strong></p>
 <a id="more"></a>
 
-<p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg" alt><br>补充：</p>
-<ul>
-<li>浏览器加载资源是异步的</li>
-<li>浏览器渲染引擎主要包括：HTML 解析器，css 解析器，javascript 引擎，布局 layout 模块，绘图模块，以上模块还依赖很多其他基础模块包括网络，存储，2D/3D 图像，音频视频解码器，图片解码器</li>
-</ul>
-<p><strong>查看浏览器渲染页面步骤</strong></p>
+<blockquote>
+<p>浏览器加载资源是异步的</p>
+<p>浏览器渲染引擎主要包括：HTML 解析器，css 解析器，javascript 引擎，布局 layout 模块，绘图模块，以上模块还依赖很多其他基础模块包括网络，存储，2D/3D 图像，音频视频解码器，图片解码器</p>
+</blockquote>
+<p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg" alt><br><strong>查看浏览器渲染页面步骤</strong></p>
 <ol>
 <li>F12</li>
 <li>Performance 下的 Network 可以调整网速</li>
@@ -279,15 +278,16 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ol>
 <p><strong>重排重绘性能优化</strong></p>
 <ol>
-<li>用 translate 替代 top left 等变化</li>
-<li>用 opacity 替代 visibility</li>
-<li>不要一条一条地修改 DOM 的样式，预先定义好 class，然后修改 DOM 的 className</li>
-<li>把 DOM 离线后修改，比如：先把 DOM 给 display:none (有一次 Reflow)，然后你修改 100 次，然后再把它显示出来</li>
-<li>不要把 DOM 结点的属性值放在一个循环里当成循环里的变量，如 offsetHeight,读取会引发回流</li>
-<li>不要使用 table 布局，可能很小的一个小改动会造成整个 table 的重新布局</li>
+<li>translate属性替换top/left/right/bottom</li>
+<li>scale属性替换width/height</li>
+<li>opacity属性替代display/visibility</li>
 <li>动画实现的速度的选择</li>
-<li>对于动画新建图层，但是图层过多也会影响性能，只将需要重绘的部分做图层，其它尽量减少图层，will-change: transform 也可以新建一个图层</li>
-<li>启用 GPU 硬件加速</li>
+<li>对于动画新建图层，但是图层过多也会影响性能，只将需要重绘的部分做图层，其它尽量减少图层</li>
+<li>启用GPU硬件加速</li>
+<li>不要一条一条地修改DOM的样式，预先定义好class，然后修改DOM的className</li>
+<li>把DOM离线后修改，比如：先把DOM给 display:none (有一次 Reflow)，然后你修改100次，然后再把它显示出来</li>
+<li>不要把DOM结点的属性值放在一个循环里当成循环里的变量，如offsetHeight读取会引发回流</li>
+<li>不要使用table布局，可能很小的一个小改动会造成整个table的重新布局</li>
 </ol>
 <p><strong>css阻塞</strong></p>
 <p>声明：只有link引入的外部css才会产生阻塞</p>
@@ -332,7 +332,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>阻塞后续 js 执行。原因：维护依赖关系，如必须先引入 jquery 再引入 bootstrap</p>
 </li>
 </ul>
-<p><strong>补充</strong></p>
+<p><strong>补充：</strong></p>
 <ul>
 <li>script标签的<strong>defer属性</strong>规定当页面已完成加载后，才会执行js脚本</li>
 <li>css 解析和 js 执行时互斥的，即 css 解析的时候 js 停止执行，js 执行的时候 css 停止解析</li>
@@ -670,11 +670,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">

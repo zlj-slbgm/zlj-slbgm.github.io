@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/09/29/2D%E3%80%813D%E8%BD%AC%E6%8D%A2%E4%B8%8E%E5%8A%A8%E7%94%BB/1.png">
 <meta property="article:published_time" content="2020-09-29T01:39:51.000Z">
-<meta property="article:modified_time" content="2020-10-12T08:44:05.746Z">
+<meta property="article:modified_time" content="2020-10-13T07:09:31.949Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
@@ -303,7 +303,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>如果不是综合写法，一个一个写，只会实现最后一个变化效果</p>
 </li>
 </ul>
-<p><strong>动画过渡</strong>（谁做动画就给谁加过渡）</p>
+<p><strong>transition动画过渡</strong></p>
+<blockquote>
+<p>谁做动画就给谁加过渡</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -338,6 +341,27 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <td align="left">没有延迟</td>
 </tr>
 </tbody></table>
+<p><strong>transition动画的局限性和适用场景</strong></p>
+<ul>
+<li>局限性：<ul>
+<li>仅支持有限的CSS属性</li>
+<li>隐式过渡（只能定义开始和结束状态），中途无法控制</li>
+<li>transition需要知道开始状态和结束状态的具体数值<ul>
+<li>无法计算0px到auto</li>
+<li>无法计算display: none到block</li>
+<li>无法计算background: url(foo.jpg)到background: url(bar.jpg)</li>
+</ul>
+</li>
+<li>一次性、不可暂停或反转</li>
+<li>transition需要事件触发，所以无法在网页加载的时候自动发生</li>
+</ul>
+</li>
+<li>适用场景：<ul>
+<li>元素hover或点击</li>
+<li>弹窗打开或关闭时的效果</li>
+</ul>
+</li>
+</ul>
 <p><strong>2D、3D转换中心点</strong></p>
 <p>语法：（<strong>单位可以是像素px也可以是百分比和方位词center top right bottom left</strong>）</p>
 <ul>
@@ -409,7 +433,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 <h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p><strong>优势：</strong></p>
 <ul>
-<li>相比于过渡，动画可以实现更多的变化和控制，连续自动播放等效果</li>
+<li>相比于过渡，动画支持多个状态之间的连续过渡变换、支持自动播放和循环，甚至支持暂停和反转</li>
 </ul>
 <p><strong>制作动画：</strong></p>
 <ol>
@@ -507,6 +531,30 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </tbody></table>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> Move&#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        <span class="attribute">transform</span>:<span class="built_in">translateX</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        <span class="attribute">transform</span>:<span class="built_in">translateX</span>(<span class="number">800px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: antiquewhite;</span><br><span class="line">    <span class="comment">/*名称*/</span></span><br><span class="line">    <span class="attribute">animation-name</span>: Move;</span><br><span class="line">    <span class="comment">/*持续时间*/</span></span><br><span class="line">    <span class="attribute">animation-duration</span>: <span class="number">2s</span>;</span><br><span class="line">    <span class="comment">/*运动曲线*/</span></span><br><span class="line">    <span class="attribute">animation-timing-function</span>: ease;</span><br><span class="line">    <span class="comment">/*何时开始 从一秒后开始动画*/</span></span><br><span class="line">    <span class="attribute">animation-delay</span>: <span class="number">1s</span>;</span><br><span class="line">    <span class="comment">/*重复次数 infinite无限*/</span></span><br><span class="line">    <span class="attribute">animation-iteration-count</span>: infinite;</span><br><span class="line">    <span class="comment">/*是否反向播放 alternate反向*/</span></span><br><span class="line">    <span class="attribute">animation-direction</span>: alternate;</span><br><span class="line">    <span class="comment">/*动画结束后状态 forwards停在动画结束状态*/</span></span><br><span class="line">    <span class="attribute">animation-fill-mode</span>: forwards;</span><br><span class="line">    <span class="comment">/*动画属性综合写法,该写法不包含animation-play-state*/</span></span><br><span class="line">    <span class="attribute">animation</span>: Move <span class="number">2s</span> ease <span class="number">1s</span> infinite alternate forwards;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="comment">/*动画播放还是停止 默认running播放 paused停止*/</span></span><br><span class="line">    <span class="attribute">animation-play-state</span>: paused;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
+<h3 id="动画形式"><a href="#动画形式" class="headerlink" title="动画形式"></a>动画形式</h3><p><strong>补间动画</strong></p>
+<blockquote>
+<p>补间动画：人为的设定动画的关键帧，关键帧之间的过渡状态由计算机自己实现，是CSS动画中最常见的</p>
+</blockquote>
+<ul>
+<li>transition属性实现的动画都是补间动画</li>
+<li>animation属性使用了除了steps()以外的时间函数（如ease、linear）的动画都是补间动画，animation是在每个关键帧之间插入补间动画</li>
+</ul>
+<p>逐帧动画</p>
+<blockquote>
+<p>逐帧动画：也叫定格动画，将每帧有关联的不同图片连续播放形成动画</p>
+</blockquote>
+<ul>
+<li>animation属性使用了steps()时间函数的动画都是逐帧动画</li>
+</ul>
+<h3 id="Canvas动画"><a href="#Canvas动画" class="headerlink" title="Canvas动画"></a>Canvas动画</h3><h3 id="SVG动画"><a href="#SVG动画" class="headerlink" title="SVG动画"></a>SVG动画</h3><h3 id="动画性能渲染优化"><a href="#动画性能渲染优化" class="headerlink" title="动画性能渲染优化"></a>动画性能渲染优化</h3><blockquote>
+<p>避免为开销大的属性设置动画</p>
+</blockquote>
+<ul>
+<li>使用切换类名的方式来触发动画</li>
+<li>translate属性替换top/left/right/bottom</li>
+<li>scale属性替换width/height</li>
+<li>opacity属性替换display/visibility</li>
+</ul>
 
       
 
@@ -660,7 +708,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2D转换"><span class="toc-number">1.</span> <span class="toc-text">2D转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D转换"><span class="toc-number">2.</span> <span class="toc-text">3D转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动画"><span class="toc-number">3.</span> <span class="toc-text">动画</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2D转换"><span class="toc-number">1.</span> <span class="toc-text">2D转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D转换"><span class="toc-number">2.</span> <span class="toc-text">3D转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动画"><span class="toc-number">3.</span> <span class="toc-text">动画</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动画形式"><span class="toc-number">3.1.</span> <span class="toc-text">动画形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Canvas动画"><span class="toc-number">3.2.</span> <span class="toc-text">Canvas动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG动画"><span class="toc-number">3.3.</span> <span class="toc-text">SVG动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画性能渲染优化"><span class="toc-number">3.4.</span> <span class="toc-text">动画性能渲染优化</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -839,11 +887,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
