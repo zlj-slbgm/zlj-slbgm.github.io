@@ -16,7 +16,7 @@
 <meta property="og:description" content="原生js实现图片懒加载">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-03T07:31:36.000Z">
-<meta property="article:modified_time" content="2020-10-08T11:13:46.018Z">
+<meta property="article:modified_time" content="2020-10-14T01:25:47.994Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -88,9 +88,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
-				<li><a href="/tags/VUE">VUE</a></li>
-	        
-				<li><a href="/tags/React">React</a></li>
+				<li><a href="/tags/VUEReact">VUE/React</a></li>
 	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
@@ -160,8 +158,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -180,21 +176,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 12.5%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/VUE">VUE</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUEReact">VUE/React</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/React">React</a></li>
-		        
-					<li style="width: 12.5%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -257,7 +251,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>安装：npm install vue-lazyload –save-dev</p>
 </li>
 <li><p>main.js中全局引入：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span></span><br><span class="line">Vue.use(VueLazyLoad， &#123;</span><br><span class="line">  preLoad: <span class="number">1</span>，</span><br><span class="line">  error: <span class="built_in">require</span>(<span class="string">'./assets/img/error.jpg'</span>)，</span><br><span class="line">  loading: <span class="built_in">require</span>(<span class="string">'./assets/img/loading.jpg'</span>)，</span><br><span class="line">  attempt: <span class="number">2</span>，</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span></span><br><span class="line">Vue.use(VueLazyLoad, &#123;</span><br><span class="line">  preLoad: <span class="number">1</span>,</span><br><span class="line">  error: <span class="built_in">require</span>(<span class="string">'./assets/img/error.jpg'</span>),</span><br><span class="line">  loading: <span class="built_in">require</span>(<span class="string">'./assets/img/loading.jpg'</span>),</span><br><span class="line">  attempt: <span class="number">2</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>页面中使用：</p>
 <blockquote>
@@ -724,11 +718,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUEReact</a>
               </li>
             
             <div class="clearfix"></div>

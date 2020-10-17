@@ -16,7 +16,7 @@
 <meta property="og:description" content="实现动画效果的方法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-27T06:46:05.000Z">
-<meta property="article:modified_time" content="2020-09-18T03:53:00.608Z">
+<meta property="article:modified_time" content="2020-10-17T08:10:12.351Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -88,9 +88,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
-				<li><a href="/tags/VUE">VUE</a></li>
-	        
-				<li><a href="/tags/React">React</a></li>
+				<li><a href="/tags/VUEReact">VUE/React</a></li>
 	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
@@ -160,8 +158,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -180,21 +176,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 12.5%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/VUE">VUE</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUEReact">VUE/React</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/React">React</a></li>
-		        
-					<li style="width: 12.5%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -252,9 +246,12 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <ol>
 <li>settimeout任务被放入异步队列，只有当主线程任务执行完后才会执行队列中的任务，因此实际执行时间总是比设定时间要晚；</li>
 <li>settimeout的固定时间间隔不一定与屏幕刷新时间相同，会引起丢帧<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> i=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">    setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line">        i+=5;</span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> div=<span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">        div.style.transform=<span class="string">`translateX(<span class="subst">$&#123;i&#125;</span>px)`</span>;</span></span><br><span class="line">    &#125;,10);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-window.requestAnimationFrame()请求动画帧<br>该方法使用一个回调函数作为参数，这个回调函数会在浏览器重绘之前调用</li>
+<blockquote>
+<p>window.requestAnimationFrame()请求动画帧，该方法使用一个回调函数作为参数，这个回调函数会在浏览器重绘之前调用</p>
+<p>window.cancelAnimationFrame(requsetID)取消请求动画帧</p>
+</blockquote>
+</li>
 </ol>
-<p>补充：window.cancelAnimationFrame(requsetID)取消动画帧请求</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> i=<span class="number">0</span>;</span></span><br><span class="line">    requestAnimationFrame(move);</span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span><span class="params">(time)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">    	<span class="built_in">console</span>.log(time);<span class="comment">//time参数是每次这个move函数被调用的时候的时间戳</span></span></span><br><span class="line">        i++;</span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">        div.style.transform = <span class="string">`translateX(<span class="subst">$&#123;i&#125;</span>px)`</span>;</span></span><br><span class="line">        requestAnimationFrame(move);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>优点:</p>
 <ol>
@@ -602,11 +599,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUEReact</a>
               </li>
             
             <div class="clearfix"></div>

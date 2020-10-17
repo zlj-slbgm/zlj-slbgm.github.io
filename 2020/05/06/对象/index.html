@@ -16,7 +16,7 @@
 <meta property="og:description" content="对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
-<meta property="article:modified_time" content="2020-09-28T07:40:23.017Z">
+<meta property="article:modified_time" content="2020-10-15T12:16:08.462Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -88,9 +88,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
-				<li><a href="/tags/VUE">VUE</a></li>
-	        
-				<li><a href="/tags/React">React</a></li>
+				<li><a href="/tags/VUEReact">VUE/React</a></li>
 	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
@@ -160,8 +158,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -180,21 +176,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 12.5%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/VUE">VUE</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUEReact">VUE/React</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/React">React</a></li>
-		        
-					<li style="width: 12.5%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -321,7 +315,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">"孙悟空"</span>;</span><br><span class="line">obj.age = <span class="number">20</span>;</span><br><span class="line">props=<span class="built_in">Object</span>.keys(obj);</span><br><span class="line"><span class="built_in">console</span>.log(props);<span class="comment">//["name", "age"]</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Object.defineProperty()定义新属性或修改原有属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; new Object();</span><br><span class="line">obj.name &#x3D; &quot;孙悟空&quot;;</span><br><span class="line">obj.age &#x3D; 20;</span><br><span class="line">Object.defineProperty(obj, &quot;name&quot;, &#123;</span><br><span class="line">    value: &quot;猪八戒&quot;, &#x2F;&#x2F;设置属性的值，默认undefined</span><br><span class="line">    writable: true, &#x2F;&#x2F;值是否能重写，默认false</span><br><span class="line">    enumerable: true, &#x2F;&#x2F;目标属性是否可以被枚举，默认false</span><br><span class="line">    configurable: true &#x2F;&#x2F;目标属性是否可以被删除或是否可以再次修改，默认为false</span><br><span class="line">&#125;)</span><br><span class="line">console.log(obj);</span><br><span class="line">&#x2F;&#x2F; age: 20</span><br><span class="line">&#x2F;&#x2F; name: &quot;猪八戒&quot;(修改的新属性在后面)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">"孙悟空"</span>;</span><br><span class="line">obj.age = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">"name"</span>, &#123;</span><br><span class="line">    value: <span class="string">"猪八戒"</span>, <span class="comment">//设置属性的值，默认undefined</span></span><br><span class="line">    writable: <span class="literal">true</span>, <span class="comment">//值是否能重写，默认false</span></span><br><span class="line">    enumerable: <span class="literal">true</span>, <span class="comment">//目标属性是否可以被枚举，默认false</span></span><br><span class="line">    configurable: <span class="literal">true</span> <span class="comment">//目标属性是否可以被删除或是否可以再次修改，默认为false</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"><span class="comment">// age: 20</span></span><br><span class="line"><span class="comment">// name: "猪八戒"(修改的新属性在后面)</span></span><br></pre></td></tr></table></figure>
 
 
 </li>
@@ -666,11 +660,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUEReact</a>
               </li>
             
             <div class="clearfix"></div>

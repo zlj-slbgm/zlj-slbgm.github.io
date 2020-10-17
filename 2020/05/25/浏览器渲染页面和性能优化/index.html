@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png">
 <meta property="article:published_time" content="2020-05-25T11:29:23.000Z">
-<meta property="article:modified_time" content="2020-10-13T07:14:53.371Z">
+<meta property="article:modified_time" content="2020-10-17T08:06:19.126Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -91,9 +91,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
-				<li><a href="/tags/VUE">VUE</a></li>
-	        
-				<li><a href="/tags/React">React</a></li>
+				<li><a href="/tags/VUEReact">VUE/React</a></li>
 	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
@@ -163,8 +161,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -183,21 +179,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 12.5%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/VUE">VUE</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUEReact">VUE/React</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/React">React</a></li>
-		        
-					<li style="width: 12.5%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -244,76 +238,71 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>浏览器渲染页面的主体流程</strong></p>
-<a id="more"></a>
+        <h3 id="浏览器渲染页面的主体流程"><a href="#浏览器渲染页面的主体流程" class="headerlink" title="浏览器渲染页面的主体流程"></a>浏览器渲染页面的主体流程</h3><a id="more"></a>
 
 <blockquote>
-<p>浏览器加载资源是异步的</p>
 <p>浏览器渲染引擎主要包括：HTML 解析器，css 解析器，javascript 引擎，布局 layout 模块，绘图模块，以上模块还依赖很多其他基础模块包括网络，存储，2D/3D 图像，音频视频解码器，图片解码器</p>
+<p>浏览器加载资源是异步的</p>
 </blockquote>
-<p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg" alt><br><strong>查看浏览器渲染页面步骤</strong></p>
-<ol>
+<p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg" alt></p>
+<h3 id="查看浏览器渲染页面步骤"><a href="#查看浏览器渲染页面步骤" class="headerlink" title="查看浏览器渲染页面步骤"></a>查看浏览器渲染页面步骤</h3><ol>
 <li>F12</li>
 <li>Performance 下的 Network 可以调整网速</li>
 <li>把 Network 下的 Disable cache 勾选，不走缓存</li>
 <li>点击 Performance 左上角的刷新，等待几秒</li>
 <li>Event Log 查看浏览器渲染页面基本过程</li>
 </ol>
-<p><strong>新建DOM的过程</strong></p>
-<ol>
+<h3 id="新建DOM的过程"><a href="#新建DOM的过程" class="headerlink" title="新建DOM的过程"></a>新建DOM的过程</h3><ol>
 <li>获取 DOM 后分割为多个图层</li>
 <li>对每个图层的节点计算样式结果（Recalculate style–样式重计算）</li>
-<li>为每个节点生成图形和位置（Layout–回流和重排）</li>
+<li>为每个节点生成图形和位置（Layout–重排和回流）</li>
 <li>将每个节点绘制填充到图层位图中（Paint Setup 和 Paint–重绘）</li>
 <li>图层作为纹理上传至 GPU</li>
 <li>符合多个图层到页面上生成最终屏幕图像（Composite Layers–图层重组）</li>
 </ol>
-<p><strong>chrome浏览器满足以下任意情况就会创建图层：</strong></p>
-<ol>
+<h3 id="chrome浏览器满足以下任意情况就会创建图层"><a href="#chrome浏览器满足以下任意情况就会创建图层" class="headerlink" title="chrome浏览器满足以下任意情况就会创建图层"></a>chrome浏览器满足以下任意情况就会创建图层</h3><ol>
 <li>拥有具有 3D 变换的 css 属性</li>
 <li>使用加速视频解码的 video 节点</li>
 <li>canvas 节点</li>
 <li>css3 动画节点</li>
 <li>拥有 css 加速属性的元素(will-change)</li>
 </ol>
-<p><strong>重排重绘性能优化</strong></p>
-<ol>
+<h3 id="重排重绘性能优化"><a href="#重排重绘性能优化" class="headerlink" title="重排重绘性能优化"></a>重排重绘性能优化</h3><ol>
+<li>使用transform可以开启GPU硬件加速，提高机器渲染效果</li>
 <li>translate属性替换top/left/right/bottom</li>
 <li>scale属性替换width/height</li>
 <li>opacity属性替代display/visibility</li>
 <li>动画实现的速度的选择</li>
 <li>对于动画新建图层，但是图层过多也会影响性能，只将需要重绘的部分做图层，其它尽量减少图层</li>
-<li>启用GPU硬件加速</li>
 <li>不要一条一条地修改DOM的样式，预先定义好class，然后修改DOM的className</li>
 <li>把DOM离线后修改，比如：先把DOM给 display:none (有一次 Reflow)，然后你修改100次，然后再把它显示出来</li>
 <li>不要把DOM结点的属性值放在一个循环里当成循环里的变量，如offsetHeight读取会引发回流</li>
 <li>不要使用table布局，可能很小的一个小改动会造成整个table的重新布局</li>
 </ol>
-<p><strong>css阻塞</strong></p>
-<p>声明：只有link引入的外部css才会产生阻塞</p>
+<h3 id="css阻塞"><a href="#css阻塞" class="headerlink" title="css阻塞"></a>css阻塞</h3><blockquote>
+<p>只有link引入的外部css才会产生阻塞</p>
+</blockquote>
 <ul>
 <li><p>style标签中的样式：</p>
 <ul>
 <li>由 html 解析器进行解析的，并且是异步解析</li>
-<li>不阻塞浏览器渲染(可能会产生”闪屏现象”)</li>
+<li>不阻塞浏览器渲染（可能会产生”闪屏现象”）</li>
 <li>不阻塞 DOM 解析</li>
 </ul>
 </li>
-<li><p>link引入的外部css样式(推荐使用)</p>
+<li><p>link引入的外部css样式（推荐使用）</p>
 <ul>
-<li><p>由 css 解析器进行解析的，并且是同步解析</p>
+<li>由css解析器进行解析的，并且是同步解析</li>
+<li>阻塞浏览器渲染（利用这种阻塞避免”闪屏现象”）</li>
+</ul>
 </li>
-<li><p>阻塞浏览器渲染(利用这种阻塞避免”闪屏现象”)</p>
-</li>
-<li><p>阻塞其后的 js 语句执行。原因：如果后面的 js 的内容是获取元素的样式，如果不等样式解析完毕，后面的 js 就会获得错误信息。由于浏览器也不知道后续 js 的具体内容，所以只好等前面所有的样式解析完毕后，再执行 js。例如 Firefox 在样式表加载和解析过程中，会禁止所有的脚本。注意：现代浏览器越发注重用户体验，对于 webkit 内核的浏览器而言，仅当脚本尝试访问样式属性或可能受尚未加载的样式表影响，它才会禁止该脚本</p>
-</li>
-<li><p>不阻塞 DOM 解析。原因：DOM 解析和 css 解析是并行执行的进程</p>
-</li>
+<li><p>阻塞其后的js语句执行，若后面的js是获取元素的样式，如果不等样式解析完毕，后面的js就会获得错误信息</p>
+<ul>
+<li>不阻塞DOM解析，DOM解析和CSS解析是并行执行的进程</li>
 </ul>
 </li>
 </ul>
-<p><strong>优化核心理念：尽可能快的提高外部 css 加载速度</strong></p>
-<ul>
+<h3 id="提高外部CSS加载速度方法"><a href="#提高外部CSS加载速度方法" class="headerlink" title="提高外部CSS加载速度方法"></a>提高外部CSS加载速度方法</h3><ul>
 <li><p>使用 CDN 节点进行外部资源加速<br><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png" alt></p>
 </li>
 <li><p>对 css 压缩(利用打包工具，比如 webpack,gulp 等)</p>
@@ -323,17 +312,12 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>优化样式表代码</p>
 </li>
 </ul>
-<p><strong>js 阻塞</strong></p>
-<ul>
-<li><p>阻塞 DOM 解析。原因：浏览器不知道后续脚本的内容，如果先去解析了下面的 DOM，而随后的 js 删除了后面所有的 DOM，那么浏览器就做了无用功，索性全部停止等脚本执行完毕再继续向下解析 DOM</p>
-</li>
-<li><p>阻塞页面渲染。原因：js 中可以操作 css 样式，索性全部停止等脚本执行完毕，避免做无用功</p>
-</li>
-<li><p>阻塞后续 js 执行。原因：维护依赖关系，如必须先引入 jquery 再引入 bootstrap</p>
-</li>
+<h3 id="js阻塞"><a href="#js阻塞" class="headerlink" title="js阻塞"></a>js阻塞</h3><ul>
+<li>阻塞DOM解析，浏览器不知道后续脚本的内容，如果先去解析了下面的DOM，而随后的 js 删除了后面所有的 DOM，那么浏览器就做了无用功，索性全部停止等脚本执行完毕再继续向下解析 DOM</li>
+<li>阻塞页面渲染，js 中可以操作css样式，索性全部停止等脚本执行完毕，避免做无用功</li>
+<li>阻塞后续js执行，维护依赖关系，如必须先引入 jquery 再引入 bootstrap</li>
 </ul>
-<p><strong>补充：</strong></p>
-<ul>
+<h3 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h3><ul>
 <li>script标签的<strong>defer属性</strong>规定当页面已完成加载后，才会执行js脚本</li>
 <li>css 解析和 js 执行时互斥的，即 css 解析的时候 js 停止执行，js 执行的时候 css 停止解析</li>
 <li>无论css阻塞还是js阻塞，都不会阻塞浏览器加载外部资源(图片、视频、样式、脚本)</li>
@@ -491,7 +475,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器渲染页面的主体流程"><span class="toc-number">1.</span> <span class="toc-text">浏览器渲染页面的主体流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看浏览器渲染页面步骤"><span class="toc-number">2.</span> <span class="toc-text">查看浏览器渲染页面步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建DOM的过程"><span class="toc-number">3.</span> <span class="toc-text">新建DOM的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome浏览器满足以下任意情况就会创建图层"><span class="toc-number">4.</span> <span class="toc-text">chrome浏览器满足以下任意情况就会创建图层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重排重绘性能优化"><span class="toc-number">5.</span> <span class="toc-text">重排重绘性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css阻塞"><span class="toc-number">6.</span> <span class="toc-text">css阻塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提高外部CSS加载速度方法"><span class="toc-number">7.</span> <span class="toc-text">提高外部CSS加载速度方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js阻塞"><span class="toc-number">8.</span> <span class="toc-text">js阻塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点："><span class="toc-number">9.</span> <span class="toc-text">注意点：</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -678,11 +662,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUEReact</a>
               </li>
             
             <div class="clearfix"></div>

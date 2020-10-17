@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/09/29/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/1.jpeg">
 <meta property="article:published_time" content="2020-09-29T07:40:49.000Z">
-<meta property="article:modified_time" content="2020-10-13T06:15:11.830Z">
+<meta property="article:modified_time" content="2020-10-16T09:59:09.209Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -90,9 +90,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	        
 				<li><a href="/tags/NODEJS">NODEJS</a></li>
 	        
-				<li><a href="/tags/VUE">VUE</a></li>
-	        
-				<li><a href="/tags/React">React</a></li>
+				<li><a href="/tags/VUEReact">VUE/React</a></li>
 	        
 				<li><a href="/archives/index.html">ARCHIVES/归档</a></li>
 	        
@@ -162,8 +160,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -182,21 +178,19 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 12.5%"><a href="/">HOMEPAGE/主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">HOMEPAGE/主页</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0">NOTES/技术笔记</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/HTML5CSS3">HTML5/CSS3</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/JSJQUERYES5ES6">JS/JQUERY/ES5/ES6</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/NODEJS">NODEJS</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/NODEJS">NODEJS</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/VUE">VUE</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/VUEReact">VUE/React</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/React">React</a></li>
-		        
-					<li style="width: 12.5%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">ARCHIVES/归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -319,6 +313,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </blockquote>
 <h3 id="flex弹性布局"><a href="#flex弹性布局" class="headerlink" title="flex弹性布局"></a>flex弹性布局</h3><ul>
 <li><p>flex布局原理：通过给父盒子加display: flex，来控制子盒子的位置和排列方式</p>
+</li>
+<li><p>flex布局只对子元素有效，对孙子元素无效</p>
 </li>
 <li><p>父盒子设置了flex，子元素的float、clear、vertical-align等属性将失效</p>
 </li>
@@ -648,8 +644,25 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>大小写敏感</li>
 </ul>
 </li>
+<li><p>less注释：</p>
+<ul>
+<li>在less中使用<code>/* */</code>这种注释，css文件中会出现注释</li>
+<li>在less中使用<code>//</code>这种注释，css文件中不会出现注释</li>
+</ul>
+</li>
+<li><p>less的混合mixin</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通的混合</span></span><br><span class="line"><span class="selector-class">.flex</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#nav</span>&#123;</span><br><span class="line">    <span class="selector-class">.flex</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 带参数的混合</span></span><br><span class="line"><span class="selector-class">.border-radius</span> (<span class="variable">@radius</span>) &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">    <span class="attribute">-moz-border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">    <span class="attribute">-webkit-border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#header</span> &#123;</span><br><span class="line">    <span class="selector-class">.border-radius</span>(<span class="number">4px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 带参数并且有默认值的混合</span></span><br><span class="line"><span class="selector-class">.border-radius</span> (<span class="variable">@radius</span> : <span class="number">5px</span>) &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">    <span class="attribute">-moz-border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">    <span class="attribute">-webkit-border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#header</span> &#123;</span><br><span class="line">    <span class="selector-class">.border-radius</span>(<span class="number">4px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>less中arguments变量使用</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border_arg1</span>(<span class="variable">@w</span>, <span class="variable">@c</span>, <span class="variable">@xx</span>) &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="variable">@arguments</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border_box</span> &#123;</span><br><span class="line">    <span class="selector-class">.border_arg1</span>(<span class="number">30px</span>, red, solid);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>less模式匹配</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .mixin根据不同的@switch值而表现各异</span></span><br><span class="line"><span class="selector-class">.mixin</span> (dark, <span class="variable">@color</span>) &#123;</span><br><span class="line">    <span class="attribute">color</span>: darken(<span class="variable">@color</span>, <span class="number">10%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.mixin</span> (light, <span class="variable">@color</span>) &#123;</span><br><span class="line">    <span class="comment">// less中lighten()函数增加颜色亮度</span></span><br><span class="line">    <span class="attribute">color</span>: lighten(<span class="variable">@color</span>, <span class="number">10%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// @_ 定义每个模式都使用的固定的样式</span></span><br><span class="line"><span class="selector-class">.mixin</span> (<span class="variable">@_</span>, <span class="variable">@color</span>) &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">@switch:</span> light;</span><br><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">    <span class="selector-class">.mixin</span>(<span class="variable">@switch</span>, <span class="number">#888</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#a2a2a2</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>实例：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@border:</span> <span class="number">5px</span> + <span class="number">5</span>;</span><br><span class="line"><span class="variable">@fontsize:</span> <span class="number">20px</span>;</span><br><span class="line"><span class="variable">@color:</span> pink;</span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="variable">@fontsize</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="comment">// 运算符左右两侧必须要有一个空格隔开</span></span><br><span class="line">    <span class="comment">// 两个数参与运算，如果只有一个数有单位，则最后结果就以这个单位为准</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span> - <span class="number">50</span>;</span><br><span class="line">    <span class="attribute">height</span>: (<span class="number">200px</span> + <span class="number">100px</span>) * <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="variable">@border</span> solid red;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#666</span> - <span class="number">#222</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="comment">// 两个数参与运算，如果两个数都有单位，而且单位不一样，则最后结果以第一个单位为准</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100rem</span> / <span class="variable">@fontsize</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100rem</span> / <span class="variable">@fontsize</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">@color</span>;</span><br><span class="line">    <span class="comment">// 子元素的样式直接写到父元素里面</span></span><br><span class="line">    <span class="selector-tag">a</span> &#123;</span><br><span class="line">        <span class="attribute">color</span>: yellow;</span><br><span class="line">        <span class="comment">// 如果有伪类、伪元素选择器、交集选择器，前面要加个&amp;</span></span><br><span class="line">        <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">            <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@border:</span> <span class="number">5px</span> + <span class="number">5</span>;</span><br><span class="line"><span class="variable">@fontsize:</span> <span class="number">20px</span>;</span><br><span class="line"><span class="variable">@color:</span> pink;</span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="variable">@fontsize</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="comment">// 运算符左右两侧必须要有一个空格隔开</span></span><br><span class="line">    <span class="comment">// 两个数参与运算，如果只有一个数有单位，则最后结果就以这个单位为准</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span> - <span class="number">50</span>;</span><br><span class="line">    <span class="attribute">height</span>: (<span class="number">200px</span> + <span class="number">100px</span>) * <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="variable">@border</span> solid red;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#666</span> - <span class="number">#222</span>;</span><br><span class="line">    <span class="comment">// 避免编译（原样输出表达式）</span></span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="string">~"(100px + 100px)"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="comment">// 两个数参与运算，如果两个数都有单位，而且单位不一样，则最后结果以第一个单位为准</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100rem</span> / <span class="variable">@fontsize</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100rem</span> / <span class="variable">@fontsize</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">@color</span>;</span><br><span class="line">    <span class="comment">// 子元素的样式直接写到父元素里面</span></span><br><span class="line">    <span class="selector-tag">a</span> &#123;</span><br><span class="line">        <span class="attribute">color</span>: yellow;</span><br><span class="line">        <span class="comment">// 如果有伪类、伪元素选择器、交集选择器，前面要加个&amp;</span></span><br><span class="line">        <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">            <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在index.less中导入common.less：<code>@import &quot;common.less&quot;;</code></p>
 </li>
@@ -1097,11 +1110,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUEReact</a>
               </li>
             
             <div class="clearfix"></div>
