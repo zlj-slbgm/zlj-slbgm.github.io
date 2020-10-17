@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/10/14/js%E5%9F%BA%E7%A1%80/</loc>
+    
+    <lastmod>2020-10-17T10:57:44.306Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/10/16/websocket/</loc>
+    
+    <lastmod>2020-10-17T08:37:26.644Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/09/24/React%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2020-10-17T08:31:11.961Z</lastmod>
@@ -58,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/10/14/js%E5%9F%BA%E7%A1%80/</loc>
-    
-    <lastmod>2020-10-17T07:00:40.901Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2020/06/26/CSS%E7%B2%BE%E7%81%B5/</loc>
     
     <lastmod>2020-10-16T11:12:48.967Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://yoursite.com/2020/09/29/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/</loc>
     
     <lastmod>2020-10-16T09:59:09.209Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/10/16/websocket/</loc>
-    
-    <lastmod>2020-10-16T08:49:04.703Z</lastmod>
     
   </url>
   
