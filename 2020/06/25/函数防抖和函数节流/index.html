@@ -16,7 +16,7 @@
 <meta property="og:description" content="函数防抖和函数节流">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-25T08:54:43.000Z">
-<meta property="article:modified_time" content="2020-09-18T03:11:11.448Z">
+<meta property="article:modified_time" content="2020-10-19T15:04:19.809Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -238,20 +238,30 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         <h3 id="函数防抖和函数节流"><a href="#函数防抖和函数节流" class="headerlink" title="函数防抖和函数节流"></a>函数防抖和函数节流</h3><a id="more"></a>
 
 <p><strong>函数防抖</strong></p>
+<blockquote>
+<p>百度搜索并没有做函数防抖处理，因为百度是专门做搜索引擎的，服务器足够强大不怕过多的请求，但是对于一些网站搜索输入框一般都要做防抖</p>
+</blockquote>
 <ul>
-<li>概念：延迟要执行的动作，若在延时的这段时间内，再次触发了，则取消之前开启的动作，重新计时</li>
-<li>举例：电脑无操作1分钟后会进入休眠，当第40秒鼠标被移动了一下，重新计时1分钟</li>
-<li>实现方法：定时器</li>
-<li>应用：搜索时等用户输入完整的内容后再发送查询请求</li>
-<li>作用：防止短时间内多次触发方法，发送请求过多，造成服务器压力太大<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"in"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"搜索"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> input =<span class="built_in">document</span>.getElementById(<span class="string">"in"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> a=<span class="literal">null</span>;</span></span><br><span class="line"><span class="actionscript">    input.addEventListener(<span class="string">"keyup"</span>,()=&gt;&#123;</span></span><br><span class="line">        clearTimeout(a);</span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> data=input.value;</span></span><br><span class="line"><span class="javascript">        a=setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line">            mockAjax(data);</span><br><span class="line">        &#125;,500)</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">mockAjax</span><span class="params">(data)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">`sendAjax---<span class="subst">$&#123;data&#125;</span>`</span>);         </span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-百度搜索并没有做函数防抖处理，因为百度是专门做搜索引擎的，服务器足够强大不怕过多的请求，但是对于一些网站搜索输入框一般都要做防抖</li>
-</ul>
-<p><strong>函数节流</strong></p>
-<ul>
-<li>概念：设定一个特定的时间，让函数在特定的时间内只执行一次，不会频繁执行</li>
-<li>举例：射击类游戏，鼠标按住不松手，子弹也不会连成一条线</li>
-<li>实现方法：定时器和标识</li>
-<li>应用：在鼠标滚轮滚动的时候，每隔2秒钟打印一次<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="comment">/* 使出现滚动条 */</span></span></span><br><span class="line">    body&#123;</span><br><span class="line">        height: 2000px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> body=<span class="built_in">document</span>.getElementsByTagNa(<span class="string">"body"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> flag=<span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">    body.onscroll=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line">        if(flag)&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="number">1</span>);</span></span><br><span class="line"><span class="actionscript">            flag=<span class="literal">false</span>;</span></span><br><span class="line"><span class="javascript">            setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="actionscript">                flag=<span class="literal">true</span>;</span></span><br><span class="line">            &#125;,2000)      </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>概念：延迟要执行的动作，若在延时的这段时间内，再次触发了，则取消之前开启的动作，重新计时</p>
+</li>
+<li><p>举例：电脑无操作1分钟后会进入休眠，当第40秒鼠标被移动了一下，重新计时1分钟</p>
+</li>
+<li><p>实现方法：定时器</p>
+</li>
+<li><p>应用：搜索时等用户输入完整的内容后再发送查询请求</p>
+</li>
+<li><p>作用：防止短时间内多次触发方法，发送请求过多，造成服务器压力太大</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"in"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"搜索"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> input =<span class="built_in">document</span>.getElementById(<span class="string">"in"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> a=<span class="literal">null</span>;</span></span><br><span class="line"><span class="actionscript">    input.addEventListener(<span class="string">"keyup"</span>,()=&gt;&#123;</span></span><br><span class="line">        clearTimeout(a);</span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> data=input.value;</span></span><br><span class="line"><span class="javascript">        a=setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line">            mockAjax(data);</span><br><span class="line">        &#125;,500)</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">mockAjax</span><span class="params">(data)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">`sendAjax---<span class="subst">$&#123;data&#125;</span>`</span>);         </span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><em>函数节流*</em></p>
+</li>
+<li><p>概念：设定一个特定的时间，让函数在特定的时间内只执行一次，不会频繁执行</p>
+</li>
+<li><p>举例：射击类游戏，鼠标按住不松手，子弹也不会连成一条线</p>
+</li>
+<li><p>实现方法：定时器和标识</p>
+</li>
+<li><p>应用：在鼠标滚轮滚动的时候，每隔2秒钟打印一次</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="comment">/* 使出现滚动条 */</span></span></span><br><span class="line">    body&#123;</span><br><span class="line">        height: 2000px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> body=<span class="built_in">document</span>.getElementsByTagNa(<span class="string">"body"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> flag=<span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">    body.onscroll=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line">        if(flag)&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="number">1</span>);</span></span><br><span class="line"><span class="actionscript">            flag=<span class="literal">false</span>;</span></span><br><span class="line"><span class="javascript">            setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="actionscript">                flag=<span class="literal">true</span>;</span></span><br><span class="line">            &#125;,2000)      </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -586,11 +596,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">

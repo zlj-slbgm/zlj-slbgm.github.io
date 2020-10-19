@@ -16,7 +16,7 @@
 <meta property="og:description" content="对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
-<meta property="article:modified_time" content="2020-10-15T12:16:08.462Z">
+<meta property="article:modified_time" content="2020-10-19T15:03:54.988Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -276,9 +276,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>混合模式(构造函数模式+原型模式)</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,family</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.family = family;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: Person,  //每个函数都有prototype属性，指向该函数原型对象，原型对象都有<span class="keyword">constructor</span>属性，这是一个指向prototype属性所在函数的指针</span><br><span class="line">    say: function()&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"lisi"</span>,<span class="number">21</span>,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(person1);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"wangwu"</span>,<span class="number">21</span>,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"lisi"</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(person2);</span><br><span class="line"><span class="comment">//可以看出混合模式共享着对相同方法的引用，又保证了每个实例有自己的私有属性，最大限度的节省了内存</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>高程中还提到了动态原型模式，寄生构造函数模式，稳妥构造函数模式</li>
-</ul>
+<blockquote>
+<p>高程中还提到了动态原型模式，寄生构造函数模式，稳妥构造函数模式</p>
+</blockquote>
 <p><strong>操作对象属性名和属性值</strong></p>
 <ul>
 <li><p>向对象中添加属性</p>
@@ -308,7 +308,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name,age,gender)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.name=name;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.age=age;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.gender=gender;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    Person.prototype.sayHi=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">'I am '</span>+<span class="keyword">this</span>.name);</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">(name,age,gender,score)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 通过构造函数继承属性</span></span></span><br><span class="line"><span class="actionscript">        Person.call(<span class="keyword">this</span>,name,age,gender);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.score=score;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="comment">// 通过原型继承方法</span></span></span><br><span class="line"><span class="actionscript">    Student.prototype=<span class="keyword">new</span> Person();</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 修改constructor的指向</span></span></span><br><span class="line">    Student.prototype.constructor=Student;</span><br><span class="line"><span class="actionscript">    <span class="comment">// 动态添加成员方法</span></span></span><br><span class="line"><span class="actionscript">    Student.prototype.printScore=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">'my score is '</span>+<span class="keyword">this</span>.score);</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> s1=<span class="keyword">new</span> Student(<span class="string">'zlj'</span>,<span class="number">20</span>,<span class="string">'男'</span>,<span class="number">99</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(s1.name+s1.age+s1.gender+s1.score);</span></span><br><span class="line">    s1.sayHi();</span><br><span class="line">    s1.printScore();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>注：ES6之后使用extends关键字实现继承（class Student extends Person{}）</p>
+<blockquote>
+<p>ES6之后使用extends关键字实现继承（class Student extends Person{}）</p>
+</blockquote>
 <p><strong>ES5中新增的对象方法</strong></p>
 <ul>
 <li><p>Object.keys()用于获取对象自身所有的属性，返回一个由属性名组成的数组</p>
@@ -652,11 +654,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">

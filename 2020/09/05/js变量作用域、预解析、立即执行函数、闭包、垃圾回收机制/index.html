@@ -16,7 +16,7 @@
 <meta property="og:description" content="js变量作用域">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-05T02:57:54.000Z">
-<meta property="article:modified_time" content="2020-10-13T02:11:42.617Z">
+<meta property="article:modified_time" content="2020-10-19T15:28:06.971Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -235,8 +235,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>js变量作用域</strong></p>
-<a id="more"></a>
+        <h3 id="js变量作用域"><a href="#js变量作用域" class="headerlink" title="js变量作用域"></a>js变量作用域</h3><a id="more"></a>
 
 <blockquote>
 <p>作用域链：就近原则</p>
@@ -252,8 +251,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
-<p><strong>js预解析</strong></p>
-<ul>
+<h3 id="js预解析"><a href="#js预解析" class="headerlink" title="js预解析"></a>js预解析</h3><ul>
 <li><p>我们js引擎运行js分两步：预解析、代码执行</p>
 </li>
 <li><p>预解析：所有的var和function提升到当前作用域的最前面</p>
@@ -269,8 +267,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
-<p><strong>立即执行函数</strong></p>
-<ul>
+<h3 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h3><ul>
 <li><p>函数定义完立即被调用,这种函数叫做立即执行函数</p>
 </li>
 <li><p>立即执行函数往往只会执行一次</p>
@@ -281,8 +278,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <blockquote>
 <p>javascript中没有私有作用域的概念，如果在多人开发的项目上，你在全局或局部作用域中声明了一些变量，可能会被其他人不小心用同名的变量给覆盖掉，根据javascript函数作用域链的特性，使用这种技术可以模仿一个私有作用域，用匿名函数作为一个“容器”，“容器”内部可以访问外部的变量，而外部不能访问“容器”内部的变量，jQuery使用的就是这种方法，将jQuery代码包裹在<code>(function(window,undefined){jquery代码})(window)</code>中，在全局作用域中调用jQuery代码时，可以达到保护jQuery内部变量的作用</p>
 </blockquote>
-<p><strong>闭包</strong></p>
-<blockquote>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><blockquote>
 <p>闭包最实用的功能：就是将你想操作的变量或对象隐藏起来，只允许特定的方法才能访问它</p>
 </blockquote>
 <ul>
@@ -297,8 +293,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
-<p><strong>垃圾回收（GC）机制</strong></p>
-<ul>
+<h3 id="垃圾回收（GC）机制"><a href="#垃圾回收（GC）机制" class="headerlink" title="垃圾回收（GC）机制"></a>垃圾回收（GC）机制</h3><ul>
 <li><p>概念</p>
 <ul>
 <li>程序运行过程中也会产生垃圾，这些垃圾积攒过多会导致程序运行的速度过慢</li>
@@ -472,7 +467,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js变量作用域"><span class="toc-number">1.</span> <span class="toc-text">js变量作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js预解析"><span class="toc-number">2.</span> <span class="toc-text">js预解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#立即执行函数"><span class="toc-number">3.</span> <span class="toc-text">立即执行函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包"><span class="toc-number">4.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收（GC）机制"><span class="toc-number">5.</span> <span class="toc-text">垃圾回收（GC）机制</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -651,11 +646,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
