@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>js包装对象 | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="js 包装对象">
+  <meta name="description" content="JS包装对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js包装对象">
 <meta property="og:url" content="http://yoursite.com/2020/05/25/js%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="js 包装对象">
+<meta property="og:description" content="JS包装对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-25T10:59:12.000Z">
-<meta property="article:modified_time" content="2020-09-17T08:38:43.045Z">
+<meta property="article:modified_time" content="2020-10-20T09:49:34.903Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -235,16 +235,31 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="js-包装对象"><a href="#js-包装对象" class="headerlink" title="js 包装对象"></a>js 包装对象</h2><a id="more"></a>
+        <h3 id="JS包装对象"><a href="#JS包装对象" class="headerlink" title="JS包装对象"></a>JS包装对象</h3><a id="more"></a>
 
-<p><strong>JS 中 String 基本数据类型为什么会有 length 属性、以及其他字符串方法？？？</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length); <span class="comment">//3</span></span><br><span class="line"><span class="comment">//原因:基本数据类型在调用方法的时候,JS引擎会先对原始类型数据进行包装</span></span><br></pre></td></tr></table></figure>
+<p><strong>JS中String基本数据类型为什么会有length属性、以及其他字符串方法？？？</strong></p>
+<blockquote>
+<p>原因：基本数据类型在调用方法的时候，JS引擎会先对原始类型数据进行包装</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">步骤:</span><br><span class="line">创建基本类型的一个实例</span><br><span class="line">在实例上调用指定的方法</span><br><span class="line">销毁这个实例</span><br><span class="line">代码说明:</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"我是String基本数据类型的值"</span>;</span><br><span class="line"><span class="keyword">var</span> new_str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"我是String基本数据类型的值"</span>); <span class="comment">//包装处理</span></span><br><span class="line"><span class="keyword">var</span> my_str = new_str.substring(<span class="number">5</span>,<span class="number">8</span>);</span><br><span class="line">new_str = <span class="literal">null</span>; <span class="comment">//方法调用之后销毁实例</span></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">"abc"</span>;</span><br><span class="line">str1.age = <span class="number">18</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.age); <span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//可见并非string调用了自身的方法,而是后台创建了一个基本包装类型String,从而进行下一步操作</span></span><br><span class="line">基本数据类型的“销毁性”致使我们不能为基本数据类型添加属性和方法</span><br></pre></td></tr></table></figure>
+<p>步骤：</p>
+<ol>
+<li>创建基本类型的一个实例</li>
+<li>在实例上调用指定的方法</li>
+<li>销毁这个实例</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"我是String基本数据类型的值"</span>;</span><br><span class="line"><span class="keyword">var</span> new_str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"我是String基本数据类型的值"</span>); <span class="comment">//包装处理</span></span><br><span class="line"><span class="keyword">var</span> my_str = new_str.substring(<span class="number">5</span>,<span class="number">8</span>);</span><br><span class="line">new_str = <span class="literal">null</span>; <span class="comment">//方法调用之后销毁实例</span></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">"abc"</span>;</span><br><span class="line">str1.age = <span class="number">18</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.age); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>123和new Number(123)的区别</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var v1 &#x3D; new Number(123);&#x2F;&#x2F;把原始类型的值包装成对象</span><br><span class="line">v1 &#x3D;&#x3D;&#x3D; 123;&#x2F;&#x2F;false</span><br><span class="line">v1 &#x3D;&#x3D; 123;&#x2F;&#x2F;true</span><br><span class="line">原因：v1是object而123是number，&#x3D;&#x3D;&#x3D;不会隐式自动转换而&#x3D;&#x3D;会隐式自动转换</span><br></pre></td></tr></table></figure>
-
+<blockquote>
+<p>可见并非string调用了自身的方法，而是后台创建了一个基本包装类型String，从而进行下一步操作</p>
+<p>基本数据类型的“销毁性”致使我们不能为基本数据类型添加属性和方法</p>
+</blockquote>
+<p><strong>123 和new Number(123)的区别</strong></p>
+<blockquote>
+<p>原因：v1是object而123是number，===不会隐式自动转换而==会隐式自动转换</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v1 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>); <span class="comment">//把原始类型的值包装成对象</span></span><br><span class="line">v1 === <span class="number">123</span>; <span class="comment">//false</span></span><br><span class="line">v1 == <span class="number">123</span>; <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -398,7 +413,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#js-包装对象"><span class="toc-number">1.</span> <span class="toc-text">js 包装对象</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS包装对象"><span class="toc-number">1.</span> <span class="toc-text">JS包装对象</span></a></li></ol>
                     </div>
                 </span>
             </div>

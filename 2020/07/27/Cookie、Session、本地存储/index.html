@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Cookie、Session、本地存储 | 十里不故梦的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="cookie、session">
+  <meta name="description" content="Cookie、Session">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie、Session、本地存储">
 <meta property="og:url" content="http://yoursite.com/2020/07/27/Cookie%E3%80%81Session%E3%80%81%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/index.html">
 <meta property="og:site_name" content="十里不故梦的Blog">
-<meta property="og:description" content="cookie、session">
+<meta property="og:description" content="Cookie、Session">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-27T06:47:06.000Z">
-<meta property="article:modified_time" content="2020-09-29T15:28:00.880Z">
+<meta property="article:modified_time" content="2020-10-21T08:44:43.762Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -235,19 +235,21 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="cookie、session"><a href="#cookie、session" class="headerlink" title="cookie、session"></a>cookie、session</h2><a id="more"></a>
+        <h3 id="Cookie、Session"><a href="#Cookie、Session" class="headerlink" title="Cookie、Session"></a>Cookie、Session</h3><a id="more"></a>
 
+<blockquote>
 <p>HTTP协议是无状态的协议，一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接，这就意味着服务器无法从连接上跟踪会话，于是出现了cookie和session</p>
-<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p><strong>介绍：</strong></p>
+</blockquote>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p><strong>介绍：</strong></p>
 <p>Cookie实际上是一小段的文本信息，客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie，客户端会把Cookie保存起来，当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器，服务器检查该Cookie，以此来辨认用户状态。服务器还可以根据需要修改Cookie的内容</p>
 <p><strong>分类：</strong></p>
 <ol>
 <li>会话Cookie：若不设置过期时间，则表示这个cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就消失，这种生命期为浏览器会话期的cookie被称为会话cookie。会话cookie一般不存储在硬盘上而是保存在内存里</li>
 <li>持久Cookie：若设置了过期时间，浏览器就会把cookie保存到硬盘上，关闭后再次打开浏览器，这些cookie仍然有效直到超过设定的过期时间。存储在硬盘上的cookie可以在浏览器的不同进程间共享</li>
 </ol>
-<p><strong>Cookie具有不可跨域名性</strong></p>
+<p><strong>Cookie具有不可跨域名性：</strong></p>
 <p>就是说，浏览器访问百度不会带上谷歌的cookie</p>
-<h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><p><strong>介绍：</strong></p>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p><strong>介绍：</strong></p>
 <p>当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了sessionId，如果已包含则说明以前已经为此客户端创建过session，服务器就按照sessionId把这个session检索出来使用（检索不到，会新建一个），如果客户端请求不包含sessionId，则为此客户端创建一个session并且生成一个与此session相关联的sessionId，sessionId的值是一个既不会重复，又不容易被找到规律以仿造的字符串，这个sessionId将被在本次响应中返回给客户端保存</p>
 <h3 id="cookie和session是如何配合的"><a href="#cookie和session是如何配合的" class="headerlink" title="cookie和session是如何配合的"></a>cookie和session是如何配合的</h3><p>用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建对应的 Session ，请求返回时将此 Session 的唯一标识信息 SessionId 返回给浏览器，浏览器接收到服务器返回的 SessionId 信息后，会将此信息存入到 Cookie 中，同时 Cookie 记录此 SessionId 属于哪个域名。当用户第二次访问服务器的时候，请求会自动判断此域名下是否存在 Cookie 信息，如果存在自动将 Cookie 信息也发送给服务端，服务端会从 Cookie 中获取 SessionId，再根据 SessionId 查找对应的 Session 信息，如果没有找到说明用户没有登录或者登录失效，如果找到 Session 证明用户已经登录可执行后面操作。根据以上流程可知，SessionId 是连接 Cookie 和 Session 的一道桥梁，大部分系统也是根据此原理来验证用户登录状态</p>
 <h3 id="cookie和session的区别"><a href="#cookie和session的区别" class="headerlink" title="cookie和session的区别"></a>cookie和session的区别</h3><ul>
@@ -263,7 +265,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>跨域支持上的不同 ： Cookie支持跨域名访问，例如将domain属性设置为“.baidu.com”，则以“.baidu.com”为后缀的一切域名均能够访问该Cookie。跨域名Cookie如今被普遍用在网络中；而Session则不会支持跨域名访问，Session仅在他所在的域名内有效</p>
 </li>
 </ul>
-<h3 id="cookie，localStorage，-sessionStorage三者区别"><a href="#cookie，localStorage，-sessionStorage三者区别" class="headerlink" title="cookie，localStorage， sessionStorage三者区别"></a>cookie，localStorage， sessionStorage三者区别</h3><ul>
+<h3 id="cookie、localStorage、sessionStorage三者区别"><a href="#cookie、localStorage、sessionStorage三者区别" class="headerlink" title="cookie、localStorage、sessionStorage三者区别"></a>cookie、localStorage、sessionStorage三者区别</h3><ul>
 <li>cookie始终在同源的http请求中携带，cookie在浏览器和服务器中来回传递，而localStorage和sessionStorage仅仅在本地存储，不会与服务器通信，也不会自动把数据发送给服务器</li>
 <li>存储大小不同，cookie为4kb左右；localStorage和sessionStorage可以达到5M</li>
 <li>数据有效期不同，sessionStorage仅在同源窗口中有效，关闭窗口就消失了，cookie可以设置过期时间，localStorage长期有效</li>
@@ -422,7 +424,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie、session"><span class="toc-number">1.</span> <span class="toc-text">cookie、session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie"><span class="toc-number">1.1.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session"><span class="toc-number">1.2.</span> <span class="toc-text">session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie和session是如何配合的"><span class="toc-number">1.3.</span> <span class="toc-text">cookie和session是如何配合的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie和session的区别"><span class="toc-number">1.4.</span> <span class="toc-text">cookie和session的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie，localStorage，-sessionStorage三者区别"><span class="toc-number">1.5.</span> <span class="toc-text">cookie，localStorage， sessionStorage三者区别</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie、Session"><span class="toc-number">1.</span> <span class="toc-text">Cookie、Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie"><span class="toc-number">2.</span> <span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">3.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie和session是如何配合的"><span class="toc-number">4.</span> <span class="toc-text">cookie和session是如何配合的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie和session的区别"><span class="toc-number">5.</span> <span class="toc-text">cookie和session的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie、localStorage、sessionStorage三者区别"><span class="toc-number">6.</span> <span class="toc-text">cookie、localStorage、sessionStorage三者区别</span></a></li></ol>
                     </div>
                 </span>
             </div>

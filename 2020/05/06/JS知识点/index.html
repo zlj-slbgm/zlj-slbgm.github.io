@@ -16,7 +16,7 @@
 <meta property="og:description" content="JS 知识点">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-06T01:21:21.000Z">
-<meta property="article:modified_time" content="2020-10-15T12:27:46.500Z">
+<meta property="article:modified_time" content="2020-10-20T08:53:33.518Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -235,7 +235,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JS-知识点"><a href="#JS-知识点" class="headerlink" title="JS 知识点"></a>JS 知识点</h2><a id="more"></a>
+        <h3 id="JS-知识点"><a href="#JS-知识点" class="headerlink" title="JS 知识点"></a>JS 知识点</h3><a id="more"></a>
 
 <ul>
 <li><p>如果两个函数内容一样，可以用=合并两个函数</p>
@@ -249,7 +249,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>setInterval 中的 function 是匿名函数，setInterval(“Move()”， 2000) 或者 setInterval(Move， 2000)或者setInterval(function(){ ajax({ }) },  2000)</p>
 </li>
 <li><p>Jquery 的 append()与 html()向标签内添加内容的区别</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        $(<span class="string">"p"</span>).append(<span class="string">"好人"</span>); <span class="comment">//我是好人(append不仅能内部添加元素也能添加字符串或者数字之类</span></span></span><br><span class="line"><span class="javascript">        $(<span class="string">"p"</span>).html(<span class="number">123</span>); <span class="comment">//123(html和text会先把p元素里的我是好人删除,再添加123内容)</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">"p"</span>).append(<span class="string">"好人"</span>); <span class="comment">//我是好人(append不仅能内部添加元素也能添加字符串或者数字之类)</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">"p"</span>).html(<span class="number">123</span>); <span class="comment">//123(html和text会先把p元素里的我是好人删除,再添加123内容)</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -413,7 +413,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-知识点"><span class="toc-number">1.</span> <span class="toc-text">JS 知识点</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-知识点"><span class="toc-number">1.</span> <span class="toc-text">JS 知识点</span></a></li></ol>
                     </div>
                 </span>
             </div>
