@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>git | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git 使用前的配置">
+  <meta name="description" content="git使用前的配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git">
 <meta property="og:url" content="http://yoursite.com/2020/07/24/git/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="git 使用前的配置">
+<meta property="og:description" content="git使用前的配置">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/07/24/git/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/24/git/2.png">
 <meta property="article:published_time" content="2020-07-24T00:56:04.000Z">
-<meta property="article:modified_time" content="2020-09-17T08:34:40.091Z">
+<meta property="article:modified_time" content="2020-10-23T08:01:25.506Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -238,8 +238,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>git 使用前的配置</strong></p>
-<a id="more"></a>
+        <h3 id="git使用前的配置"><a href="#git使用前的配置" class="headerlink" title="git使用前的配置"></a>git使用前的配置</h3><a id="more"></a>
 
 <p>在使用 git 前，需要告诉 git 你是谁</p>
 <ol>
@@ -247,24 +246,21 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>配置提交人邮箱：git config –global user.email 提交人邮箱——git config –global user.email <a href="mailto:itheima@itcast.cn">itheima@itcast.cn</a></li>
 <li>查看 git 配置信息：git config –list</li>
 </ol>
-<p><strong>git 提交步骤</strong></p>
-<ol>
+<h3 id="git提交步骤"><a href="#git提交步骤" class="headerlink" title="git提交步骤"></a>git提交步骤</h3><ol>
 <li>初始化 git 仓库：git init</li>
 <li>查看文件状态：git status</li>
 <li>追踪文件(将文件添加到暂存区，被 git 所管理)：git add 文件列表——git add index.html(git add .)</li>
 <li>向仓库中提交代码(将暂存区文件提交到 git 仓库)：git commit -m 提交信息——git commit -m 第一次提交</li>
 <li>查看提交记录：git log</li>
 </ol>
-<p><strong>git 撤销</strong></p>
-<ul>
+<h3 id="git撤销"><a href="#git撤销" class="headerlink" title="git撤销"></a>git撤销</h3><ul>
 <li>用暂存区中的文件覆盖工作目录中的文件：git checkout 文件</li>
 </ul>
 <ul>
 <li>将文件从暂存区中删除： git rm –cached 文件</li>
 <li>将 git 仓库中指定的更新记录(指定的版本)恢复出来，并且覆盖暂存区和工作目录：git reset –hard commitID——git reset –hard 6ba76acc5ef499e5f59a0a51e1dc39a925059fbe</li>
 </ul>
-<p><strong>git 分支命令</strong></p>
-<p>分支就相当于副本，分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习 Git 的时候，另一个你正在另一个平行宇宙里努力学习 SVN。如果两个平行宇宙互不干扰，那对现在的你也没什么影响。不过，在某个时间点两个平行宇宙合并了，结果你既学会了 Git 又学会了 SVN！</p>
+<h3 id="git分支命令"><a href="#git分支命令" class="headerlink" title="git分支命令"></a>git分支命令</h3><p>分支就相当于副本，分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习 Git 的时候，另一个你正在另一个平行宇宙里努力学习 SVN。如果两个平行宇宙互不干扰，那对现在的你也没什么影响。不过，在某个时间点两个平行宇宙合并了，结果你既学会了 Git 又学会了 SVN！</p>
 <ul>
 <li>查看分支：git branch</li>
 <li>创建分支：git branch 分支名称——git branch develop</li>
@@ -275,13 +271,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>删除合并了的分支：git branch -d 删除分支——git branch -d develop</li>
 <li>强制删除未合并的分支：git branch -D 删除分支</li>
 </ul>
-<p><strong>暂时保存更改</strong></p>
-<ul>
+<h3 id="暂时保存更改"><a href="#暂时保存更改" class="headerlink" title="暂时保存更改"></a>暂时保存更改</h3><ul>
 <li>存储临时改动(将分支内容剪切到剪切板)：git stash</li>
 <li>恢复改动(将剪切板内容恢复到原来分支)：git stash pop</li>
 </ul>
-<p><strong>多人协作开发流程</strong></p>
-<ul>
+<h3 id="多人协作开发流程"><a href="#多人协作开发流程" class="headerlink" title="多人协作开发流程"></a>多人协作开发流程</h3><ul>
 <li>A 在自己的计算机中创建本地仓库(无论是 A 还是 B 每次改变都要先提交到本地仓库再推送到远程仓库)</li>
 <li>A 在 github 中创建远程仓库</li>
 <li>A 将本地仓库推送到远程仓库</li>
@@ -297,10 +291,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>克隆远程仓库数据到本地：git clone 远程仓库地址——git clone <a href="https://github.com/zlj-slbgm/git-demo.git" target="_blank" rel="noopener">https://github.com/zlj-slbgm/git-demo.git</a></li>
 <li>拉取远程仓库中最新的版本：git pull 远程仓库地址 分支名称</li>
 </ul>
-<p><strong>解决冲突</strong></p>
-<p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突，冲突需要人为解决</p>
-<p><strong>跨团队协作</strong></p>
-<ol>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突，冲突需要人为解决</p>
+<h3 id="跨团队协作"><a href="#跨团队协作" class="headerlink" title="跨团队协作"></a>跨团队协作</h3><ol>
 <li>程序员 C fork 程序员 A 的远程仓库</li>
 <li>程序员 C 将仓库克隆在本地修改</li>
 <li>程序员 C 将本地修改推送到远程仓库</li>
@@ -308,8 +300,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>原仓库作者审核</li>
 <li>原仓库作者合并代码</li>
 </ol>
-<p><strong>ssh 免登陆</strong></p>
-<ol>
+<h3 id="ssh免登陆"><a href="#ssh免登陆" class="headerlink" title="ssh免登陆"></a>ssh免登陆</h3><ol>
 <li>生成秘钥：ssh-keygen</li>
 <li>秘钥存储目录：C:\Users\用户.ssh</li>
 <li>公钥名称：id_rsa.pub</li>
@@ -317,10 +308,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>用代码编辑器打开公钥，将公钥复制粘贴到 GitHub 中的 SSH keys</li>
 <li>点击 Code 再点 Use SSH 切换为 SSH 协议的远程仓库地址</li>
 </ol>
-<p><strong>git 忽略清单</strong></p>
-<p>新建名为.gitignore 的文件，将不需要被 git 管理的文件名或者文件夹名添加到忽略清单文件(.gitignore)中，在执行 git 命令的时候，git 就会忽略这些文件(比如 node_modules)</p>
-<p><strong>为仓库添加详细说明</strong></p>
-<ol>
+<h3 id="git忽略清单"><a href="#git忽略清单" class="headerlink" title="git忽略清单"></a>git忽略清单</h3><p>新建名为.gitignore 的文件，将不需要被 git 管理的文件名或者文件夹名添加到忽略清单文件(.gitignore)中，在执行 git 命令的时候，git 就会忽略这些文件(比如 node_modules)</p>
+<h3 id="为仓库添加详细说明"><a href="#为仓库添加详细说明" class="headerlink" title="为仓库添加详细说明"></a>为仓库添加详细说明</h3><ol>
 <li>在本地仓库新建 readme.md 文件</li>
 <li>将 readme.md 文件提交到本地仓库</li>
 <li>将本地仓库推送到 GitHub 远程仓库</li>
@@ -478,7 +467,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#git使用前的配置"><span class="toc-number">1.</span> <span class="toc-text">git使用前的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git提交步骤"><span class="toc-number">2.</span> <span class="toc-text">git提交步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git撤销"><span class="toc-number">3.</span> <span class="toc-text">git撤销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git分支命令"><span class="toc-number">4.</span> <span class="toc-text">git分支命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#暂时保存更改"><span class="toc-number">5.</span> <span class="toc-text">暂时保存更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多人协作开发流程"><span class="toc-number">6.</span> <span class="toc-text">多人协作开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决冲突"><span class="toc-number">7.</span> <span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨团队协作"><span class="toc-number">8.</span> <span class="toc-text">跨团队协作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh免登陆"><span class="toc-number">9.</span> <span class="toc-text">ssh免登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git忽略清单"><span class="toc-number">10.</span> <span class="toc-text">git忽略清单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为仓库添加详细说明"><span class="toc-number">11.</span> <span class="toc-text">为仓库添加详细说明</span></a></li></ol>
                     </div>
                 </span>
             </div>

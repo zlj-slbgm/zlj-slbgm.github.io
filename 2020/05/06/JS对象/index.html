@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js包装对象 | 十里不故梦Blog</title>
+  <title>JS对象 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS包装对象">
+  <meta name="description" content="JS对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js包装对象">
-<meta property="og:url" content="http://yoursite.com/2020/05/25/js%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:title" content="JS对象">
+<meta property="og:url" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="JS包装对象">
+<meta property="og:description" content="JS对象">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-25T10:59:12.000Z">
-<meta property="article:modified_time" content="2020-10-20T09:49:34.903Z">
+<meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/2.png">
+<meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
+<meta property="article:modified_time" content="2020-10-25T03:59:03.580Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
   
@@ -204,14 +207,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-js包装对象" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-JS对象" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js包装对象
+      JS对象
     </h1>
   
 
@@ -227,40 +230,334 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/05/25/js%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
-  	<time datetime="2020-05-25T10:59:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+        <a href="/2020/05/06/JS%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
+  	<time datetime="2020-05-06T08:01:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="JS包装对象"><a href="#JS包装对象" class="headerlink" title="JS包装对象"></a>JS包装对象</h3><a id="more"></a>
+        <h1 id="JS对象"><a href="#JS对象" class="headerlink" title="JS对象"></a>JS对象</h1><a id="more"></a>
 
-<p><strong>JS中String基本数据类型为什么会有length属性、以及其他字符串方法？？？</strong></p>
-<blockquote>
-<p>原因：基本数据类型在调用方法的时候，JS引擎会先对原始类型数据进行包装</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-
-<p>步骤：</p>
-<ol>
-<li>创建基本类型的一个实例</li>
-<li>在实例上调用指定的方法</li>
-<li>销毁这个实例</li>
+<h3 id="对象分类"><a href="#对象分类" class="headerlink" title="对象分类"></a>对象分类</h3><ul>
+<li>内置对象由ES标准中定义的对象：Object、Array、Function、Number、String、Boolean、Math、Date、RegExp、Json、Error等</li>
+<li>宿主对象由JS运行环境提供的对象：DOM、BOM</li>
+<li>自定义对象由开发人员自己创建的对象</li>
+</ul>
+<h3 id="new操作符具体做了什么"><a href="#new操作符具体做了什么" class="headerlink" title="new操作符具体做了什么"></a>new操作符具体做了什么</h3><ol>
+<li>创建一个空对象</li>
+<li>将this指向空对象</li>
+<li>动态给刚创建的对象添加成员属性</li>
+<li>隐式返回this</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"我是String基本数据类型的值"</span>;</span><br><span class="line"><span class="keyword">var</span> new_str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"我是String基本数据类型的值"</span>); <span class="comment">//包装处理</span></span><br><span class="line"><span class="keyword">var</span> my_str = new_str.substring(<span class="number">5</span>,<span class="number">8</span>);</span><br><span class="line">new_str = <span class="literal">null</span>; <span class="comment">//方法调用之后销毁实例</span></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">"abc"</span>;</span><br><span class="line">str1.age = <span class="number">18</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.age); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h3><blockquote>
+<p>几乎所有的对象都是Object类型的实例，它们都会从Object.prototype继承属性和方法</p>
+</blockquote>
+<p><strong>Object构造函数会根据给定的参数创建对象：</strong></p>
+<ul>
+<li><p>如果不给定值或者给定的值是null或undefined，将会创建并返回一个空对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span>(<span class="literal">null</span>) <span class="comment">//&#123;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果给定的值是原始类型的值，将会创建并返回一个包装类型的对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span>(<span class="number">2</span>) <span class="comment">//Number &#123;2&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果给定的值是引用类型的值，将会创建并返回原值，经它们复制的变量保有和源对象相同的引用地址</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span>([<span class="number">1</span>,<span class="number">2</span>]) <span class="comment">//[1,2]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>具有Object类型的每个实例都具有下列属性和方法：</strong></p>
+<ul>
+<li><p>constructor：保存着用于创建当前对象的函数（也就是构造函数）</p>
+</li>
+<li><p>hasOwnProperty(propertyName)：用于检查给定的属性在当前对象实例中是否存在，其中作为参数的属性名必须以字符串形式指定（如：o.hasOwnProperty(“name”)），返回boolean值</p>
+</li>
+<li><p>isPrototypeOf(object)：用于检查传入的对象是否是当前对象的原型，返回boolean值</p>
+</li>
+<li><p>propertyIsEnumerable(propertyName)：用于检查给定的属性是否能够使用for-in语句来枚举，其中作为参数的属性名必须以字符串形式指定</p>
+</li>
+<li><p>toString()：返回当前对象的字符串表示形式</p>
+<blockquote>
+<p>对象.toString()，返回<code>&#39;[object type]&#39;</code>，其中type是对象的类型</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="string">'2'</span>,<span class="literal">true</span>].toString();</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// '1,2,true'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = (<span class="keyword">new</span> <span class="built_in">Date</span>()).toString();</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 'Tue Oct 20 2020 22:59:54 GMT+0800 (中国标准时间)'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c =(&#123;<span class="attr">name</span>: <span class="string">'zlj'</span>&#125;).toString();</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// '[object Object]'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"123"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> d = fn.toString()</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// 'function () &#123;console.log("123")&#125;'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>toLocaleString()：返回当前对象的“本地化”字符串形式，以便于当前环境的用户辨识和使用，返回值为String类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1234567</span>).toLocaleString(); <span class="comment">// "1,234,567"</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1.234567</span>).toLocaleString(); <span class="comment">// "1.235"(小数点后保留三位有效数,四舍五入)</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">Date</span>()).toLocaleString(); <span class="comment">// "2020/10/21 上午9:35:01"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>valueOf()：返回指定对象的原始值</p>
+<blockquote>
+<p>时间戳就是从1970年1月1日0时0分0秒（世界标准时）到当前时间点的所有秒数</p>
+</blockquote>
+<ul>
+<li>Number：返回数字值（如：<code>new Number(2).valueOf()</code>返回值为<code>2</code>）</li>
+<li>String：返回字符串值（如：<code>new String(&quot;123&quot;).valueOf()</code>返回值为<code>&quot;123&quot;</code>）</li>
+<li>Boolean：返回布尔值true或false（如：<code>new Boolean(&quot;123&quot;).valueOf()</code>返回值为<code>true</code>）</li>
+<li>Array：返回数组对象本身（如：<code>[1,2,3].valueOf()</code>返回值为<code>Array(3)</code>）</li>
+<li>Object：返回对象本身（如：<code>new Object().valueOf()</code>返回值为<code>{}</code>）</li>
+<li>Function：返回函数本身（如：<code>new Function().valueOf()</code>返回值为<code>ƒ anonymous(){}</code>）</li>
+<li>Date：返回时间戳（如：<code>new Date(2013,7,18,23,11,59,230).valueOf()</code>返回值为<code>1376838719230</code>）</li>
+</ul>
+</li>
+</ul>
+<p><strong>Object构造函数的方法：</strong></p>
+<ul>
+<li><p>Object.assign(target,…sources)：拷贝的是<strong>（可枚举）</strong>属性值</p>
+<blockquote>
+<p>原始类型会被包装，只有字符串的包装对象才可能有自身可枚举属性，null和undefined会被忽略</p>
+<p>new String(“123”)输出如下</p>
+<p>String {“123”}</p>
+<ol>
+<li><p>0: “1”</p>
+</li>
+<li><p>1: “2”</p>
+</li>
+<li><p>2: “3”</p>
+</li>
+</ol>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o1=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> o2=<span class="string">"abc"</span></span><br><span class="line"><span class="keyword">const</span> o3=<span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> o4=<span class="built_in">Symbol</span>(<span class="string">"foo"</span>)</span><br><span class="line"><span class="keyword">const</span> obj=<span class="built_in">Object</span>.assign(&#123;&#125;,o1,o2,o3,o4,<span class="literal">null</span>,<span class="literal">undefined</span>)</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"><span class="comment">/*&#123;</span></span><br><span class="line"><span class="comment">	0: "a"</span></span><br><span class="line"><span class="comment">	1: "b"</span></span><br><span class="line"><span class="comment">	2: "c"</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Object.keys(obj)：会返回一个由对象自身可枚举属性名组成的字符串数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(arr)); <span class="comment">//["0", "1", "2"]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="attr">demo</span>: <span class="string">'b'</span>, <span class="string">'js'</span>: <span class="string">'c'</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">//["0", "demo", "js"]</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>可见并非string调用了自身的方法，而是后台创建了一个基本包装类型String，从而进行下一步操作</p>
-<p>基本数据类型的“销毁性”致使我们不能为基本数据类型添加属性和方法</p>
-</blockquote>
-<p><strong>123 和new Number(123)的区别</strong></p>
-<blockquote>
-<p>原因：v1是object而123是number，===不会隐式自动转换而==会隐式自动转换</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v1 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>); <span class="comment">//把原始类型的值包装成对象</span></span><br><span class="line">v1 === <span class="number">123</span>; <span class="comment">//false</span></span><br><span class="line">v1 == <span class="number">123</span>; <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p><strong>Object.getOwnPropertyNames()：</strong>返回一个由指定对象的所有自身属性的属性名（<strong>包括不可枚举属性</strong>但不包括Symbol值作为名称的属性）组成的字符串数组</p>
+<p>enumerable设置是否可枚举</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(arr)); <span class="comment">//["0", "1", "2", "length"]</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><p>Object.values(obj)：返回一个由对象自身可枚举属性值组成的字符串数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(arr)); <span class="comment">//["a", "b", "c"]</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="attr">demo</span>: <span class="string">'b'</span>, <span class="string">'js'</span>: <span class="string">'c'</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(obj)); <span class="comment">//["a", "b", "c"]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Object.defineProperty()：定义新属性或修改原有属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">"孙悟空"</span>;</span><br><span class="line">obj.age = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">"name"</span>, &#123;</span><br><span class="line">    value: <span class="string">"猪八戒"</span>, <span class="comment">//设置属性的值，默认undefined</span></span><br><span class="line">    writable: <span class="literal">true</span>, <span class="comment">//值是否能重写，默认false</span></span><br><span class="line">    enumerable: <span class="literal">true</span>, <span class="comment">//目标属性是否可以被枚举，默认false</span></span><br><span class="line">    configurable: <span class="literal">true</span> <span class="comment">//目标属性是否可以被删除或是否可以再次修改，默认为false</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"><span class="comment">// age: 20</span></span><br><span class="line"><span class="comment">// name: "猪八戒"（修改的新属性在后面）</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="创建对象的方法"><a href="#创建对象的方法" class="headerlink" title="创建对象的方法"></a>创建对象的方法</h3><blockquote>
+<p>高程中还提到了动态原型模式，寄生构造函数模式，稳妥构造函数模式</p>
+</blockquote>
+<ul>
+<li><p>(字面式)json方式创建对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object=&#123;</span><br><span class="line">    name: <span class="string">'cat'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sayHi: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'name:'</span>+<span class="keyword">this</span>.name+<span class="string">'age:'</span>+<span class="keyword">this</span>.age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">object.color=<span class="string">'red'</span>; <span class="comment">//js是个动态语言直接.出来添加，其它语言直接.出本身没有的属性会报错</span></span><br><span class="line">object.show=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>先通过Object构造器new一个对象，再往里丰富成员信息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">o.age=<span class="number">18</span>;</span><br><span class="line">o.show=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>工厂模式</p>
+<blockquote>
+<p>上面两种方法在使用同一接口创建多个对象时，会产生大量重复代码，为了解决此问题工厂模式被开发</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,family</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.family = family;</span><br><span class="line">    o.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 =  createPerson(<span class="string">"lisi"</span>,<span class="number">21</span>,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>]); </span><br><span class="line"><span class="keyword">var</span> person2 =  createPerson(<span class="string">"wangwu"</span>,<span class="number">18</span>,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"lisi"</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"><span class="comment">//instanceof无法判断它是谁的实例，只能判断他是对象</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过构造函数方式创建</p>
+<blockquote>
+<p>工厂模式解决了重复实例化多个对象的问题，但没有解决对象识别的问题（工厂模式却无从识别对象的类型，因为全部都是Object，不像Array、Date等，本例中得到的都是o对象，对象的类型都是Object，因此出现了构造函数模式）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,family</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.family = family;</span><br><span class="line">    <span class="keyword">this</span>.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"lisi"</span>,<span class="number">21</span>,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>]);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"lisi"</span>,<span class="number">21</span>,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"lisi"</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> Person); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(person2 <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(person2 <span class="keyword">instanceof</span> Person); <span class="comment">//true</span></span><br><span class="line"><span class="comment">//构造函数知道自己从哪里来(通过instanceof可以看出其既是Object的实例，又是Person的实例)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原型模式</p>
+<blockquote>
+<p>构造函数也有其缺陷，每个实例都包含不同的Function实例（构造函数内的方法在做同一件事，但是实例化后却产生了不同的对象，函数也是对象），因此产生了原型模式</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = <span class="string">"lisi"</span>;</span><br><span class="line">Person.prototype.age = <span class="number">21</span>;</span><br><span class="line">Person.prototype.family = [<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>];</span><br><span class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();       <span class="comment">//创建一个实例person1</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.name);        <span class="comment">//lisi</span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();       <span class="comment">//创建实例person2</span></span><br><span class="line">person2.name = <span class="string">"wangwu"</span>;          <span class="comment">//为自己设置私有属性</span></span><br><span class="line">person2.family = [<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"lisi"</span>];</span><br><span class="line"><span class="built_in">console</span>.log(person2);             <span class="comment">//Person &#123;name: "wangwu", family: Array[3]&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.prototype.name); <span class="comment">//报错</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.age);            <span class="comment">//21</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>原型模式的好处是所有对象实例共享它的属性和方法，此外还可以如person2.name = “wangwu”那样设置实例自己的属性（方法）（即所谓的私有属性），可以覆盖原型对象上的同名属性（方法）</p>
+</blockquote>
+</li>
+<li><p>混合模式(构造函数模式+原型模式)</p>
+<blockquote>
+<p>构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,family</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.family = family;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: Person,  //每个函数都有prototype属性，指向该函数原型对象，原型对象都有<span class="keyword">constructor</span>属性，这是一个指向prototype属性所在函数的指针</span><br><span class="line">    say: function()&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"lisi"</span>,<span class="number">21</span>,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(person1);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"wangwu"</span>,<span class="number">21</span>,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"lisi"</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(person2);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>混合模式共享着对相同方法的引用，又保证了每个实例有自己的私有属性，最大限度的节省了内存</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="操作对象属性名和属性值"><a href="#操作对象属性名和属性值" class="headerlink" title="操作对象属性名和属性值"></a>操作对象属性名和属性值</h3><ul>
+<li><p>向对象中添加属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name=<span class="string">"孙悟空"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改对象的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.name=<span class="string">"猪八戒"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除对象的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> obj.name;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取对象中属性（读取对象中没有的属性不会报错而是返回undefined）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name=<span class="string">"孙悟空"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);</span><br><span class="line"><span class="built_in">console</span>.log(obj[<span class="string">"name"</span>]);<span class="comment">//注意：name需要引号</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>js对象的属性值可以是任意的数据类型甚至也可以是一个对象</p>
+</li>
+<li><p>“属性名” in 对象（可以检查一个对象中是否有指定的属性名）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name=<span class="string">"孙悟空"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"name"</span> <span class="keyword">in</span> obj);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="ES6之前js中实现继承常用的三种方式"><a href="#ES6之前js中实现继承常用的三种方式" class="headerlink" title="ES6之前js中实现继承常用的三种方式"></a>ES6之前js中实现继承常用的三种方式</h3><ul>
+<li>通过构造函数实现继承可继承构造函数里面的属性和方法，但是无法继承原型链上面的属性和方法</li>
+<li>通过原型实现继承既可以继承构造函数里面的属性和方法，也可以继承原型链上面的属性和方法</li>
+<li>组合继承</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, gender</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.gender = gender;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'I am '</span> + <span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, age, gender, score</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过构造函数继承属性</span></span><br><span class="line">    Person.call(<span class="keyword">this</span>, name, age, gender);</span><br><span class="line">    <span class="keyword">this</span>.score = score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过原型继承方法</span></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="comment">// 修改constructor的指向</span></span><br><span class="line">Student.prototype.constructor = Student;</span><br><span class="line"><span class="comment">// 动态添加成员方法</span></span><br><span class="line">Student.prototype.printScore = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'my score is '</span> + <span class="keyword">this</span>.score);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Student(<span class="string">'zlj'</span>, <span class="number">20</span>, <span class="string">'男'</span>, <span class="number">99</span>);</span><br><span class="line"><span class="built_in">console</span>.log(s1.name + s1.age + s1.gender + s1.score);</span><br><span class="line">s1.sayHi();</span><br><span class="line">s1.printScore();</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ES6之后使用extends关键字实现继承（class Student extends Person{}）</p>
+</blockquote>
+<h3 id="ES6中的类和对象"><a href="#ES6中的类和对象" class="headerlink" title="ES6中的类和对象"></a>ES6中的类和对象</h3><blockquote>
+<p>super关键字可以访问和调用父类上的函数，可以调用父类构造函数，也可以调用父类普通函数</p>
+<p>构造函数里面的this指向的是创建的实例对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(x, y) &#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    sum() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x + <span class="keyword">this</span>.y);</span><br><span class="line">    &#125;</span><br><span class="line">    say() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"我是爸爸"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(x, y) &#123;</span><br><span class="line">        <span class="comment">//调用父类构造函数(并且super要写在this之前)</span></span><br><span class="line">        <span class="keyword">super</span>(x, y); </span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    subtract() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x - <span class="keyword">this</span>.y);</span><br><span class="line">    &#125;</span><br><span class="line">    say() &#123;</span><br><span class="line">        <span class="comment">//调用父类的普通函数</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">super</span>.say()); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line">son.subtract(); <span class="comment">//2</span></span><br><span class="line">son.sum(); <span class="comment">//8</span></span><br><span class="line">son.say();</span><br></pre></td></tr></table></figure>
+
+<h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><blockquote>
+<p>obj1是源对象，obj2是目标对象，要将obj1拷贝给obj2</p>
+</blockquote>
+<p><strong>浅拷贝：</strong></p>
+<blockquote>
+<p>浅拷贝只是拷贝一层，更深层次对象级别只能拷贝引用（即内存地址）</p>
+<p>浅拷贝把被拷贝的对象复杂数据类型中的地址拷贝给目标对象，修改目标对象会影响被拷贝对象</p>
+</blockquote>
+<img src="/2020/05/06/JS%E5%AF%B9%E8%B1%A1/1.png" style="zoom: 67%;">
+
+<ul>
+<li><p>for-in方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    msg: &#123;</span><br><span class="line">        age: <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    name: <span class="string">"李四"</span>,</span><br><span class="line">    msg: &#123;</span><br><span class="line">        sex: <span class="string">"男"</span>,</span><br><span class="line">        age: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> obj1) &#123;</span><br><span class="line">    obj2[k] = obj1[k];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//&#123;name: "张三", msg: &#123;age: 18&#125;, id: 1&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>改变obj2.msg.age的值，obj1.msg.age也跟着变</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj2.msg.age = <span class="number">38</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1); <span class="comment">//&#123;id: 1, name: "张三", msg: &#123;age: 38&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Object.assign()方法</p>
+<blockquote>
+<p>Object.assign()是es6新增的方法，可以实现浅拷贝</p>
+<p>语法：Object.assign(target,…sources)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    msg: &#123;</span><br><span class="line">        age: <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    name: <span class="string">"李四"</span>,</span><br><span class="line">    msg: &#123;</span><br><span class="line">        sex: <span class="string">"男"</span>,</span><br><span class="line">        age: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.assign(obj2,obj1);</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//&#123;name: "张三", msg: &#123;age: 18&#125;, id: 1&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的扩展运算符</p>
+<blockquote>
+<p>扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 =&#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 =&#123;</span><br><span class="line">    ...obj1</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//&#123;a: 1, b: 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>深拷贝：</strong></p>
+<blockquote>
+<p>深拷贝拷贝多层，每一级别的数据都会拷贝</p>
+<p>深拷贝是完全克隆，拷贝的是内存地址里的数据，修改目标对象不会影响被拷贝的对象</p>
+</blockquote>
+<img src="/2020/05/06/JS%E5%AF%B9%E8%B1%A1/2.png" style="zoom:67%;">
+
+<ul>
+<li><p>递归方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    msg: &#123;</span><br><span class="line">        age: <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">targetObj, sourceObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> sourceObj) &#123;</span><br><span class="line">        <span class="keyword">var</span> attrValue = sourceObj[k];</span><br><span class="line">        <span class="comment">// 判断这个值是否是数组</span></span><br><span class="line">        <span class="keyword">if</span> (attrValue <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">            targetObj[k] = [];</span><br><span class="line">            deepCopy(targetObj[k], attrValue);</span><br><span class="line">        <span class="comment">// 判断这个值是否是对象</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (attrValue <span class="keyword">instanceof</span> <span class="built_in">Object</span>) &#123;</span><br><span class="line">            targetObj[k] = &#123;&#125;;</span><br><span class="line">            deepCopy(targetObj[k], attrValue);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 原始数据类型直接赋值</span></span><br><span class="line">            targetObj[k] = attrValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">deepCopy(obj2, obj1);</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//&#123;id: 1, name: "张三", msg: &#123;age: 18&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过JSON对象实现深拷贝</p>
+<blockquote>
+<p>JSON对象无法实现对对象中方法的深拷贝</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    msg: &#123;</span><br><span class="line">        age: <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj1));</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//&#123;id: 1, name: "张三", msg: &#123;age: 18&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过jquery的extend方法实现深拷贝</p>
+<blockquote>
+<p>$.extend(deep,target,object1,object2…)</p>
+<p>deep：默认为fasle浅拷贝，设为true深拷贝</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    msg: &#123;</span><br><span class="line">        age: <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    name: <span class="string">"李四"</span>,</span><br><span class="line">    msg: &#123;</span><br><span class="line">        sex: <span class="string">"男"</span>,</span><br><span class="line">        age: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = $.extend(<span class="literal">true</span>, obj2, obj1);</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//&#123;name: "张三", msg: &#123;sex: "男",age: 18&#125;, id: 1&#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h3><ul>
+<li><p>isNaN()：确定传递的值是否为NaN</p>
+</li>
+<li><p>isInteger()：判断给定的参数是否为整数（NaN和正负Infinity不是整数）</p>
+</li>
+<li><p>toString()：将Number数值转换为字符串，可传入一个参数，若省略该参数，则默认基数为10（即十进制）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span></span><br><span class="line"><span class="built_in">console</span>.log(num.toString(<span class="number">2</span>)); <span class="comment">//1010</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>toFixed()：把数字转换成字符串同时四舍五入为指定小数位数的数字</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> money = <span class="number">123</span>;</span><br><span class="line"><span class="built_in">console</span>.log(money.toFixed(<span class="number">2</span>)); <span class="comment">//"123.00"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>parseInt()：把字符串转换为整数（即将字符串中的有效整数内容取出来）</p>
+<blockquote>
+<p>基数为2，1x2<sup>0</sup>+1x2<sup>1</sup>=3</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"11"</span>,<span class="number">2</span>)); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>parseFloat()：把字符串转换为浮点数（即将字符串中的有效小数内容取出来）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"2.55"</span>)); <span class="comment">//2.55</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Boolean对象"><a href="#Boolean对象" class="headerlink" title="Boolean对象"></a>Boolean对象</h3><p><strong>值为false的Boolean包装对象：</strong></p>
+<ul>
+<li><p>new Boolean(false)</p>
+</li>
+<li><p>new Boolean(0)</p>
+</li>
+<li><p>new Boolean()</p>
+</li>
+<li><p>new Boolean(“”)</p>
+</li>
+<li><p>new Boolean(null)</p>
+</li>
+<li><p>new Boolean(undefined)</p>
+</li>
+</ul>
+<p><strong>值为true的Boolean包装对象：</strong></p>
+<ul>
+<li>new Boolean(true)</li>
+<li>new Boolean(‘true’)</li>
+<li>new Boolean([])</li>
+<li>new Boolean({})</li>
+</ul>
+<p><strong>false/Boolean(false)和new Boolean(false)的区别：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//if代码块不会执行</span></span><br><span class="line"><span class="keyword">if</span> (a) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>); <span class="comment">//a是值为false的BOOlean包装对象</span></span><br><span class="line"><span class="comment">//if代码块会被执行</span></span><br><span class="line"><span class="keyword">if</span> (a) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h3><blockquote>
+<p>Math是一个内置对象，它拥有一些数学常数属性和数学函数方法，Math 不是一个函数对象<br>Math用于Number 类型，它不支持 BigInt</p>
+</blockquote>
+<p><strong>常用属性：</strong></p>
+<ul>
+<li>Math.PI：圆周率，约等于 3.14159</li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><p>Math.abs(x)：返回一个数的绝对值</p>
+</li>
+<li><p>Math.ceil()：返回大于或等于一个给定数字的最小整数，向上取整</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.ceil(<span class="literal">null</span>) <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Math.floor(x)：返回小于或等于一个给定数字的最大整数，向下取整</p>
+</li>
+<li><p>Math.max()：返回零到多个数值中最大值</p>
+</li>
+<li><p>Math.min()：返回零到多个数值中最小值</p>
+</li>
+<li><p>Math.random()：返回在0（包括0）和1（不包括）之间的随机数</p>
+</li>
+<li><p>Math.round(x)：返回一个数字四舍五入后最接近的整数</p>
+</li>
+<li><p>Math.trunc(x)：返回一个数的整数部分，直接去除其小数点及之后的部分</p>
+</li>
+</ul>
+<h3 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h3><p><strong>创建时间的几种方式：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//获取客户端的当前系统时间</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"1994/02/04 03:23:55"</span>); <span class="comment">//创建自定义时间</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(yyyy, MM, dd, hh, mm, ss); <span class="comment">//创建自定义时间</span></span><br><span class="line"><span class="keyword">var</span> oldDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"1994/02/04"</span>);</span><br><span class="line"><span class="keyword">var</span> newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(oldDate); <span class="comment">//复制一个时间对象</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><h3 id="Json对象"><a href="#Json对象" class="headerlink" title="Json对象"></a>Json对象</h3><h3 id="Error对象"><a href="#Error对象" class="headerlink" title="Error对象"></a>Error对象</h3>
       
 
       
@@ -361,7 +658,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/25/js%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/06/JS%E5%AF%B9%E8%B1%A1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -375,18 +672,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/07/this%E6%8C%87%E5%90%91/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          浏览器渲染页面和性能优化
+          this指向
         
       </div>
     </a>
   
   
-    <a href="/2020/05/23/CSS%E7%99%BE%E5%88%86%E6%AF%94%E9%83%BD%E6%98%AF%E7%9B%B8%E5%AF%B9%E4%BA%8E%E8%B0%81%E8%AE%A1%E7%AE%97%E7%9A%84/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSS百分比都是相对于谁计算的</div>
+    <a href="/2020/05/06/%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">对象</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -413,7 +710,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS包装对象"><span class="toc-number">1.</span> <span class="toc-text">JS包装对象</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS对象"><span class="toc-number">1.</span> <span class="toc-text">JS对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象分类"><span class="toc-number">1.0.1.</span> <span class="toc-text">对象分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new操作符具体做了什么"><span class="toc-number">1.0.2.</span> <span class="toc-text">new操作符具体做了什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object对象"><span class="toc-number">1.0.3.</span> <span class="toc-text">Object对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象的方法"><span class="toc-number">1.0.4.</span> <span class="toc-text">创建对象的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作对象属性名和属性值"><span class="toc-number">1.0.5.</span> <span class="toc-text">操作对象属性名和属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6之前js中实现继承常用的三种方式"><span class="toc-number">1.0.6.</span> <span class="toc-text">ES6之前js中实现继承常用的三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6中的类和对象"><span class="toc-number">1.0.7.</span> <span class="toc-text">ES6中的类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝和深拷贝"><span class="toc-number">1.0.8.</span> <span class="toc-text">浅拷贝和深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Number对象"><span class="toc-number">1.0.9.</span> <span class="toc-text">Number对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean对象"><span class="toc-number">1.0.10.</span> <span class="toc-text">Boolean对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Math对象"><span class="toc-number">1.0.11.</span> <span class="toc-text">Math对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Date对象"><span class="toc-number">1.0.12.</span> <span class="toc-text">Date对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RegExp对象"><span class="toc-number">1.0.13.</span> <span class="toc-text">RegExp对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Json对象"><span class="toc-number">1.0.14.</span> <span class="toc-text">Json对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error对象"><span class="toc-number">1.0.15.</span> <span class="toc-text">Error对象</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -449,7 +746,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Mon May 25 2020 18:59:12 GMT+0800',
+  	id: 'Wed May 06 2020 16:01:41 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
