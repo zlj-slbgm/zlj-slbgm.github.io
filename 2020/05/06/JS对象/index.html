@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/2.png">
 <meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
-<meta property="article:modified_time" content="2020-10-25T03:59:03.580Z">
+<meta property="article:modified_time" content="2020-10-26T01:48:49.797Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -281,23 +281,27 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <blockquote>
 <p>对象.toString()，返回<code>&#39;[object type]&#39;</code>，其中type是对象的类型</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="string">'2'</span>,<span class="literal">true</span>].toString();</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// '1,2,true'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = (<span class="keyword">new</span> <span class="built_in">Date</span>()).toString();</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 'Tue Oct 20 2020 22:59:54 GMT+0800 (中国标准时间)'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c =(&#123;<span class="attr">name</span>: <span class="string">'zlj'</span>&#125;).toString();</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// '[object Object]'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"123"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> d = fn.toString()</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// 'function () &#123;console.log("123")&#125;'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="string">'2'</span>,<span class="literal">true</span>].toString();</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//'1,2,true'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = (<span class="keyword">new</span> <span class="built_in">Date</span>()).toString();</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//'Tue Oct 20 2020 22:59:54 GMT+0800 (中国标准时间)'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c =(&#123;<span class="attr">name</span>: <span class="string">'zlj'</span>&#125;).toString();</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">//'[object Object]'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"123"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> d = fn.toString()</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//'function () &#123;console.log("123")&#125;'</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>toLocaleString()：返回当前对象的“本地化”字符串形式，以便于当前环境的用户辨识和使用，返回值为String类型</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1234567</span>).toLocaleString(); <span class="comment">// "1,234,567"</span></span><br><span class="line"></span><br><span class="line">(<span class="number">1.234567</span>).toLocaleString(); <span class="comment">// "1.235"(小数点后保留三位有效数,四舍五入)</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">Date</span>()).toLocaleString(); <span class="comment">// "2020/10/21 上午9:35:01"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1234567</span>).toLocaleString(); <span class="comment">//"1,234,567"</span></span><br><span class="line"></span><br><span class="line">(<span class="number">12.34567</span>).toLocaleString(); <span class="comment">//"12.346"(小数点后保留三位有效数,四舍五入)</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">Date</span>()).toLocaleString(); <span class="comment">//"2020/10/21 上午9:35:01"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>valueOf()：返回指定对象的原始值</p>
-<blockquote>
-<p>时间戳就是从1970年1月1日0时0分0秒（世界标准时）到当前时间点的所有秒数</p>
-</blockquote>
 <ul>
-<li>Number：返回数字值（如：<code>new Number(2).valueOf()</code>返回值为<code>2</code>）</li>
-<li>String：返回字符串值（如：<code>new String(&quot;123&quot;).valueOf()</code>返回值为<code>&quot;123&quot;</code>）</li>
-<li>Boolean：返回布尔值true或false（如：<code>new Boolean(&quot;123&quot;).valueOf()</code>返回值为<code>true</code>）</li>
-<li>Array：返回数组对象本身（如：<code>[1,2,3].valueOf()</code>返回值为<code>Array(3)</code>）</li>
-<li>Object：返回对象本身（如：<code>new Object().valueOf()</code>返回值为<code>{}</code>）</li>
-<li>Function：返回函数本身（如：<code>new Function().valueOf()</code>返回值为<code>ƒ anonymous(){}</code>）</li>
-<li>Date：返回时间戳（如：<code>new Date(2013,7,18,23,11,59,230).valueOf()</code>返回值为<code>1376838719230</code>）</li>
+<li><p>Number：返回数字值（如：<code>new Number(2).valueOf()</code>返回值为<code>2</code>）</p>
+</li>
+<li><p>String：返回字符串值（如：<code>new String(&quot;123&quot;).valueOf()</code>返回值为<code>&quot;123&quot;</code>）</p>
+</li>
+<li><p>Boolean：返回布尔值true或false（如：<code>new Boolean(&quot;123&quot;).valueOf()</code>返回值为<code>true</code>）</p>
+</li>
+<li><p>Array：返回数组对象本身（如：<code>[1,2,3].valueOf()</code>返回值为<code>Array(3)</code>）</p>
+</li>
+<li><p>Object：返回对象本身（如：<code>new Object().valueOf()</code>返回值为<code>{}</code>）</p>
+</li>
+<li><p>Function：返回函数本身（如：<code>new Function().valueOf()</code>返回值为<code>ƒ anonymous(){}</code>）</p>
+</li>
+<li><p>Date：返回时间戳（如：<code>new Date(2013,7,18,23,11,59,230).valueOf()</code>返回值为<code>1376838719230</code>）</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -307,15 +311,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <blockquote>
 <p>原始类型会被包装，只有字符串的包装对象才可能有自身可枚举属性，null和undefined会被忽略</p>
 <p>new String(“123”)输出如下</p>
-<p>String {“123”}</p>
-<ol>
-<li><p>0: “1”</p>
-</li>
-<li><p>1: “2”</p>
-</li>
-<li><p>2: “3”</p>
-</li>
-</ol>
+<p><code>String {&quot;123&quot;}</code></p>
+<p><code>0: &quot;1&quot;</code></p>
+<p><code>1: &quot;2&quot;</code></p>
+<p><code>2: &quot;3&quot;</code></p>
+<p><code>length: 3</code></p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o1=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> o2=<span class="string">"abc"</span></span><br><span class="line"><span class="keyword">const</span> o3=<span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> o4=<span class="built_in">Symbol</span>(<span class="string">"foo"</span>)</span><br><span class="line"><span class="keyword">const</span> obj=<span class="built_in">Object</span>.assign(&#123;&#125;,o1,o2,o3,o4,<span class="literal">null</span>,<span class="literal">undefined</span>)</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"><span class="comment">/*&#123;</span></span><br><span class="line"><span class="comment">	0: "a"</span></span><br><span class="line"><span class="comment">	1: "b"</span></span><br><span class="line"><span class="comment">	2: "c"</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -482,9 +482,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>isNaN()：确定传递的值是否为NaN</p>
 </li>
 <li><p>isInteger()：判断给定的参数是否为整数（NaN和正负Infinity不是整数）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">0.3</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="literal">Infinity</span>)); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>toString()：将Number数值转换为字符串，可传入一个参数，若省略该参数，则默认基数为10（即十进制）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span></span><br><span class="line"><span class="built_in">console</span>.log(num.toString(<span class="number">2</span>)); <span class="comment">//1010</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span></span><br><span class="line"><span class="built_in">console</span>.log(num.toString()); <span class="comment">//"10"</span></span><br><span class="line"><span class="built_in">console</span>.log(num.toString(<span class="number">2</span>)); <span class="comment">//"1010"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>toFixed()：把数字转换成字符串同时四舍五入为指定小数位数的数字</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> money = <span class="number">123</span>;</span><br><span class="line"><span class="built_in">console</span>.log(money.toFixed(<span class="number">2</span>)); <span class="comment">//"123.00"</span></span><br></pre></td></tr></table></figure>
@@ -538,24 +539,65 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <ul>
 <li><p>Math.abs(x)：返回一个数的绝对值</p>
 </li>
-<li><p>Math.ceil()：返回大于或等于一个给定数字的最小整数，向上取整</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.ceil(<span class="literal">null</span>) <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+<li><p>Math.ceil(x)：返回大于或等于一个给定数字的最小整数，向上取整</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">0.3</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">-0.3</span>)); <span class="comment">//-0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="literal">null</span>)); <span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="literal">undefined</span>)); <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Math.floor(x)：返回小于或等于一个给定数字的最大整数，向下取整</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">0.3</span>)); <span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">-0.3</span>)); <span class="comment">//-1</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Math.max()：返回零到多个数值中最大值</p>
+<li><p>Math.max(x1,x2,x3…)：返回零到多个数值中最大值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max(<span class="number">10</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">23</span>)); <span class="comment">//23</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Math.min()：返回零到多个数值中最小值</p>
+<li><p>Math.min(x1,x2,x3…)：返回零到多个数值中最小值</p>
 </li>
 <li><p>Math.random()：返回在0（包括0）和1（不包括）之间的随机数</p>
 </li>
 <li><p>Math.round(x)：返回一个数字四舍五入后最接近的整数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(<span class="number">0.51</span>)); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Math.trunc(x)：返回一个数的整数部分，直接去除其小数点及之后的部分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">-0.6</span>)); <span class="comment">//-0</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h3><p><strong>创建时间的几种方式：</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//获取客户端的当前系统时间</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"1994/02/04 03:23:55"</span>); <span class="comment">//创建自定义时间</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(yyyy, MM, dd, hh, mm, ss); <span class="comment">//创建自定义时间</span></span><br><span class="line"><span class="keyword">var</span> oldDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"1994/02/04"</span>);</span><br><span class="line"><span class="keyword">var</span> newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(oldDate); <span class="comment">//复制一个时间对象</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>不传参数（返回当前系统时间）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(nowDate);  <span class="comment">//Sun Oct 25 2020 18:33:08 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>传参数（返回当前参数时间）</p>
+<ul>
+<li><p>字符串型参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2020/9/9 09:23:55"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(nowDate); <span class="comment">//Wed Sep 09 2020 09:23:55 GMT+0800 (中国标准时间)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2020-9-9 09:23:55"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(nowDate); <span class="comment">//Wed Sep 09 2020 09:23:55 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数字型参数（注意：返回的月份会比实际参数的月份大1个月）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">09</span>,<span class="number">23</span>,<span class="number">55</span>);</span><br><span class="line"><span class="built_in">console</span>.log(nowDate); <span class="comment">//Fri Oct 09 2020 09:23:55 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数为时间戳</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1599614635000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(nowDate); <span class="comment">//Wed Sep 09 2020 09:23:55 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>日期格式化：</strong></p>
+<blockquote>
+<p>月：（0-11，0代表1月）</p>
+<p>周：（0-6，0代表星期天）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(nowDate.getFullYear()); <span class="comment">//年</span></span><br><span class="line"><span class="built_in">console</span>.log(nowDate.getMonth()+<span class="number">1</span>); <span class="comment">//月（记得加1）</span></span><br><span class="line"><span class="built_in">console</span>.log(nowDate.getDate()); <span class="comment">//日</span></span><br><span class="line"><span class="built_in">console</span>.log(nowDate.getDay()); <span class="comment">//周</span></span><br><span class="line"><span class="built_in">console</span>.log(nowDate.getHours()); <span class="comment">//时</span></span><br><span class="line"><span class="built_in">console</span>.log(nowDate.getMinutes()); <span class="comment">//分</span></span><br><span class="line"><span class="built_in">console</span>.log(nowDate.getSeconds()); <span class="comment">//秒</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>获取时间戳的几种方法：</strong></p>
+<blockquote>
+<p>时间戳就是从1970年1月1日0时0分0秒（世界标准时）到当前时间点的总毫秒数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(nowDate.valueOf()); <span class="comment">//1603624083632</span></span><br><span class="line"><span class="built_in">console</span>.log(nowDate.getTime()); <span class="comment">//1603624083632</span></span><br><span class="line"><span class="built_in">console</span>.log(+<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">//1603624083632</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now()); <span class="comment">//1603624083632</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>toLocaleString()</strong></p>
+<blockquote>
+<p>返回当前时间的“本地化”字符串形式，以便于当前环境的用户辨识和使用，返回值为String类型</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(nowDate.toLocaleString()); <span class="comment">//2020/10/25 下午7:15:33</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><h3 id="Json对象"><a href="#Json对象" class="headerlink" title="Json对象"></a>Json对象</h3><h3 id="Error对象"><a href="#Error对象" class="headerlink" title="Error对象"></a>Error对象</h3>
       
