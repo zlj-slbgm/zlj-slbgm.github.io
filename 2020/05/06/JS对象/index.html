@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/2.png">
 <meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
-<meta property="article:modified_time" content="2020-10-26T01:48:49.797Z">
+<meta property="article:modified_time" content="2020-10-27T09:18:09.919Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -238,10 +238,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JS对象"><a href="#JS对象" class="headerlink" title="JS对象"></a>JS对象</h1><a id="more"></a>
+        <h3 id="JS对象"><a href="#JS对象" class="headerlink" title="JS对象"></a>JS对象</h3><a id="more"></a>
 
 <h3 id="对象分类"><a href="#对象分类" class="headerlink" title="对象分类"></a>对象分类</h3><ul>
-<li>内置对象由ES标准中定义的对象：Object、Array、Function、Number、String、Boolean、Math、Date、RegExp、Json、Error等</li>
+<li>内置对象由ES标准中定义的对象：Object、Array、Function、Number、String、Boolean、Math、Date、RegExp、Json、Error、Global等</li>
 <li>宿主对象由JS运行环境提供的对象：DOM、BOM</li>
 <li>自定义对象由开发人员自己创建的对象</li>
 </ul>
@@ -478,6 +478,27 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><blockquote>
+<p>按照一定模式，从对象中或数组中提取出值，将提取出的值赋值给另外的变量</p>
+<p>使用场景：服务器返回的数据中只需要data对象，此时就需要使用解构赋值只取data对象</p>
+</blockquote>
+<ul>
+<li><p>对象解构赋值</p>
+<blockquote>
+<p><code>let {name: name, age: age} = person;</code>同名的话可以改写为<code>let {name, age} = person;</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    age: <span class="number">20</span>,</span><br><span class="line">    sex: <span class="string">"男"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>: myName, <span class="attr">age</span>: myAge&#125; = person; <span class="comment">//myName和myAge都是变量</span></span><br><span class="line"><span class="built_in">console</span>.log(myName); <span class="comment">//"张三"</span></span><br><span class="line"><span class="built_in">console</span>.log(myAge); <span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组解构赋值</p>
+<blockquote>
+<p>变量的值为对应位置上数组元素的值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> color = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>]</span><br><span class="line"><span class="keyword">let</span> [firstColor, secondColor] = color</span><br><span class="line"><span class="built_in">console</span>.log(firstColor); <span class="comment">//"red"</span></span><br><span class="line"><span class="built_in">console</span>.log(secondColor); <span class="comment">//"green"</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> color = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>]</span><br><span class="line"><span class="keyword">let</span> [, , thirdColor] = color</span><br><span class="line"><span class="built_in">console</span>.log(thirdColor); <span class="comment">//"blue"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 <h3 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h3><ul>
 <li><p>isNaN()：确定传递的值是否为NaN</p>
 </li>
@@ -599,7 +620,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(nowDate.toLocaleString()); <span class="comment">//2020/10/25 下午7:15:33</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><h3 id="Json对象"><a href="#Json对象" class="headerlink" title="Json对象"></a>Json对象</h3><h3 id="Error对象"><a href="#Error对象" class="headerlink" title="Error对象"></a>Error对象</h3>
+<h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><h3 id="Json对象"><a href="#Json对象" class="headerlink" title="Json对象"></a>Json对象</h3><h3 id="Error对象"><a href="#Error对象" class="headerlink" title="Error对象"></a>Error对象</h3><h3 id="Global对象"><a href="#Global对象" class="headerlink" title="Global对象"></a>Global对象</h3><blockquote>
+<p>Global对象跟运行环境有关，在浏览器运行环境中Global对象就是window对象，在nodejs中Global对象是global对象</p>
+<p>在浏览器的内部实现中，隐藏了真正的Global对象，而把window对象作为了Global对象的替身，一切对Global对象的操作（间接操作）都会映射到window对象上</p>
+</blockquote>
+
       
 
       
@@ -714,11 +739,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/05/07/this%E6%8C%87%E5%90%91/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/07/JS%E4%B8%AD%E7%9A%84this%E6%8C%87%E5%90%91/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          this指向
+          JS中的this指向
         
       </div>
     </a>
@@ -752,7 +777,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS对象"><span class="toc-number">1.</span> <span class="toc-text">JS对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象分类"><span class="toc-number">1.0.1.</span> <span class="toc-text">对象分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new操作符具体做了什么"><span class="toc-number">1.0.2.</span> <span class="toc-text">new操作符具体做了什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object对象"><span class="toc-number">1.0.3.</span> <span class="toc-text">Object对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象的方法"><span class="toc-number">1.0.4.</span> <span class="toc-text">创建对象的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作对象属性名和属性值"><span class="toc-number">1.0.5.</span> <span class="toc-text">操作对象属性名和属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6之前js中实现继承常用的三种方式"><span class="toc-number">1.0.6.</span> <span class="toc-text">ES6之前js中实现继承常用的三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6中的类和对象"><span class="toc-number">1.0.7.</span> <span class="toc-text">ES6中的类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝和深拷贝"><span class="toc-number">1.0.8.</span> <span class="toc-text">浅拷贝和深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Number对象"><span class="toc-number">1.0.9.</span> <span class="toc-text">Number对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean对象"><span class="toc-number">1.0.10.</span> <span class="toc-text">Boolean对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Math对象"><span class="toc-number">1.0.11.</span> <span class="toc-text">Math对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Date对象"><span class="toc-number">1.0.12.</span> <span class="toc-text">Date对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RegExp对象"><span class="toc-number">1.0.13.</span> <span class="toc-text">RegExp对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Json对象"><span class="toc-number">1.0.14.</span> <span class="toc-text">Json对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error对象"><span class="toc-number">1.0.15.</span> <span class="toc-text">Error对象</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS对象"><span class="toc-number">1.</span> <span class="toc-text">JS对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象分类"><span class="toc-number">2.</span> <span class="toc-text">对象分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new操作符具体做了什么"><span class="toc-number">3.</span> <span class="toc-text">new操作符具体做了什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object对象"><span class="toc-number">4.</span> <span class="toc-text">Object对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象的方法"><span class="toc-number">5.</span> <span class="toc-text">创建对象的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作对象属性名和属性值"><span class="toc-number">6.</span> <span class="toc-text">操作对象属性名和属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6之前js中实现继承常用的三种方式"><span class="toc-number">7.</span> <span class="toc-text">ES6之前js中实现继承常用的三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6中的类和对象"><span class="toc-number">8.</span> <span class="toc-text">ES6中的类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝和深拷贝"><span class="toc-number">9.</span> <span class="toc-text">浅拷贝和深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解构赋值"><span class="toc-number">10.</span> <span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Number对象"><span class="toc-number">11.</span> <span class="toc-text">Number对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean对象"><span class="toc-number">12.</span> <span class="toc-text">Boolean对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Math对象"><span class="toc-number">13.</span> <span class="toc-text">Math对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Date对象"><span class="toc-number">14.</span> <span class="toc-text">Date对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RegExp对象"><span class="toc-number">15.</span> <span class="toc-text">RegExp对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Json对象"><span class="toc-number">16.</span> <span class="toc-text">Json对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error对象"><span class="toc-number">17.</span> <span class="toc-text">Error对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Global对象"><span class="toc-number">18.</span> <span class="toc-text">Global对象</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -923,11 +948,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
