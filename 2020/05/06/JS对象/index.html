@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/2.png">
 <meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
-<meta property="article:modified_time" content="2020-10-27T10:24:09.768Z">
+<meta property="article:modified_time" content="2020-10-27T15:09:42.164Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -624,8 +624,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>Global对象跟运行环境有关，在浏览器运行环境中Global对象就是window对象，在nodejs中Global对象是global对象</p>
 <p>在浏览器的内部实现中，隐藏了真正的Global对象，而把window对象作为了Global对象的替身，一切对Global对象的操作（间接操作）都会映射到window对象上</p>
 </blockquote>
-<h3 id="Set对象"><a href="#Set对象" class="headerlink" title="Set对象"></a>Set对象</h3><blockquote>
-<p>Set类似于数组，但是成员的值都是唯一的，没有重复的值（会自动去重）</p>
+<h3 id="Set集合对象"><a href="#Set集合对象" class="headerlink" title="Set集合对象"></a>Set集合对象</h3><blockquote>
+<p>Set类似于数组，但是成员的值都是唯一的有序列表，没有重复的值（会自动去重）</p>
 <p>Set可以接受可迭代数据作为参数，一般传数组，用来初始化</p>
 </blockquote>
 <ul>
@@ -636,14 +636,32 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set(["1", 1, 4, 3, 3, 2]);</span><br><span class="line">console.log(<span class="keyword">set</span>); //&#123;<span class="string">"1"</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">set</span>.size); //5</span><br><span class="line"><span class="keyword">set</span>.add("2").add(5)</span><br><span class="line"><span class="keyword">set</span>.delete(1)</span><br><span class="line"><span class="keyword">set</span>.has("1")</span><br><span class="line"><span class="keyword">set</span>.clear()</span><br></pre></td></tr></table></figure>
 
+<p><strong>遍历Set集合</strong>（也可以使用forEach）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set(["1", 1, 4, 3, 3, 2]);</span><br><span class="line">for (var i of <span class="keyword">set</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>for in</code>和<code>for of</code>的区别</strong></p>
+<blockquote>
+<p><code>for in</code>语法主要是被设计来遍历普通的”键值对”对象的，不太适合用在数组上</p>
+<p><code>for of</code>循环用于遍历数组、字符串、集合、映射等可迭代的数据结构（如遍历Set集合的单值）</p>
+</blockquote>
+<ul>
+<li><code>for of</code>无法循环遍历对象</li>
+<li><code>for in</code>循环遍历的是数组的索引，而<code>for of</code>循环遍历的是数组的值，避免了<code>for in</code>所有缺陷</li>
+<li><code>for in</code>会遍历自定义属性，<code>for of</code>不会遍历自定义属性</li>
+</ul>
+<p><strong>为什么对象默认不可迭代</strong></p>
+<ul>
+<li>Object.prototype没有实现Symbol.iterator属性</li>
+<li>迭代器协议关键特征是它是有顺序的，对象中的属性是非线性结构，如果想对它进行迭代，需要将属性转换成线性的数据结构，这样做的话会破坏对象代码</li>
+</ul>
 <p><strong>Set集合转数组</strong></p>
 <blockquote>
 <p>使用扩展运算符<code>...</code>将Set集合中的所有可遍历属性拷贝出来（即<code>&quot;1&quot;, 1, 4, 3, 2</code>）</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set(["1", 1, 4, 3, 3, 2]); //&#123;<span class="string">"1"</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [...set]</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//["1", 1, 4, 3, 2]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Map对象"><a href="#Map对象" class="headerlink" title="Map对象"></a>Map对象</h3><blockquote>
-<p>Map类似于对象，是键值对的集合，键和值可以是任意类型</p>
+<h3 id="Map映射对象"><a href="#Map映射对象" class="headerlink" title="Map映射对象"></a>Map映射对象</h3><blockquote>
+<p>Map类似于对象，是键值对的有序列表，键和值可以是任意类型</p>
 </blockquote>
 <ul>
 <li>set()：增加一个新元素，返回当前Map</li>
@@ -651,7 +669,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>has()：检测Map中是否包含某个元素，返回布尔值</li>
 <li>clear()：清空集合，返回undefined</li>
 </ul>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">map.set(<span class="string">"name"</span>,<span class="string">"张三"</span>).set(<span class="string">"fn"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我是一个函数"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">map.set(<span class="string">"age"</span>,<span class="number">18</span>)</span><br><span class="line"><span class="built_in">console</span>.log(map); <span class="comment">//&#123;"name" =&gt; "张三", "fn" =&gt; ƒ, "age" =&gt; 18&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(map.size); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -804,7 +822,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS对象"><span class="toc-number">1.</span> <span class="toc-text">JS对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象分类"><span class="toc-number">2.</span> <span class="toc-text">对象分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new操作符具体做了什么"><span class="toc-number">3.</span> <span class="toc-text">new操作符具体做了什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object对象"><span class="toc-number">4.</span> <span class="toc-text">Object对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象的方法"><span class="toc-number">5.</span> <span class="toc-text">创建对象的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作对象属性名和属性值"><span class="toc-number">6.</span> <span class="toc-text">操作对象属性名和属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6之前js中实现继承常用的三种方式"><span class="toc-number">7.</span> <span class="toc-text">ES6之前js中实现继承常用的三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6中的类和对象"><span class="toc-number">8.</span> <span class="toc-text">ES6中的类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝和深拷贝"><span class="toc-number">9.</span> <span class="toc-text">浅拷贝和深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解构赋值"><span class="toc-number">10.</span> <span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Number对象"><span class="toc-number">11.</span> <span class="toc-text">Number对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean对象"><span class="toc-number">12.</span> <span class="toc-text">Boolean对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Math对象"><span class="toc-number">13.</span> <span class="toc-text">Math对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Date对象"><span class="toc-number">14.</span> <span class="toc-text">Date对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RegExp对象"><span class="toc-number">15.</span> <span class="toc-text">RegExp对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Json对象"><span class="toc-number">16.</span> <span class="toc-text">Json对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error对象"><span class="toc-number">17.</span> <span class="toc-text">Error对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Global对象"><span class="toc-number">18.</span> <span class="toc-text">Global对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set对象"><span class="toc-number">19.</span> <span class="toc-text">Set对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map对象"><span class="toc-number">20.</span> <span class="toc-text">Map对象</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS对象"><span class="toc-number">1.</span> <span class="toc-text">JS对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象分类"><span class="toc-number">2.</span> <span class="toc-text">对象分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new操作符具体做了什么"><span class="toc-number">3.</span> <span class="toc-text">new操作符具体做了什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object对象"><span class="toc-number">4.</span> <span class="toc-text">Object对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象的方法"><span class="toc-number">5.</span> <span class="toc-text">创建对象的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作对象属性名和属性值"><span class="toc-number">6.</span> <span class="toc-text">操作对象属性名和属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6之前js中实现继承常用的三种方式"><span class="toc-number">7.</span> <span class="toc-text">ES6之前js中实现继承常用的三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6中的类和对象"><span class="toc-number">8.</span> <span class="toc-text">ES6中的类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝和深拷贝"><span class="toc-number">9.</span> <span class="toc-text">浅拷贝和深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解构赋值"><span class="toc-number">10.</span> <span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Number对象"><span class="toc-number">11.</span> <span class="toc-text">Number对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean对象"><span class="toc-number">12.</span> <span class="toc-text">Boolean对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Math对象"><span class="toc-number">13.</span> <span class="toc-text">Math对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Date对象"><span class="toc-number">14.</span> <span class="toc-text">Date对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RegExp对象"><span class="toc-number">15.</span> <span class="toc-text">RegExp对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Json对象"><span class="toc-number">16.</span> <span class="toc-text">Json对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error对象"><span class="toc-number">17.</span> <span class="toc-text">Error对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Global对象"><span class="toc-number">18.</span> <span class="toc-text">Global对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set集合对象"><span class="toc-number">19.</span> <span class="toc-text">Set集合对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map映射对象"><span class="toc-number">20.</span> <span class="toc-text">Map映射对象</span></a></li></ol>
                     </div>
                 </span>
             </div>
