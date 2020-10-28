@@ -16,7 +16,7 @@
 <meta property="og:description" content="vue脚手架取消eslint 校验代码">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-03T02:38:13.000Z">
-<meta property="article:modified_time" content="2020-10-22T08:55:04.048Z">
+<meta property="article:modified_time" content="2020-10-28T09:40:00.130Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="VUEReact">
 <meta name="twitter:card" content="summary">
@@ -243,11 +243,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>vue.config.js：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    lintOnSave: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="axios请求拦截"><a href="#axios请求拦截" class="headerlink" title="axios请求拦截"></a>axios请求拦截</h3><blockquote>
-<p>axios请求拦截(就是每次前端向后端发送请求时拦截，为其添加token保证拥有获取数据的权限)</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  config.headers.Authorization = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>);</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//请求头这里config.headers.Authorization不能为中文但是我之前token设置为张三所以报错，我这个项目中也没有涉及权限问题干脆删掉</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="vue动态绑定图片路径问题"><a href="#vue动态绑定图片路径问题" class="headerlink" title="vue动态绑定图片路径问题"></a>vue动态绑定图片路径问题</h3><p>assets和static文件目录的区别：</p>
 <ul>
 <li><p>assets：在项目编译的过程中会被webpack处理解析为模块依赖，只支持相对路径的形式，如<code>&lt;img src=&#39;./logo.png&#39;&gt;</code>是相对资源路径，将由webpack解析为模块依赖</p>
@@ -255,7 +250,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>static：在这个目录下文件不会被webpack处理，简单就是说存放第三方文件的地方，不会被webpack解析，它会直接被复制到最终的打包目录(<strong>默认是dist/static</strong>)下，必须使用绝对路径引用这些文件</p>
 </li>
 <li><p>在assets中的所有图片，编译后都会放在static下，同一个文件夹img中，但是我们在assets中不同的文件夹下面是可以有相同名称的图片的，那么编译后它们会在同一个文件夹下，我们应该如何分辨是哪个图片呢？为了区别两个同名的图片，就会在图片名称的后面添加一个hash值的字符串，不仅是图片如此，多媒体资源文件，字体资源文件等都会产生hash值，如果要去除编译后图片多余的hash值，在vue.config.js中添加如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  filenameHashing: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  filenameHashing: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -431,7 +426,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue脚手架取消eslint-校验代码"><span class="toc-number">1.</span> <span class="toc-text">vue脚手架取消eslint 校验代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#axios请求拦截"><span class="toc-number">2.</span> <span class="toc-text">axios请求拦截</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue动态绑定图片路径问题"><span class="toc-number">3.</span> <span class="toc-text">vue动态绑定图片路径问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue实战项目总结"><span class="toc-number">4.</span> <span class="toc-text">vue实战项目总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue脚手架取消eslint-校验代码"><span class="toc-number">1.</span> <span class="toc-text">vue脚手架取消eslint 校验代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue动态绑定图片路径问题"><span class="toc-number">2.</span> <span class="toc-text">vue动态绑定图片路径问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue实战项目总结"><span class="toc-number">3.</span> <span class="toc-text">vue实战项目总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
