@@ -16,7 +16,7 @@
 <meta property="og:description" content="内置对象之Array对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-06T04:52:32.000Z">
-<meta property="article:modified_time" content="2020-10-28T01:25:52.679Z">
+<meta property="article:modified_time" content="2020-10-29T14:33:54.175Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -333,6 +333,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> sum = arr.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">prev, cur, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev + cur;</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">//6</span></span><br></pre></td></tr></table></figure>
 
 <p>求数组项最大值：</p>
+<blockquote>
+<p>使用<code>return prev &gt; cur ? prev : cur</code>代替Math.max()也行</p>
+</blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> max = arr.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">prev, cur, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(prev, cur);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(max); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
 
 </li>
