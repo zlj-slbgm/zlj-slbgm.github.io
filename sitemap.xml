@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/10/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/</loc>
+    <loc>http://yoursite.com/2020/07/28/ajax/</loc>
     
-    <lastmod>2020-10-30T05:37:08.607Z</lastmod>
+    <lastmod>2020-10-30T07:38:27.123Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/09/25/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BDOM/</loc>
+    
+    <lastmod>2020-10-30T07:26:18.308Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/</loc>
     
-    <lastmod>2020-10-30T03:58:19.817Z</lastmod>
+    <lastmod>2020-10-30T07:20:36.964Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/10/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/</loc>
+    
+    <lastmod>2020-10-30T05:45:04.274Z</lastmod>
     
   </url>
   
@@ -19,20 +33,6 @@
     <loc>http://yoursite.com/2020/05/06/%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E4%B9%8BArray%E5%AF%B9%E8%B1%A1/</loc>
     
     <lastmod>2020-10-30T03:23:52.334Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/07/28/ajax/</loc>
-    
-    <lastmod>2020-10-30T03:08:23.419Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/09/25/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BDOM/</loc>
-    
-    <lastmod>2020-10-30T02:54:14.725Z</lastmod>
     
   </url>
   
