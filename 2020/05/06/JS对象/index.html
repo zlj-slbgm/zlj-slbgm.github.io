@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/2.png">
 <meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
-<meta property="article:modified_time" content="2020-10-30T07:20:36.964Z">
+<meta property="article:modified_time" content="2020-10-30T09:18:18.056Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -627,37 +627,42 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><h3 id="Json对象"><a href="#Json对象" class="headerlink" title="Json对象"></a>Json对象</h3><blockquote>
 <p>JSON是对象，但对象不一定是JSON</p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th>JSON</th>
-<th align="left">JavaScript对象</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>仅仅是一种数据格式</td>
-<td align="left">表示类的实例</td>
-</tr>
-<tr>
-<td>可以跨平台数据传输，速度快</td>
-<td align="left">不能传输</td>
-</tr>
-<tr>
-<td>键值对方式<br>键必须加双引号<br>值可以是数值、字符串、布尔值、null、对象、数组但不支持undefined和函数<br>最后一个属性后不能有逗号</td>
-<td align="left">键值对方式<br>键不加引号<br>值可以是任意类型</td>
-</tr>
-<tr>
-<td><code>JSON.parse()</code>将Json字符串转换为javascript对象</td>
-<td align="left"><code>JSON.stringify()</code>将javascript对象转换为Json字符串</td>
-</tr>
-</tbody></table>
+<p>JSON和JavaScript对象的区别：</p>
+<ul>
+<li>JSON<ul>
+<li>仅仅是一种数据格式</li>
+<li>可以跨平台数据传输，速度快</li>
+<li>键值对方式，键必须加双引号，值可以是数值、字符串、布尔值、null、对象、数组但不支持undefined和函数</li>
+<li>最后一个属性后不能有逗号</li>
+<li><code>JSON.parse()</code>将Json字符串转换为javascript对象</li>
+</ul>
+</li>
+<li>JavaScript对象<ul>
+<li>表示类的实例</li>
+<li>不能传输</li>
+<li>键值对方式，键不加引号，值可以是任意类型</li>
+<li><code>JSON.stringify()</code>将javascript对象转换为Json字符串</li>
+</ul>
+</li>
+</ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;</span></span><br><span class="line">    "sites": [</span><br><span class="line">    &#123; "name":"菜鸟教程" , "url":"www.runoob.com" &#125;, </span><br><span class="line">    &#123; "name":"google" , "url":"www.google.com" &#125;, </span><br><span class="line">    &#123; <span class="attr">"name"</span>:<span class="string">"微博"</span> , <span class="attr">"url"</span>:<span class="string">"www.weibo.com"</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;"</span><br><span class="line"></span><br><span class="line"><span class="string">"&#123;</span></span><br><span class="line">	"a": 1,</span><br><span class="line">	"b": 2,</span><br><span class="line">	"c": 3</span><br><span class="line">&#125;"</span><br></pre></td></tr></table></figure>
 
 <h3 id="Error对象"><a href="#Error对象" class="headerlink" title="Error对象"></a>Error对象</h3><blockquote>
 <p>通过Error的构造器可以创建一个错误对象，当运行时错误产生时，Error的实例对象会被抛出</p>
 </blockquote>
 <p>使用throw关键字来抛出你创建的Error对象：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"错误!"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"错误!"</span>) <span class="comment">//Uncaught Error: 错误!</span></span><br></pre></td></tr></table></figure>
+
+<p>Error对象的属性：</p>
+<ul>
+<li>name：设置或返回一个错误名（ err.name）</li>
+<li>message：设置或返回一个错误信息字符串（ err.message）</li>
+</ul>
+<p>try：语句测试代码块的错误</p>
+<p>catch：语句处理错误</p>
+<p>throw：语句创建自定义错误</p>
+<p>finally：语句在try和catch语句之后，无论是否有触发异常，该语句都会执行</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>不管输入是否正确,输入框都会在输入后清空<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>请输入5~10之间的数字:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"number"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"fn()"</span>&gt;</span>确定<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> message = <span class="built_in">document</span>.getElementById(<span class="string">"message"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> number = <span class="built_in">document</span>.getElementById(<span class="string">"number"</span>).value;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">if</span> (number == <span class="string">""</span>) <span class="keyword">throw</span> <span class="string">"值是空的"</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="built_in">isNaN</span>(number)) <span class="keyword">throw</span> <span class="string">"值不是一个数字"</span>;</span></span><br><span class="line"><span class="javascript">            number = <span class="built_in">Number</span>(number);</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">if</span> (number &lt; <span class="number">5</span>) <span class="keyword">throw</span> <span class="string">"太小"</span>;</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">if</span> (number &gt; <span class="number">10</span>) <span class="keyword">throw</span> <span class="string">"太大"</span>;</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">else</span> <span class="keyword">throw</span> <span class="string">"值正确"</span>;</span></span><br><span class="line"><span class="actionscript">        &#125; <span class="keyword">catch</span> (err) &#123;</span></span><br><span class="line"><span class="actionscript">            message.innerHTML = <span class="string">"错误:"</span> + err;</span></span><br><span class="line"><span class="actionscript">        &#125; <span class="keyword">finally</span> &#123;</span></span><br><span class="line"><span class="actionscript">            number.value = <span class="string">""</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Global对象"><a href="#Global对象" class="headerlink" title="Global对象"></a>Global对象</h3><blockquote>
 <p>Global对象跟运行环境有关，在浏览器运行环境中Global对象就是window对象，在nodejs中Global对象是global对象</p>
