@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/06/JS%E5%AF%B9%E8%B1%A1/2.png">
 <meta property="article:published_time" content="2020-05-06T08:01:41.000Z">
-<meta property="article:modified_time" content="2020-10-30T09:18:18.056Z">
+<meta property="article:modified_time" content="2020-11-02T01:30:23.609Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -624,7 +624,78 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(nowDate.toLocaleString()); <span class="comment">//2020/10/25 下午7:15:33</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><h3 id="Json对象"><a href="#Json对象" class="headerlink" title="Json对象"></a>Json对象</h3><blockquote>
+<h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><blockquote>
+<p>强大的字符串匹配工具</p>
+</blockquote>
+<p><strong>正则表达式写法：</strong></p>
+<ul>
+<li><p>正则表达式字面量</p>
+<blockquote>
+<p>脚本加载后，正则表达式字面量就会被编译（即加载后就编译）</p>
+<p>当正则表达式保持不变时，使用此方法可获得更好的性能</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/\w+/g</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用RegExp对象的构造函数</p>
+<blockquote>
+<p>在脚本运行过程中，用构造函数创建的正则表达式会被编译（即运行时编译）</p>
+<p>若正则表达式将会改变或者它将会从用户输入等来源中动态地产生，就需要使用构造函数来创建正则表达式</p>
+<p>使用构造函数创造正则对象时，需要使用常规的字符转义规则</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="keyword">new</span> RegEXP(<span class="string">"\\w+"</span>,<span class="string">"g"</span>)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p><strong>语法：</strong></p>
+<ul>
+<li><code>i</code>：忽略大小写</li>
+<li><code>g</code>：全局匹配</li>
+<li><code>|</code>：或</li>
+<li><code>^</code>：排除或者行首（字符串开头）</li>
+<li><code>$</code>：行尾（字符串结尾）</li>
+<li><code>()</code>：标记一个子表达式的开始和结束位置</li>
+<li><code>[abc]</code>：abc中的任意字符（如：o[sub]t相当于ost、out、obt）</li>
+<li><code>[a-z]</code>：a-z之间的任意字符</li>
+<li><code>[0-9]</code>：0-9之间的任意字符</li>
+<li><code>[^0-9]</code>：除了0-9的任意字符</li>
+<li><code>.</code>：任意字符（最好别用容易出错）</li>
+<li><code>\d</code>：数字<code>[0-9]</code></li>
+<li><code>\w</code>：英文、数字、下划线<code>[a-z0-9_]</code></li>
+<li><code>\s</code>：空白字符</li>
+<li><code>\D</code>：<code>[^0-9]</code></li>
+<li><code>\W</code>：<code>[^a-z0-9]</code></li>
+<li><code>\S</code>：非空白字符</li>
+<li><code>{n}</code>：正好出现n次</li>
+<li><code>{n,m}</code>：最少n次，最多m次（如：qq号：<code>[1-9]\d{4,10}</code>）</li>
+<li><code>{n,}</code>：最少n次，最多不限</li>
+<li><code>+</code>：若干等价于<code>{1,}</code></li>
+<li><code>?</code>：<code>{0,1}</code>最少0次最多1次等价于可有可无</li>
+<li><code>*</code>：<code>{0,}</code>（最好别用容易出错）</li>
+</ul>
+<p><strong>实例方法：</strong></p>
+<ul>
+<li><p>exec()：在一个指定的字符串中执行一个搜索匹配，返回一个结果数组或null</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abbbdasda"</span></span><br><span class="line"><span class="keyword">var</span> re = <span class="regexp">/ab+/g</span></span><br><span class="line"><span class="built_in">console</span>.log(re.exec(str)); <span class="comment">//["abbb", index: 0, input: "abbbdasda", groups: undefined]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>test()：查看正则表达式与指定的字符串是否匹配，返回true或false</p>
+<blockquote>
+<p>test方法存在一个问题（只要字符串一部分符合要求也返回true）所以一般要加^和$</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abbbdasda"</span></span><br><span class="line"><span class="keyword">var</span> re = <span class="regexp">/^ab+$/</span></span><br><span class="line"><span class="built_in">console</span>.log(re.test(str)); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>正则表达式校验邮箱：</strong></p>
+<blockquote>
+<p><a href="mailto:656825504@qq.com">656825504@qq.com</a></p>
+<p>一串英文、数字、下划线    @    一串英文、数字    .    一串英文</p>
+<p><code>\w+</code>                                       <code>@</code>    <code>[a-z0-9]+</code>         <code>\.</code>  <code>[a-z]+</code></p>
+<p>test方法存在一个问题（只要字符串一部分符合要求也返回true）所以一般要加^和$</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/^\w+@[a-z0-9]+\.[a-z]+$/</span></span><br><span class="line"><span class="keyword">if</span> (re.test(otext1.value)) &#123; </span><br><span class="line">    alert(<span class="string">'合法邮箱'</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    alert(<span class="string">'不合法邮箱'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Json对象"><a href="#Json对象" class="headerlink" title="Json对象"></a>Json对象</h3><blockquote>
 <p>JSON是对象，但对象不一定是JSON</p>
 </blockquote>
 <p>JSON和JavaScript对象的区别：</p>

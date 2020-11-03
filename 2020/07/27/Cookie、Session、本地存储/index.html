@@ -16,7 +16,7 @@
 <meta property="og:description" content="Cookie和Session">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-27T06:47:06.000Z">
-<meta property="article:modified_time" content="2020-10-30T09:27:06.779Z">
+<meta property="article:modified_time" content="2020-11-01T07:44:34.580Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -286,14 +286,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 <li>数据有效期不同<ul>
 <li>cookie可以设置过期时间</li>
-<li>sessionStorage仅在同源窗口中有效，关闭窗口就消失了</li>
+<li>sessionStorage仅在当前会话下（同一窗口或标签页）有效，关闭页面或浏览器后被清除</li>
 <li>localStorage永久有效，除非手动删除</li>
 </ul>
 </li>
 <li>作用范围不同：<ul>
 <li>cookie：同一个网站所有页面共享一套cookie</li>
-<li>sessionStorage：同源窗口下数据可以共享</li>
-<li>localStorage：同一浏览器数据可以共享</li>
+<li>sessionStorage：相同浏览器下，并且是同源窗口（协议、域名、端口一致），通过跳转的页面可以共享sessionStorage值</li>
+<li>localStorage：相同浏览器下，并且是同源窗口（协议、域名、端口一致），不同页面可以共享localStorage值</li>
 </ul>
 </li>
 <li>使用方式不同：<ul>
