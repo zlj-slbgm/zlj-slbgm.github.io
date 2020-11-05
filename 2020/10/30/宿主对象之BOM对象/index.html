@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/10/30/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BBOM%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="article:published_time" content="2020-10-30T09:42:17.000Z">
-<meta property="article:modified_time" content="2020-11-02T15:12:26.890Z">
+<meta property="article:modified_time" content="2020-11-04T01:28:53.696Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -247,8 +247,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <ul>
 <li><code>window.onload=function(){}</code>：当页面加载完毕后触发</li>
 <li><code>window.onunload=function(){}</code>：当页面关闭后触发</li>
+<li><code>window.onpageshow=function(){}</code>：当页面显示时触发</li>
 <li><code>document.addEventListener(&quot;DOMContentLoaded&quot;,function(){})</code>：仅当DOM加载完成后触发，不包括样式表，图片，flash等</li>
 </ul>
+<p><strong>onload和onpageshow区别：</strong></p>
+<blockquote>
+<p>onload事件在页面第一次加载时触发，onpageshow事件在每次加载页面时触发</p>
+</blockquote>
+<p>Chrome后退和前进按钮都会触发onload事件，但是Firefox和Opera有往返缓存，可以在用户使用浏览器的后退和前进按钮时加快页面的转换速度，这个缓存中不仅保存着页面数据，还保存了DOM和JS的状态，实际上是将整个页面都保存在了内存里，那么后退和前进就不会触发onload事件，但onpageshow事件在页面显示时触发，无论页面是否来自缓存。为了查看页面是直接从服务器上载入还是从缓存中读取，你可以使用PageTransitionEvent对象的 persisted属性来判断</p>
 <p><strong>调整窗口大小事件：</strong></p>
 <ul>
 <li><code>window.onresize=function(){}</code>：只要窗口大小发生变化就会触发（可以实现响应式布局）</li>
@@ -482,25 +488,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 <h3 id="判断当前浏览器运行环境的汇总"><a href="#判断当前浏览器运行环境的汇总" class="headerlink" title="判断当前浏览器运行环境的汇总"></a>判断当前浏览器运行环境的汇总</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断当前页面所在的环境是不是微信内置浏览器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isWeiXin</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ua = <span class="built_in">window</span>.navigator.userAgent.toLowerCase();</span><br><span class="line">    <span class="keyword">if</span> (ua.match(<span class="regexp">/MicroMessenger/i</span>) == <span class="string">'micromessenger'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断苹果、安卓、pc</span></span><br><span class="line"><span class="keyword">if</span> (<span class="regexp">/(iPhone|iPad|iPod|iOS)/i</span>.test(navigator.userAgent)) &#123; <span class="comment">//判断iPhone|iPad|iPod|iOS</span></span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">"iPhone.html"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/(Android)/i</span>.test(navigator.userAgent)) &#123; <span class="comment">//判断Android</span></span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">"Android.html"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">//pc</span></span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">"pc.html"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//正则表达式判断浏览器类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">userBrowser</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> browserName = navigator.userAgent.toLowerCase();</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/msie/i</span>.test(browserName) &amp;&amp; !<span class="regexp">/opera/</span>.test(browserName)) &#123;</span><br><span class="line">        alert(<span class="string">"IE"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/firefox/i</span>.test(browserName)) &#123;</span><br><span class="line">        alert(<span class="string">"Firefox"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/chrome/i</span>.test(browserName) &amp;&amp; <span class="regexp">/webkit/i</span>.test(browserName) &amp;&amp; <span class="regexp">/mozilla/i</span>.test(browserName)) &#123;</span><br><span class="line">        alert(<span class="string">"Chrome"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/opera/i</span>.test(browserName)) &#123;</span><br><span class="line">        alert(<span class="string">"Opera"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/webkit/i</span>.test(browserName) &amp;&amp; !(<span class="regexp">/chrome/i</span>.test(browserName) &amp;&amp; <span class="regexp">/webkit/i</span>.test(browserName) &amp;&amp; <span class="regexp">/mozilla/i</span>.test(browserName))) &#123;</span><br><span class="line">        alert(<span class="string">"Safari"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">"unKnow"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="元素偏移量offset系列"><a href="#元素偏移量offset系列" class="headerlink" title="元素偏移量offset系列"></a>元素偏移量offset系列</h3><blockquote>
-<p>offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等，返回的数值都不带单位</p>
-</blockquote>
-<ul>
-<li>element.offsetParent：返回该元素带有定位的父级元素，如果父级都没有定位则返回body</li>
-<li>element.offsetTop：返回元素相对带有定位父元素上方的偏移</li>
-<li>element.offsetLeft：返回元素相对带有定位父元素左边框的偏移</li>
-<li>element.offsetWidth：返回自身包括padding、边框、内容区的宽度</li>
-<li>element.offsetHeight：返回自身包括padding、边框、内容区的高度</li>
-</ul>
-<p><strong>offset与style区别</strong></p>
-<ul>
-<li>offset可以得到任意样式表中的样式值，而style只能得到行内样式表中的样式值</li>
-<li>offset系列获取的数值是没有单位的，而style获取的是带有单位的字符串</li>
-<li>offsetWidth包含padding+border+width，而style.width获得不包含padding和border的值</li>
-<li>offsetWidth等属性是只读属性，只能获取不能赋值而style.width等是可读写属性，可以获取也可以赋值</li>
-<li>获取元素位置以及大小，用offset更合适而更改元素值则需要用style改变</li>
-</ul>
-
       
 
       
@@ -644,7 +631,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM（浏览器对象模型）"><span class="toc-number">1.</span> <span class="toc-text">BOM（浏览器对象模型）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window对象"><span class="toc-number">1.1.</span> <span class="toc-text">window对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-screen对象"><span class="toc-number">1.2.</span> <span class="toc-text">window.screen对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-location对象"><span class="toc-number">1.3.</span> <span class="toc-text">window.location对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面的几种方式"><span class="toc-number">1.4.</span> <span class="toc-text">打开页面的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Window-history对象"><span class="toc-number">1.5.</span> <span class="toc-text">Window.history对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-navigator对象"><span class="toc-number">1.6.</span> <span class="toc-text">window.navigator对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断当前浏览器运行环境的汇总"><span class="toc-number">1.7.</span> <span class="toc-text">判断当前浏览器运行环境的汇总</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元素偏移量offset系列"><span class="toc-number">1.8.</span> <span class="toc-text">元素偏移量offset系列</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM（浏览器对象模型）"><span class="toc-number">1.</span> <span class="toc-text">BOM（浏览器对象模型）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window对象"><span class="toc-number">1.1.</span> <span class="toc-text">window对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-screen对象"><span class="toc-number">1.2.</span> <span class="toc-text">window.screen对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-location对象"><span class="toc-number">1.3.</span> <span class="toc-text">window.location对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面的几种方式"><span class="toc-number">1.4.</span> <span class="toc-text">打开页面的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Window-history对象"><span class="toc-number">1.5.</span> <span class="toc-text">Window.history对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-navigator对象"><span class="toc-number">1.6.</span> <span class="toc-text">window.navigator对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断当前浏览器运行环境的汇总"><span class="toc-number">1.7.</span> <span class="toc-text">判断当前浏览器运行环境的汇总</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
