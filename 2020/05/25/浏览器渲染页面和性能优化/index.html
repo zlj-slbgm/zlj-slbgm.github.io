@@ -16,9 +16,10 @@
 <meta property="og:description" content="浏览器渲染页面的主体流程">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/2.png">
 <meta property="article:published_time" content="2020-05-25T11:29:23.000Z">
-<meta property="article:modified_time" content="2020-11-05T03:27:13.516Z">
+<meta property="article:modified_time" content="2020-11-09T01:10:10.059Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -240,11 +241,25 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
       
         <h3 id="浏览器渲染页面的主体流程"><a href="#浏览器渲染页面的主体流程" class="headerlink" title="浏览器渲染页面的主体流程"></a>浏览器渲染页面的主体流程</h3><a id="more"></a>
 
+<p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg" alt></p>
 <blockquote>
 <p>浏览器渲染引擎主要包括：HTML 解析器，css 解析器，javascript 引擎，布局 layout 模块，绘图模块，以上模块还依赖很多其他基础模块包括网络，存储，2D/3D 图像，音频视频解码器，图片解码器</p>
-<p>浏览器加载资源是异步的</p>
 </blockquote>
-<p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.jpg" alt></p>
+<p><img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/3.jpg" alt></p>
+<ol>
+<li><strong>解析HTML</strong>：在这一步浏览器执行了所有的加载解析逻辑，在解析HTML的过程中发出了页面渲染所需的各种外部资源请求（浏览器加载外部资源（图片、视频、样式、脚本）是异步的）</li>
+<li><strong>计算样式</strong>：浏览器将识别并加载所有的CSS样式信息与DOM树合并，最终生成页面render树（:after :before这样的伪元素会在这个环节被构建到DOM树中）</li>
+<li><strong>计算图层布局</strong>：页面中所有元素的相对位置信息，大小等信息均在这一步得到计算</li>
+<li><strong>绘制图层</strong>：在这一步中浏览器会根据我们的DOM代码结果，把每一个页面图层转换为像素，并对所有的媒体文件进行解码</li>
+<li><strong>整合图层得到页面</strong>：最后一步浏览器会合并各个图层，将数据由CPU输出给GPU最终绘制在屏幕上（复杂的视图层会给这个阶段的 GPU计算带来一些压力，在实际应用中为了优化动画性能，我们有时会手动区分不同的图层）</li>
+</ol>
+<ul>
+<li><strong>DOM 树</strong>：解析HTML以创建的是DOM树（DOM tree ）渲染引擎开始解析HTML文档，转换树中的标签到DOM节点，它被称为“内容树”</li>
+<li><strong>CSSOM 树</strong>：解析CSS（包括外部CSS文件和样式元素）创建的是CSSOM 树，CSSOM的解析过程与DOM的解析过程是并行的</li>
+<li><strong>渲染树</strong>：CSSOM与DOM结合，之后我们得到的就是渲染树（Render tree ）</li>
+<li><strong>布局渲染树</strong>：从根节点递归调用，计算每一个元素的大小、位置等，给每个节点所应该出现在屏幕上的精确坐标，我们便得到了基于渲染树的布局渲染树（Layout of the render tree）</li>
+<li><strong>绘制渲染树</strong>：遍历渲染树，每个节点将使用 UI 后端层来绘制，整个过程叫做绘制渲染树（Painting the render tree）</li>
+</ul>
 <h3 id="查看浏览器渲染页面步骤"><a href="#查看浏览器渲染页面步骤" class="headerlink" title="查看浏览器渲染页面步骤"></a>查看浏览器渲染页面步骤</h3><ol>
 <li>F12</li>
 <li>Performance 下的 Network 可以调整网速</li>
@@ -279,7 +294,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>不要把DOM结点的属性值放在一个循环里当成循环里的变量，如offsetHeight读取会引发回流</li>
 <li>不要使用table布局，可能很小的一个小改动会造成整个table的重新布局</li>
 </ol>
-<h3 id="css阻塞"><a href="#css阻塞" class="headerlink" title="css阻塞"></a>css阻塞</h3><blockquote>
+<h3 id="CSS阻塞"><a href="#CSS阻塞" class="headerlink" title="CSS阻塞"></a>CSS阻塞</h3><blockquote>
 <p>只有link引入的外部css才会产生阻塞</p>
 </blockquote>
 <ul>
@@ -292,41 +307,42 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 <li><p>link引入的外部css样式（推荐使用）</p>
 <ul>
-<li>由css解析器进行解析的，并且是同步解析</li>
-<li>阻塞浏览器渲染（利用这种阻塞避免”闪屏现象”）</li>
-</ul>
+<li><p>由css解析器进行解析的，并且是同步解析</p>
+</li>
+<li><p>阻塞浏览器渲染（利用这种阻塞避免”闪屏现象”）</p>
 </li>
 <li><p>阻塞其后的js语句执行，若后面的js是获取元素的样式，如果不等样式解析完毕，后面的js就会获得错误信息</p>
-<ul>
-<li>不阻塞DOM解析，DOM解析和CSS解析是并行执行的进程</li>
+</li>
+<li><p>不阻塞DOM解析，DOM解析和CSS解析是并行执行的进程</p>
+</li>
 </ul>
 </li>
 </ul>
-<h3 id="提高外部CSS加载速度方法"><a href="#提高外部CSS加载速度方法" class="headerlink" title="提高外部CSS加载速度方法"></a>提高外部CSS加载速度方法</h3><ul>
+<h3 id="提高CSS加载速度方法"><a href="#提高CSS加载速度方法" class="headerlink" title="提高CSS加载速度方法"></a>提高CSS加载速度方法</h3><ul>
 <li>使用CDN节点进行外部资源加速</li>
 </ul>
 <blockquote>
 <p>CDN 的基本原理是广泛的采用各种缓存服务器，将这些服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户的请求</p>
 </blockquote>
-  <img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png" style="zoom:55%;">
+  <img src="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/2.png" style="zoom:55%;">
 
 <ul>
-<li><p>对 css 压缩(利用打包工具，比如 webpack,gulp 等)</p>
+<li><p>对css压缩（利用打包工具，比如gulp，webpack等）</p>
 </li>
-<li><p>减少 http 请求数，将多个 css 文件合并</p>
+<li><p>减少http请求数，将多个css文件合并</p>
 </li>
 <li><p>优化样式表代码</p>
 </li>
 </ul>
-<h3 id="js阻塞"><a href="#js阻塞" class="headerlink" title="js阻塞"></a>js阻塞</h3><ul>
+<h3 id="JS阻塞"><a href="#JS阻塞" class="headerlink" title="JS阻塞"></a>JS阻塞</h3><ul>
 <li>阻塞DOM解析，浏览器不知道后续脚本的内容，如果先去解析了下面的DOM，而随后的 js 删除了后面所有的 DOM，那么浏览器就做了无用功，索性全部停止等脚本执行完毕再继续向下解析 DOM</li>
 <li>阻塞页面渲染，js 中可以操作css样式，索性全部停止等脚本执行完毕，避免做无用功</li>
 <li>阻塞后续js执行，维护依赖关系，如必须先引入 jquery 再引入 bootstrap</li>
 </ul>
 <h3 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h3><ul>
-<li>script标签的<strong>defer属性</strong>规定当页面已完成加载后，才会执行js脚本</li>
-<li>无论css阻塞还是js阻塞，都不会阻塞浏览器加载外部资源(图片、视频、样式、脚本)</li>
-<li>css 解析和 js 执行时互斥的，即 css 解析的时候 js 停止执行，js 执行的时候 css 停止解析</li>
+<li>script标签的defer属性规定当页面已完成加载后，才会执行js脚本</li>
+<li>无论css阻塞还是js阻塞，都不会阻塞浏览器加载外部资源</li>
+<li>css解析和js执行时互斥的，即css 解析的时候js停止执行，js执行的时候css停止解析</li>
 </ul>
 
       
@@ -481,7 +497,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器渲染页面的主体流程"><span class="toc-number">1.</span> <span class="toc-text">浏览器渲染页面的主体流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看浏览器渲染页面步骤"><span class="toc-number">2.</span> <span class="toc-text">查看浏览器渲染页面步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建DOM的过程"><span class="toc-number">3.</span> <span class="toc-text">新建DOM的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome浏览器满足以下任意情况就会创建图层"><span class="toc-number">4.</span> <span class="toc-text">chrome浏览器满足以下任意情况就会创建图层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重排重绘性能优化"><span class="toc-number">5.</span> <span class="toc-text">重排重绘性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css阻塞"><span class="toc-number">6.</span> <span class="toc-text">css阻塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提高外部CSS加载速度方法"><span class="toc-number">7.</span> <span class="toc-text">提高外部CSS加载速度方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js阻塞"><span class="toc-number">8.</span> <span class="toc-text">js阻塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点："><span class="toc-number">9.</span> <span class="toc-text">注意点：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器渲染页面的主体流程"><span class="toc-number">1.</span> <span class="toc-text">浏览器渲染页面的主体流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看浏览器渲染页面步骤"><span class="toc-number">2.</span> <span class="toc-text">查看浏览器渲染页面步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建DOM的过程"><span class="toc-number">3.</span> <span class="toc-text">新建DOM的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome浏览器满足以下任意情况就会创建图层"><span class="toc-number">4.</span> <span class="toc-text">chrome浏览器满足以下任意情况就会创建图层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重排重绘性能优化"><span class="toc-number">5.</span> <span class="toc-text">重排重绘性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS阻塞"><span class="toc-number">6.</span> <span class="toc-text">CSS阻塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提高CSS加载速度方法"><span class="toc-number">7.</span> <span class="toc-text">提高CSS加载速度方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS阻塞"><span class="toc-number">8.</span> <span class="toc-text">JS阻塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点："><span class="toc-number">9.</span> <span class="toc-text">注意点：</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -660,11 +676,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

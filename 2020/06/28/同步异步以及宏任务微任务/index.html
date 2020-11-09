@@ -6,26 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>前端路线 | 十里不故梦Blog</title>
+  <title>同步异步以及宏任务微任务 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么选择前端？">
+  <meta name="description" content="同步和异步">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端路线">
-<meta property="og:url" content="http://yoursite.com/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/index.html">
+<meta property="og:title" content="同步异步以及宏任务微任务">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%A5%E5%8F%8A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BE%AE%E4%BB%BB%E5%8A%A1/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="为什么选择前端？">
+<meta property="og:description" content="同步和异步">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/1.gif">
-<meta property="og:image" content="http://yoursite.com/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/2.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/3.png">
-<meta property="og:image" content="http://yoursite.com/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/4.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/5.jpg">
-<meta property="article:published_time" content="2020-09-28T15:08:36.000Z">
-<meta property="article:modified_time" content="2020-10-30T10:15:00.016Z">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%A5%E5%8F%8A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BE%AE%E4%BB%BB%E5%8A%A1/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%A5%E5%8F%8A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BE%AE%E4%BB%BB%E5%8A%A1/4.png">
+<meta property="article:published_time" content="2020-06-28T02:21:28.000Z">
+<meta property="article:modified_time" content="2020-11-09T06:07:25.659Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/1.gif">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/28/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%A5%E5%8F%8A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BE%AE%E4%BB%BB%E5%8A%A1/3.jpg">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
   
@@ -210,14 +207,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-前端路线" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-同步异步以及宏任务微任务" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      前端路线
+      同步异步以及宏任务微任务
     </h1>
   
 
@@ -233,42 +230,154 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/" class="archive-article-date">
-  	<time datetime="2020-09-28T15:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
+        <a href="/2020/06/28/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%A5%E5%8F%8A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="archive-article-date">
+  	<time datetime="2020-06-28T02:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="为什么选择前端？"><a href="#为什么选择前端？" class="headerlink" title="为什么选择前端？"></a>为什么选择前端？</h3><a id="more"></a>
+        <h3 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h3><a id="more"></a>
 
-<h3 id="个人感受体会分享"><a href="#个人感受体会分享" class="headerlink" title="个人感受体会分享"></a>个人感受体会分享</h3><h3 id="前端切图仔，地位低，如今前端地位如何？"><a href="#前端切图仔，地位低，如今前端地位如何？" class="headerlink" title="前端切图仔，地位低，如今前端地位如何？"></a>前端切图仔，地位低，如今前端地位如何？</h3><h3 id="前端发展和前景如何？"><a href="#前端发展和前景如何？" class="headerlink" title="前端发展和前景如何？"></a>前端发展和前景如何？</h3><h3 id="学校教的东西太老甚至过时"><a href="#学校教的东西太老甚至过时" class="headerlink" title="学校教的东西太老甚至过时"></a>学校教的东西太老甚至过时</h3><h3 id="现在哪些技术必学，哪些可以学但是没必要"><a href="#现在哪些技术必学，哪些可以学但是没必要" class="headerlink" title="现在哪些技术必学，哪些可以学但是没必要"></a>现在哪些技术必学，哪些可以学但是没必要</h3><h3 id="前端决定用户第一体验"><a href="#前端决定用户第一体验" class="headerlink" title="前端决定用户第一体验"></a>前端决定用户第一体验</h3><h3 id="不排斥框架不依赖框架学好原生-用过的都说好"><a href="#不排斥框架不依赖框架学好原生-用过的都说好" class="headerlink" title="不排斥框架不依赖框架学好原生    用过的都说好"></a>不排斥框架不依赖框架学好原生    用过的都说好</h3><h3 id="基础不牢，地动山摇"><a href="#基础不牢，地动山摇" class="headerlink" title="基础不牢，地动山摇"></a>基础不牢，地动山摇</h3><h3 id="面试造火箭大炮，工作拧螺丝"><a href="#面试造火箭大炮，工作拧螺丝" class="headerlink" title="面试造火箭大炮，工作拧螺丝"></a>面试造火箭大炮，工作拧螺丝</h3><h3 id="知识点不牢不要紧，首要建立前端基本的知识体系"><a href="#知识点不牢不要紧，首要建立前端基本的知识体系" class="headerlink" title="知识点不牢不要紧，首要建立前端基本的知识体系"></a>知识点不牢不要紧，首要建立前端基本的知识体系</h3><h3 id="服务端渲染和客户端渲染区别"><a href="#服务端渲染和客户端渲染区别" class="headerlink" title="服务端渲染和客户端渲染区别"></a><a href="https://www.jianshu.com/p/ebdc3ce41c6a" target="_blank" rel="noopener">服务端渲染和客户端渲染区别</a></h3><h3 id="前后端分离-前后端交互-ajax的出现"><a href="#前后端分离-前后端交互-ajax的出现" class="headerlink" title="前后端分离    前后端交互    ajax的出现"></a>前后端分离    前后端交互    ajax的出现</h3><h3 id="CV工程师-面向复制粘贴编程-面向百度编程"><a href="#CV工程师-面向复制粘贴编程-面向百度编程" class="headerlink" title="CV工程师    面向复制粘贴编程    面向百度编程"></a>CV工程师    面向复制粘贴编程    面向百度编程</h3><p><img src="/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/1.gif" alt></p>
-<h3 id="PC端-移动端-小程序-移动端app-桌面应用"><a href="#PC端-移动端-小程序-移动端app-桌面应用" class="headerlink" title="PC端    移动端    小程序    移动端app    桌面应用"></a>PC端    移动端    小程序    移动端app    桌面应用</h3><h3 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h3><h3 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h3><h3 id="自动化构建"><a href="#自动化构建" class="headerlink" title="自动化构建"></a>自动化构建</h3><ul>
-<li>HTML、CSS、JS文件压缩合并</li>
-<li>语法转换（将es6语法转换为es5，less转css）</li>
-<li>公共文件抽离</li>
-<li>修改文件浏览器自动刷新</li>
-</ul>
-<h3 id="模块化打包工具"><a href="#模块化打包工具" class="headerlink" title="模块化打包工具"></a>模块化打包工具</h3><blockquote>
-<p>让程序员的重心放到具体的功能实现，提高开发效率和项目的可维护性</p>
-</blockquote>
+<p>JS是单线程语言，代码是一行一行执行的，但碰到异步的时候就需要注意代码的执行顺序，会有所不一样</p>
+<p>JS将任务的执行模式分成两种：同步（Synchronous）和异步（Asynchronous）</p>
+<p><strong>同步任务（同步API）和异步任务（异步API）的区别：</strong></p>
+<p>同步任务：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务</p>
+<p>异步任务：不进入主线程而进入任务队列，只有等主线程任务执行完毕，任务队列开始通知主线程，请求执行任务，该任务才会进入主线程执行</p>
+<p>同步API：只有当前API执行完成后，才能继续执行下一个API</p>
+<p>异步API：当前API的执行不会阻塞后续代码的执行</p>
+<p><strong>解释JS单线程和异步自相矛盾的点：</strong></p>
 <ul>
-<li>代码压缩</li>
-<li>处理js兼容</li>
-<li>性能优化</li>
+<li>单线程和异步确实不能同时成为一个语言的特性，JS选择了成为单线程的语言，所以它本身不可能是异步的</li>
+<li>JS的宿主环境（比如浏览器，Node）是多线程的，宿主环境通过某种方式（事件驱动等）使得js具备了异步的属性</li>
+<li>JS是单线程的但浏览器是多线程的</li>
+<li>浏览器为这些耗时任务开辟了另外的线程，主要包括http请求线程，浏览器定时触发器，浏览器事件触发线程等，这些任务是异步的</li>
 </ul>
-<h3 id="骨架屏"><a href="#骨架屏" class="headerlink" title="骨架屏"></a><a href="https://zhuanlan.zhihu.com/p/96455668" target="_blank" rel="noopener">骨架屏</a></h3><h3 id="WebAssembly"><a href="#WebAssembly" class="headerlink" title="WebAssembly"></a>WebAssembly</h3><h3 id="好玩的WebAssembly"><a href="#好玩的WebAssembly" class="headerlink" title="好玩的WebAssembly"></a><a href="https://www.jianshu.com/p/6b774fb2a345" target="_blank" rel="noopener">好玩的WebAssembly</a></h3><h3 id="单体架构-分布式"><a href="#单体架构-分布式" class="headerlink" title="单体架构    分布式"></a><a href="http://www.itheima.com/news/20200410/113833.html" target="_blank" rel="noopener">单体架构</a>    分布式</h3><p><strong>分布式（分而治之），把以前一个项目现在拆分成多个项目，多个项目可以部署到多个服务器上，由多个服务器对外提供统一的服务，能处理更多的请求</strong></p>
-<p><strong>单体架构类似大超市，半夜12点去吃夜宵，大超市必须开门才能吃到夜宵</strong></p>
-<p><strong>分布式类似商业街，半夜12点去吃夜宵，商业街其它店关了只要有一家店开了我就能吃到夜宵</strong></p>
-<h3 id="分布式是否属于微服务"><a href="#分布式是否属于微服务" class="headerlink" title="分布式是否属于微服务?"></a>分布式是否属于微服务?</h3><p><strong>肯定的，微服务的意思也就是将模块拆分成一个独立的服务单元通过接口来实现数据的交互</strong></p>
-<p><strong>分布式和微服的架构很相似，只是部署的方式不一样而已</strong></p>
-<h3 id="微前端（阿里乾坤微前端框架）"><a href="#微前端（阿里乾坤微前端框架）" class="headerlink" title="微前端（阿里乾坤微前端框架）"></a>微前端（阿里乾坤微前端框架）</h3><h3 id="为什么要写博客？面试加分项"><a href="#为什么要写博客？面试加分项" class="headerlink" title="为什么要写博客？面试加分项"></a>为什么要写博客？面试加分项</h3><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h3 id="建议用md文档记笔记，最好不要手写"><a href="#建议用md文档记笔记，最好不要手写" class="headerlink" title="建议用md文档记笔记，最好不要手写"></a>建议用md文档记笔记，最好不要手写</h3><h3 id="自主学习和解决问题的能力"><a href="#自主学习和解决问题的能力" class="headerlink" title="自主学习和解决问题的能力"></a>自主学习和解决问题的能力</h3><h3 id="不要埋头自己干，要分享交流"><a href="#不要埋头自己干，要分享交流" class="headerlink" title="不要埋头自己干，要分享交流"></a>不要埋头自己干，要分享交流</h3><h3 id="每天要做的事记在备忘录中，督促自己完成"><a href="#每天要做的事记在备忘录中，督促自己完成" class="headerlink" title="每天要做的事记在备忘录中，督促自己完成"></a>每天要做的事记在备忘录中，督促自己完成</h3><h3 id="加几个前端学习交流群，督促自己每天打卡和群里小伙伴分享交流"><a href="#加几个前端学习交流群，督促自己每天打卡和群里小伙伴分享交流" class="headerlink" title="加几个前端学习交流群，督促自己每天打卡和群里小伙伴分享交流"></a>加几个前端学习交流群，督促自己每天打卡和群里小伙伴分享交流</h3><p><img src="/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/2.jpg" alt></p>
-<p><img src="/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/3.png" alt></p>
-<p><img src="/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/4.jpg" alt></p>
-<h3 id="去看一些大佬聊聊天吹吹牛，不仅是适当的放松也能开阔眼界恍然大悟"><a href="#去看一些大佬聊聊天吹吹牛，不仅是适当的放松也能开阔眼界恍然大悟" class="headerlink" title="去看一些大佬聊聊天吹吹牛，不仅是适当的放松也能开阔眼界恍然大悟"></a>去看一些大佬聊聊天吹吹牛，不仅是适当的放松也能开阔眼界恍然大悟</h3><h3 id="B站-Pink老师"><a href="#B站-Pink老师" class="headerlink" title="B站    Pink老师"></a>B站    Pink老师</h3><h3 id="优质up主-CodeSheep-遇见狂神说-objtube的卢克儿"><a href="#优质up主-CodeSheep-遇见狂神说-objtube的卢克儿" class="headerlink" title="优质up主    CodeSheep    遇见狂神说    objtube的卢克儿"></a>优质up主    CodeSheep    遇见狂神说    objtube的卢克儿</h3><p><img src="/2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/5.jpg" alt></p>
-<h3 id="2020-1024-996"><a href="#2020-1024-996" class="headerlink" title="2020 - 1024 = 996"></a>2020 - 1024 = 996</h3><p><a href="https://www.bilibili.com/video/BV1Zt4y1Y7fm" target="_blank" rel="noopener"><font face="verdana" color="#00ffff" size="24">致每一位正在改变世界的程序员</font></a></p>
-<iframe src="//player.bilibili.com/player.html?aid=627579603&bvid=BV1Zt4y1Y7fm&cid=249013383&page=1" height="600" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<p><strong>异步模式的四种方式：</strong></p>
+<ul>
+<li><p>回调函数callback</p>
+<ul>
+<li>所谓的回调函数就是将函数作为参数传到需要回调的函数内部再执行</li>
+<li>典型的例子就是发送ajax请求（$.ajax({})）和定时器（setTimeout()和setInterval()）以及Node.JS提供了4个定时器，分别是 setTimeout()、setInterval()、setImmediate()、process.nextTick()</li>
+<li>发送ajax请求后，等待回应的过程不会阻塞程序运行，耗时操作相当于延后执行</li>
+<li>回调函数优点在于简单，容易理解，但是可读性较差，耦合度较高，不易维护</li>
+</ul>
+</li>
+<li><p>事件驱动</p>
+<ul>
+<li>JS是事件驱动脚本语言，即用户在网页中执行相应的操作触发并执行相应的脚本</li>
+<li>绑定事件相当于在元素上进行监听，是否执行注册的事件代码取决于事件是否发生</li>
+<li>优点在于容易理解，一个元素上可以绑定多个事件，有利于实现模块化但是缺点在于称为事件驱动的模型后，流程不清晰</li>
+</ul>
+</li>
+<li><p>发布/订阅</p>
+<ul>
+<li>发布订阅模式又称为观察者模式</li>
+<li>该模式中有两类对象：观察者和目标对象，目标对象中存在着一份观察者的列表，当目标对象的状态发生改变时，主动通知观察者，从而建立一种发布订阅的关系</li>
+</ul>
+</li>
+<li><p>promise模式</p>
+</li>
+</ul>
+<h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><p><strong>异步API获取返回值问题：</strong></p>
+<blockquote>
+<p>同步API可以从返回值中拿到API执行的结果而异步API是拿不到API执行的结果的</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMsg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">123</span></span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">    <span class="comment">//由于异步API不会阻塞后续代码的执行，而函数内部默认返回undefined</span></span><br><span class="line">    <span class="comment">//return undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getMsg()) <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>使用回调函数可以解决无法获取到异步API返回值问题：</strong></p>
+<blockquote>
+<p>回调函数的作用：当其中的异步函数执行后，才会调用这个回调函数，这时异步函数已经执行完成，所以在回调函数中代码就可以如同步代码一样依次执行</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMsg</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    callback(<span class="number">123</span>)</span><br><span class="line">  &#125;, <span class="number">2000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(msg)</span><br><span class="line">&#125;</span><br><span class="line">getMsg(callback)</span><br></pre></td></tr></table></figure>
+
+<p><strong>异步API还有执行顺序问题：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"2秒后执行"</span>);</span><br><span class="line">&#125;,<span class="number">2000</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"1秒后执行"</span>)</span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br><span class="line"><span class="comment">//1秒后执行</span></span><br><span class="line"><span class="comment">//2秒后执行</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>回调函数控制异步API执行顺序：</strong></p>
+<blockquote>
+<p>将依赖当前异步API的执行结果的代码，写到所依赖的异步API的回调函数中，逐层嵌套，这样虽然可以有效解决异步API代码依赖问题，但这样写出来的代码十分复杂，不可维护</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'2s'</span>)</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'1s'</span>)</span><br><span class="line">            callback(<span class="number">123</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">&#125;</span><br><span class="line">getData(<span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(n)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//2s</span></span><br><span class="line"><span class="comment">//1s</span></span><br><span class="line"><span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+<p>这样写不但繁琐难以维护，而且写起来十分的麻烦，所以promise模块应运而生</p>
+<p><strong>promise使用方式：</strong></p>
+<blockquote>
+<p>Promise出现的目的是解决Node.js异步编程中回调地狱的问题</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>)</span><br><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  fs.readFile(<span class="string">"Demo1.txt"</span>, <span class="string">"utf-8"</span>, (error, doc) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (error != <span class="literal">null</span>) &#123;</span><br><span class="line">      reject(error) <span class="comment">//调用reject(error)实际上执行的是catch里面的回调函数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      resolve(doc) <span class="comment">//调用resolve(doc)实际上执行的是then里面的回调函数</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 链式编程</span></span><br><span class="line">promise.then(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">  &#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>promise对象有三种状态：</strong></p>
+<ul>
+<li><p>pending：等待中或者进行中，表示还没有得到结果</p>
+</li>
+<li><p>resolved（Fulfilled）：已经完成，表示得到了我们想要的结果，可以继续往下执行</p>
+</li>
+<li><p>rejected：也表示得到结果，但是由于结果并非我们所愿，因此拒绝执行</p>
+</li>
+</ul>
+<p>这三种状态不受外界影响，而且状态只能从pending改变为resolved或者rejected，并且不可逆。resolve和reject都为一个函数，它们的作用分别是将状态修改为resolved和rejected</p>
+<p><strong>promise中的then：</strong><br>Promise对象中的then方法，可以接收构造函数中处理的状态变化，并分别对应执行。then方法有2个参数，第一个函数接收resolved状态的执行，第二个参数接收reject状态的执行，<code>.then(null, onRejected)</code>等价于<code>.catch()</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> num == <span class="string">'number'</span>) &#123;</span><br><span class="line">            resolve()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            reject()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'参数是一个number值'</span>)</span><br><span class="line">    &#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'参数不是一个number值'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="string">'hahaha'</span>)</span><br><span class="line">fn(<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+
+<p>then方法的执行结果也会返回一个Promise对象。因此我们可以进行then的链式执行，这也是解决回调地狱的主要方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> num == <span class="string">'number'</span>) &#123;</span><br><span class="line">            resolve(num)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            reject(<span class="string">'TypeError'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">1</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">    <span class="keyword">return</span> num + <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">    <span class="keyword">return</span> num + <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">    <span class="keyword">return</span> num + <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>程序运行时会有同步任务与异步任务，那程序需要有一个执行机制去处理这些任务，这个机制就是Event Loop（事件循环）</p>
+<img src="/2020/06/28/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%A5%E5%8F%8A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BE%AE%E4%BB%BB%E5%8A%A1/3.jpg" style="zoom: 38%;">
+
+<ul>
+<li>同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入Event Table（任务列表）并注册函数</li>
+<li>当指定的事情完成时，Event Table会将这个函数移入Event Queue（任务队列）</li>
+<li>主线程内的任务执行完毕为空，会去Event Queue读取对应的函数，进入主线程执行</li>
+<li>上述过程会不断重复，也就是常说的Event Loop（事件循环）</li>
+</ul>
+<p>用代码解释：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = [];</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: www.javascript.com,</span><br><span class="line">    data: data,</span><br><span class="line">    success: <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'发送成功!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'代码执行结束'</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ajax进入Event Table，注册回调函数success</li>
+<li>执行console.log(‘代码执行结束’)</li>
+<li>ajax事件完成，回调函数success进入Event Queue</li>
+<li>主线程从Event Queue读取回调函数success并执行</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"2秒后执行"</span>);</span><br><span class="line">&#125;,<span class="number">2000</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"1秒后执行"</span>)</span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br><span class="line"><span class="comment">//1秒后执行</span></span><br><span class="line"><span class="comment">//2秒后执行</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一个setTimeout先放入Event Table，第二个setTimeout再放入Event Table</li>
+<li>浏览器定时触发器是异步的，1秒到了，将第二个setTimeout的回调函数推入到Event Queue</li>
+<li>2秒到了，将第一个setTimeout的回调函数推入到Event Queue</li>
+<li>主线程从Event Queue读取回调函数并执行</li>
+</ul>
+<h3 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h3><p>更细的任务定义：</p>
+<ul>
+<li>macro-task（宏任务）：包括整体代码script，setTimeout，setInterval</li>
+<li>micro-task（微任务）：Promise.then catch finally，process.nextTick</li>
+</ul>
+<p>进入整体代码（宏任务）后，开始第一次循环，接着执行所有的微任务，然后再次从宏任务开始，找到其中一个任务队列执行完毕，再执行所有的微任务</p>
+<img src="/2020/06/28/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%A5%E5%8F%8A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BE%AE%E4%BB%BB%E5%8A%A1/4.png" style="zoom: 40%;">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'then'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'console'</span>);</span><br><span class="line"><span class="comment">//promise</span></span><br><span class="line"><span class="comment">//console</span></span><br><span class="line"><span class="comment">//then</span></span><br><span class="line"><span class="comment">//setTimeout</span></span><br></pre></td></tr></table></figure>
+
+<p>分析：</p>
+<ul>
+<li><p>这段代码作为宏任务，进入主线程</p>
+</li>
+<li><p>先遇到setTimeout，那么将其回调函数注册后分发到宏任务Event Queue</p>
+</li>
+<li><p>接下来遇到了Promise，new Promise立即执行，then函数分发到微任务Event Queue</p>
+</li>
+<li><p>遇到console.log(‘console’)，立即执行</p>
+</li>
+<li><p>整体代码script作为第一个宏任务执行结束，看看有哪些微任务？我们发现了then在微任务Event Queue里面，执行</p>
+</li>
+<li><p>第一轮事件循环结束了，开始第二轮循环，当然要从宏任务Event Queue开始，我们发现了宏任务Event Queue中setTimeout对应的回调函数，立即执行</p>
+</li>
+<li><p>结束</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'1'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'2'</span>);</span><br><span class="line">    process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'3'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'4'</span>);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'5'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'6'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'7'</span>);</span><br><span class="line">    resolve();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'8'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'9'</span>);</span><br><span class="line">    process.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'10'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'11'</span>);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'12'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//7</span></span><br><span class="line"><span class="comment">//6</span></span><br><span class="line"><span class="comment">//8</span></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="comment">//4</span></span><br><span class="line"><span class="comment">//3</span></span><br><span class="line"><span class="comment">//5</span></span><br><span class="line"><span class="comment">//9</span></span><br><span class="line"><span class="comment">//11</span></span><br><span class="line"><span class="comment">//10</span></span><br><span class="line"><span class="comment">//12</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -369,7 +478,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/09/28/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%BA%BF/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/06/28/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%A5%E5%8F%8A%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BE%AE%E4%BB%BB%E5%8A%A1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -383,18 +492,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/09/29/2D%E3%80%813D%E8%BD%AC%E6%8D%A2%E4%B8%8E%E5%8A%A8%E7%94%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/06/28/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          2D、3D转换与动画
+          原型和原型链
         
       </div>
     </a>
   
   
-    <a href="/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSS垂直居中对齐</div>
+    <a href="/2020/06/27/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E8%AF%B7%E6%B1%82%E5%8A%A8%E7%94%BB%E5%B8%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">性能优化之请求动画帧</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -421,7 +530,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么选择前端？"><span class="toc-number">1.</span> <span class="toc-text">为什么选择前端？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人感受体会分享"><span class="toc-number">2.</span> <span class="toc-text">个人感受体会分享</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端切图仔，地位低，如今前端地位如何？"><span class="toc-number">3.</span> <span class="toc-text">前端切图仔，地位低，如今前端地位如何？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端发展和前景如何？"><span class="toc-number">4.</span> <span class="toc-text">前端发展和前景如何？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学校教的东西太老甚至过时"><span class="toc-number">5.</span> <span class="toc-text">学校教的东西太老甚至过时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#现在哪些技术必学，哪些可以学但是没必要"><span class="toc-number">6.</span> <span class="toc-text">现在哪些技术必学，哪些可以学但是没必要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端决定用户第一体验"><span class="toc-number">7.</span> <span class="toc-text">前端决定用户第一体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不排斥框架不依赖框架学好原生-用过的都说好"><span class="toc-number">8.</span> <span class="toc-text">不排斥框架不依赖框架学好原生    用过的都说好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础不牢，地动山摇"><span class="toc-number">9.</span> <span class="toc-text">基础不牢，地动山摇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面试造火箭大炮，工作拧螺丝"><span class="toc-number">10.</span> <span class="toc-text">面试造火箭大炮，工作拧螺丝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#知识点不牢不要紧，首要建立前端基本的知识体系"><span class="toc-number">11.</span> <span class="toc-text">知识点不牢不要紧，首要建立前端基本的知识体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端渲染和客户端渲染区别"><span class="toc-number">12.</span> <span class="toc-text">服务端渲染和客户端渲染区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前后端分离-前后端交互-ajax的出现"><span class="toc-number">13.</span> <span class="toc-text">前后端分离    前后端交互    ajax的出现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CV工程师-面向复制粘贴编程-面向百度编程"><span class="toc-number">14.</span> <span class="toc-text">CV工程师    面向复制粘贴编程    面向百度编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PC端-移动端-小程序-移动端app-桌面应用"><span class="toc-number">15.</span> <span class="toc-text">PC端    移动端    小程序    移动端app    桌面应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据可视化"><span class="toc-number">16.</span> <span class="toc-text">数据可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#包管理"><span class="toc-number">17.</span> <span class="toc-text">包管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动化构建"><span class="toc-number">18.</span> <span class="toc-text">自动化构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块化打包工具"><span class="toc-number">19.</span> <span class="toc-text">模块化打包工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#骨架屏"><span class="toc-number">20.</span> <span class="toc-text">骨架屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebAssembly"><span class="toc-number">21.</span> <span class="toc-text">WebAssembly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#好玩的WebAssembly"><span class="toc-number">22.</span> <span class="toc-text">好玩的WebAssembly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单体架构-分布式"><span class="toc-number">23.</span> <span class="toc-text">单体架构    分布式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式是否属于微服务"><span class="toc-number">24.</span> <span class="toc-text">分布式是否属于微服务?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#微前端（阿里乾坤微前端框架）"><span class="toc-number">25.</span> <span class="toc-text">微前端（阿里乾坤微前端框架）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要写博客？面试加分项"><span class="toc-number">26.</span> <span class="toc-text">为什么要写博客？面试加分项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git"><span class="toc-number">27.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建议用md文档记笔记，最好不要手写"><span class="toc-number">28.</span> <span class="toc-text">建议用md文档记笔记，最好不要手写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自主学习和解决问题的能力"><span class="toc-number">29.</span> <span class="toc-text">自主学习和解决问题的能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要埋头自己干，要分享交流"><span class="toc-number">30.</span> <span class="toc-text">不要埋头自己干，要分享交流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每天要做的事记在备忘录中，督促自己完成"><span class="toc-number">31.</span> <span class="toc-text">每天要做的事记在备忘录中，督促自己完成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加几个前端学习交流群，督促自己每天打卡和群里小伙伴分享交流"><span class="toc-number">32.</span> <span class="toc-text">加几个前端学习交流群，督促自己每天打卡和群里小伙伴分享交流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去看一些大佬聊聊天吹吹牛，不仅是适当的放松也能开阔眼界恍然大悟"><span class="toc-number">33.</span> <span class="toc-text">去看一些大佬聊聊天吹吹牛，不仅是适当的放松也能开阔眼界恍然大悟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B站-Pink老师"><span class="toc-number">34.</span> <span class="toc-text">B站    Pink老师</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优质up主-CodeSheep-遇见狂神说-objtube的卢克儿"><span class="toc-number">35.</span> <span class="toc-text">优质up主    CodeSheep    遇见狂神说    objtube的卢克儿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-1024-996"><span class="toc-number">36.</span> <span class="toc-text">2020 - 1024 &#x3D; 996</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#同步和异步"><span class="toc-number">1.</span> <span class="toc-text">同步和异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#promise"><span class="toc-number">2.</span> <span class="toc-text">promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宏任务和微任务"><span class="toc-number">3.</span> <span class="toc-text">宏任务和微任务</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -457,7 +566,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Mon Sep 28 2020 23:08:36 GMT+0800',
+  	id: 'Sun Jun 28 2020 10:21:28 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -600,11 +709,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

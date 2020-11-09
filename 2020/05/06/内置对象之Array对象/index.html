@@ -16,7 +16,7 @@
 <meta property="og:description" content="内置对象之Array对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-06T04:52:32.000Z">
-<meta property="article:modified_time" content="2020-10-30T03:23:52.334Z">
+<meta property="article:modified_time" content="2020-11-07T14:07:28.323Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -351,6 +351,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 <li><p>splice()：在任意位置给数组添加或删除任意个元素（不指定第三个参数的话只删除元素）</p>
 <blockquote>
+<p>返回被删除的元素的数组</p>
 <p>可传三个参数：</p>
 <p>start：指定修改的开始位置（默认从下标0开始）</p>
 <ol>
@@ -525,6 +526,22 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 <h3 id="如何判断一个变量foo是数组"><a href="#如何判断一个变量foo是数组" class="headerlink" title="如何判断一个变量foo是数组"></a>如何判断一个变量foo是数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foo <span class="keyword">instanceof</span> <span class="built_in">Array</span></span><br><span class="line">foo.constructor == <span class="built_in">Array</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(foo)</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(foo)==<span class="string">"[object Array]"</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="JS数组在内存中的效率问题"><a href="#JS数组在内存中的效率问题" class="headerlink" title="JS数组在内存中的效率问题"></a>JS数组在内存中的效率问题</h3><blockquote>
+<p>数组成员移动的次数越少，效率越高</p>
+</blockquote>
+<p>一般来讲，数组会被分配到一段连续的内存中，但JS数组占用的不一定是连续的内存</p>
+<ul>
+<li>连续内存：若数组的成员类型为同一类，那么就是连续内存</li>
+<li>非连续内存：若数组的成员类型不全是同一类，那么就是非连续内存，多个非连续内存形成一个链表</li>
+</ul>
+<p>push()在数组的末尾添加元素，只需要在后面再加一块内存即可，所有数组成员不需要移动</p>
+<p>unshift()在数组的头部添加元素，为了保证内存的连续性，数组中所有的成员都要依次向后移动</p>
+<p><code>console.time()</code> 方法是作为计算器的起始方法，<code>console.timeEnd()</code>方法为计算器的结束方法，一般用于测试程序执行的时长</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aaa</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = []</span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">"aaa"</span>)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">        arr.unshift(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">"aaa"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bbb</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = []</span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">"bbb"</span>)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">        arr.push(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">"bbb"</span>)</span><br><span class="line">&#125;</span><br><span class="line">aaa() <span class="comment">//aaa: 1745.212158203125ms</span></span><br><span class="line">bbb() <span class="comment">//bbb: 7.276123046875ms</span></span><br></pre></td></tr></table></figure>
+
+<p>从上面代码执行时间可以看出，unshift比push效率低</p>
+<p>其实数组的插入、删除操作的性能都比较差，一旦处理不好产生大量数组成员移动，它就成了性能瓶颈</p>
+
       
 
       
@@ -677,7 +694,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#内置对象之Array对象"><span class="toc-number">1.</span> <span class="toc-text">内置对象之Array对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的length属性"><span class="toc-number">2.</span> <span class="toc-text">数组的length属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的创建"><span class="toc-number">3.</span> <span class="toc-text">数组的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的访问"><span class="toc-number">4.</span> <span class="toc-text">数组的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的遍历"><span class="toc-number">5.</span> <span class="toc-text">数组的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的添加和删除"><span class="toc-number">6.</span> <span class="toc-text">数组的添加和删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的排序"><span class="toc-number">7.</span> <span class="toc-text">数组的排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的合并"><span class="toc-number">8.</span> <span class="toc-text">数组的合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的截取"><span class="toc-number">9.</span> <span class="toc-text">数组的截取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的查找"><span class="toc-number">10.</span> <span class="toc-text">数组的查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的填充"><span class="toc-number">11.</span> <span class="toc-text">数组的填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组转字符串"><span class="toc-number">12.</span> <span class="toc-text">数组转字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类-伪-数组对象或可遍历对象转换成真正的数组"><span class="toc-number">13.</span> <span class="toc-text">类(伪)数组对象或可遍历对象转换成真正的数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数中不定参数arguments数组"><span class="toc-number">14.</span> <span class="toc-text">函数中不定参数arguments数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#剩余参数求传入实参之和"><span class="toc-number">15.</span> <span class="toc-text">剩余参数求传入实参之和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#剩余参数与解构配合"><span class="toc-number">16.</span> <span class="toc-text">剩余参数与解构配合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在原有数组上修改数据的方法"><span class="toc-number">17.</span> <span class="toc-text">在原有数组上修改数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成新的数组的方法"><span class="toc-number">18.</span> <span class="toc-text">生成新的数组的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组冒泡排序"><span class="toc-number">19.</span> <span class="toc-text">数组冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最简单的数组去重法"><span class="toc-number">20.</span> <span class="toc-text">最简单的数组去重法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何判断一个变量foo是数组"><span class="toc-number">21.</span> <span class="toc-text">如何判断一个变量foo是数组</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#内置对象之Array对象"><span class="toc-number">1.</span> <span class="toc-text">内置对象之Array对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的length属性"><span class="toc-number">2.</span> <span class="toc-text">数组的length属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的创建"><span class="toc-number">3.</span> <span class="toc-text">数组的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的访问"><span class="toc-number">4.</span> <span class="toc-text">数组的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的遍历"><span class="toc-number">5.</span> <span class="toc-text">数组的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的添加和删除"><span class="toc-number">6.</span> <span class="toc-text">数组的添加和删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的排序"><span class="toc-number">7.</span> <span class="toc-text">数组的排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的合并"><span class="toc-number">8.</span> <span class="toc-text">数组的合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的截取"><span class="toc-number">9.</span> <span class="toc-text">数组的截取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的查找"><span class="toc-number">10.</span> <span class="toc-text">数组的查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的填充"><span class="toc-number">11.</span> <span class="toc-text">数组的填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组转字符串"><span class="toc-number">12.</span> <span class="toc-text">数组转字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类-伪-数组对象或可遍历对象转换成真正的数组"><span class="toc-number">13.</span> <span class="toc-text">类(伪)数组对象或可遍历对象转换成真正的数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数中不定参数arguments数组"><span class="toc-number">14.</span> <span class="toc-text">函数中不定参数arguments数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#剩余参数求传入实参之和"><span class="toc-number">15.</span> <span class="toc-text">剩余参数求传入实参之和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#剩余参数与解构配合"><span class="toc-number">16.</span> <span class="toc-text">剩余参数与解构配合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在原有数组上修改数据的方法"><span class="toc-number">17.</span> <span class="toc-text">在原有数组上修改数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成新的数组的方法"><span class="toc-number">18.</span> <span class="toc-text">生成新的数组的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组冒泡排序"><span class="toc-number">19.</span> <span class="toc-text">数组冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最简单的数组去重法"><span class="toc-number">20.</span> <span class="toc-text">最简单的数组去重法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何判断一个变量foo是数组"><span class="toc-number">21.</span> <span class="toc-text">如何判断一个变量foo是数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS数组在内存中的效率问题"><span class="toc-number">22.</span> <span class="toc-text">JS数组在内存中的效率问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -856,11 +873,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

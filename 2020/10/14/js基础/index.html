@@ -19,8 +19,9 @@
 <meta property="og:image" content="http://yoursite.com/2020/10/14/JS%E5%9F%BA%E7%A1%80/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/14/JS%E5%9F%BA%E7%A1%80/2.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/14/JS%E5%9F%BA%E7%A1%80/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/14/JS%E5%9F%BA%E7%A1%80/5.jpg">
 <meta property="article:published_time" content="2020-10-14T09:13:18.000Z">
-<meta property="article:modified_time" content="2020-11-05T15:00:07.299Z">
+<meta property="article:modified_time" content="2020-11-08T08:35:43.055Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -246,8 +247,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>核心 ( ECMAScript )：描述了该语言的语法和基本对象</li>
 </ul>
 <ul>
-<li>文档对象模型 ( DOM, Document Object Model )：提供访问和操作网页内容的方法和接口，通过 document.element 对象实现</li>
-<li>浏览器对象模型 ( BOM, Browser Object Model )：提供与浏览器交互的方法和接口，通过 window 对象实现</li>
+<li>文档对象模型 ( DOM, Document Object Model )：提供访问和操作网页内容的方法和接口</li>
+<li>浏览器对象模型 ( BOM, Browser Object Model )：提供与浏览器交互的方法和接口</li>
 </ul>
 <h3 id="JS的特点："><a href="#JS的特点：" class="headerlink" title="JS的特点："></a>JS的特点：</h3><ul>
 <li>解释性脚本语言：代码不进行预编译，在程序运行过程中逐行进行解释</li>
@@ -292,20 +293,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
-<h3 id="声明变量，定义变量（变量赋值）和未定义属性的区别"><a href="#声明变量，定义变量（变量赋值）和未定义属性的区别" class="headerlink" title="声明变量，定义变量（变量赋值）和未定义属性的区别"></a>声明变量，定义变量（变量赋值）和未定义属性的区别</h3><blockquote>
-<p>变量虽然也可以不声明，直接使用，但不规范</p>
-<p>声明多个变量，变量之间用逗号隔开，<code>var num1,num2</code></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//a没有声明也没有定义——报错（a is not defined）</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//a声明了没有定义——undefined</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//a声明了且定义了——正常输出1</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">//a是未声明未定义的属性——undefined</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">//a声明了没有定义——undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">in</span> <span class="built_in">window</span>); <span class="comment">//a在全局window下声明了，a相当于是window对象下的属性了——true</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符 \"></a>转义字符 \</h3><blockquote>
 <p>在字符串中可以使用 \ 作为转义字符，当表示一些特殊符号时可以使用 \ 进行转义</p>
 </blockquote>
@@ -439,27 +426,35 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <ul>
 <li><p>方法1：</p>
 <ul>
-<li>使用Number()函数<ul>
-<li>字符串——&gt;数字<ul>
+<li><p>使用Number()函数</p>
+<ul>
+<li><p>字符串——&gt;数字</p>
+<ul>
 <li>纯数字的字符串直接转换为数字</li>
 <li>字符串中有非数字的内容转换为NaN</li>
 <li>字符串是一个空串或者是一个全是空格的字符串转换为0</li>
 </ul>
 </li>
-<li>布尔值——&gt;数字<ul>
+<li><p>布尔值——&gt;数字</p>
+<ul>
 <li>true转换为1</li>
 <li>false转换为0</li>
 </ul>
 </li>
-<li>null——&gt;数字<ul>
+<li><p>null——&gt;数字</p>
+<ul>
 <li>null转换为0</li>
 </ul>
 </li>
-<li>undefined——&gt;数字<ul>
+<li><p>undefined——&gt;数字</p>
+<ul>
 <li>undefined转换为NaN</li>
 <li>NaN是一个特殊数字表示Not A Number，使用typeof检测NaN也会返回number</li>
 <li>还可以通过isNaN()函数来判断一个值是否为NaN，返回boolean值</li>
 </ul>
+</li>
+<li><p>引用类型——&gt;数字（先toString()转换为字符串，再转换为数字）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(&#123;<span class="attr">num</span>: <span class="string">"10"</span>&#125;) <span class="comment">//NaN (&#123;num:"10"&#125;).toString()是"[object Object]"所以是NaN</span></span><br><span class="line"><span class="built_in">Number</span>(&#123;&#125;) <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">Number</span>([]) <span class="comment">//0 [].toString()是""所以转为数字是0</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">12</span>]) <span class="comment">//12 [12].toString()是"12"所以转为数字是12</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">12</span>,<span class="number">23</span>]) <span class="comment">//NaN [12].toString()是"12,23"所以是NaN</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -663,15 +658,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><code>&gt;=</code></li>
 <li><code>&lt;</code></li>
 <li><code>&lt;=</code></li>
-<li><code>==</code><ul>
-<li>使用==来比较两个值时，若值类型不同，则会自动进行类型转换，将其转换为相同类型再进行比较</li>
-</ul>
-</li>
+<li><code>==</code>：使用==来比较两个值时，若值类型不同，则会自动进行类型转换，将其转换为相同类型再进行比较</li>
 <li><code>!=</code></li>
-<li><code>===</code>（全等）<ul>
-<li>使用===来比较两个值时，若值类型不同，不会自动进行类型转换，直接返回false</li>
-</ul>
-</li>
+<li><code>===</code>（全等）：使用===来比较两个值时，若值类型不同，不会自动进行类型转换，直接返回false</li>
 <li><code>!==</code>（不全等）</li>
 </ul>
 <blockquote>
@@ -679,16 +668,22 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>2、纯数字和纯数字字符串相比较，则将字符串数字隐式转换成数字再进行比较</p>
 <p>3、纯数字和非纯数字字符串比较，都返回false</p>
 </blockquote>
+<img src="/2020/10/14/JS%E5%9F%BA%E7%A1%80/5.jpg" style="zoom:50%;">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[]==[] <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">[]==![] <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>分析：[]属于引用类型，如果两边都是引用类型，则判断的两个的引用内存地址是否一致</p>
+<p>分析：!优先级高于==，<code>[]==![]</code>—&gt;<code>[]==false</code>—&gt;<code>0==0</code>—&gt;<code>true</code></p>
 <p><strong>逻辑运算符：</strong></p>
 <blockquote>
-<p>注意：逻辑运算返回值不只有true和false，之前错以为逻辑运算只有返回值true和fasle</p>
+<p>逻辑运算返回值不只有true和false，之前错以为逻辑运算只有返回值true和fasle，但逻辑非只会返回true和fasle</p>
 </blockquote>
 <ul>
 <li><p>&amp;&amp;（逻辑与）</p>
 </li>
 <li><p>||（逻辑或）</p>
 </li>
-<li><p>!（逻辑非）</p>
+<li><p>!（逻辑非）：分析<code>[]</code>是对象转换为true，所以<code>![]</code>为false</p>
 </li>
 <li><p>!!（逻辑非非）</p>
 </li>
@@ -1005,7 +1000,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS由哪几部分组成"><span class="toc-number">1.</span> <span class="toc-text">JS由哪几部分组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的特点："><span class="toc-number">2.</span> <span class="toc-text">JS的特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的引入方式"><span class="toc-number">3.</span> <span class="toc-text">JS的引入方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS放置位置"><span class="toc-number">4.</span> <span class="toc-text">JS放置位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS注释"><span class="toc-number">5.</span> <span class="toc-text">JS注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标识符的命名规则"><span class="toc-number">6.</span> <span class="toc-text">标识符的命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#声明变量，定义变量（变量赋值）和未定义属性的区别"><span class="toc-number">7.</span> <span class="toc-text">声明变量，定义变量（变量赋值）和未定义属性的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符"><span class="toc-number">8.</span> <span class="toc-text">转义字符 \</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中进制表示"><span class="toc-number">9.</span> <span class="toc-text">JS中进制表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS运算精度问题"><span class="toc-number">10.</span> <span class="toc-text">JS运算精度问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS数据类型"><span class="toc-number">11.</span> <span class="toc-text">JS数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null和undefined的相似和区别"><span class="toc-number">12.</span> <span class="toc-text">null和undefined的相似和区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类型转换"><span class="toc-number">13.</span> <span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型和引用数据类型比较"><span class="toc-number">14.</span> <span class="toc-text">基本数据类型和引用数据类型比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用变量赋值问题"><span class="toc-number">15.</span> <span class="toc-text">引用变量赋值问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断数据类型的方法"><span class="toc-number">16.</span> <span class="toc-text">判断数据类型的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符（操作符）"><span class="toc-number">17.</span> <span class="toc-text">运算符（操作符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件运算符（三目运算符）"><span class="toc-number">18.</span> <span class="toc-text">条件运算符（三目运算符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自增自减"><span class="toc-number">19.</span> <span class="toc-text">自增自减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else"><span class="toc-number">20.</span> <span class="toc-text">if else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch"><span class="toc-number">21.</span> <span class="toc-text">switch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-number">22.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while"><span class="toc-number">23.</span> <span class="toc-text">while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#do-while"><span class="toc-number">24.</span> <span class="toc-text">do while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break、continue"><span class="toc-number">25.</span> <span class="toc-text">break、continue</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS由哪几部分组成"><span class="toc-number">1.</span> <span class="toc-text">JS由哪几部分组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的特点："><span class="toc-number">2.</span> <span class="toc-text">JS的特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的引入方式"><span class="toc-number">3.</span> <span class="toc-text">JS的引入方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS放置位置"><span class="toc-number">4.</span> <span class="toc-text">JS放置位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS注释"><span class="toc-number">5.</span> <span class="toc-text">JS注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标识符的命名规则"><span class="toc-number">6.</span> <span class="toc-text">标识符的命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符"><span class="toc-number">7.</span> <span class="toc-text">转义字符 \</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中进制表示"><span class="toc-number">8.</span> <span class="toc-text">JS中进制表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS运算精度问题"><span class="toc-number">9.</span> <span class="toc-text">JS运算精度问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS数据类型"><span class="toc-number">10.</span> <span class="toc-text">JS数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null和undefined的相似和区别"><span class="toc-number">11.</span> <span class="toc-text">null和undefined的相似和区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类型转换"><span class="toc-number">12.</span> <span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型和引用数据类型比较"><span class="toc-number">13.</span> <span class="toc-text">基本数据类型和引用数据类型比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用变量赋值问题"><span class="toc-number">14.</span> <span class="toc-text">引用变量赋值问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断数据类型的方法"><span class="toc-number">15.</span> <span class="toc-text">判断数据类型的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符（操作符）"><span class="toc-number">16.</span> <span class="toc-text">运算符（操作符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件运算符（三目运算符）"><span class="toc-number">17.</span> <span class="toc-text">条件运算符（三目运算符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自增自减"><span class="toc-number">18.</span> <span class="toc-text">自增自减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else"><span class="toc-number">19.</span> <span class="toc-text">if else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch"><span class="toc-number">20.</span> <span class="toc-text">switch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-number">21.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while"><span class="toc-number">22.</span> <span class="toc-text">while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#do-while"><span class="toc-number">23.</span> <span class="toc-text">do while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break、continue"><span class="toc-number">24.</span> <span class="toc-text">break、continue</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1184,11 +1179,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
