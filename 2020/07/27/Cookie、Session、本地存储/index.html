@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Cookie、Session、本地存储 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTTP协议是无状态的协议，一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接，这就意味着服务器无法从连接上跟踪会话，于是出现了Cookie和Session">
+  <meta name="description" content="Cookie、Session、本地存储">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie、Session、本地存储">
 <meta property="og:url" content="http://yoursite.com/2020/07/27/Cookie%E3%80%81Session%E3%80%81%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="HTTP协议是无状态的协议，一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接，这就意味着服务器无法从连接上跟踪会话，于是出现了Cookie和Session">
+<meta property="og:description" content="Cookie、Session、本地存储">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-27T06:47:06.000Z">
-<meta property="article:modified_time" content="2020-11-06T06:54:40.563Z">
+<meta property="article:modified_time" content="2020-11-09T08:29:43.853Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -235,11 +235,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <h3 id="Cookie、Session、本地存储"><a href="#Cookie、Session、本地存储" class="headerlink" title="Cookie、Session、本地存储"></a>Cookie、Session、本地存储</h3><a id="more"></a>
+
+<blockquote>
 <p>HTTP协议是无状态的协议，一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接，这就意味着服务器无法从连接上跟踪会话，于是出现了Cookie和Session</p>
 </blockquote>
-<a id="more"></a>
-
 <h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie实际上是一小段的文本信息，客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie，客户端会把Cookie保存起来，当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器，服务器检查该Cookie，以此来辨认用户状态。服务器还可以根据需要修改Cookie的内容</p>
 <ul>
 <li><strong>会话Cookie：</strong>若不设置过期时间，则表示这个Cookie的生命期为浏览器会话期间，关闭浏览器窗口，Cookie就消失，这种生命期为浏览器会话期的Cookie被称为会话Cookie。会话Cookie一般不存储在硬盘上而是保存在内存里</li>
@@ -491,7 +491,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie"><span class="toc-number">1.</span> <span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie和Session的区别"><span class="toc-number">2.</span> <span class="toc-text">Cookie和Session的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sessionStorage和localStorage"><span class="toc-number">3.</span> <span class="toc-text">sessionStorage和localStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie、sessionStorage、localStorage三者区别"><span class="toc-number">4.</span> <span class="toc-text">cookie、sessionStorage、localStorage三者区别</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie、Session、本地存储"><span class="toc-number">1.</span> <span class="toc-text">Cookie、Session、本地存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie"><span class="toc-number">2.</span> <span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie和Session的区别"><span class="toc-number">3.</span> <span class="toc-text">Cookie和Session的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sessionStorage和localStorage"><span class="toc-number">4.</span> <span class="toc-text">sessionStorage和localStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie、sessionStorage、localStorage三者区别"><span class="toc-number">5.</span> <span class="toc-text">cookie、sessionStorage、localStorage三者区别</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -670,11 +670,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
