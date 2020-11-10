@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>margin、padding | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="margin">
+  <meta name="description" content="盒子模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="margin、padding">
 <meta property="og:url" content="http://yoursite.com/2020/09/26/margin%E3%80%81padding/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="margin">
+<meta property="og:description" content="盒子模型">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/09/26/margin%E3%80%81padding/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/09/26/margin%E3%80%81padding/2.png">
 <meta property="article:published_time" content="2020-09-26T02:34:58.000Z">
-<meta property="article:modified_time" content="2020-11-02T15:00:22.218Z">
+<meta property="article:modified_time" content="2020-11-10T03:41:10.126Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
@@ -238,9 +238,47 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><a id="more"></a>
+        <h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><a id="more"></a>
 
 <ul>
+<li><p>盒子模型类型：</p>
+<ul>
+<li>IE盒子模型（传统盒子模型）：content + padding + border + margin</li>
+<li>IE盒子模型的宽高指内容区域 + padding + border加起来的宽高<ul>
+<li>box-sizing：border-box 采用IE盒子模型</li>
+</ul>
+</li>
+<li>css盒子模型（标准w3c盒子模型）：content + padding + border + margin<ul>
+<li>css盒子模型（标准w3c盒子模型）的宽高指内容区域设置的宽高</li>
+<li>box-sizing：content-box 采用标准w3c盒子模型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>box-sizing属性的值</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>content-box</td>
+<td>默认值，width和height属性分别应用到元素的内容框，在宽度和高度之外绘制元素的内边距、边框、外边距</td>
+</tr>
+<tr>
+<td>border-box</td>
+<td>为元素设定的width和height属性决定了元素的边框盒，就是说为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制，通过从已设定的宽度和高度分别减去外边距、边框和内边距才能得到内容的宽度和高度</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应从父元素继承box-sizing属性的值</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><ul>
 <li><p><code>margin:10px 5px 15px 20px</code>分别是上右下左</p>
 </li>
 <li><p><code>margin:10px 5px 15px</code>分别是上（右左）下</p>
@@ -313,48 +351,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 <li><p>盒子一旦指定width或height属性，则padding会撑开盒子大小</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* div宽度给了百分之百也没用，盒子宽度还是会撑开20px(会出现水平方向滚动条) */</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-
 </li>
 </ul>
-</li>
-</ul>
-<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><ul>
-<li><p>盒子模型类型：</p>
-<ul>
-<li>IE盒子模型（传统盒子模型）：content + padding + border + margin</li>
-<li>IE盒子模型的宽高指内容区域 + padding + border加起来的宽高<ul>
-<li>box-sizing：border-box 采用IE盒子模型</li>
-</ul>
-</li>
-<li>css盒子模型（标准w3c盒子模型）：content + padding + border + margin<ul>
-<li>css盒子模型（标准w3c盒子模型）的宽高指内容区域设置的宽高</li>
-<li>box-sizing：content-box 采用标准w3c盒子模型</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>box-sizing属性的值</p>
-<table>
-<thead>
-<tr>
-<th align="left">值</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">content-box</td>
-<td align="left">默认值，width和height属性分别应用到元素的内容框，在宽度和高度之外绘制元素的内边距、边框、外边距</td>
-</tr>
-<tr>
-<td align="left">border-box</td>
-<td align="left">为元素设定的width和height属性决定了元素的边框盒，就是说为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制，通过从已设定的宽度和高度分别减去外边距、边框和内边距才能得到内容的宽度和高度</td>
-</tr>
-<tr>
-<td align="left">inherit</td>
-<td align="left">规定应从父元素继承box-sizing属性的值</td>
-</tr>
-</tbody></table>
 </li>
 </ul>
 
@@ -510,7 +508,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#margin"><span class="toc-number">1.</span> <span class="toc-text">margin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padding"><span class="toc-number">2.</span> <span class="toc-text">padding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盒子模型"><span class="toc-number">3.</span> <span class="toc-text">盒子模型</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#盒子模型"><span class="toc-number">1.</span> <span class="toc-text">盒子模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#margin"><span class="toc-number">2.</span> <span class="toc-text">margin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padding"><span class="toc-number">3.</span> <span class="toc-text">padding</span></a></li></ol>
                     </div>
                 </span>
             </div>

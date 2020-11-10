@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/09/25/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BDOM%E5%AF%B9%E8%B1%A1/2.png">
 <meta property="og:image" content="http://yoursite.com/2020/09/25/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BDOM%E5%AF%B9%E8%B1%A1/3.png">
 <meta property="article:published_time" content="2020-09-25T04:17:18.000Z">
-<meta property="article:modified_time" content="2020-11-09T08:15:39.806Z">
+<meta property="article:modified_time" content="2020-11-10T02:31:00.059Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -807,7 +807,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </blockquote>
 <p><strong>需求：</strong>点击每个小li都会弹出对话框，以前需要给每个小li循环注册事件，是比较麻烦的而且访问DOM的次数越多，这就会延长整个页面的交互就绪时间，现在使用事件冒泡的本身特性就能很好的解决</p>
 <p><strong>解决方法：</strong>给父节点ul注册点击事件，点击子节点li的时事件冒泡到ul上，发现ul有注册事件，就会触发事件监听器来影响每一个子节点</p>
-<p><strong>优势：</strong>使用事件冒泡的本身特性，只操作一次DOM，减少内存消耗，提高性能</p>
+<p><strong>优势：</strong>使用事件冒泡的本身特性，只操作一次DOM，减少内存消耗，提高性能及降低代码复杂度</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">"ul"</span>)</span></span><br><span class="line"><span class="actionscript">	ul.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">		alert(<span class="string">"事件委托"</span>)</span></span><br><span class="line">	&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="常用鼠标事件"><a href="#常用鼠标事件" class="headerlink" title="常用鼠标事件"></a>常用鼠标事件</h3><blockquote>
