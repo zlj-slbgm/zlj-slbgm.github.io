@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>宿主对象之BOM对象 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BOM（浏览器对象模型）">
+  <meta name="description" content="BOM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="宿主对象之BOM对象">
 <meta property="og:url" content="http://yoursite.com/2020/10/30/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BBOM%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="BOM（浏览器对象模型）">
+<meta property="og:description" content="BOM">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/10/30/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BBOM%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="article:published_time" content="2020-10-30T09:42:17.000Z">
-<meta property="article:modified_time" content="2020-11-04T01:28:53.696Z">
+<meta property="article:modified_time" content="2020-11-10T12:06:33.246Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -237,8 +237,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="BOM（浏览器对象模型）"><a href="#BOM（浏览器对象模型）" class="headerlink" title="BOM（浏览器对象模型）"></a>BOM（浏览器对象模型）</h2><a id="more"></a>
+        <h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><a id="more"></a>
 
+<p>浏览器对象模型 ( BOM, Browser Object Model )：提供与浏览器交互的方法和接口</p>
 <p><img src="/2020/10/30/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BBOM%E5%AF%B9%E8%B1%A1/1.png" alt></p>
 <h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><blockquote>
 <p>window对象是BOM的核心，window对象指当前的浏览器窗口</p>
@@ -465,16 +466,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>history.pushState(state, title[, url])：向当前浏览器会话的历史堆栈中添加一个状态（state）记录</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = &#123; <span class="string">'page_id'</span>: <span class="number">1</span>, <span class="string">'user_id'</span>: <span class="number">5</span> &#125;</span><br><span class="line">  <span class="keyword">const</span> title = <span class="string">''</span></span><br><span class="line">  <span class="keyword">const</span> url = <span class="string">'hello-world.html'</span></span><br><span class="line">  history.pushState(state, title, url)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>history.replaceState()：浏览历史中修改记录</p>
+<li><p>history.replaceState()：把当前页面在浏览历史中的记录修改</p>
 </li>
-</ul>
-<blockquote>
-<p>pushState()不会造成hashchange事件调用，即使新的URL和之前的URL只是锚的数据不同</p>
-<p>pushState和replaceState的作用：浏览器地址栏会变成你传的地址，而页面并不会重新载入或跳转</p>
-<p>每当同一个文档的浏览历史（即history对象）出现变化时，就会触发popstate事件，仅仅调用pushState()或replaceState()，并不会触发该事件，只有用户点击浏览器倒退按钮和前进按钮或者使用JS调用back、forward、go方法时才会触发</p>
-</blockquote>
-<ul>
-<li>history.state：返回一个值，该值表示历史记录堆栈顶部的状态</li>
+<li><p>history.pushState()和history.replaceState()的作用是什么？如何监听</p>
+<p>作用：浏览器地址栏会变成你传的地址，而页面并不会重新载入或跳转</p>
+<p>监听：使用popstate监听</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//取出state值</span></span><br><span class="line">    <span class="keyword">var</span> state = history.state</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <h3 id="window-navigator对象"><a href="#window-navigator对象" class="headerlink" title="window.navigator对象"></a>window.navigator对象</h3><blockquote>
 <p>获取运行当前代码的应用程序的相关信息</p>
@@ -640,7 +639,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM（浏览器对象模型）"><span class="toc-number">1.</span> <span class="toc-text">BOM（浏览器对象模型）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window对象"><span class="toc-number">1.1.</span> <span class="toc-text">window对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-screen对象"><span class="toc-number">1.2.</span> <span class="toc-text">window.screen对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-location对象"><span class="toc-number">1.3.</span> <span class="toc-text">window.location对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面的几种方式"><span class="toc-number">1.4.</span> <span class="toc-text">打开页面的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Window-history对象"><span class="toc-number">1.5.</span> <span class="toc-text">Window.history对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-navigator对象"><span class="toc-number">1.6.</span> <span class="toc-text">window.navigator对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断当前浏览器运行环境的汇总"><span class="toc-number">1.7.</span> <span class="toc-text">判断当前浏览器运行环境的汇总</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM"><span class="toc-number">1.</span> <span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window对象"><span class="toc-number">1.1.</span> <span class="toc-text">window对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-screen对象"><span class="toc-number">1.2.</span> <span class="toc-text">window.screen对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-location对象"><span class="toc-number">1.3.</span> <span class="toc-text">window.location对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面的几种方式"><span class="toc-number">1.4.</span> <span class="toc-text">打开页面的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Window-history对象"><span class="toc-number">1.5.</span> <span class="toc-text">Window.history对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-navigator对象"><span class="toc-number">1.6.</span> <span class="toc-text">window.navigator对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断当前浏览器运行环境的汇总"><span class="toc-number">1.7.</span> <span class="toc-text">判断当前浏览器运行环境的汇总</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -819,11 +818,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

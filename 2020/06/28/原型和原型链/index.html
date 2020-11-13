@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/06/28/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/06/28/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/2.png">
 <meta property="article:published_time" content="2020-06-28T07:25:24.000Z">
-<meta property="article:modified_time" content="2020-11-09T01:11:08.659Z">
+<meta property="article:modified_time" content="2020-11-10T13:27:56.131Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -259,11 +259,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><blockquote>
 <p>构造函数有<code>__proto__</code>也有prototype而实例只有<code>__proto__</code></p>
 </blockquote>
+<p>当访问一个对象的某个属性时，会先在这个对象本身属性上查找，如果没有找到，则会去它的<code>__proto__</code>隐式原型上查找，即它的构造函数的<code>prototype</code>，如果还没有找到就会再在构造函数的<code>prototype</code>的<code>__proto__</code>中查找，这样一层一层向上查找就会形成一个链式结构，我们称为原型链</p>
 <img src="/2020/06/28/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/2.png" style="zoom:50%;">
 
-<blockquote>
-<p>查找属性步骤也就是图中蓝色连线指出的原型链</p>
-</blockquote>
 <p>比如我们读取<code>person.sing</code>时，js引擎会做执行以下步骤：</p>
 <ol>
 <li>看看person对象本身有没有sing属性，没有就走下一步</li>
@@ -630,11 +628,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

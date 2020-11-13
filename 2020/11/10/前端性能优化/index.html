@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/11/10/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png">
 <meta property="article:published_time" content="2020-11-10T01:10:42.000Z">
-<meta property="article:modified_time" content="2020-11-10T03:28:47.210Z">
+<meta property="article:modified_time" content="2020-11-12T04:00:00.684Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -251,7 +251,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ol>
 <h3 id="前端性能优化的七大手段"><a href="#前端性能优化的七大手段" class="headerlink" title="前端性能优化的七大手段"></a>前端性能优化的七大手段</h3><ul>
 <li>减少请求数量</li>
-<li>减少资源大小</li>
+<li>减小资源大小</li>
 <li>优化资源加载</li>
 <li>减少重排（回流）重绘</li>
 <li>使用性能更好的API</li>
@@ -352,7 +352,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>避免使用CSS表达式，CSS表达式动态设置CSS属性是强大但危险方法，它的问题就在于计算频率很快。不仅仅是在页面显示和缩放时，就是在页面滚动、乃至移动鼠标时都会要重新计算一次</li>
 <li>元素适当地定义高度或最小高度，否则元素的动态内容载入时，会出现页面元素的晃动或位置，造成回流</li>
 <li>给图片设置尺寸，如果图片不设置尺寸，首次载入时占据空间会从0到完全出现，上下左右都可能位移，发生回流</li>
-<li>不要使用table布局，因为一个小改动可能会造成整个table重新布局，而且table渲染通常要3倍于同等元素时间</li>
+<li>尽量不要使用table布局，因为一个小改动可能会造成整个table重新布局，而且table渲染通常要3倍于同等元素时间</li>
 <li>能够使用CSS实现的效果，尽量使用CSS不要使用JS</li>
 <li>使用transform可以开启GPU硬件加速，提高机器渲染效果</li>
 <li>translate属性替换top/left/right/bottom</li>
@@ -371,7 +371,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>减少DOM深度及DOM数量（HTML中标签元素越多，标签的层级越深，浏览器解析DOM并绘制到浏览器中所花的时间就越长，所以应尽可能保持DOM元素简洁和层级较少）</li>
 <li>批量操作DOM（由于DOM操作比较耗时，且可能会造成回流，因此要避免频繁操作DOM，可以批量操作DOM，先用字符串拼接完毕，再用innerHTML更新DOM）</li>
 <li>批量操作CSS样式（通过切换类名或者使用元素的style属性去批量操作元素样式）</li>
-<li>在内存中操作DOM（使用DocumentFragment（文档片段）对象，让DOM操作发生在内存中，而不是页面上）</li>
+<li>在内存中操作DOM（使用DocumentFragment（文档碎片）对象，让DOM操作发生在内存中，而不是页面上）</li>
 <li>DOM元素离线更新（如：先把DOM给 display:none (有一次 Reflow)，然后你修改100次，然后再把它显示出来）</li>
 <li>DOM读写分离（浏览器具有惰性渲染机制，连接多次修改DOM可能只触发浏览器的一次渲染。而如果修改DOM后，立即读取DOM，为了保证读取到正确的DOM值，会触发浏览器的一次渲染。因此修改DOM的操作要与访问DOM分开进行）</li>
 <li>事件委托（事件代理是指将事件监听器注册在父级元素上，由于子元素的事件会通过事件冒泡的方式向上传播到父节点，因此可以由父节点的监听函数统一处理多个子元素的事件）</li>
@@ -536,6 +536,15 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/11/12/Vue3-0%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue3.0学习
+        
+      </div>
+    </a>
   
   
     <a href="/2020/10/30/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BBOM%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
@@ -745,11 +754,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
