@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Vue3.0学习 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vue编译网站：Vue2.x：https:&#x2F;&#x2F;template-explorer.vuejs.org&#x2F;# Vue3.0：https:&#x2F;&#x2F;vue-next-template-explorer.netlify.app&#x2F;# PatchFlags：12345678910111213141516export const enum PatchFlags &amp;#123;  TEXT &#x3D; 1, &#x2F;&#x2F; 动态文本节点">
+  <meta name="description" content="Vue编译网站：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue3.0学习">
 <meta property="og:url" content="http://yoursite.com/2020/11/12/Vue3-0%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="Vue编译网站：Vue2.x：https:&#x2F;&#x2F;template-explorer.vuejs.org&#x2F;# Vue3.0：https:&#x2F;&#x2F;vue-next-template-explorer.netlify.app&#x2F;# PatchFlags：12345678910111213141516export const enum PatchFlags &amp;#123;  TEXT &#x3D; 1, &#x2F;&#x2F; 动态文本节点">
+<meta property="og:description" content="Vue编译网站：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-12T02:52:48.000Z">
-<meta property="article:modified_time" content="2020-11-13T08:56:27.376Z">
+<meta property="article:modified_time" content="2020-11-13T09:04:38.485Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="VUEReact">
 <meta name="twitter:card" content="summary">
@@ -235,7 +235,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Vue编译网站："><a href="#Vue编译网站：" class="headerlink" title="Vue编译网站："></a>Vue编译网站：</h3><p>Vue2.x：<a href="https://template-explorer.vuejs.org/#" target="_blank" rel="noopener">https://template-explorer.vuejs.org/#</a></p>
+        <h3 id="Vue编译网站："><a href="#Vue编译网站：" class="headerlink" title="Vue编译网站："></a>Vue编译网站：</h3><a id="more"></a>
+
+<p>Vue2.x：<a href="https://template-explorer.vuejs.org/#" target="_blank" rel="noopener">https://template-explorer.vuejs.org/#</a></p>
 <p>Vue3.0：<a href="https://vue-next-template-explorer.netlify.app/#" target="_blank" rel="noopener">https://vue-next-template-explorer.netlify.app/#</a></p>
 <h3 id="PatchFlags："><a href="#PatchFlags：" class="headerlink" title="PatchFlags："></a>PatchFlags：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> enum PatchFlags &#123;</span><br><span class="line">  TEXT = <span class="number">1</span>, <span class="comment">// 动态文本节点</span></span><br><span class="line">  CLASS = <span class="number">1</span> &lt;&lt; <span class="number">1</span>, <span class="comment">// 2  // 动态 class</span></span><br><span class="line">  STYLE = <span class="number">1</span> &lt;&lt; <span class="number">2</span>, <span class="comment">// 4 // 动态 style</span></span><br><span class="line">  PROPS = <span class="number">1</span> &lt;&lt; <span class="number">3</span>, <span class="comment">// 8 // 动态属性，但不包含类名和样式</span></span><br><span class="line">  FULL_PROPS = <span class="number">1</span> &lt;&lt; <span class="number">4</span>, <span class="comment">// 16 // 具有动态 key 属性，当 key 改变时，需要进行完整的 diff 比较。</span></span><br><span class="line">  HYDRATE_EVENTS = <span class="number">1</span> &lt;&lt; <span class="number">5</span>, <span class="comment">// 32 // 带有监听事件的节点</span></span><br><span class="line">  STABLE_FRAGMENT = <span class="number">1</span> &lt;&lt; <span class="number">6</span>, <span class="comment">// 64 // 一个不会改变子节点顺序的 fragment</span></span><br><span class="line">  KEYED_FRAGMENT = <span class="number">1</span> &lt;&lt; <span class="number">7</span>, <span class="comment">// 128 // 带有 key 属性的 fragment 或部分子字节有 key</span></span><br><span class="line">  UNKEYED_FRAGMENT = <span class="number">1</span> &lt;&lt; <span class="number">8</span>, <span class="comment">// 256 // 子节点没有 key 的 fragment</span></span><br><span class="line">  NEED_PATCH = <span class="number">1</span> &lt;&lt; <span class="number">9</span>, <span class="comment">// 512 // 一个节点只会进行非 props 比较</span></span><br><span class="line">  DYNAMIC_SLOTS = <span class="number">1</span> &lt;&lt; <span class="number">10</span>, <span class="comment">// 1024 // 动态 slot</span></span><br><span class="line">  HOISTED = <span class="number">-1</span>, <span class="comment">// 静态节点</span></span><br><span class="line">  <span class="comment">// 指示在 diff 过程应该要退出优化模式</span></span><br><span class="line">  BAIL = <span class="number">-2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -764,11 +766,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
