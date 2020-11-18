@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/06/02/git/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/06/02/git/2.png">
 <meta property="article:published_time" content="2020-06-02T10:15:21.000Z">
-<meta property="article:modified_time" content="2020-11-09T08:30:37.086Z">
+<meta property="article:modified_time" content="2020-11-18T08:25:06.856Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -240,11 +240,16 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
       
         <h3 id="git使用前的配置"><a href="#git使用前的配置" class="headerlink" title="git使用前的配置"></a>git使用前的配置</h3><a id="more"></a>
 
-<p>在使用 git 前，需要告诉 git 你是谁</p>
+<p>在使用 git 前，需要告诉 git 你是谁（在.ssh路径下配置全局）</p>
 <ol>
 <li>配置提交人姓名：git config –global user.name 提交人姓名——git config –global user.name itcast</li>
 <li>配置提交人邮箱：git config –global user.email 提交人邮箱——git config –global user.email <a href="mailto:itheima@itcast.cn">itheima@itcast.cn</a></li>
-<li>查看 git 配置信息：git config –list</li>
+<li>查看 git 配置信息：<ul>
+<li>查看系统config：git config –system –list</li>
+<li>查看当前用户（global）配置：git config –global –list</li>
+<li>查看当前仓库配置信息：git config –local –list</li>
+</ul>
+</li>
 </ol>
 <h3 id="git提交步骤"><a href="#git提交步骤" class="headerlink" title="git提交步骤"></a>git提交步骤</h3><ol>
 <li>初始化 git 仓库：git init</li>

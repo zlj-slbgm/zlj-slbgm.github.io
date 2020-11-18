@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/10/30/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BBOM%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="article:published_time" content="2020-10-30T09:42:17.000Z">
-<meta property="article:modified_time" content="2020-11-10T12:06:33.246Z">
+<meta property="article:modified_time" content="2020-11-18T03:45:00.364Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -421,7 +421,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </tr>
 <tr>
 <td>location.hash</td>
-<td>返回片段（#后面内容）</td>
+<td>返回片段（#fragment）</td>
 </tr>
 </tbody></table>
 <table>
@@ -463,18 +463,20 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>window.history.go(number)：跳转到相对于当前页面的任意历史堆栈中的页面，可通过window.history.length获取历史堆栈中页面的数量</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.go(<span class="number">-1</span>) <span class="comment">//相当于back()</span></span><br><span class="line"><span class="built_in">window</span>.history.go(<span class="number">0</span>) <span class="comment">//相当于刷新</span></span><br><span class="line"><span class="built_in">window</span>.history.go(<span class="number">1</span>) <span class="comment">//相当于forward()</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>history.pushState(state, title[, url])：向当前浏览器会话的历史堆栈中添加一个状态（state）记录</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = &#123; <span class="string">'page_id'</span>: <span class="number">1</span>, <span class="string">'user_id'</span>: <span class="number">5</span> &#125;</span><br><span class="line">  <span class="keyword">const</span> title = <span class="string">''</span></span><br><span class="line">  <span class="keyword">const</span> url = <span class="string">'hello-world.html'</span></span><br><span class="line">  history.pushState(state, title, url)</span><br></pre></td></tr></table></figure>
+<li><p>window.history.pushState(state, title, url)：会增加一条新的历史记录</p>
+<blockquote>
+<p>传入的新url不一定是绝对地址。如果是相对地址，它将以当前url为基准。传入的新url与当前url应该是同源否则pushState()会抛出异常</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = &#123; <span class="string">'page_id'</span>: <span class="number">1</span>, <span class="string">'user_id'</span>: <span class="number">5</span> &#125; <span class="comment">//一个与指定网址相关的状态对象</span></span><br><span class="line"><span class="keyword">const</span> title = <span class="literal">null</span> <span class="comment">//新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">'hello-world.html'</span> <span class="comment">//新的网址，必须与当前url同源</span></span><br><span class="line"><span class="built_in">window</span>.history.pushState(state, title, url)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>history.replaceState()：把当前页面在浏览历史中的记录修改</p>
-</li>
-<li><p>history.pushState()和history.replaceState()的作用是什么？如何监听</p>
-<p>作用：浏览器地址栏会变成你传的地址，而页面并不会重新载入或跳转</p>
-<p>监听：使用popstate监听</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//取出state值</span></span><br><span class="line">    <span class="keyword">var</span> state = history.state</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
+<li><p>window.history.replaceState(state, title, url)：会替换当前的历史记录</p>
 </li>
 </ul>
+<p><strong>pushState()与replaceState()相同之处：</strong></p>
+<p>都可以修改url地址，操作浏览器的历史记录同时state会改变，但不会引起页面的刷新</p>
+<p>通过onpopstate监听<code>history.state</code>的变化，来指引js做加载以及渲染等任务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//获取到最新的state值</span></span><br><span class="line">	<span class="keyword">var</span> state = history.state</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <h3 id="window-navigator对象"><a href="#window-navigator对象" class="headerlink" title="window.navigator对象"></a>window.navigator对象</h3><blockquote>
 <p>获取运行当前代码的应用程序的相关信息</p>
 </blockquote>

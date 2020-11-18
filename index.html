@@ -210,6 +210,207 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-开发须知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/18/%E5%BC%80%E5%8F%91%E9%A1%BB%E7%9F%A5/">开发须知</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2020/11/18/%E5%BC%80%E5%8F%91%E9%A1%BB%E7%9F%A5/" class="archive-article-date">
+  	<time datetime="2020-11-18T06:44:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS书写规范"><a href="#CSS书写规范" class="headerlink" title="CSS书写规范"></a>CSS书写规范</h3><p><strong>css书写顺序</strong></p>
+<ul>
+<li>位置属性（position, top, right, z-index, display, float等）</li>
+<li>大小（width, height, padding, margin）</li>
+<li>文字系列（font, line-height, letter-spacing, color-text-align等）</li>
+<li>背景（background, border等）</li>
+<li>其他（animation, transition等）</li>
+</ul>
+<p><strong>CSS有些属性尽量缩写</strong>：如padding，margin，font等</p>
+<p><strong>去掉小数点前面的0</strong>：如 <code>font-size: .8rem</code></p>
+<p><strong>简写命名</strong>：如<code>#nav</code></p>
+<p><strong>16进制颜色代码缩写，统一字母小写</strong>：如 <code>color: #eebbcc</code> 可以写成 <code>color: #ebc</code></p>
+<p><strong>CSS选择器命名规范</strong></p>
+<ul>
+<li>长名称或词组可以使用中横线 <code>-</code> 来为选择器命名</li>
+<li>不建议使用 <code>_</code> 下划线来命名CSS选择器<ul>
+<li>输入的时候少按一个shift键</li>
+<li>浏览器兼容问题（比如使用_tips的选择器命名，在IE6是无效的）</li>
+<li>能良好区分JS变量命名（JS变量命名是用 <code>_</code> ）</li>
+</ul>
+</li>
+</ul>
+<p><strong>不要随意使用id，id应该按需使用</strong></p>
+<h3 id="常用的CSS命名"><a href="#常用的CSS命名" class="headerlink" title="常用的CSS命名"></a>常用的CSS命名</h3><p><strong>页面结构</strong></p>
+<ul>
+<li>容器: container</li>
+<li>页头：header</li>
+<li>内容：content/container</li>
+<li>页面主体：main</li>
+<li>页尾：footer</li>
+<li>导航：nav</li>
+<li>侧栏：sidebar</li>
+<li>栏目：column</li>
+<li>页面外围控制整体佈局宽度：wrapper</li>
+<li>上下左右中：top bottom left right center</li>
+</ul>
+<p><strong>导航</strong></p>
+<ul>
+<li>导航：nav</li>
+<li>主导航：main-nav</li>
+<li>子导航：sub-nav</li>
+<li>顶导航：top-nav</li>
+<li>侧边栏：sidebar</li>
+<li>左侧边栏：left-sidebar</li>
+<li>右侧边栏：right-sidebar</li>
+<li>菜单：menu</li>
+<li>子菜单：submenu</li>
+<li>标题: title</li>
+<li>摘要: summary</li>
+</ul>
+<p><strong>功能</strong></p>
+<ul>
+<li>标志：logo</li>
+<li>广告：banner</li>
+<li>登陆：login</li>
+<li>登录条：login-bar</li>
+<li>注册：register</li>
+<li>搜索：search</li>
+<li>功能区：shop</li>
+<li>标题：title</li>
+<li>加入：joinus</li>
+<li>状态：status</li>
+<li>按钮：btn</li>
+<li>滚动：scroll</li>
+<li>标签页：tab</li>
+<li>文章列表：list</li>
+<li>提示信息：msg</li>
+<li>当前的: current</li>
+<li>小技巧：tips</li>
+<li>图标: icon</li>
+<li>注释：note</li>
+<li>指南：guild</li>
+<li>服务：service</li>
+<li>热点：hot</li>
+<li>新闻：news</li>
+<li>下载：download</li>
+<li>投票：vote</li>
+<li>合作伙伴：partner</li>
+<li>友情链接：link</li>
+<li>版权：copyright</li>
+</ul>
+<p><strong>CSS样式表文件命名</strong></p>
+<ul>
+<li>主要的：main.css</li>
+<li>模块：module.css</li>
+<li>基本共用：base.css</li>
+<li>布局、版面：layout.css</li>
+<li>主题：themes.css</li>
+<li>专栏：columns.css</li>
+<li>文字：font.css</li>
+<li>表单：form.css</li>
+<li>补丁：mend.css</li>
+<li>打印：print.css</li>
+</ul>
+<h3 id="HTML常用头部标签设置"><a href="#HTML常用头部标签设置" class="headerlink" title="HTML常用头部标签设置"></a>HTML常用头部标签设置</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 清缓存处理 start--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Expires"</span> <span class="attr">content</span>=<span class="string">"0"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Pragma"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Cache-Control"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Cache"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 清缓存处理 end--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- DNS预解析 start--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"x-dns-prefetch-control"</span> <span class="attr">content</span>=<span class="string">"on"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//aeu.alicdn.com"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//af.alicdn.com"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//cf.aliyun.com"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//g.alicdn.com"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//mweb.youximao.tv"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//yxmfile.youximao.tv"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//ynuf.aliapp.org"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//pingtcss.qq.com"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//pingtas.qq.com"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- DNS预解析 end--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 允许跨域请求 start--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Access-Control-Allow-Origin"</span> <span class="attr">content</span>=<span class="string">"*"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 允许跨域请求 end--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="前端SEO优化"><a href="#前端SEO优化" class="headerlink" title="前端SEO优化"></a><a href="https://juejin.im/post/6844903824428105735" target="_blank" rel="noopener">前端SEO优化</a></h3><p>利用标签提高网站的seo（搜索引擎优化search engine optimization）</p>
+<ul>
+<li>title标签</li>
+<li><code>&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;</code></li>
+<li><code>&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</code></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/18/%E5%BC%80%E5%8F%91%E9%A1%BB%E7%9F%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      <div id="gitalk-container"></div>
+      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '6e75a816882be5261996',
+  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
+  	repo: 'zlj-slbgm.github.io',
+  	owner: 'zlj-slbgm',
+  	admin: ['zlj-slbgm'],
+  	id: '',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
+
+  
     <article id="post-webpack打包工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1076,108 +1277,6 @@ gitalk.render('gitalk-container')
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/10/12/%E9%A2%9C%E8%89%B2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-
-
-  
-    <article id="post-Vue之引入插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/">Vue之引入插件</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-10-11T07:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Vuecli3中引入-bootstrap"><a href="#Vuecli3中引入-bootstrap" class="headerlink" title="Vuecli3中引入 bootstrap"></a>Vuecli3中引入 bootstrap</h3>
-        
-          <a class="article-more-a" href="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUEReact</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/">展开全文 >></a>
         </p>
       
 

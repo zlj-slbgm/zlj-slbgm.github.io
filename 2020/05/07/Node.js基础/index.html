@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Node.js | 十里不故梦Blog</title>
+  <title>Node.js基础 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Node.js和Npm的关系">
+  <meta name="description" content="第三方模块">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.js">
-<meta property="og:url" content="http://yoursite.com/2020/05/07/Node.js/index.html">
+<meta property="og:title" content="Node.js基础">
+<meta property="og:url" content="http://yoursite.com/2020/05/07/Node.js%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="Node.js和Npm的关系">
+<meta property="og:description" content="第三方模块">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/Node.js%E5%9F%BA%E7%A1%80/1.png">
 <meta property="article:published_time" content="2020-05-07T06:22:23.000Z">
-<meta property="article:modified_time" content="2020-10-25T04:04:35.204Z">
+<meta property="article:modified_time" content="2020-11-17T09:50:44.026Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="NODEJS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/07/Node.js%E5%9F%BA%E7%A1%80/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
   
@@ -204,14 +206,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Node.js" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Node.js基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Node.js
+      Node.js基础
     </h1>
   
 
@@ -227,7 +229,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/05/07/Node.js/" class="archive-article-date">
+        <a href="/2020/05/07/Node.js%E5%9F%BA%E7%A1%80/" class="archive-article-date">
   	<time datetime="2020-05-07T06:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
 </a>
         
@@ -235,14 +237,136 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Node-js和Npm的关系"><a href="#Node-js和Npm的关系" class="headerlink" title="Node.js和Npm的关系"></a>Node.js和Npm的关系</h3><a id="more"></a>
+        <h3 id="第三方模块"><a href="#第三方模块" class="headerlink" title="第三方模块"></a>第三方模块</h3><a id="more"></a>
 
-<blockquote>
+<p>别人写好的、具有特定功能的、我们能直接使用的模块即第三方模块。由于第三方模块通常都是由多个文件组成并且被放置在一个文件夹中所以又名包</p>
+<p>第三方模块有两种存在形式：</p>
+<ul>
+<li>以js文件的形式存在，提供实项目具体功能的API接口</li>
+<li>以命令行工具形式存在，辅助项目开发</li>
+</ul>
+<p><strong>获取第三方模块：</strong>npm（node package manager）：node的第三方模块管理工具</p>
+<p>node.js中含有npm，比如安装好了node.js，打开cmd输入npm -v会发现npm的版本号，说明npm已经安装好</p>
+<p>其实 npm 是 node.js 的包管理器，我们在 node.js 上开发时，会用到很多别人已经写好的 js 代码，如果每当我们需要别人的代码时，都根据名字搜索一下，下载源码，解压，再使用会非常麻烦，于是就出现了包管理器 npm。大家把自己写好的源码上传到 npm 官网上，如果要用某个或某些个，直接通过 npm 安装就可以了，不用管那个源码在哪里，并且如果我们要使用模块 A，而模块 A 又依赖模块 B，模块 B 又依赖模块 C 和 D，此时 npm 会根据依赖关系，把所有依赖的包都下载下来并且管理起来，试想如果这些工作全靠我们自己去完成会多么麻烦！</p>
 <p>在要执行的 XXX.js 当前文件夹下按住 shift 点击鼠标右键会弹出 Powershell 窗口</p>
 <p>在窗口下输入 node XXX.js 就会执行 js 脚本（快捷键 tab）</p>
-</blockquote>
-<p>node.js中含有npm，比如说你安装好 node.js，你打开 cmd 输入 npm -v 会发现 npm 的版本号，说明 npm 已经安装好</p>
-<p>其实 npm 是 node.js 的包管理器（package manager），我们在 node.js 上开发时，会用到很多别人已经写好的 javascript 代码，如果每当我们需要别人的代码时，都根据名字搜索一下，下载源码，解压，再使用会非常麻烦，于是就出现了包管理器 npm。大家把自己写好的源码上传到 npm 官网上，如果要用某个或某些个，直接通过 npm 安装就可以了，不用管那个源码在哪里，并且如果我们要使用模块 A，而模块 A 又依赖模块 B，模块 B 又依赖模块 C 和 D，此时 npm 会根据依赖关系，把所有依赖的包都下载下来并且管理起来，试想如果这些工作全靠我们自己去完成会多么麻烦！</p>
+<p><strong>淘宝镜像的配置</strong></p>
+<ul>
+<li>修改下载仓库为淘宝镜像：<code>npm config set registry http://registry.npm.taobao.org/</code></li>
+<li>修改回来：<code>npm config set registry https://registry.npmjs.org/</code></li>
+<li>直接采用淘宝镜像cnpm：<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ul>
+<p><strong>npm安装模块</strong></p>
+<ul>
+<li><code>npm install xxx</code>：安装xxx模块到当前命令行所在目录</li>
+<li><code>npm install -g xxx</code>：安装全局模块xxx</li>
+<li><code>npm install xxx --save</code>：安装并写入package.json的”dependencies”（生产环境依赖）中，<code>--save</code>的简写<code>-S</code></li>
+<li><code>npm install xxx --save-dev</code>：安装并写入package.json的”devDependencies”（开发环境依赖）中，<code>--save-dev</code>的简写<code>-D</code></li>
+</ul>
+<p><strong>npm删除模块</strong></p>
+<ul>
+<li><code>npm uninstall xxx</code>：删除xxx模块但不删除模块留在package.json中的对应信息</li>
+<li><code>npm uninstall -g xxx</code>：删除全局模块xxx</li>
+</ul>
+<p><strong>检查更新依赖包</strong></p>
+<ul>
+<li><code>npm install -g npm-check-updates</code>：安装升级插件包</li>
+<li><code>npm-check-updates</code>或<code>ncu</code>：检查更新</li>
+<li><code>ncu -u</code>：更新package.json</li>
+<li><code>npm install xxx</code>：安装新依赖</li>
+</ul>
+<p><strong>查看已经安装的全局模块</strong>：<code>npm ls -g --depth=0</code></p>
+<p><strong>全局安装与本地安装</strong></p>
+<ul>
+<li>命令行工具：全局安装</li>
+<li>库文件：本地安装</li>
+</ul>
+<p><strong>npm依赖包版本号 ~ 和 ^ 和 * 的区别</strong></p>
+<ul>
+<li><del>会匹配最近的小版本依赖包，比如</del>1.2.3会匹配所有1.2.x版本，但是不包括1.3.0</li>
+<li>^会匹配最新的大版本依赖包，比如^1.2.3会匹配所有1.x.x的包，包括1.3.0，但是不包括2.0.0</li>
+<li>*这意味着安装最新版本的依赖包</li>
+</ul>
+<p><strong>第三方模块 nodemon</strong></p>
+<p>在Node.js中每次修改文件都要在命令行工具中重新执行该文件，非常繁琐。nodemon是一个命令行工具，用以辅助项目开发，可以随时监听文件的变更，自动重启服务</p>
+<ul>
+<li>使用npm install nodemon -g下载</li>
+<li>在命令行工具中用nodemon替代node命令执行文件</li>
+<li>执行完nodemon之后命令行工具会被挂起，按ctrl+c可以断开挂起</li>
+</ul>
+<p><strong>第三方模块 nrm</strong></p>
+<p>nrm（npm registry manager）：npm下载地址切换工具</p>
+<img src="/2020/05/07/Node.js%E5%9F%BA%E7%A1%80/1.png" style="zoom: 67%;">
+
+<ul>
+<li>npm默认的下载地址在国外，国内下载速度慢                                                                        </li>
+<li>使用<code>npm install nrm -g</code>下载</li>
+<li><code>nrm ls</code>：查询可用下载地址列表</li>
+<li><code>nrm use 下载地址名称</code>：切换npm下载地址</li>
+</ul>
+<p><strong>第三方模块 gulp</strong></p>
+<p>基于node平台开发的前端构建工具，将机械化操作编写成任务，想要执行机械化操作时执行一个命令行命令任务就能自动执行了，用机器代替手工，提高开发效率</p>
+<p>gulp作用：</p>
+<ul>
+<li>HTML、CSS、JS文件压缩合并</li>
+<li>语法转换（es6、less…）</li>
+<li>公共文件抽离</li>
+<li>修改文件浏览器自动刷新</li>
+</ul>
+<p>gulp使用：</p>
+<ul>
+<li>使用<code>npm install gulp</code>下载gulp库文件</li>
+<li>在项目根目录下建立gulpfile.js文件</li>
+<li>src目录放置源代码文件，dist目录放置构建后文件</li>
+<li>在gulpfile.js文件中编写任务</li>
+<li>在命令行工具中使用<code>gulp 任务名</code>执行gulp任务</li>
+</ul>
+<p>gulp中提供的方法：</p>
+<ul>
+<li>gulp.src()：获取任务要处理的文件</li>
+<li>gulp.dest()：输出文件</li>
+<li>gulp.task()：建立gulp任务</li>
+<li>gulp.watch()：监控文件的变化</li>
+</ul>
+<p>gulp插件：</p>
+<ul>
+<li>gulp-htmlmin：html文件压缩</li>
+<li>gulp-csso：压缩css</li>
+<li>gulp-babel：js语法转化</li>
+<li>gulp-less：less语法转化</li>
+<li>gulp-uglify：压缩混淆js</li>
+<li>gulp-file-include：公共文件包含</li>
+<li>browsersync：浏览器实时同步</li>
+</ul>
+<p>gulpfile.js：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>)</span><br><span class="line"><span class="keyword">const</span> htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>)</span><br><span class="line"><span class="keyword">const</span> csso = <span class="built_in">require</span>(<span class="string">"gulp-csso"</span>)</span><br><span class="line"><span class="keyword">const</span> babel = <span class="built_in">require</span>(<span class="string">"gulp-babel"</span>)</span><br><span class="line"><span class="keyword">const</span> less = <span class="built_in">require</span>(<span class="string">"gulp-less"</span>)</span><br><span class="line"><span class="keyword">const</span> uglify = <span class="built_in">require</span>(<span class="string">"gulp-uglify"</span>)</span><br><span class="line"><span class="keyword">const</span> fileinclude = <span class="built_in">require</span>(<span class="string">'gulp-file-include'</span>)</span><br><span class="line">gulp.task(<span class="string">"htmlmin"</span>, () =&gt; &#123;</span><br><span class="line">    gulp.src(<span class="string">"./src/*.html"</span>)</span><br><span class="line">        <span class="comment">//抽取html文件中的公共代码</span></span><br><span class="line">        .pipe(fileinclude())</span><br><span class="line">        <span class="comment">//压缩html文件中的代码</span></span><br><span class="line">        .pipe(htmlmin(&#123;</span><br><span class="line">            collapseWhitespace: <span class="literal">true</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .pipe(gulp.dest(<span class="string">"dist"</span>))</span><br><span class="line">&#125;)</span><br><span class="line">gulp.task(<span class="string">"cssmin"</span>, () =&gt; &#123;</span><br><span class="line">    gulp.src([<span class="string">"./src/style.css/*.less"</span>, <span class="string">"./src/style.css/*.css"</span>])</span><br><span class="line">        <span class="comment">//less语法转换为css语法</span></span><br><span class="line">        .pipe(less())</span><br><span class="line">        <span class="comment">//css代码压缩</span></span><br><span class="line">        .pipe(csso())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">"dist/css"</span>))</span><br><span class="line">&#125;)</span><br><span class="line">gulp.task(<span class="string">"jsmin"</span>, () =&gt; &#123;</span><br><span class="line">    gulp.src(<span class="string">"./src/js/*.js"</span>)</span><br><span class="line">        <span class="comment">//es6代码转换为es5代码</span></span><br><span class="line">        .pipe(babel(&#123;</span><br><span class="line">            <span class="comment">//它可以判断当前代码的运行环境，将代码转换为当前运行环境所支持的代码</span></span><br><span class="line">            presets: [<span class="string">'@babel/env'</span>]</span><br><span class="line">        &#125;))</span><br><span class="line">        <span class="comment">//js代码压缩</span></span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">"dist/js"</span>))</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 复制文件夹</span></span><br><span class="line">gulp.task(<span class="string">"copy"</span>, () =&gt; &#123;</span><br><span class="line">    gulp.src(<span class="string">"./src/images/*"</span>)</span><br><span class="line">        <span class="comment">// 复制images文件夹</span></span><br><span class="line">        .pipe(gulp.dest(<span class="string">"dist/images"</span>))</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 构建任务</span></span><br><span class="line">gulp.task(<span class="string">"default"</span>, [<span class="string">"htmlmin"</span>, <span class="string">"cssmin"</span>, <span class="string">"jsmin"</span>, <span class="string">"copy"</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="项目依赖（在生产环境中运行需要安装的依赖包）"><a href="#项目依赖（在生产环境中运行需要安装的依赖包）" class="headerlink" title="项目依赖（在生产环境中运行需要安装的依赖包）"></a>项目依赖（在生产环境中运行需要安装的依赖包）</h3><ul>
+<li>在项目的开发阶段和线上运营阶段，都需要依赖的第三方包，称为项目依赖</li>
+<li>使用<code>npm install xxx</code>命令下载的包会默认被添加到package.json文件的dependencies字段中</li>
+</ul>
+<h3 id="开发依赖（在开发环境中需要安装的依赖包）"><a href="#开发依赖（在开发环境中需要安装的依赖包）" class="headerlink" title="开发依赖（在开发环境中需要安装的依赖包）"></a>开发依赖（在开发环境中需要安装的依赖包）</h3><ul>
+<li>在项目的开发阶段需要依赖，线上运营阶段不需要依赖的第三方包，称为开发依赖</li>
+<li>使用<code>npm install xxx --save-dev</code>命令下载的包被添加到packpackage.json文件的devDependencies字段中</li>
+</ul>
+<p><strong>常用开发依赖：</strong></p>
+<ul>
+<li>构建工具：webpack、webpack-cli、gulp等</li>
+<li>预处理器：less、scss、sass、stylus、babel等</li>
+<li>测试工具：chai、e2e等</li>
+</ul>
+<h3 id="node-modules文件夹"><a href="#node-modules文件夹" class="headerlink" title="node_modules文件夹"></a>node_modules文件夹</h3><ul>
+<li>用来存放包管理工具下载安装的包的文件夹，复杂的模块依赖关系需要被记录，确保模块的版本和当前保持一致，否则会导致当前项目运行报错</li>
+<li>文件夹以及文件过多过碎，当我们将项目整体拷贝给别人的时候，传输速度会很慢很慢，所以传输项目的时候一般不传输node_modules文件夹，可以根据package.json文件记录的信息通过执行<code>npm install</code>下载当前项目依赖的第三方模块，生成node_modules文件夹</li>
+</ul>
+<h3 id="package-json文件"><a href="#package-json文件" class="headerlink" title="package.json文件"></a>package.json文件</h3><ul>
+<li>项目描述文件，记录了当前项目信息，例如项目名称、版本、作者、github地址、当前项目依赖了哪些第三方模块等</li>
+<li>可通过<code>npm init -y</code>生成package.json</li>
+</ul>
+<h3 id="package-lock-json文件"><a href="#package-lock-json文件" class="headerlink" title="package-lock.json文件"></a>package-lock.json文件</h3><ul>
+<li>锁定包的版本，确保再次下载时不会因为包版本不同而产生问题</li>
+<li>加快下载速度，因为该文件中已经记录了项目所依赖第三方包的树状结构和包的下载地址，重新安装时只需下载即可，不需要做额外的工作</li>
+</ul>
 
       
 
@@ -344,7 +468,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/07/Node.js/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/05/07/Node.js%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -396,7 +520,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js和Npm的关系"><span class="toc-number">1.</span> <span class="toc-text">Node.js和Npm的关系</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第三方模块"><span class="toc-number">1.</span> <span class="toc-text">第三方模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目依赖（在生产环境中运行需要安装的依赖包）"><span class="toc-number">2.</span> <span class="toc-text">项目依赖（在生产环境中运行需要安装的依赖包）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发依赖（在开发环境中需要安装的依赖包）"><span class="toc-number">3.</span> <span class="toc-text">开发依赖（在开发环境中需要安装的依赖包）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-modules文件夹"><span class="toc-number">4.</span> <span class="toc-text">node_modules文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#package-json文件"><span class="toc-number">5.</span> <span class="toc-text">package.json文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#package-lock-json文件"><span class="toc-number">6.</span> <span class="toc-text">package-lock.json文件</span></a></li></ol>
                     </div>
                 </span>
             </div>
