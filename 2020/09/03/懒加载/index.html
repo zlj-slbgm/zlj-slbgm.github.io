@@ -16,7 +16,7 @@
 <meta property="og:description" content="原生js实现图片懒加载">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-03T07:31:36.000Z">
-<meta property="article:modified_time" content="2020-11-18T08:57:05.110Z">
+<meta property="article:modified_time" content="2020-11-21T03:16:01.903Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -250,7 +250,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>vue-lazyload官网详解：<a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">https://github.com/hilongjw/vue-lazyload</a></p>
 </blockquote>
 <ul>
-<li><p>安装：npm install vue-lazyload –save-dev</p>
+<li><p>安装：<code>npm install vue-lazyload --save-dev</code></p>
 </li>
 <li><p>main.js中全局引入：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span></span><br><span class="line">Vue.use(VueLazyLoad, &#123;</span><br><span class="line">  preLoad: <span class="number">1</span>,</span><br><span class="line">  error: <span class="built_in">require</span>(<span class="string">'./assets/img/error.jpg'</span>),</span><br><span class="line">  loading: <span class="built_in">require</span>(<span class="string">'./assets/img/loading.jpg'</span>),</span><br><span class="line">  attempt: <span class="number">2</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -275,7 +275,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>实现图片或者其他资源进入可视区域后再加载</p>
 </blockquote>
 <ul>
-<li><p>安装：npm install –save-dev vue-view-lazy</p>
+<li><p>安装：<code>npm install --save-dev vue-view-lazy</code></p>
 </li>
 <li><p>main.js中全局引入：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vView <span class="keyword">from</span> <span class="string">'vue-view-lazy'</span></span><br><span class="line">Vue.use(vView，&#123;</span><br><span class="line">    error:<span class="string">'./assets/images/loading.png'</span>，</span><br><span class="line">    loading:<span class="string">'./assets/images/loading.gif'</span>，</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -296,7 +296,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>用于vue组件的延迟渲染，改善初次进入页面或者数据量较大的页面操作时出现卡顿的情况</p>
 </blockquote>
 <ul>
-<li><p>安装：npm install vue-lazy-render</p>
+<li><p>安装：<code>npm install vue-lazy-render</code></p>
 </li>
 <li><p>main.js中全局引入：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> LazyRender <span class="keyword">from</span> <span class="string">'vue-lazy-render'</span></span><br><span class="line">Vue.use(LazyRender)</span><br></pre></td></tr></table></figure>
