@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/</loc>
+    
+    <lastmod>2020-11-28T06:23:31.821Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/10/23/Vuex/</loc>
     
     <lastmod>2020-11-28T06:17:45.214Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://yoursite.com/2020/11/20/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/</loc>
     
     <lastmod>2020-11-28T04:56:34.965Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/</loc>
-    
-    <lastmod>2020-11-28T04:47:26.468Z</lastmod>
     
   </url>
   
