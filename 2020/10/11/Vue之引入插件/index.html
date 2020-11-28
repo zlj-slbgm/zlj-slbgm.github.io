@@ -16,7 +16,7 @@
 <meta property="og:description" content="Vuecli3中引入 bootstrap">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-11T07:58:31.000Z">
-<meta property="article:modified_time" content="2020-11-10T01:05:52.949Z">
+<meta property="article:modified_time" content="2020-11-28T05:36:14.313Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="VUEReact">
 <meta name="twitter:card" content="summary">
@@ -237,9 +237,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
       
         <h3 id="Vuecli3中引入-bootstrap"><a href="#Vuecli3中引入-bootstrap" class="headerlink" title="Vuecli3中引入 bootstrap"></a>Vuecli3中引入 bootstrap</h3><a id="more"></a>
 
-<blockquote>
 <p>在vue项目中引入bootstrap，首先要引入两个依赖：jQuery和popper</p>
-</blockquote>
 <p>npm安装方式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install bootstrap --save-dev</span><br><span class="line">npm install jquery --save-dev</span><br><span class="line">npm install popper.js --save-dev</span><br></pre></td></tr></table></figure>
 
@@ -254,9 +252,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>在vue.config.js中配置jQuery：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	<span class="comment">// 配置插件参数</span></span><br><span class="line">	configureWebpack: &#123;</span><br><span class="line">		plugins: [</span><br><span class="line">			<span class="comment">// 配置jQuery插件的参数</span></span><br><span class="line">			<span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">				$: <span class="string">'jquery'</span>,</span><br><span class="line">				jQuery: <span class="string">'jquery'</span>,</span><br><span class="line">				<span class="string">'window.jQuery'</span>: <span class="string">'jquery'</span>,</span><br><span class="line">				Popper: [<span class="string">'popper.js'</span>, <span class="string">'default'</span>]</span><br><span class="line">			&#125;)</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Vue中引入Swiper插件"><a href="#Vue中引入Swiper插件" class="headerlink" title="Vue中引入Swiper插件"></a>Vue中引入Swiper插件</h3><blockquote>
-<p>详情链接：<a href="https://www.cnblogs.com/toggle/p/7676473.html和https://www.swiper.com.cn/" target="_blank" rel="noopener">https://www.cnblogs.com/toggle/p/7676473.html和https://www.swiper.com.cn/</a></p>
-</blockquote>
+<h3 id="Vue中引入Swiper插件"><a href="#Vue中引入Swiper插件" class="headerlink" title="Vue中引入Swiper插件"></a>Vue中引入Swiper插件</h3><p>详情链接：<a href="https://www.cnblogs.com/toggle/p/7676473.html和https://www.swiper.com.cn/" target="_blank" rel="noopener">https://www.cnblogs.com/toggle/p/7676473.html和https://www.swiper.com.cn/</a></p>
 <ul>
 <li><p>安装：npm install swiper –save-dev</p>
 </li>

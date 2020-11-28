@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/11/10/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png">
 <meta property="article:published_time" content="2020-11-10T01:10:42.000Z">
-<meta property="article:modified_time" content="2020-11-12T04:00:00.684Z">
+<meta property="article:modified_time" content="2020-11-26T12:16:23.405Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -413,6 +413,12 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>方法：在head标签里面写上几个link标签</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefecth"</span> <span class="attr">href</span>=<span class="string">"https://www.google.com"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefecth"</span> <span class="attr">href</span>=<span class="string">"https://www.google-analytics.com"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+</li>
+<li><p>添加Expires或Cache-Control报文头</p>
+<ul>
+<li>对于静态内容添加Expires，将静态内容设为很长时间以后或者永不过期</li>
+<li>对于动态内容应用合适的Cache-Control，让浏览器根据条件来发送请求</li>
 </ul>
 </li>
 <li><p>并行连接（由于在HTTP1.1协议下，chrome每个域名的最大并发数是6个。使用多个域名，可以增加并发数）</p>
