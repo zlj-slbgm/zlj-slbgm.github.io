@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/11/13/webpack%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/11/13/webpack%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/2.png">
 <meta property="article:published_time" content="2020-11-13T09:27:48.000Z">
-<meta property="article:modified_time" content="2020-11-20T03:04:35.752Z">
+<meta property="article:modified_time" content="2021-01-06T12:16:27.057Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -281,10 +281,13 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>webpack是前端项目构建打包工具，提供了友好的模块化支持以及代码压缩混淆、处理js兼容问题、性能优化等强大功能，从而让程序员把工作的重心放到具体的功能实现上，提高了开发效率和项目的可维护性</p>
 <img src="/2020/11/13/webpack%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/1.png" style="zoom:55%;">
 
+<p><strong>初始化项目</strong></p>
+<p>创建目录并进入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir project &amp;&amp; cd project</span><br></pre></td></tr></table></figure>
+
+<p>用 <code>npm init</code> 初始化项目，过程中会让你填写项目名、版本、描述、仓库地址、关键字等信息，执行完毕后会在根目录下生成一个 package.json 文件，这样就初始化结束了。也可以不填直接回车或者直接输入 <code>npm init -y</code>，表明所有都默认配置，生成默认的package.json。不过没关系的，这些配置我们都可以在package.json中手动配置的</p>
 <p><strong>安装和配置webpack</strong></p>
 <ul>
-<li><p>创建一个项目文件夹，在项目文件夹创建 package.json 文件，里面包括当前项目的基本信息，依赖模块，自定义的脚本任务等。使用<code>npm init -y</code>命令可以自动创建 package.json 文件</p>
-</li>
 <li><p><code>npm install webpack webpack-cli -D</code>安装webpack相关的包</p>
 </li>
 <li><p>创建webpack配置文件webpack.config.js</p>
@@ -454,21 +457,34 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>运行<code>npm run build</code>来进行打包和发布</p>
 <p><strong>webpack主要参数</strong>：</p>
 <ul>
-<li><p><code>webpack</code>：对项目进行打包</p>
-</li>
-<li><p><code>webpack --config xxx.js</code>：使用另一份配置文件（比如webpack.config2.js）来打包</p>
-</li>
-<li><p><code>webpack --watch</code>：监听变动并自动打包</p>
-</li>
-<li><p><code>webpack --progress</code>：显示进度条</p>
-</li>
-<li><p><code>webpack --color</code>：添加颜色</p>
-</li>
-<li><p><code>webpack -d</code>：生成map映射文件，告知哪些模块被最终打包到哪里了</p>
-</li>
-<li><p><code>webpack -p</code>：压缩混淆脚本</p>
-</li>
+<li><code>webpack</code>：对项目进行打包</li>
+<li><code>webpack --config xxx.js</code>：使用另一份配置文件（比如webpack.config2.js）来打包</li>
+<li><code>webpack --watch</code>：监听变动并自动打包</li>
+<li><code>webpack --progress</code>：显示进度条</li>
+<li><code>webpack --color</code>：添加颜色</li>
+<li><code>webpack -d</code>：生成map映射文件，告知哪些模块被最终打包到哪里了</li>
+<li><code>webpack -p</code>：压缩混淆脚本</li>
 </ul>
+<h3 id="SourceMap"><a href="#SourceMap" class="headerlink" title="SourceMap"></a>SourceMap</h3><p>devtool：此选项控制是否生成，以及如何生成 source map</p>
+<p>SourceMap：一种映射关系，当项目运行后，如果出现错误，我们可以利用sourceMap反向定位到源码</p>
+<p>选择一种source map格式来增强调试过程。不同的值会明显影响到构建(build)和重新构建(rebuild)的速度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devtool: <span class="string">'none'</span>, <span class="comment">//SourceMap的模式</span></span><br><span class="line">  entry: <span class="string">'./src/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span>,</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>SourceMap不同模式的特点：<a href="https://v4.webpack.docschina.org/configuration/devtool/#devtool" target="_blank" rel="noopener">https://v4.webpack.docschina.org/configuration/devtool/#devtool</a></p>
+<h3 id="webpack打包之后的代码分析"><a href="#webpack打包之后的代码分析" class="headerlink" title="webpack打包之后的代码分析"></a>webpack打包之后的代码分析</h3><p><strong>功能分析</strong></p>
+<p>对于node端来讲，有commonjs来规范模块的标识、定义、引用。而浏览器端由于缺乏原生对象支持，就需要通过自我实现来模拟commonjs规范。webpack是通过一个IIFE立即调用函数表达式去实现这个规范的。简要的去注释，去除内部运行的代码，其格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">module</span>)</span>&#123;&#125;)([<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;]);</span><br></pre></td></tr></table></figure>
+
+<p>简单点说就是各个模块代码以数组的形式传递给运行函数，在进行存储</p>
+<p>所以实现以上的功能需求点如下：</p>
+<ul>
+<li>文件路径分析与定位resolve</li>
+<li>文件编译&amp;解析，分析出依赖文件parse</li>
+<li>生成需要打包的文件树depTree</li>
+<li>将依赖文件写入输出文件内writeChunk</li>
+</ul>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.cnblogs.com/warm-stranger/p/12015860.html" target="_blank" rel="noopener">Webpack如何配置sourceMap</a></p>
+<p><a href="https://blog.csdn.net/weixin_33826268/article/details/88817444?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-2.control" target="_blank" rel="noopener">webpack源码分析之一：文件打包</a></p>
 
       
 
@@ -622,7 +638,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#模块化"><span class="toc-number">1.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器端模块化规范"><span class="toc-number">2.</span> <span class="toc-text">浏览器端模块化规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端模块化规范"><span class="toc-number">3.</span> <span class="toc-text">服务端模块化规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大一统的模块化规范（ES6模块化）"><span class="toc-number">4.</span> <span class="toc-text">大一统的模块化规范（ES6模块化）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack"><span class="toc-number">5.</span> <span class="toc-text">webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack中的加载器"><span class="toc-number">6.</span> <span class="toc-text">webpack中的加载器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack打包发布"><span class="toc-number">7.</span> <span class="toc-text">webpack打包发布</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#模块化"><span class="toc-number">1.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器端模块化规范"><span class="toc-number">2.</span> <span class="toc-text">浏览器端模块化规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端模块化规范"><span class="toc-number">3.</span> <span class="toc-text">服务端模块化规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大一统的模块化规范（ES6模块化）"><span class="toc-number">4.</span> <span class="toc-text">大一统的模块化规范（ES6模块化）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack"><span class="toc-number">5.</span> <span class="toc-text">webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack中的加载器"><span class="toc-number">6.</span> <span class="toc-text">webpack中的加载器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack打包发布"><span class="toc-number">7.</span> <span class="toc-text">webpack打包发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SourceMap"><span class="toc-number">8.</span> <span class="toc-text">SourceMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack打包之后的代码分析"><span class="toc-number">9.</span> <span class="toc-text">webpack打包之后的代码分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">10.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -674,7 +690,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 十里不故梦
+    		&copy; 2021 十里不故梦
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -793,11 +809,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">

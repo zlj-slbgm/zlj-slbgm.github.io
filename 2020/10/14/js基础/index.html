@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/10/14/js%E5%9F%BA%E7%A1%80/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/10/14/js%E5%9F%BA%E7%A1%80/5.jpg">
 <meta property="article:published_time" content="2020-10-14T09:13:18.000Z">
-<meta property="article:modified_time" content="2020-11-15T06:05:03.695Z">
+<meta property="article:modified_time" content="2021-01-06T03:39:21.544Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -521,6 +521,16 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 </li>
 </ul>
+<p><strong>number类型调用toString报错的问题</strong></p>
+<p>为什么1.toString()会报错，Number(1).tostring()就不报错？</p>
+<p>js中的点有两种，小数点和访问对象属性的点。如果一个表达式中有两个以上的点，那么第二个以及后面的点会被js引擎当做是访问对象属性的点</p>
+<p>js引擎在解读以数字开头的第一个点时，有自己的一套方法去判断这个点是属于哪一种，然后再校验点后面的写法是否符合规范</p>
+<ul>
+<li>1.toString()：报错，这个点会被js引擎当做小数点，’toString()’ 会被作为一个不合法的浮点数来解释，类似于1.hello，1.你好都是此类语法错误</li>
+<li>1.2.toString()：”1.2”，第一个点被认为是小数点，第二个点被认为是用于访问属性的点，可以调用</li>
+<li>1 .toString()：”1”，1后有空格，小数点前后不会有空格，所以这个点会被作为调用属性的点</li>
+<li>1..toString()：”1”，1后面两个点，第二个点是访问属性，前面的1.，会被当做1.0</li>
+</ul>
 <p><strong>其他类型转换为Boolean：</strong></p>
 <ul>
 <li><p>使用Boolean()函数</p>
@@ -620,9 +630,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>$.type()内部原理就是用的Object.prototype.toString.call()</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($.type(num)); <span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log($.type(str)); <span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log($.type(bool)); <span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log($.type(nul)); <span class="comment">//null</span></span><br><span class="line"><span class="built_in">console</span>.log($.type(und)); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log($.type(obj)); <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log($.type(arr)); <span class="comment">//array</span></span><br><span class="line"><span class="built_in">console</span>.log($.type(fun)); <span class="comment">//function</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="keyword">var</span> zlj = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="built_in">console</span>.log($.type(zlj)); <span class="comment">//object</span></span><br></pre></td></tr></table></figure>
-<h3 id="运算符（操作符）"><a href="#运算符（操作符）" class="headerlink" title="运算符（操作符）"></a>运算符（操作符）</h3></li>
+
+</li>
 </ul>
-<p><strong>算术运算符：</strong></p>
+<h3 id="判断空数组的方法"><a href="#判断空数组的方法" class="headerlink" title="判断空数组的方法"></a>判断空数组的方法</h3><p>分析：所谓空数组，就是数组的长度等于0</p>
+<p>完整的检验空数组的表达式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = []</span><br><span class="line"><span class="built_in">Array</span>.prototype.isPrototypeOf(arr) &amp;&amp; arr.length === <span class="number">0</span></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(arr) === <span class="string">'[]'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断空对象的方法"><a href="#判断空对象的方法" class="headerlink" title="判断空对象的方法"></a>判断空对象的方法</h3><p>分析：只要能验证这个对象的 keys 长度是0，那就是个空对象了</p>
+<p>完整的检验空对象的表达式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(obj) &amp;&amp; <span class="built_in">Object</span>.keys(obj).length === <span class="number">0</span></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(arr) === <span class="string">'&#123;&#125;'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="运算符（操作符）"><a href="#运算符（操作符）" class="headerlink" title="运算符（操作符）"></a>运算符（操作符）</h3><p><strong>算术运算符：</strong></p>
 <blockquote>
 <p>任何值和NaN运算都得NaN</p>
 </blockquote>
@@ -1014,7 +1033,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS由哪几部分组成"><span class="toc-number">1.</span> <span class="toc-text">JS由哪几部分组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的特点："><span class="toc-number">2.</span> <span class="toc-text">JS的特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的引入方式"><span class="toc-number">3.</span> <span class="toc-text">JS的引入方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS放置位置"><span class="toc-number">4.</span> <span class="toc-text">JS放置位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS注释"><span class="toc-number">5.</span> <span class="toc-text">JS注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标识符的命名规则"><span class="toc-number">6.</span> <span class="toc-text">标识符的命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符"><span class="toc-number">7.</span> <span class="toc-text">转义字符 \</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中进制表示"><span class="toc-number">8.</span> <span class="toc-text">JS中进制表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS运算精度问题"><span class="toc-number">9.</span> <span class="toc-text">JS运算精度问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS数据类型"><span class="toc-number">10.</span> <span class="toc-text">JS数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null和undefined的相似和区别"><span class="toc-number">11.</span> <span class="toc-text">null和undefined的相似和区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类型转换"><span class="toc-number">12.</span> <span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型和引用数据类型比较"><span class="toc-number">13.</span> <span class="toc-text">基本数据类型和引用数据类型比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用变量赋值问题"><span class="toc-number">14.</span> <span class="toc-text">引用变量赋值问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断数据类型的方法"><span class="toc-number">15.</span> <span class="toc-text">判断数据类型的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符（操作符）"><span class="toc-number">16.</span> <span class="toc-text">运算符（操作符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件运算符（三目运算符）"><span class="toc-number">17.</span> <span class="toc-text">条件运算符（三目运算符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自增自减"><span class="toc-number">18.</span> <span class="toc-text">自增自减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else"><span class="toc-number">19.</span> <span class="toc-text">if else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch"><span class="toc-number">20.</span> <span class="toc-text">switch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-number">21.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while"><span class="toc-number">22.</span> <span class="toc-text">while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#do-while"><span class="toc-number">23.</span> <span class="toc-text">do while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break、continue"><span class="toc-number">24.</span> <span class="toc-text">break、continue</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS由哪几部分组成"><span class="toc-number">1.</span> <span class="toc-text">JS由哪几部分组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的特点："><span class="toc-number">2.</span> <span class="toc-text">JS的特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的引入方式"><span class="toc-number">3.</span> <span class="toc-text">JS的引入方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS放置位置"><span class="toc-number">4.</span> <span class="toc-text">JS放置位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS注释"><span class="toc-number">5.</span> <span class="toc-text">JS注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标识符的命名规则"><span class="toc-number">6.</span> <span class="toc-text">标识符的命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符"><span class="toc-number">7.</span> <span class="toc-text">转义字符 \</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中进制表示"><span class="toc-number">8.</span> <span class="toc-text">JS中进制表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS运算精度问题"><span class="toc-number">9.</span> <span class="toc-text">JS运算精度问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS数据类型"><span class="toc-number">10.</span> <span class="toc-text">JS数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null和undefined的相似和区别"><span class="toc-number">11.</span> <span class="toc-text">null和undefined的相似和区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类型转换"><span class="toc-number">12.</span> <span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型和引用数据类型比较"><span class="toc-number">13.</span> <span class="toc-text">基本数据类型和引用数据类型比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用变量赋值问题"><span class="toc-number">14.</span> <span class="toc-text">引用变量赋值问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断数据类型的方法"><span class="toc-number">15.</span> <span class="toc-text">判断数据类型的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断空数组的方法"><span class="toc-number">16.</span> <span class="toc-text">判断空数组的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断空对象的方法"><span class="toc-number">17.</span> <span class="toc-text">判断空对象的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符（操作符）"><span class="toc-number">18.</span> <span class="toc-text">运算符（操作符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件运算符（三目运算符）"><span class="toc-number">19.</span> <span class="toc-text">条件运算符（三目运算符）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自增自减"><span class="toc-number">20.</span> <span class="toc-text">自增自减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else"><span class="toc-number">21.</span> <span class="toc-text">if else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch"><span class="toc-number">22.</span> <span class="toc-text">switch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-number">23.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while"><span class="toc-number">24.</span> <span class="toc-text">while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#do-while"><span class="toc-number">25.</span> <span class="toc-text">do while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break、continue"><span class="toc-number">26.</span> <span class="toc-text">break、continue</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1066,7 +1085,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 十里不故梦
+    		&copy; 2021 十里不故梦
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1185,11 +1204,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">

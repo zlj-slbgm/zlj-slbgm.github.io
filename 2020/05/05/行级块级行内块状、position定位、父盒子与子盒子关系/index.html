@@ -16,7 +16,7 @@
 <meta property="og:description" content="行级块级行内块状、position定位、父盒子与子盒子关系">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-05T10:11:56.000Z">
-<meta property="article:modified_time" content="2020-11-19T15:49:11.388Z">
+<meta property="article:modified_time" content="2021-01-05T02:39:23.893Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
@@ -312,12 +312,89 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>任何标签只要一浮动,类型就会被转为行内-块级标签</li>
 <li>任何标签只要设置position属性，类型就会被转为行内-块级标签</li>
 </ul>
+<h3 id="z-index失效的情况"><a href="#z-index失效的情况" class="headerlink" title="z-index失效的情况"></a>z-index失效的情况</h3><p>让z-index起作用有个小小前提，就是元素的position属性要是relative，absolute或是fixed</p>
+<ul>
+<li>父元素position为relative时，子元素的z-index失效（解决方法：position:relative改为position:absolute）</li>
+<li>本身无position属性（解决方法：设置该元素的position属性为relative，absolute或是fixed中的一种）</li>
+<li>本身设置z-index的同时还设置了float浮动（解决方法：清除浮动）</li>
+</ul>
+<p><a href="https://blog.csdn.net/weixin_30700099/article/details/98277032?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control" target="_blank" rel="noopener">css层的定位position、absolute、relative层叠加的五条叠加法则</a></p>
+<p>法则一：同辈元素定位方式相同，且无z-index设置时，html靠后者居上</p>
+<p>法则二：同辈元素同为动态定位时，且有z-index设置时，z-index值大者居上</p>
+<p>法则三：同辈元素定位方式不同时，动态定位居上</p>
+<p>法则四：非同辈元素，任意一者及其祖元素不具备动态布局时，html靠后者居上</p>
+<p>法则五：【重要】非同辈元素，任意一者或其祖元素拥有动态定位时，同时各自向上寻找动态定位的祖元素，并分别从中拿出具备最高级别的祖元素（或其本身）进行比较</p>
+<ul>
+<li>情况1：子元素的z-index无论多大，父元素大者居上</li>
+<li>情况2：父元素居下，子元素也可以居上</li>
+</ul>
+<h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><p>BFC也牵扯了很多其他问题，如浮动、定位、盒模型等，因此弄懂BFC是很有必要的</p>
+<p>BFC（block formatting context）块级格式化上下文，它是页面中的一块渲染区域，并且有一套属于自己的渲染规则，它决定了元素如何对齐内容进行布局，以及与其他元素的关系和相互作用。 当涉及到可视化布局的时候，BFC提供了一个环境，HTML元素在这个环境中按照一定规则进行布局</p>
+<p>BFC是一个独立的布局环境，BFC内部的元素布局与外部互不影响</p>
+<p><strong>BFC的布局规则</strong></p>
+<ul>
+<li>内部的Box会在垂直方向一个接着一个地放置</li>
+<li>Box垂直方向上的距离由margin决定。属于同一个BFC的两个相邻的Box的margin会发生重叠</li>
+<li>每个盒子的左外边框紧挨着包含块的左边框，即使浮动元素也是如此</li>
+<li>BFC的区域不会与float box重叠</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然</li>
+<li>计算BFC的高度时，浮动子元素也参与计算</li>
+</ul>
+<p><strong>如何触发BFC？</strong></p>
+<table>
+<thead>
+<tr>
+<th>元素和属性</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>根元素</td>
+<td><code>&lt;html&gt;</code></td>
+</tr>
+<tr>
+<td>float</td>
+<td>left、right</td>
+</tr>
+<tr>
+<td>position</td>
+<td>absolute、fixed</td>
+</tr>
+<tr>
+<td>overflow</td>
+<td>auto、scroll、hidden</td>
+</tr>
+<tr>
+<td>display</td>
+<td>inline-block、table-cell</td>
+</tr>
+</tbody></table>
+<p><strong>BFC可以解决哪些问题？</strong></p>
+<ul>
+<li><p>解决浮动元素令父元素高度坍塌的问题</p>
+<p>方法：给父元素开启BFC</p>
+<p>原理：计算BFC的高度时，浮动子元素也参与计算</p>
+</li>
+<li><p>非浮动元素被浮动元素覆盖</p>
+<p>方法：给非浮动元素开启BFC</p>
+<p>原理：BFC的区域不会与float box重叠</p>
+</li>
+<li><p>两栏自适应布局</p>
+<p>方法：给固定栏设置固定宽度，给不固定栏开启BFC</p>
+<p>原理：BFC的区域不会与float box重叠</p>
+</li>
+<li><p>外边距垂直方向重合的问题</p>
+<p>方法：给上box或者下box任意一个包裹新的box并开启BFC</p>
+<p>原理：属于同一个BFC的两个相邻的Box的margin会发生重叠</p>
+</li>
+</ul>
 <h3 id="父盒子和子盒子关系"><a href="#父盒子和子盒子关系" class="headerlink" title="父盒子和子盒子关系"></a>父盒子和子盒子关系</h3><ul>
 <li>父盒子有高度宽度，子盒子不给宽度（自动填满父盒子宽度）；如果子盒子有内容的话子盒子不给高度（子盒子高度就是内容高度），如果子盒子没有内容的话一定要给高度</li>
 <li>子盒子有高度宽度，父盒子不给宽度（自动填满父盒子body宽度），不给高度（和子盒子高度一样）</li>
 <li>如果页面中只有一个div，div设置宽度100%将填满body宽度，但设置高度100%没有效果还是和内容高度一样</li>
 <li>如果div中嵌套一个div，子div设置宽度100%将填满父div宽度，设置高度100%有效果也将填满父div高度</li>
 </ul>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://zhuanlan.zhihu.com/p/127187654" target="_blank" rel="noopener">一次弄懂css的BFC</a></p>
 
       
 
@@ -471,7 +548,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#行级块级行内块状、position定位、父盒子与子盒子关系"><span class="toc-number">1.</span> <span class="toc-text">行级块级行内块状、position定位、父盒子与子盒子关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#inline、block、inline-block元素"><span class="toc-number">2.</span> <span class="toc-text">inline、block、inline-block元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#position定位"><span class="toc-number">3.</span> <span class="toc-text">position定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行级块级行内块状与position定位的关系"><span class="toc-number">4.</span> <span class="toc-text">行级块级行内块状与position定位的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#父盒子和子盒子关系"><span class="toc-number">5.</span> <span class="toc-text">父盒子和子盒子关系</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#行级块级行内块状、position定位、父盒子与子盒子关系"><span class="toc-number">1.</span> <span class="toc-text">行级块级行内块状、position定位、父盒子与子盒子关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#inline、block、inline-block元素"><span class="toc-number">2.</span> <span class="toc-text">inline、block、inline-block元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#position定位"><span class="toc-number">3.</span> <span class="toc-text">position定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行级块级行内块状与position定位的关系"><span class="toc-number">4.</span> <span class="toc-text">行级块级行内块状与position定位的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#z-index失效的情况"><span class="toc-number">5.</span> <span class="toc-text">z-index失效的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC"><span class="toc-number">6.</span> <span class="toc-text">BFC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#父盒子和子盒子关系"><span class="toc-number">7.</span> <span class="toc-text">父盒子和子盒子关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">8.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -523,7 +600,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 十里不故梦
+    		&copy; 2021 十里不故梦
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -642,11 +719,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">

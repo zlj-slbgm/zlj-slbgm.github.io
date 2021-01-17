@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/11/10/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png">
 <meta property="article:published_time" content="2020-11-10T01:10:42.000Z">
-<meta property="article:modified_time" content="2020-12-03T01:37:39.621Z">
+<meta property="article:modified_time" content="2021-01-07T11:49:17.436Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -403,6 +403,24 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h3 id="优化网络连接"><a href="#优化网络连接" class="headerlink" title="优化网络连接"></a>优化网络连接</h3><ul>
 <li><p>使用CDN节点进行外部资源加速（CDN 的基本原理是广泛的采用各种缓存服务器，将这些服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户的请求）</p>
 <img src="/2020/11/10/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png" style="zoom:60%;">
+
+<p>问题：随着项目越来越大，会有更多的静态资源，比如图片，css，还有一些js库，这些应该怎么处理？</p>
+<p>解决：理论上所有不经常变化的文件都应该放到 CDN 上。将项目的静态资源存放到CDN，内容分发网络（Content Delivery Network）依靠网络中的各个节点，就近发放静态资源</p>
+<p>问题：在使用自建CDN或者第三方CDN时，本地页面中的相对路径资源文件在发布到线上时，如何自动生成构建为绝对CDN URL地址 ？</p>
+<p>解决：相对地址换绝对地址一般都是构建工具的活，gulp或者webpack之类的。不过用阿里云CDN的时候，是直接把原域名解析到CDN提供的别名上，原来的文件内容并不用动，就是如果哪个目录或者文件不需要CDN稍微麻烦点，需要在CDN后台设置下过滤</p>
+<p><strong>放在自己web文件夹里进行加载，如果是你自己在本地访问的话当然会比cdn更快。但如果是把页面发布到真正的服务器上，通过网站域名访问就不一定了。除非你的服务器比cdn的服务器更快</strong></p>
+<p><strong>CDN的优势</strong></p>
+<ul>
+<li>CDN 节点解决了跨运营商和跨地域访问的问题，访问延时大大降低</li>
+<li>大部分请求在 CDN 边缘节点完成，CDN 起到了分流作用，减轻了源站的负载</li>
+<li>降低“广播风暴”的影响，提高网络访问的稳定性。节省骨干网带宽，减少带宽需求量（<strong>源站带宽有限，防止服务器崩</strong>）</li>
+</ul>
+<p>例如：访问速度快是电商网站取胜的必要法宝之一</p>
+<p><strong>CDN的核心点有两个: 一个是缓存，一个是回源</strong></p>
+<p><strong>缓存</strong></p>
+<p>将从根服务器请求来的资源按要求缓存</p>
+<p><strong>回源</strong></p>
+<p>当有用户访问某个资源的时候，如果被解析到的那个 CDN 节点没有缓存响应的内容，或者是缓存已经到期，就会回源站去获取。没有人访问，CDN 节点不会主动去源站请求资源</p>
 </li>
 <li><p>使用DNS预解析</p>
 <ul>
@@ -431,6 +449,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h3 id="渲染几万条数据不卡住页面"><a href="#渲染几万条数据不卡住页面" class="headerlink" title="渲染几万条数据不卡住页面"></a>渲染几万条数据不卡住页面</h3><p>createDocumentFragment()：创建一个虚拟节点对象或者说是用来创建文档碎片节点，它可以包含各种类型的节点，在创建之初是空的</p>
 <p>requestAnimationFrame()：请求动画帧</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 插入十万条数据</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> total = <span class="number">100000</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 每次插入20条数据</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> once = <span class="number">20</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 插入的数据需要的次数</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> loopCount = <span class="built_in">Math</span>.ceil(total / once)</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 渲染的次数</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> countRender = <span class="number">0</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取插入的父节点</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>)</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 添加数据的方法</span></span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 创建虚拟节点</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> fragment = <span class="built_in">document</span>.createDocumentFragment()</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; once; i++) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> li = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>)</span></span><br><span class="line"><span class="javascript">            li.innerHTML = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">100000</span>)</span></span><br><span class="line">            fragment.appendChild(li)</span><br><span class="line">        &#125;</span><br><span class="line">        ul.appendChild(fragment)</span><br><span class="line">        countRender++</span><br><span class="line">        loop()</span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line">        if (countRender &lt; loopCount) &#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.requestAnimationFrame(add)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    loop()</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://zhuanlan.zhihu.com/p/121056616" target="_blank" rel="noopener">前端性能优化 24 条建议</a></p>
+
       
 
       
@@ -583,7 +604,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#从输入URL到页面加载完成过程"><span class="toc-number">1.</span> <span class="toc-text">从输入URL到页面加载完成过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端性能优化的七大手段"><span class="toc-number">2.</span> <span class="toc-text">前端性能优化的七大手段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减少请求数量"><span class="toc-number">3.</span> <span class="toc-text">减少请求数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减小资源大小"><span class="toc-number">4.</span> <span class="toc-text">减小资源大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化资源加载"><span class="toc-number">5.</span> <span class="toc-text">优化资源加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减少重排（回流）重绘"><span class="toc-number">6.</span> <span class="toc-text">减少重排（回流）重绘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用性能更好的API"><span class="toc-number">7.</span> <span class="toc-text">使用性能更好的API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建优化（webpack优化）"><span class="toc-number">8.</span> <span class="toc-text">构建优化（webpack优化）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化网络连接"><span class="toc-number">9.</span> <span class="toc-text">优化网络连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渲染几万条数据不卡住页面"><span class="toc-number">10.</span> <span class="toc-text">渲染几万条数据不卡住页面</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#从输入URL到页面加载完成过程"><span class="toc-number">1.</span> <span class="toc-text">从输入URL到页面加载完成过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端性能优化的七大手段"><span class="toc-number">2.</span> <span class="toc-text">前端性能优化的七大手段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减少请求数量"><span class="toc-number">3.</span> <span class="toc-text">减少请求数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减小资源大小"><span class="toc-number">4.</span> <span class="toc-text">减小资源大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化资源加载"><span class="toc-number">5.</span> <span class="toc-text">优化资源加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减少重排（回流）重绘"><span class="toc-number">6.</span> <span class="toc-text">减少重排（回流）重绘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用性能更好的API"><span class="toc-number">7.</span> <span class="toc-text">使用性能更好的API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建优化（webpack优化）"><span class="toc-number">8.</span> <span class="toc-text">构建优化（webpack优化）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化网络连接"><span class="toc-number">9.</span> <span class="toc-text">优化网络连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渲染几万条数据不卡住页面"><span class="toc-number">10.</span> <span class="toc-text">渲染几万条数据不卡住页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">11.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -635,7 +656,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 十里不故梦
+    		&copy; 2021 十里不故梦
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -754,11 +775,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">

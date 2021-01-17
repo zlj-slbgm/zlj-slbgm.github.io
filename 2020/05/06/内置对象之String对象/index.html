@@ -16,7 +16,7 @@
 <meta property="og:description" content="内置对象之String对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-06T02:57:50.000Z">
-<meta property="article:modified_time" content="2020-11-30T09:25:08.924Z">
+<meta property="article:modified_time" content="2021-01-06T12:03:59.295Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -240,9 +240,12 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h3 id="字符串的length属性"><a href="#字符串的length属性" class="headerlink" title="字符串的length属性"></a>字符串的length属性</h3><blockquote>
 <p>返回字符串的字符数</p>
 </blockquote>
-<h3 id="String原始数据类型为什么会有length属性以及其他字符串方法"><a href="#String原始数据类型为什么会有length属性以及其他字符串方法" class="headerlink" title="String原始数据类型为什么会有length属性以及其他字符串方法"></a>String原始数据类型为什么会有length属性以及其他字符串方法</h3><blockquote>
-<p>原因：原始数据类型在调用方法的时候，JS引擎会对原始类型数据进行包装（即JS引擎会把原始类型的值包装成对象）</p>
-</blockquote>
+<h3 id="String原始数据类型为什么会有length属性以及其他字符串方法"><a href="#String原始数据类型为什么会有length属性以及其他字符串方法" class="headerlink" title="String原始数据类型为什么会有length属性以及其他字符串方法"></a>String原始数据类型为什么会有length属性以及其他字符串方法</h3><p>原因：原始数据类型在调用方法的时候，JS引擎会对原始类型数据进行包装（即JS引擎会把原始类型的值包装成对象）</p>
+<p>原始类型是没有属性和方法的，它们就是单纯的值，<strong>如果希望获取它们的属性或调用方法，那就需要包装对象来帮忙了</strong>，但是帮完忙后，生成的对象马上就会被销毁</p>
+<p>实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello'</span></span><br><span class="line">str.name = <span class="string">'test'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.name) <span class="comment">//输出undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>例子中，第二行赋值的时候，包装对象会登场，创建一个str对应的对象，当然，这行执行完了这个对象就会被销毁。然后在第三行又会创建一个新的包装对象，这个对象当然没有name属性，所以输出的是undefined</p>
 <h3 id="字符串的查找"><a href="#字符串的查找" class="headerlink" title="字符串的查找"></a>字符串的查找</h3><ul>
 <li><p>indexOf()</p>
 <blockquote>
@@ -594,7 +597,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 十里不故梦
+    		&copy; 2021 十里不故梦
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -713,11 +716,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">

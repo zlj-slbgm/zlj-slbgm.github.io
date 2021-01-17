@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/10/23/Vuex/1.png">
 <meta property="article:published_time" content="2020-10-23T06:55:47.000Z">
-<meta property="article:modified_time" content="2020-11-28T06:17:45.214Z">
+<meta property="article:modified_time" content="2021-01-03T13:10:08.141Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="VUEReact">
 <meta name="twitter:card" content="summary">
@@ -362,7 +362,20 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;mapState&#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>通过导入的mapGetters函数，将当前组件需要的全局数据映射为当前组件的computed计算属性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">	...mapState([<span class="string">'showNum'</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">	...mapState([<span class="string">'showNum'</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Vuex意义何在？"><a href="#Vuex意义何在？" class="headerlink" title="Vuex意义何在？"></a>Vuex意义何在？</h3><p>如果刷新页面数据就消失，那么Vuex到底意义何在？Vuex的功能感觉可以用localstorage代替？</p>
+<ul>
+<li>Vuex的定义：它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。解读成只是为了跨组件传递数据，就会带来困扰</li>
+</ul>
+<ul>
+<li>Vuex里，某个状态的变化可以在组件内实时监测、并进行处理。localstorage不行，它只是存，没有变化的概念</li>
+<li>若一个应用里一些状态是要全局共享的，改变这个全局状态的组件和接收这个状态的组件可能不在一个地方。这个时候就需要 vuex 对全局状态进行控制。之所以不使用单独一个变量去存放这些状态，是因为 vuex 里的状态是响应式，更改了里面的数据会触发 getter setter</li>
+<li>至于刷新丢失数据，其实和 vuex 本身无关。因为刷新了 JS 就会重新加载，之前的就会丢失，无非是看你使用哪种方式去缓存</li>
+<li>Vue框架主要针对的是单页面的应用，所谓单页面，就是整个页面就是一个应用，其中的各种逻辑状态和状态间的转换，都是在一个页面里面完成的。换言之，这类应用不期望用户去刷新页面，因为刷新意味着重新加载整个应用</li>
+<li>路由的切换并不会清空vuex里面的数据</li>
 </ul>
 
       
@@ -517,7 +530,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuex"><span class="toc-number">1.</span> <span class="toc-text">Vuex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State"><span class="toc-number">2.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mutation"><span class="toc-number">3.</span> <span class="toc-text">Mutation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action"><span class="toc-number">4.</span> <span class="toc-text">Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getter"><span class="toc-number">5.</span> <span class="toc-text">Getter</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuex"><span class="toc-number">1.</span> <span class="toc-text">Vuex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State"><span class="toc-number">2.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mutation"><span class="toc-number">3.</span> <span class="toc-text">Mutation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action"><span class="toc-number">4.</span> <span class="toc-text">Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getter"><span class="toc-number">5.</span> <span class="toc-text">Getter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuex意义何在？"><span class="toc-number">6.</span> <span class="toc-text">Vuex意义何在？</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -569,7 +582,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 十里不故梦
+    		&copy; 2021 十里不故梦
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -688,11 +701,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">

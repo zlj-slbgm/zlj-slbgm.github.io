@@ -15,13 +15,14 @@
 <meta property="og:site_name" content="十里不故梦Blog">
 <meta property="og:description" content="CSS垂直居中对齐">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/2.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/1.png">
 <meta property="article:published_time" content="2020-09-26T05:46:37.000Z">
-<meta property="article:modified_time" content="2020-11-10T13:33:10.361Z">
+<meta property="article:modified_time" content="2021-01-05T01:54:21.217Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
   
@@ -272,10 +273,54 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 </li>
 <li><p>万能方法</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line"><span class="selector-tag">top</span>: 50%;</span><br><span class="line"><span class="selector-tag">left</span>: 50%;</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">-50</span>%,<span class="selector-tag">-50</span>%);</span><br></pre></td></tr></table></figure></li>
-<li><p>附上一张顶线、中线、基线、底线、行距、行高、文字大小关系图<br><img src="/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/1.png" alt="顶线、中线、基线、底线、行距、行高、文字大小关系图"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line"><span class="selector-tag">top</span>: 50%;</span><br><span class="line"><span class="selector-tag">left</span>: 50%;</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">-50</span>%,<span class="selector-tag">-50</span>%);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>水平居中</p>
+<ul>
+<li><p>行内元素：text-align: center</p>
+</li>
+<li><p>块级元素：margin: 0 auto</p>
+</li>
+<li><p>position:absolute + left:50% + transform:translateX(-50%)</p>
+</li>
+<li><p>display:flex + justify-content:center</p>
+</li>
+</ul>
+<p>垂直居中</p>
+<ul>
+<li>设置line-height 等于height</li>
+<li>position:absolute + top:50% + transform:translateY(-50%)</li>
+<li>display:flex + align-items: center</li>
+<li>display:table + display:table-cell + vertical-align: middle</li>
+</ul>
+<h3 id="四种内联盒子"><a href="#四种内联盒子" class="headerlink" title="四种内联盒子"></a>四种内联盒子</h3><p>在CSS中有四种内联盒子，分别是 containing box , inline boxes , line box , content area</p>
+<ul>
+<li>containing box：外层盒子模型，包含了其他的boxes</li>
+<li>line boxes：由一个一个的inline boxes组成，一行即为一个line box，单个line box的高度由其包含的所有inline boxes中，高度最大的那个决定（由 line-height 起作用），而一个一个的line box的高度就堆叠成了containing box的高度</li>
+<li>inline boxes：不会成块显示，而是并排显示在一行的boxes，如 span , a , em 等标签以及匿名inline boxes（即不含把标签的裸露的文字）</li>
+<li>content area：围绕文字看不见的box，其大小与font-size有关，其高度可以认为鼠标选中文字时背景色的高度</li>
+</ul>
+<img src="/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/2.jpg" style="zoom: 67%;">
+
+<h3 id="line-height和vertical-align详解"><a href="#line-height和vertical-align详解" class="headerlink" title="line-height和vertical-align详解"></a>line-height和vertical-align详解</h3><img src="/2020/09/26/CSS%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/1.png" alt="顶线、中线、基线、底线、行距、行高、文字大小关系图" style="zoom: 67%;">
+
+<p>vertical-align起作用的前提是元素为inline水平元素或table-cell元素，包括 span , img , input , button , td 以及通过display改变了显示水平为inline水平或者table-cell的元素。这也意味着，默认情况下div , p 等元素设置vertical-align无效</p>
+<ul>
+<li>baseline： 默认的对齐方式，基线对齐，与父元素的基线对齐</li>
+<li>top： 与行中的最高元素的顶端对齐，一般是父级元素的最顶端对齐</li>
+<li>middle： 与父元素中线对齐（近似垂直居中）</li>
+<li>bottom： 与 top 相反，与父级元素的最低端对齐</li>
+<li>text-top： 与父级元素 content area 的顶端对齐，不受行高以及周边其他元素的影响</li>
+<li>text-bottom： 与 text-top 相反，始终与父级元素 content area 的低端对齐。同理可以与 bottom 进行对比区分。注意，从图中可以看到，貌似该值的表现行为与 baseline 一致，但仔细观察，可以看到，实际上 text-bottom 所在的线会比 baseline 低一点</li>
+<li>数值与百分比： 当数值为正值时，对齐方式将以基线为基准，往上偏移响应的大小，当为负值时，往下偏移。而百分比则是根据行高的大小，计算出响应的数值，再以数值表现的方式进行偏移。（百分比根据行高计算偏移值这一点很重要，对后面讲解的一些奇怪的现象可以做出解释并找到解决的办法）</li>
+<li>super与sub： 这两个值均是找到合适的基线作为对齐的基线进行对齐，类似 super 标签和 sub 标签，但不缩放字体大小</li>
+</ul>
+<p>如：文字之间垂直方向没有对齐，可设置行高一样就行对齐<strong>（垂直方向没有对齐一般都是line-height和vertical-align问题）</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.colabug.com/2018/0211/2345532/" target="_blank" rel="noopener">彻底搞定vertical-align</a></p>
 
       
 
@@ -429,7 +474,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS垂直居中对齐"><span class="toc-number">1.</span> <span class="toc-text">CSS垂直居中对齐</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS垂直居中对齐"><span class="toc-number">1.</span> <span class="toc-text">CSS垂直居中对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四种内联盒子"><span class="toc-number">3.</span> <span class="toc-text">四种内联盒子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#line-height和vertical-align详解"><span class="toc-number">4.</span> <span class="toc-text">line-height和vertical-align详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">5.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -481,7 +526,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 十里不故梦
+    		&copy; 2021 十里不故梦
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -600,11 +645,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
