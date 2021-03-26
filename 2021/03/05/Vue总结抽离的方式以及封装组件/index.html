@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>阿里云、七牛云 | 十里不故梦Blog</title>
+  <title>Vue总结抽离的方式以及封装组件 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿里云 OSS存储">
+  <meta name="description" content="模块化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里云、七牛云">
-<meta property="og:url" content="http://yoursite.com/2020/11/29/%E9%98%BF%E9%87%8C%E4%BA%91%E3%80%81%E4%B8%83%E7%89%9B%E4%BA%91/index.html">
+<meta property="og:title" content="Vue总结抽离的方式以及封装组件">
+<meta property="og:url" content="http://yoursite.com/2021/03/05/Vue%E6%80%BB%E7%BB%93%E6%8A%BD%E7%A6%BB%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B0%81%E8%A3%85%E7%BB%84%E4%BB%B6/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="阿里云 OSS存储">
+<meta property="og:description" content="模块化">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/11/29/%E9%98%BF%E9%87%8C%E4%BA%91%E3%80%81%E4%B8%83%E7%89%9B%E4%BA%91/1.png">
-<meta property="og:image" content="http://yoursite.com/2020/11/29/%E9%98%BF%E9%87%8C%E4%BA%91%E3%80%81%E4%B8%83%E7%89%9B%E4%BA%91/2.png">
-<meta property="article:published_time" content="2020-11-29T12:45:47.000Z">
-<meta property="article:modified_time" content="2021-01-06T02:04:48.284Z">
+<meta property="article:published_time" content="2021-03-05T01:49:06.000Z">
+<meta property="article:modified_time" content="2021-03-05T09:26:00.247Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/11/29/%E9%98%BF%E9%87%8C%E4%BA%91%E3%80%81%E4%B8%83%E7%89%9B%E4%BA%91/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
   
@@ -207,14 +204,14 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-阿里云、七牛云" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Vue总结抽离的方式以及封装组件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      阿里云、七牛云
+      Vue总结抽离的方式以及封装组件
     </h1>
   
 
@@ -230,27 +227,97 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/11/29/%E9%98%BF%E9%87%8C%E4%BA%91%E3%80%81%E4%B8%83%E7%89%9B%E4%BA%91/" class="archive-article-date">
-  	<time datetime="2020-11-29T12:45:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
+        <a href="/2021/03/05/Vue%E6%80%BB%E7%BB%93%E6%8A%BD%E7%A6%BB%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B0%81%E8%A3%85%E7%BB%84%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2021-03-05T01:49:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="阿里云-OSS存储"><a href="#阿里云-OSS存储" class="headerlink" title="阿里云 OSS存储"></a>阿里云 OSS存储</h3><a id="more"></a>
+        <h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><a id="more"></a>
 
-<p><strong>复制图片RUL，将图片直接打开而不是下载图片</strong></p>
-<img src="/2020/11/29/%E9%98%BF%E9%87%8C%E4%BA%91%E3%80%81%E4%B8%83%E7%89%9B%E4%BA%91/1.png" style="zoom:60%;">
+<p>传统开发模式的主要问题：命名冲突和文件依赖</p>
+<p>通过模块化解决上述问题：</p>
+<ul>
+<li>模块化就是把单独的一个功能封装到一个模块（文件）中，模块之间相互隔离，但是可以通过特定的接口公开内部成员，也可以依赖别的模块</li>
+<li>模块化开发的好处：方便代码的重用，从而提升开发效率，并且方便后期的维护</li>
+</ul>
+<h3 id="浏览器端模块化规范"><a href="#浏览器端模块化规范" class="headerlink" title="浏览器端模块化规范"></a>浏览器端模块化规范</h3><ul>
+<li>AMD：Require.js（<a href="http://www.requirejs.cn/）" target="_blank" rel="noopener">http://www.requirejs.cn/）</a></li>
+<li>CMD：Sea.js（<a href="https://seajs.github.io/seajs/docs/）" target="_blank" rel="noopener">https://seajs.github.io/seajs/docs/）</a></li>
+</ul>
+<h3 id="服务端模块化规范"><a href="#服务端模块化规范" class="headerlink" title="服务端模块化规范"></a>服务端模块化规范</h3><p>CommonJS</p>
+<ul>
+<li>模块分为单文件模块与包</li>
+<li>模块成员导出：module.exports 和 exports</li>
+<li>模块成员导入：require(‘模块标识符’)</li>
+</ul>
+<p><strong>方式一：</strong></p>
+<p>token.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.setToken = <span class="function"><span class="keyword">function</span> (<span class="params">username, userid</span>) </span>&#123;&#125;</span><br><span class="line">exports.verToken = <span class="function"><span class="keyword">function</span> (<span class="params">token</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>设置Content-Type为image/对应图片的后缀名</p>
-<p>设置Content-Disposition为inline，默认为attachment：将Object下载到本地，附加 filename 可预设Object保存在本地的文件名</p>
-<h3 id="七牛云-对象存储Kodo"><a href="#七牛云-对象存储Kodo" class="headerlink" title="七牛云 对象存储Kodo"></a>七牛云 对象存储Kodo</h3><img src="/2020/11/29/%E9%98%BF%E9%87%8C%E4%BA%91%E3%80%81%E4%B8%83%E7%89%9B%E4%BA%91/2.png" style="zoom:50%;">
+<p>引入并使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tokenTool = <span class="built_in">require</span>(<span class="string">'./model/token'</span>)</span><br><span class="line"><span class="comment">// console.log(tokenTool) &#123; setToken: [Function], verToken: [Function] &#125;</span></span><br><span class="line">tokenTool.setToken().then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;&#125;)</span><br><span class="line">tokenTool.verToken().then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>访问控制修改为公开空间的话，可以直接通过文件链接访问到图片</p>
-<p>访问控制修改为私有空间的话，不能直接通过文件链接访问到图片，私有空间内的资源需要通过<a href="https://developer.qiniu.com/kodo/manual/1202/download-token" target="_blank" rel="noopener">授权</a>进行访问（通过授权链接可进入七牛云开发者中心）</p>
-<p><a href="https://www.jianshu.com/p/2604e53a7f6a?from=singlemessage" target="_blank" rel="noopener">阿里云ECS建网站（建站）超详细全套完整图文教程！</a></p>
+<p><strong>方式二：</strong></p>
+<p>user.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span><br><span class="line"><span class="keyword">const</span> usersSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> Users = mongoose.model(<span class="string">'Users'</span>, usersSchema)</span><br><span class="line"><span class="comment">// 将用户信息集合进行导出</span></span><br><span class="line"><span class="built_in">module</span>.exports = Users</span><br></pre></td></tr></table></figure>
 
+<p>引入并使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Users = <span class="built_in">require</span>(<span class="string">'./model/users'</span>)</span><br><span class="line"><span class="keyword">await</span> Users.find()</span><br></pre></td></tr></table></figure>
+
+<h3 id="大一统的模块化规范（ES6模块化）"><a href="#大一统的模块化规范（ES6模块化）" class="headerlink" title="大一统的模块化规范（ES6模块化）"></a>大一统的模块化规范（ES6模块化）</h3><blockquote>
+<p>在ES6模块化规范诞生之前，JavaScript社区已经尝试并提出了AMD、CMD、CommonJS等模块化规范，但是这些社区提出的模块化标准还是存在一定的差异性与局限性，并不是浏览器端与服务器端通用的模块化标准。ES6模块化规范是浏览器端与服务器端通用的模块化开发规范</p>
+</blockquote>
+<p>ES6模块化规范中定义：</p>
+<ul>
+<li>每个js文件都是一个独立的模块</li>
+<li>暴露模块成员使用 export 关键字</li>
+<li>导入模块成员使用 import 关键字</li>
+</ul>
+<blockquote>
+<p>这里需要安装babel插件，目前并非所有浏览器都支持ES6+语法，babel能将ES6+代码转换成ES5代码</p>
+</blockquote>
+<p>m1.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认导出（只能使用一次）</span></span><br><span class="line"><span class="keyword">let</span> a=<span class="number">10</span></span><br><span class="line"><span class="keyword">let</span> b=<span class="number">10</span></span><br><span class="line"><span class="keyword">let</span> c=<span class="number">30</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"m1"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    a,</span><br><span class="line">    b,</span><br><span class="line">    show</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//按需导出（可以使用多次）</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> s1=<span class="string">"aaa"</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> s2=<span class="string">"bbb"</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"ccc"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//直接导出</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>m2.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认导入和按需导入</span></span><br><span class="line"><span class="keyword">import</span> m1,&#123;s1,s2 <span class="keyword">as</span> s22,say&#125; <span class="keyword">from</span> <span class="string">"./m1.js"</span></span><br><span class="line"><span class="built_in">console</span>.log(m1)</span><br><span class="line"><span class="built_in">console</span>.log(s1)</span><br><span class="line"><span class="built_in">console</span>.log(s22)</span><br><span class="line"><span class="built_in">console</span>.log(say)</span><br><span class="line"></span><br><span class="line"><span class="comment">//直接导入</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"./m1.js"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="组件模块化"><a href="#组件模块化" class="headerlink" title="组件模块化"></a>组件模块化</h3><p>BoxContent.vue</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box-content"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-item"</span> <span class="attr">v-for</span>=<span class="string">"item in productboxNewList"</span> <span class="attr">:key</span>=<span class="string">"item._id"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="actionscript">    name: <span class="string">'BoxContent'</span>,</span></span><br><span class="line">    props: &#123;</span><br><span class="line">        productboxNewList: &#123;</span><br><span class="line"><span class="javascript">            type: <span class="built_in">Array</span>,</span></span><br><span class="line"><span class="javascript">            <span class="keyword">default</span>: <span class="function"><span class="params">()</span> =&gt;</span> []</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"less"</span> <span class="attr">scoped</span>&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>引入并使用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">box-content</span> <span class="attr">:productboxNewList</span>=<span class="string">"productboxNewList"</span> /&gt;</span></span><br><span class="line">import BoxContent from '@components/BoxContent'</span><br><span class="line">components: &#123;</span><br><span class="line">	BoxContent: BoxContent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="js模块化"><a href="#js模块化" class="headerlink" title="js模块化"></a>js模块化</h3><p><strong>默认导出导入</strong></p>
+<p>handleServiceInfo.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    created () &#123;</span><br><span class="line">        <span class="keyword">this</span>.getCustomerInfo()</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        getCustomerInfo () &#123;</span><br><span class="line">            <span class="keyword">this</span>.$apis.getCustomerInfo().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (res.code === <span class="string">'2000'</span>) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.serviceInfo = res.data</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>引入并使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> handleServiceInfo <span class="keyword">from</span> <span class="string">'@utils/handleServiceInfo'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">'AccountRecovery'</span>,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        newserviceInfo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.serviceInfo.filter(<span class="function">(<span class="params">value, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> value.serviceType === <span class="number">3</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    data () &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            title: <span class="string">'账号回收'</span>,</span><br><span class="line">            showDialog: <span class="literal">false</span>,</span><br><span class="line">            serviceInfo: [],</span><br><span class="line">            serviceNumber: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    ...handleServiceInfo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>按需导出导入</strong></p>
+<p>requireServiceInfo.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> watch = &#123;</span><br><span class="line">    newserviceInfo (val) &#123;</span><br><span class="line">        <span class="keyword">if</span> (val) &#123;</span><br><span class="line">            <span class="keyword">this</span>.serviceNumber = val[<span class="number">0</span>].accountNumber</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> create = <span class="function">(<span class="params">_this</span>) =&gt;</span> &#123;</span><br><span class="line">    _this.getCustomerInfo()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> methods = &#123;</span><br><span class="line">    getCustomerInfo () &#123;</span><br><span class="line">        <span class="keyword">this</span>.$apis.getCustomerInfo().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (res.code === <span class="string">'2000'</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.serviceInfo = res.data</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>引入并使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; watch, create, methods &#125; <span class="keyword">from</span> <span class="string">'@utils/requireServiceInfo'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    watch: watch,</span><br><span class="line">    created () &#123;</span><br><span class="line">        create(<span class="keyword">this</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        ...methods</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>直接导出导入</strong></p>
+<p>ElementUI.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    Button</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'element-ui'</span></span><br><span class="line">Vue.use(Button)</span><br></pre></td></tr></table></figure>
+
+<p>引入并使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'@plugins/ElementUI.js'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>css模块化</strong></p>
+<p>adminHome.less</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.admin-home</span> &#123;</span><br><span class="line">    <span class="selector-class">.card-panel</span> &#123; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>引入并使用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"less"</span> <span class="attr">scoped</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="keyword">@import</span> <span class="string">'./adminHome.less'</span>;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -351,7 +418,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2020/11/29/%E9%98%BF%E9%87%8C%E4%BA%91%E3%80%81%E4%B8%83%E7%89%9B%E4%BA%91/" alt="微信分享二维码">
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2021/03/05/Vue%E6%80%BB%E7%BB%93%E6%8A%BD%E7%A6%BB%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B0%81%E8%A3%85%E7%BB%84%E4%BB%B6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -365,18 +432,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/12/22/%E5%89%8D%E7%AB%AF%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/15/%E5%B8%B8%E7%94%A8%E5%A4%B4%E9%83%A8%E6%A0%87%E7%AD%BE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          前端刷新页面的方法
+          常用头部标签
         
       </div>
     </a>
   
   
-    <a href="/2020/11/23/axios/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">axios</div>
+    <a href="/2021/03/04/%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7%E5%92%8C%E5%89%8D%E7%AB%AF%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端监控和前端埋点方案设计</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -403,7 +470,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#阿里云-OSS存储"><span class="toc-number">1.</span> <span class="toc-text">阿里云 OSS存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七牛云-对象存储Kodo"><span class="toc-number">2.</span> <span class="toc-text">七牛云 对象存储Kodo</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#模块化"><span class="toc-number">1.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器端模块化规范"><span class="toc-number">2.</span> <span class="toc-text">浏览器端模块化规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端模块化规范"><span class="toc-number">3.</span> <span class="toc-text">服务端模块化规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大一统的模块化规范（ES6模块化）"><span class="toc-number">4.</span> <span class="toc-text">大一统的模块化规范（ES6模块化）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件模块化"><span class="toc-number">5.</span> <span class="toc-text">组件模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js模块化"><span class="toc-number">6.</span> <span class="toc-text">js模块化</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -439,7 +506,7 @@ if(true){
   	repo: 'zlj-slbgm.github.io',
   	owner: 'zlj-slbgm',
   	admin: ['zlj-slbgm'],
-  	id: 'Sun Nov 29 2020 20:45:47 GMT+0800',
+  	id: 'Fri Mar 05 2021 09:49:06 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -574,11 +641,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">

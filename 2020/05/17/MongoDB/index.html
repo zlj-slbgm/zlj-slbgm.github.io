@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>MongoDB | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装 MongoDB">
+  <meta name="description" content="MongoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB">
 <meta property="og:url" content="http://yoursite.com/2020/05/17/MongoDB/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="安装 MongoDB">
+<meta property="og:description" content="MongoDB">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/05/17/MongoDB/1.png">
 <meta property="article:published_time" content="2020-05-17T05:45:14.000Z">
-<meta property="article:modified_time" content="2021-01-12T05:00:24.661Z">
+<meta property="article:modified_time" content="2021-03-18T10:49:19.781Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="NODEJS">
 <meta name="twitter:card" content="summary">
@@ -237,20 +237,27 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="安装-MongoDB"><a href="#安装-MongoDB" class="headerlink" title="安装 MongoDB"></a>安装 MongoDB</h3><a id="more"></a>
+        <h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><a id="more"></a>
 
-<p>安装比较容易,难点在启动 Mongodb 的服务以及将 MongoDB 设置成 Windows 服务,加配置文件在 windows 的“服务”中找到</p>
+<p>MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案</p>
+<p>MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的</p>
+<p><a href="https://blog.csdn.net/qq_41127332/article/details/80755595" target="_blank" rel="noopener">https://blog.csdn.net/qq_41127332/article/details/80755595</a></p>
+<h3 id="安装-MongoDB"><a href="#安装-MongoDB" class="headerlink" title="安装 MongoDB"></a>安装 MongoDB</h3><p>安装比较容易,难点在启动 Mongodb 的服务以及将 MongoDB 设置成 Windows 服务,加配置文件在 windows 的“服务”中找到</p>
 <p>MongoDBCompass 连接出现 authentication failed,要进行创建用户！！！,项目或第三方工具才能使用用户名密码连接 MongoDB 指定的数据库！！！(详情参考:<a href="https://www.cnblogs.com/iTlijun/p/7169538.html" target="_blank" rel="noopener">https://www.cnblogs.com/iTlijun/p/7169538.html</a>)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">D:\programs\mongoDB\bin&gt;mongo</span><br><span class="line"> MongoDB shell version v3.4.3</span><br><span class="line"> connecting to: mongodb://127.0.0.1:27017</span><br><span class="line"> MongoDB server version: 3.4.3</span><br><span class="line"> &gt; db</span><br><span class="line"> <span class="built_in">test</span></span><br><span class="line"> &gt; use admin</span><br><span class="line"> switched to db admin　　</span><br><span class="line"> &gt;db.createUser(</span><br><span class="line">    &#123;</span><br><span class="line">      user: <span class="string">"root"</span>,</span><br><span class="line">      <span class="built_in">pwd</span>: <span class="string">"rootpwd"</span>,</span><br><span class="line">      roles: [ &#123;role:<span class="string">"root"</span>, db:<span class="string">"admin"</span>&#125; ]</span><br><span class="line">    &#125;</span><br><span class="line"> )</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>使用用户名root和密码rootpwd登录localhost的zlj数据库<br>mongodb://root:rootpwd@localhost:27017/zlj</p>
 </blockquote>
+<h3 id="MongoDB的-id类型不一致"><a href="#MongoDB的-id类型不一致" class="headerlink" title="MongoDB的_id类型不一致"></a>MongoDB的_id类型不一致</h3><p>MongoDB数据库 <code>_id</code> 是ObjectId类型，而查询数据的 <code>_id</code> 是string类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span><br><span class="line"><span class="keyword">const</span> usersSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    <span class="comment">// 在集合和集合规则模块中不能这样定义，否则会出现_id类型不一致，导致查询出错</span></span><br><span class="line">	<span class="comment">// _id: String</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <h3 id="连接-MongoDB出现connect-ECONNREFUSED-127-0-0-1-27017"><a href="#连接-MongoDB出现connect-ECONNREFUSED-127-0-0-1-27017" class="headerlink" title="连接 MongoDB出现connect ECONNREFUSED 127.0.0.1:27017"></a>连接 MongoDB出现connect ECONNREFUSED 127.0.0.1:27017</h3><p>这个是因为MongoDB数据库没有开启</p>
 <p>在bin目录下打开cmd输出mongod –dbpath=D:\MongoDB\data –port=27017</p>
 <p><strong>或者找到MongoDB服务将其启动</strong></p>
 <p><img src="/2020/05/17/MongoDB/1.png" alt></p>
-<h3 id="MongoDB基础命令及操作"><a href="#MongoDB基础命令及操作" class="headerlink" title="MongoDB基础命令及操作"></a><a href="https://www.cnblogs.com/longguoliang/p/9501597.html" target="_blank" rel="noopener">MongoDB基础命令及操作</a></h3>
+<h3 id="MongoDB基础命令及操作"><a href="#MongoDB基础命令及操作" class="headerlink" title="MongoDB基础命令及操作"></a><a href="https://www.cnblogs.com/longguoliang/p/9501597.html" target="_blank" rel="noopener">MongoDB基础命令及操作</a></h3><h3 id="MongoDB数据库常用语句"><a href="#MongoDB数据库常用语句" class="headerlink" title="MongoDB数据库常用语句"></a>MongoDB数据库常用语句</h3><p><a href="https://www.cnblogs.com/xiaohuangmao/p/10164111.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaohuangmao/p/10164111.html</a></p>
+
       
 
       
@@ -403,7 +410,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-MongoDB"><span class="toc-number">1.</span> <span class="toc-text">安装 MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接-MongoDB出现connect-ECONNREFUSED-127-0-0-1-27017"><span class="toc-number">2.</span> <span class="toc-text">连接 MongoDB出现connect ECONNREFUSED 127.0.0.1:27017</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB基础命令及操作"><span class="toc-number">3.</span> <span class="toc-text">MongoDB基础命令及操作</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB"><span class="toc-number">1.</span> <span class="toc-text">MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-MongoDB"><span class="toc-number">2.</span> <span class="toc-text">安装 MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB的-id类型不一致"><span class="toc-number">3.</span> <span class="toc-text">MongoDB的_id类型不一致</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接-MongoDB出现connect-ECONNREFUSED-127-0-0-1-27017"><span class="toc-number">4.</span> <span class="toc-text">连接 MongoDB出现connect ECONNREFUSED 127.0.0.1:27017</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB基础命令及操作"><span class="toc-number">5.</span> <span class="toc-text">MongoDB基础命令及操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB数据库常用语句"><span class="toc-number">6.</span> <span class="toc-text">MongoDB数据库常用语句</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -574,11 +581,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">

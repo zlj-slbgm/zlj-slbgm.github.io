@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/10/30/%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%E4%B9%8BBOM%E5%AF%B9%E8%B1%A1/1.png">
 <meta property="article:published_time" content="2020-10-30T09:42:17.000Z">
-<meta property="article:modified_time" content="2020-11-18T03:45:00.364Z">
+<meta property="article:modified_time" content="2021-03-11T10:14:26.598Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -413,11 +413,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </tr>
 <tr>
 <td>location.pathname</td>
-<td>返回路径</td>
+<td>返回路径（如：<code>/login</code>）</td>
 </tr>
 <tr>
 <td>location.search</td>
-<td>返回参数（如<code>?name=andy$age=18</code>）</td>
+<td>返回参数（如：<code>?name=andy$age=18</code>）</td>
 </tr>
 <tr>
 <td>location.hash</td>
@@ -487,7 +487,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>navigator.appCodeName：浏览器代号</li>
 <li>navigator.cookieEnabled：是否启用Cookies</li>
 </ul>
-<h3 id="判断当前浏览器运行环境的汇总"><a href="#判断当前浏览器运行环境的汇总" class="headerlink" title="判断当前浏览器运行环境的汇总"></a>判断当前浏览器运行环境的汇总</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断当前页面所在的环境是不是微信内置浏览器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isWeiXin</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ua = <span class="built_in">window</span>.navigator.userAgent.toLowerCase();</span><br><span class="line">    <span class="keyword">if</span> (ua.match(<span class="regexp">/MicroMessenger/i</span>) == <span class="string">'micromessenger'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断苹果、安卓、pc</span></span><br><span class="line"><span class="keyword">if</span> (<span class="regexp">/(iPhone|iPad|iPod|iOS)/i</span>.test(navigator.userAgent)) &#123; <span class="comment">//判断iPhone|iPad|iPod|iOS</span></span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">"iPhone.html"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/(Android)/i</span>.test(navigator.userAgent)) &#123; <span class="comment">//判断Android</span></span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">"Android.html"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">//pc</span></span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">"pc.html"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//正则表达式判断浏览器类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">userBrowser</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> browserName = navigator.userAgent.toLowerCase();</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/msie/i</span>.test(browserName) &amp;&amp; !<span class="regexp">/opera/</span>.test(browserName)) &#123;</span><br><span class="line">        alert(<span class="string">"IE"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/firefox/i</span>.test(browserName)) &#123;</span><br><span class="line">        alert(<span class="string">"Firefox"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/chrome/i</span>.test(browserName) &amp;&amp; <span class="regexp">/webkit/i</span>.test(browserName) &amp;&amp; <span class="regexp">/mozilla/i</span>.test(browserName)) &#123;</span><br><span class="line">        alert(<span class="string">"Chrome"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/opera/i</span>.test(browserName)) &#123;</span><br><span class="line">        alert(<span class="string">"Opera"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/webkit/i</span>.test(browserName) &amp;&amp; !(<span class="regexp">/chrome/i</span>.test(browserName) &amp;&amp; <span class="regexp">/webkit/i</span>.test(browserName) &amp;&amp; <span class="regexp">/mozilla/i</span>.test(browserName))) &#123;</span><br><span class="line">        alert(<span class="string">"Safari"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">"unKnow"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -641,7 +640,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM"><span class="toc-number">1.</span> <span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window对象"><span class="toc-number">1.1.</span> <span class="toc-text">window对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-screen对象"><span class="toc-number">1.2.</span> <span class="toc-text">window.screen对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-location对象"><span class="toc-number">1.3.</span> <span class="toc-text">window.location对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面的几种方式"><span class="toc-number">1.4.</span> <span class="toc-text">打开页面的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Window-history对象"><span class="toc-number">1.5.</span> <span class="toc-text">Window.history对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-navigator对象"><span class="toc-number">1.6.</span> <span class="toc-text">window.navigator对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断当前浏览器运行环境的汇总"><span class="toc-number">1.7.</span> <span class="toc-text">判断当前浏览器运行环境的汇总</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM"><span class="toc-number">1.</span> <span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window对象"><span class="toc-number">1.1.</span> <span class="toc-text">window对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-screen对象"><span class="toc-number">1.2.</span> <span class="toc-text">window.screen对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-location对象"><span class="toc-number">1.3.</span> <span class="toc-text">window.location对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开页面的几种方式"><span class="toc-number">1.4.</span> <span class="toc-text">打开页面的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Window-history对象"><span class="toc-number">1.5.</span> <span class="toc-text">Window.history对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-navigator对象"><span class="toc-number">1.6.</span> <span class="toc-text">window.navigator对象</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -812,11 +811,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
