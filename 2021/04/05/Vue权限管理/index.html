@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 十里不故梦Blog</title>
+  <title>Vue权限管理 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="十里不故梦Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/4/index.html">
+  <meta name="description" content="路由权限控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue权限管理">
+<meta property="og:url" content="http://yoursite.com/2021/04/05/Vue%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="路由权限控制">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-05T09:27:48.000Z">
+<meta property="article:modified_time" content="2021-04-10T07:04:19.152Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="Html5">
-<meta property="article:tag" content="Css3">
-<meta property="article:tag" content="Js">
-<meta property="article:tag" content="Jquery">
-<meta property="article:tag" content="Nodejs">
-<meta property="article:tag" content="Vue">
-<meta property="article:tag" content="Uniapp">
+<meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
@@ -209,35 +204,83 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-Vue权限管理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue权限管理
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <br />
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/04/05/Vue%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-05T09:27:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="路由权限控制"><a href="#路由权限控制" class="headerlink" title="路由权限控制"></a>路由权限控制</h3><a id="more"></a>
+
+<p><strong>后端返回路由</strong></p>
+<p>第一种是指动态路由，路由是分两部分，一部分是home、login等无权限需求路由，一部分是由后端返回的该用户权限下的路由，当用户登录后得到 roles，前端根据 roles 去向后端请求可访问的路由表，从而动态生成可访问页面，之后就是 router.addRoutes 动态挂载到 router 上。前端需要有菜单管理，可以通过修改路由数据来自定义前端的菜单结构，拓展性更好</p>
+<p><strong>后端返回权限</strong></p>
+<p>第二种是前端配置路由表，后端仅返回权限，前端需要有菜单的权限管理，并且加载路由和菜单时要做权限验证。该方法是针对菜单结构相对稳定的项目，一般不支持结构变动</p>
+<h3 id="按钮权限控制"><a href="#按钮权限控制" class="headerlink" title="按钮权限控制"></a>按钮权限控制</h3><p>自定义指令</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/12/%E5%9B%BE%E6%A0%87%E5%92%8C%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-09-12T01:55:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/12/%E5%9B%BE%E6%A0%87%E5%92%8C%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">图标和字体的使用方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -249,365 +292,152 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img
+        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2021/04/05/Vue%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/06/TypeScript/" class="archive-article-date">
-  	<time datetime="2020-09-06T07:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/04/10/HTML5CSS3%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          HTML5CSS3知识点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/18/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%80%85%E5%BF%85%E5%A4%87%E7%9A%84nginx%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端开发者必备的nginx知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/06/TypeScript/">TypeScript</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#路由权限控制"><span class="toc-number">1.</span> <span class="toc-text">路由权限控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按钮权限控制"><span class="toc-number">2.</span> <span class="toc-text">按钮权限控制</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/05/JS%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6%E3%80%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-09-05T02:57:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/05/JS%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E9%A2%84%E8%A7%A3%E6%9E%90%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6%E3%80%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/">JS严格模式、作用域、预解析、闭包、垃圾回收机制、内存泄漏</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSJQUERYES5ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
-  	<time datetime="2020-09-03T07:31:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/03/%E6%87%92%E5%8A%A0%E8%BD%BD/">懒加载</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/09/VUE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-08-09T03:32:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/09/VUE%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">VUE源码解析</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUEReact</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-08-03T02:38:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/03/Vue%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/">Vue踩过的坑</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUEReact</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
+      <div id="gitalk-container"></div>
+      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/28/ajax/" class="archive-article-date">
-  	<time datetime="2020-07-28T00:37:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/28/ajax/">ajax</a>
-    </h1>
-  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '6e75a816882be5261996',
+  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
+  	repo: 'zlj-slbgm.github.io',
+  	owner: 'zlj-slbgm',
+  	admin: ['zlj-slbgm'],
+  	id: 'Mon Apr 05 2021 17:27:48 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/27/Cookie%E3%80%81Session%E3%80%81%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/" class="archive-article-date">
-  	<time datetime="2020-07-27T06:47:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/27/Cookie%E3%80%81Session%E3%80%81%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/">Cookie、Session、本地存储</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/27/%E8%A7%A3%E5%86%B3%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E9%99%90%E5%88%B6%E7%9A%84%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2020-07-27T01:26:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/27/%E8%A7%A3%E5%86%B3%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96%E9%99%90%E5%88%B6%E7%9A%84%E6%96%B9%E6%A1%88/">解决同源政策限制的方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NODEJS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/28/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="archive-article-date">
-  	<time datetime="2020-06-28T07:25:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/28/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/">原型和原型链</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSJQUERYES5ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/3/">«Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/2020/page/5/">5</a><a class="page-number" href="/archives/2020/page/6/">6</a><a class="page-number" href="/archives/2020/page/7/">7</a><a class="extend next" rel="next" href="/archives/2020/page/5/">Next»</a>
-    </nav>
-  
 
 
           </div>
@@ -645,8 +475,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
