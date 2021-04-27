@@ -8,18 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Vue之引入插件 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vuecli3中引入 bootstrap">
+  <meta name="description" content="Vue中引入 bootstrap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue之引入插件">
 <meta property="og:url" content="http://yoursite.com/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="Vuecli3中引入 bootstrap">
+<meta property="og:description" content="Vue中引入 bootstrap">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/2.png">
 <meta property="article:published_time" content="2020-10-11T07:58:31.000Z">
-<meta property="article:modified_time" content="2021-04-10T07:04:16.579Z">
+<meta property="article:modified_time" content="2021-04-27T04:48:24.546Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="VUEReact">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
   
@@ -235,9 +238,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Vuecli3中引入-bootstrap"><a href="#Vuecli3中引入-bootstrap" class="headerlink" title="Vuecli3中引入 bootstrap"></a>Vuecli3中引入 bootstrap</h3><a id="more"></a>
+        <h3 id="Vue中引入-bootstrap"><a href="#Vue中引入-bootstrap" class="headerlink" title="Vue中引入 bootstrap"></a>Vue中引入 bootstrap</h3><a id="more"></a>
 
-<p>在vue项目中引入bootstrap，首先要引入两个依赖：jQuery和popper</p>
+<p>在Vue项目中引入bootstrap，首先要引入两个依赖：jQuery和popper</p>
 <p>npm安装方式：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install bootstrap --save-dev</span><br><span class="line">npm install jquery --save-dev</span><br><span class="line">npm install popper.js --save-dev</span><br></pre></td></tr></table></figure>
 
@@ -252,23 +255,64 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>在vue.config.js中配置jQuery：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	<span class="comment">// 配置插件参数</span></span><br><span class="line">	configureWebpack: &#123;</span><br><span class="line">		plugins: [</span><br><span class="line">			<span class="comment">// 配置jQuery插件的参数</span></span><br><span class="line">			<span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">				$: <span class="string">'jquery'</span>,</span><br><span class="line">				jQuery: <span class="string">'jquery'</span>,</span><br><span class="line">				<span class="string">'window.jQuery'</span>: <span class="string">'jquery'</span>,</span><br><span class="line">				Popper: [<span class="string">'popper.js'</span>, <span class="string">'default'</span>]</span><br><span class="line">			&#125;)</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Vue中引入Swiper插件"><a href="#Vue中引入Swiper插件" class="headerlink" title="Vue中引入Swiper插件"></a>Vue中引入Swiper插件</h3><p>详情链接：<a href="https://www.cnblogs.com/toggle/p/7676473.html和https://www.swiper.com.cn/" target="_blank" rel="noopener">https://www.cnblogs.com/toggle/p/7676473.html和https://www.swiper.com.cn/</a></p>
+<h3 id="Vue中引入svg图标"><a href="#Vue中引入svg图标" class="headerlink" title="Vue中引入svg图标"></a>Vue中引入svg图标</h3><p>安装：<code>yarn add svg-sprite-loader --dev</code>，svg-sprite-loader：可以将多个 svg 打包成 svg-sprite</p>
+<p>svg组件：</p>
+<p><img src="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/1.png" alt></p>
+<p>index.vue</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- svg组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"svg-icon"</span> <span class="attr">:class</span>=<span class="string">"svgClass"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">use</span> <span class="attr">:xlink:href</span>=<span class="string">"iconName"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="actionscript">    name: <span class="string">'SvgIcon'</span>,</span></span><br><span class="line">    props: &#123;</span><br><span class="line"><span class="actionscript">        <span class="comment">// svg 的名称</span></span></span><br><span class="line">        svgName: &#123;</span><br><span class="line"><span class="javascript">            type: <span class="built_in">String</span>,</span></span><br><span class="line"><span class="actionscript">            required: <span class="literal">true</span></span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        iconName () &#123;</span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="string">`#icon-<span class="subst">$&#123;<span class="keyword">this</span>.svgName&#125;</span>`</span></span></span><br><span class="line">        &#125;,</span><br><span class="line">        svgClass () &#123;</span><br><span class="line"><span class="actionscript">            <span class="keyword">if</span> (<span class="keyword">this</span>.svgName) &#123;</span></span><br><span class="line"><span class="actionscript">                <span class="keyword">return</span> <span class="string">'svg-icon'</span> + <span class="keyword">this</span>.svgName</span></span><br><span class="line"><span class="actionscript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="actionscript">                <span class="keyword">return</span> <span class="string">'svg-icon'</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"less"</span> <span class="attr">scoped</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-class">.svg-icon</span> &#123;</span></span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line"><span class="css">    <span class="selector-tag">vertical-align</span>: <span class="selector-tag">-0</span><span class="selector-class">.15em</span>;</span></span><br><span class="line">    fill: currentColor;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注册到全局：</p>
+<p><img src="/2020/10/11/Vue%E4%B9%8B%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6/2.png" alt></p>
+<p>index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> SvgIcon <span class="keyword">from</span> <span class="string">'@/components/SvgIcon'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册到全局</span></span><br><span class="line">Vue.component(<span class="string">'svg-icon'</span>, SvgIcon)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> requireAll = <span class="function"><span class="params">requireContext</span> =&gt;</span> requireContext.keys().map(requireContext)</span><br><span class="line"><span class="keyword">const</span> req = <span class="built_in">require</span>.context(<span class="string">'./svg'</span>, <span class="literal">false</span>, /\.svg$/)</span><br><span class="line">requireAll(req)</span><br></pre></td></tr></table></figure>
+
+<p>vue.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">	   	config.module</span><br><span class="line">            .rule(<span class="string">'svg'</span>)</span><br><span class="line">            .exclude.add(resolve(<span class="string">'src/assets/icons'</span>))</span><br><span class="line">            .end()</span><br><span class="line">        config.module</span><br><span class="line">            .rule(<span class="string">'icons'</span>)</span><br><span class="line">            .test(<span class="regexp">/\.svg$/</span>)</span><br><span class="line">            .include.add(resolve(<span class="string">'src/assets/icons'</span>))</span><br><span class="line">            .end()</span><br><span class="line">            .use(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">            .loader(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">            .options(&#123;</span><br><span class="line">                symbolId: <span class="string">'icon-[name]'</span></span><br><span class="line">            &#125;)</span><br><span class="line">            .end()</span><br><span class="line">	&#125;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>页面中使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- svg-name为svg名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg-icon</span> <span class="attr">svg-name</span>=<span class="string">"ic_home_news"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Vue项目中，使用svg图标，为svg图标绑定click事件，部分浏览器中点击没有反应</strong></p>
+<p>原因：在edge内核中只有点击svg边缘部分才会触发click事件</p>
+<p>解决方式：为svg图标外面包裹一层元素，click事件绑定在外侧元素上</p>
+<p><strong>为什么要使用svg图标？iconfont字体图标难道不香吗？</strong></p>
+<p><strong>svg优势</strong></p>
 <ul>
-<li><p>安装：npm install swiper –save-dev</p>
-</li>
-<li><p>在组件中引入：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"swiper/swiper-bundle.css"</span>;</span><br><span class="line"><span class="keyword">import</span> Swiper <span class="keyword">from</span> <span class="string">"swiper"</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在mounted()中初始化插件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">	<span class="keyword">new</span> Swiper(<span class="string">".swiper-container"</span>, &#123;</span><br><span class="line">		direction: <span class="string">"horizontal"</span>,</span><br><span class="line">      	loop: <span class="literal">true</span>,</span><br><span class="line">      	autoplay: <span class="number">5000</span>,</span><br><span class="line">        <span class="comment">// 设置slider容器能够同时显示的slide数量</span></span><br><span class="line">      	slidesPerView: <span class="string">"1.5"</span>,</span><br><span class="line">        <span class="comment">// 设定为true时，活动块会居中，而不是默认状态下的居左</span></span><br><span class="line">      	centeredSlides: <span class="literal">true</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>DOM</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>slide1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>slide2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>slide3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CSS</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swiper-container</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.swiper-container</span> <span class="selector-class">.swiper-wrapper</span> <span class="selector-class">.swiper-slide-prev</span> &#123;</span><br><span class="line">	<span class="attribute">margin-top</span>: <span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.swiper-container</span> <span class="selector-class">.swiper-wrapper</span> <span class="selector-class">.swiper-slide-next</span> &#123;</span><br><span class="line">	<span class="attribute">margin-top</span>: <span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>支持多色图标了，不再受单色限制</li>
+<li>支持像字体那样通过font-size，color来调整样式</li>
+<li>支持 ie9+</li>
+<li>可利用CSS实现动画</li>
+<li>减少HTTP请求</li>
+<li>矢量，缩放不失真</li>
+<li>可以很精细的控制SVG图标的每一部分</li>
+<li>svg 是一个真正的矢量，不管你再怎么的放缩它都不会失真模糊</li>
+<li>现在ui设计师平时都喜欢使用 sketch 来工作，只要轻松一键就能导出 svg 了，所以 svg 也更受设计师的青睐</li>
+<li>svg是一个文件，只要浏览器支持它就可以显示出来，icon-font使用@font-face可能碰到浏览器不支持某种字体</li>
 </ul>
+<p><strong>iconfont</strong><br>优势</p>
+<ul>
+<li>兼容性良好，支持ie8+</li>
+<li>支持按字体的方式去动态调整图标大小，颜色等等</li>
+</ul>
+<p>劣势</p>
+<ul>
+<li>不支持多色图标</li>
+<li>在不同的设备浏览器字体的渲染会略有差别，在不同的浏览器或系统中对文字的渲染不同，其显示的位置和大小可能会受到font-size、line-height、word-spacing等CSS属性的影响</li>
+<li>使用font-class一定要注意命名空间的问题</li>
+</ul>
+<p><strong>如何通过color来调整svg样式</strong></p>
+<p>造成svg无法在页面中修改颜色的原因是，svg文件中path的属性fill设置了值，只有去除或为空才能正确使用color来设置颜色</p>
+<ol>
+<li><p>首先将xxx.svg中的fill设为空</p>
+</li>
+<li><pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"svgIcon svg-costCount"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">svg-icon</span> <span class="attr">svg-name</span>=<span class="string">"costCount"</span> /&gt;</span>
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span></code></pre>
+</li>
+<li><p>然后就可以通过.svg-costCount的color属性去设置svg的颜色了</p>
+</li>
+</ol>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://zhuanlan.zhihu.com/p/158743768" target="_blank" rel="noopener">想在vue内使用svg：如何展示？如何改色？</a></p>
 
       
 
@@ -384,18 +428,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/10/12/%E9%A2%9C%E8%89%B2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/12/%E5%89%8D%E7%AB%AF%E9%A2%9C%E8%89%B2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          颜色
+          前端颜色
         
       </div>
     </a>
   
   
-    <a href="/2020/10/08/SVG/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SVG</div>
+    <a href="/2020/10/07/http%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">http缓存机制</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -422,7 +466,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuecli3中引入-bootstrap"><span class="toc-number">1.</span> <span class="toc-text">Vuecli3中引入 bootstrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue中引入Swiper插件"><span class="toc-number">2.</span> <span class="toc-text">Vue中引入Swiper插件</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue中引入-bootstrap"><span class="toc-number">1.</span> <span class="toc-text">Vue中引入 bootstrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue中引入svg图标"><span class="toc-number">2.</span> <span class="toc-text">Vue中引入svg图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">3.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -601,11 +645,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

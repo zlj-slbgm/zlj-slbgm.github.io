@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>移动端布局 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="meta视口标签">
+  <meta name="description" content="移动端布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端布局">
 <meta property="og:url" content="http://yoursite.com/2020/09/29/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="meta视口标签">
+<meta property="og:description" content="移动端布局">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/09/29/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/1.jpeg">
 <meta property="article:published_time" content="2020-09-29T07:40:49.000Z">
-<meta property="article:modified_time" content="2021-04-10T07:04:38.541Z">
+<meta property="article:modified_time" content="2021-04-26T08:42:21.697Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
@@ -237,8 +237,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="meta视口标签"><a href="#meta视口标签" class="headerlink" title="meta视口标签"></a>meta视口标签</h3><a id="more"></a>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h3 id="移动端布局"><a href="#移动端布局" class="headerlink" title="移动端布局"></a>移动端布局</h3><a id="more"></a>
+
+<h3 id="meta视口标签"><a href="#meta视口标签" class="headerlink" title="meta视口标签"></a>meta视口标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -297,16 +298,13 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 </li>
 </ul>
-<h3 id="百分比布局"><a href="#百分比布局" class="headerlink" title="百分比布局"></a>百分比布局</h3><p>各属性用百分比作值的话，相对于自身的父元素对应的属性并不全是对应的：</p>
+<h3 id="百分比布局"><a href="#百分比布局" class="headerlink" title="百分比布局"></a>百分比布局</h3><p>各属性用百分比作值的话，相对于自身的父元素对应的属性并不全是对应的，相比来说考虑的内容较为复杂，所以不建议使用：</p>
 <ul>
 <li>子元素的padding如果设置百分比，不论是垂直方向或者是水平方向，都相对于直接父元素的width，而与父元素的height无关</li>
 <li>子元素的margin如果设置成百分比，不论是垂直方向还是水平方向，都相对于直接父元素的width</li>
 <li>border-radius不一样，如果设置border-radius为百分比，则是相对于自身的宽度</li>
 <li>子元素的top和bottom如果设置百分比，则相对于直接非static定位的父元素的高度，同样子元素的left和right如果设置百分比，则相对于直接非static定位父元素的宽度</li>
 </ul>
-<blockquote>
-<p>相比来说考虑的内容较为复杂，所以不建议使用</p>
-</blockquote>
 <h3 id="flex弹性布局"><a href="#flex弹性布局" class="headerlink" title="flex弹性布局"></a>flex弹性布局</h3><ul>
 <li><p>flex布局原理：通过给父盒子加display: flex，来控制子盒子的位置和排列方式</p>
 </li>
@@ -363,6 +361,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <ul>
 <li><p>order是子项目属性，定义项目的排列顺序，数值越小，排列越靠前，默认为0</p>
 </li>
+<li><p>align-self属性设置子项目自己在侧轴上的排列方式（允许单个项目有与其他项目不一样的对齐），默认为auto，元素继承了它的父容器的align-items属性，如果没有父容器则为stretch</p>
+</li>
 <li><p>flex-grow 属性定义子项目的放大比例，默认为0，即如果存在剩余空间，也不放大</p>
 </li>
 <li><p>flex-shrink 属性定义子项目的缩小比例，默认为1，即如果空间不足，该子项目将缩小，负值无效</p>
@@ -376,25 +376,20 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>flex属性定义子项目分配剩余空间，用flex来表示占多少份</p>
 <ul>
 <li><p>flex属性实现两边固定中间自适应方法1：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: burlywood;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">    <span class="comment">/* flex属性定义子项目分配剩余空间,用flex来表示占多少份 */</span></span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="selector-tag">section</span>&gt;</span><br><span class="line">    &lt;div&gt;left&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;center&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;right&lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">  <span class="selector-tag">section</span> &#123;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: burlywood;</span><br><span class="line">      <span class="attribute">display</span>: flex;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</span><br><span class="line">      <span class="attribute">background-color</span>: green;</span><br><span class="line">      <span class="comment">/* flex属性定义子项目分配剩余空间,用flex来表示占多少份 */</span></span><br><span class="line">      <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">  &lt;<span class="selector-tag">section</span>&gt;</span><br><span class="line">      &lt;div&gt;left&lt;/div&gt;</span><br><span class="line">      &lt;div&gt;center&lt;/div&gt;</span><br><span class="line">      &lt;div&gt;right&lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>flex属性实现两边固定中间自适应方法2：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: burlywood;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="comment">/* none(0 0 auto)表示即使存在剩余或者空间不足都不会放大或缩小(就相当于固定了) */</span></span><br><span class="line">    <span class="attribute">flex</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">    <span class="comment">/* auto(1 1 auto)表示存在剩余空间会放大,空间不足会缩小(就相当于自适应) */</span></span><br><span class="line">    <span class="attribute">flex</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">flex</span>: none;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="selector-tag">section</span>&gt;</span><br><span class="line">    &lt;div&gt;left&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;center&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;right&lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>align-self属性设置子项目自己在侧轴上的排列方式（允许单个项目有与其他项目不一样的对齐），默认为auto，元素继承了它的父容器的align-items属性，如果没有父容器则为stretch</p>
+
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="Grid布局"><a href="#Grid布局" class="headerlink" title="Grid布局"></a>Grid布局</h3><blockquote>
-<p>Flex布局是轴线布局，只能指定”项目”针对轴线的位置，可以看作是<strong>一维布局</strong>，Grid 布局则是将容器划分成”行”和”列”，产生单元格，然后指定”项目所在”的单元格，可以看作是<strong>二维布局</strong>，Grid 布局远比 Flex 布局强大</p>
+</li>
+</ul>
+<h3 id="Grid布局"><a href="#Grid布局" class="headerlink" title="Grid布局"></a>Grid布局</h3><p>Flex布局是轴线布局，只能指定”项目”针对轴线的位置，可以看作是<strong>一维布局</strong>，Grid 布局则是将容器划分成”行”和”列”，产生单元格，然后指定”项目所在”的单元格，可以看作是<strong>二维布局</strong>，Grid 布局远比 Flex 布局强大</p>
 <p>注意：设为网格布局以后，容器子元素（项目）的float、display: inline-block、display: table-cell、vertical-align和column-*等设置都将失效</p>
-</blockquote>
-<blockquote>
-<p>display: grid容器元素为块级元素，display: inline-grid容器元素为行内元素</p>
-</blockquote>
+<p><strong>display: grid容器元素为块级元素，display: inline-grid容器元素为行内元素</strong></p>
 <ul>
 <li><p>划分网格的线，称为”网格线”（grid line）</p>
 </li>
@@ -465,14 +460,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
-<blockquote>
 <p>这四个属性的值还可以使用<code>span</code>关键字，表示”跨越”，即左右边框（上下边框）之间跨越多少个网格</p>
-</blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item-1</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: span <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 1号项目的左边框距离右边框跨越2个网格 */</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
 <p>使用这四个属性，如果产生了项目的重叠，则使用<code>z-index</code>属性指定项目的重叠顺序</p>
-</blockquote>
 <ul>
 <li><p><code>grid-column</code>属性是<code>grid-column-start</code>和<code>grid-column-end</code>的合并简写形式，<code>grid-row</code>属性是<code>grid-row-start</code>属性和<code>grid-row-end</code>的合并简写形式</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item-1</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span> / <span class="number">3</span>;</span><br><span class="line">  <span class="attribute">grid-row</span>: <span class="number">1</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 等同于 */</span></span><br><span class="line"><span class="selector-class">.item-1</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">grid-column-end</span>: <span class="number">3</span>;</span><br><span class="line">  <span class="attribute">grid-row-start</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">grid-row-end</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -608,9 +599,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
-<h3 id="媒体查询之引入资源"><a href="#媒体查询之引入资源" class="headerlink" title="媒体查询之引入资源"></a>媒体查询之引入资源</h3><blockquote>
-<p>当样式比较繁多时，可以针对不同的媒体使用不同的stylesheets（样式表）</p>
-</blockquote>
+<h3 id="媒体查询之引入资源"><a href="#媒体查询之引入资源" class="headerlink" title="媒体查询之引入资源"></a>媒体查询之引入资源</h3><p>当样式比较繁多时，可以针对不同的媒体使用不同的stylesheets（样式表）</p>
 <ul>
 <li>原理：在link中判断设备的尺寸，然后引入不同的css文件</li>
 <li>语法：<code>&lt;link rel=&quot;stylesheet&quot; media=&quot;mediatype and|not|only (media feature)&quot; href=&quot;?.css&quot;&gt;</code></li>
@@ -676,16 +665,13 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 <li><p>实现方式：</p>
 <ul>
-<li><p>利用媒体查询来改变font-size（这种写法比较僵硬，没有过度）<strong>(less+rem+媒体查询)</strong></p>
+<li><p>利用媒体查询来改变font-size（这种写法比较僵硬，没有过度）</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">1536px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">18px</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">500px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>用js（当前根元素的字体大小 = 设计稿的字体大小 * 当前设备宽度 / 设计稿的宽度）<strong>（flexible.js+rem）</strong></p>
+<li><p>用js（当前根元素的字体大小 = 设计稿的字体大小 * 当前设备宽度 / 设计稿的宽度）</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fontSizeFun</span> (<span class="params">designwidth</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> fontSize = <span class="number">100</span></span><br><span class="line">    <span class="keyword">let</span> relwidth = <span class="built_in">document</span>.documentElement.clientWidth</span><br><span class="line">    <span class="keyword">let</span> relfontSize = fontSize * relwidth / designwidth + <span class="string">'px'</span></span><br><span class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>].style.fontSize = relfontSize</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//首次加载应用，设置一次</span></span><br><span class="line">fontSizeFun(<span class="number">750</span>)</span><br><span class="line"><span class="comment">// 监听手机旋转的事件的时机，重新设置</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'orientationchange'</span>, fontSizeFun(<span class="number">750</span>))</span><br><span class="line"><span class="comment">// 监听手机窗口变化，重新设置</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, fontSizeFun(<span class="number">750</span>))</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>flexible.js把当前设备划分为10等份，我们不需要在写不同屏幕尺寸的媒体查询，只要确定好我们当前设备的html字体大小就行，其它的都由flexible.js计算</p>
-<p>github地址：<a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">https://github.com/amfe/lib-flexible</a></p>
-</blockquote>
+
 </li>
 </ul>
 </li>
@@ -726,14 +712,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </tr>
 </tbody></table>
 </li>
-<li><p>使用Bootstrap框架开发（官网：<a href="https://www.bootcss.com/）" target="_blank" rel="noopener">https://www.bootcss.com/）</a></p>
-<blockquote>
+<li><p>使用Bootstrap框架开发</p>
 <p>Bootstrap提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列，它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局</p>
-</blockquote>
-<blockquote>
 <p>bootstrap提供了.clearfix类来清除浮动</p>
 <p>引入bootstrap.min.js之前需要先引入jquery.js</p>
-</blockquote>
 <ul>
 <li><p>container类（用于固定宽度并支持响应式布局的容器）</p>
 <ul>
@@ -750,11 +732,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 <li><p>实例：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">[class^=col] &#123;</span><br><span class="line">    height: 50px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line">.col-xs-6 &#123;</span><br><span class="line">    background-color: seagreen;</span><br><span class="line">&#125;</span><br><span class="line">.col-xs-3 &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br><span class="line">.col-xs-8 &#123;</span><br><span class="line">    background-color: royalblue;</span><br><span class="line">&#125;</span><br><span class="line">.col-xs-5 &#123;</span><br><span class="line">    background-color: tan;</span><br><span class="line">&#125;</span><br><span class="line">.col-xs-7 &#123;</span><br><span class="line">    background-color: violet;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-3 col-md-4 col-sm-6 col-xs-12"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 列嵌套 我们做列嵌套最好加1个行row这样可以取消父元素的padding值而且高度自动和父级一样高--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6"</span>&gt;</span>a<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6"</span>&gt;</span>b<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-3 col-md-4 col-sm-6 col-xs-12"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span> </span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-3"</span>&gt;</span>左侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 列偏移 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-3 col-xs-offset-6"</span>&gt;</span>右侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-3 col-md-4 col-sm-6 col-xs-12"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-8 col-xs-offset-2"</span>&gt;</span>中间<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-3 col-md-4 col-sm-6 col-xs-12"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- col-xs-push-7向右平移7份 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-5 col-xs-push-7"</span>&gt;</span>左侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- col-xs-pull-5向左平移5份 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-7 col-xs-pull-5"</span>&gt;</span>右侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>col-g-3表示在大屏下当前div所占的份数，一行12列，排不下就到下一行</p>
-<p>每一列默认有左右15像素的padding</p>
-</blockquote>
 </li>
 </ul>
 </li>
@@ -770,17 +747,13 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 </li>
 </ul>
-<h3 id="移动端触屏事件"><a href="#移动端触屏事件" class="headerlink" title="移动端触屏事件"></a>移动端触屏事件</h3><blockquote>
-<p>触摸点可能是一根手指，也可能是一根触摸笔，触屏事件可以响应用户对屏幕或触控板的操作</p>
-</blockquote>
+<h3 id="移动端触屏事件"><a href="#移动端触屏事件" class="headerlink" title="移动端触屏事件"></a>移动端触屏事件</h3><p>触摸点可能是一根手指，也可能是一根触摸笔，触屏事件可以响应用户对屏幕或触控板的操作</p>
 <ul>
 <li>touchstart：手指触摸（点击）到一个DOM元素时触发</li>
 <li>touchmove：手指在一个DOM元素上滑动时触发</li>
 <li>touchend：手指从一个DOM元素上移开时触发</li>
 </ul>
-<h3 id="触摸事件对象"><a href="#触摸事件对象" class="headerlink" title="触摸事件对象"></a>触摸事件对象</h3><blockquote>
-<p>TouchEvent是触摸事件对象，描述手指在触摸平面（触摸屏或触摸板等）的状态变化的事件，描述一个或多个触点使开发者可以检测触点的移动以及触点的增加和减少等</p>
-</blockquote>
+<h3 id="触摸事件对象"><a href="#触摸事件对象" class="headerlink" title="触摸事件对象"></a>触摸事件对象</h3><p>TouchEvent是触摸事件对象，描述手指在触摸平面（触摸屏或触摸板等）的状态变化的事件，描述一个或多个触点使开发者可以检测触点的移动以及触点的增加和减少等</p>
 <ul>
 <li>touches：正在触摸屏幕的所有手指的一个列表</li>
 <li>targetTouches：正在触摸当前DOM元素上的手指的一个列表</li>
@@ -939,7 +912,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#meta视口标签"><span class="toc-number">1.</span> <span class="toc-text">meta视口标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端主流方案："><span class="toc-number">2.</span> <span class="toc-text">移动端主流方案：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端技术"><span class="toc-number">3.</span> <span class="toc-text">移动端技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端技术选型"><span class="toc-number">4.</span> <span class="toc-text">移动端技术选型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#百分比布局"><span class="toc-number">5.</span> <span class="toc-text">百分比布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex弹性布局"><span class="toc-number">6.</span> <span class="toc-text">flex弹性布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grid布局"><span class="toc-number">7.</span> <span class="toc-text">Grid布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端多倍图适配"><span class="toc-number">8.</span> <span class="toc-text">移动端多倍图适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#媒体查询（Media-Query）"><span class="toc-number">9.</span> <span class="toc-text">媒体查询（Media Query）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#媒体查询之引入资源"><span class="toc-number">10.</span> <span class="toc-text">媒体查询之引入资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Less"><span class="toc-number">11.</span> <span class="toc-text">Less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem布局"><span class="toc-number">12.</span> <span class="toc-text">rem布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式布局"><span class="toc-number">13.</span> <span class="toc-text">响应式布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端触屏事件"><span class="toc-number">14.</span> <span class="toc-text">移动端触屏事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#触摸事件对象"><span class="toc-number">15.</span> <span class="toc-text">触摸事件对象</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端布局"><span class="toc-number">1.</span> <span class="toc-text">移动端布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#meta视口标签"><span class="toc-number">2.</span> <span class="toc-text">meta视口标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端主流方案："><span class="toc-number">3.</span> <span class="toc-text">移动端主流方案：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端技术"><span class="toc-number">4.</span> <span class="toc-text">移动端技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端技术选型"><span class="toc-number">5.</span> <span class="toc-text">移动端技术选型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#百分比布局"><span class="toc-number">6.</span> <span class="toc-text">百分比布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex弹性布局"><span class="toc-number">7.</span> <span class="toc-text">flex弹性布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grid布局"><span class="toc-number">8.</span> <span class="toc-text">Grid布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端多倍图适配"><span class="toc-number">9.</span> <span class="toc-text">移动端多倍图适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#媒体查询（Media-Query）"><span class="toc-number">10.</span> <span class="toc-text">媒体查询（Media Query）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#媒体查询之引入资源"><span class="toc-number">11.</span> <span class="toc-text">媒体查询之引入资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Less"><span class="toc-number">12.</span> <span class="toc-text">Less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem布局"><span class="toc-number">13.</span> <span class="toc-text">rem布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式布局"><span class="toc-number">14.</span> <span class="toc-text">响应式布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端触屏事件"><span class="toc-number">15.</span> <span class="toc-text">移动端触屏事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#触摸事件对象"><span class="toc-number">16.</span> <span class="toc-text">触摸事件对象</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1118,11 +1091,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

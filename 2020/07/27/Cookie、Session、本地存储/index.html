@@ -16,7 +16,7 @@
 <meta property="og:description" content="Cookie、Session、本地存储">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-27T06:47:06.000Z">
-<meta property="article:modified_time" content="2021-04-10T07:04:13.700Z">
+<meta property="article:modified_time" content="2021-04-26T08:59:53.128Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -237,9 +237,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
       
         <h3 id="Cookie、Session、本地存储"><a href="#Cookie、Session、本地存储" class="headerlink" title="Cookie、Session、本地存储"></a>Cookie、Session、本地存储</h3><a id="more"></a>
 
-<blockquote>
-<p>HTTP协议是无状态的协议，一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接，这就意味着服务器无法从连接上跟踪会话，于是出现了Cookie和Session</p>
-</blockquote>
 <h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie实际上是一小段的文本信息，客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie，客户端会把Cookie保存起来，当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器，服务器检查该Cookie，以此来辨认用户状态。服务器还可以根据需要修改Cookie的内容</p>
 <ul>
 <li><strong>会话Cookie：</strong>若不设置过期时间，则表示这个Cookie的生命期为浏览器会话期间，关闭浏览器窗口，Cookie就消失，这种生命期为浏览器会话期的Cookie被称为会话Cookie。会话Cookie一般不存储在硬盘上而是保存在内存里</li>
@@ -272,9 +269,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>设置了不同域名下的cookie是不能互相访问，但是子域名是可以访问上级域名的，所以可以将cookie存在顶级域名下</li>
 </ul>
 <p><strong>前端获取cookie：</strong></p>
-<blockquote>
 <p>只能获取非HttpOnly标记的cookie</p>
-</blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie</span><br></pre></td></tr></table></figure>
 
 <p><strong>前端设置cookie：</strong></p>
@@ -294,15 +289,12 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>跨域支持上的不同：Cookie支持跨域名访问，例如将domain属性设置为“.baidu.com”，则以“.baidu.com”为后缀的一切域名均能够访问该Cookie，跨域名Cookie如今被普遍用在网络中，而Session则不会支持跨域名访问，Session仅在它所在的域名内有效</p>
 </li>
 </ul>
-<h3 id="sessionStorage和localStorage"><a href="#sessionStorage和localStorage" class="headerlink" title="sessionStorage和localStorage"></a>sessionStorage和localStorage</h3><blockquote>
-<p>以键值对的形式存储使用</p>
-</blockquote>
+<h3 id="sessionStorage和localStorage"><a href="#sessionStorage和localStorage" class="headerlink" title="sessionStorage和localStorage"></a>sessionStorage和localStorage</h3><p>以键值对的形式存储使用</p>
 <p>存储数据：<code>sessionStorage.setItem(key,value)</code>或<code>localStorage.setItem(key,value)</code></p>
 <p>获取数据：<code>sessionStorage.getItem(key)</code>或<code>localStorage.getItem(key)</code></p>
 <p>删除数据：<code>sessionStorage.removeItem(key)</code>或<code>localStorage.removeItem(key)</code></p>
 <p>删除所有数据：<code>sessionStorage.clear()</code>或<code>localStorage.clear()</code></p>
-<h3 id="本地存储数据格式转换"><a href="#本地存储数据格式转换" class="headerlink" title="本地存储数据格式转换"></a>本地存储数据格式转换</h3><p><code>JSON.parse()</code> 将Json字符串转换为javascript对象 和 <code>JSON.stringify()</code> 将javascript对象转换为Json字符串</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> todolist = [&#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    title: <span class="string">'我要签到'</span>,</span><br><span class="line">    done: <span class="literal">true</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    id: <span class="number">2</span>,</span><br><span class="line">    title: <span class="string">'我要学习'</span>,</span><br><span class="line">    done: <span class="literal">true</span></span><br><span class="line">&#125;]</span><br><span class="line">todolist.push(&#123;</span><br><span class="line">    id: <span class="number">3</span>,</span><br><span class="line">    title: <span class="string">'我要运动'</span>,</span><br><span class="line">    done: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 本地存储里只能存储字符串数据格式，存储数据需要把对象数组转换成字符串数据格式</span></span><br><span class="line">localStorage.setItem(<span class="string">"data"</span>, <span class="built_in">JSON</span>.stringify(todolist))</span><br><span class="line"><span class="comment">// 获取本地存储的数据，需要把字符串数据格式转换成对象数组</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">"data"</span>)))</span><br></pre></td></tr></table></figure>
+<h3 id="本地存储数据格式转换"><a href="#本地存储数据格式转换" class="headerlink" title="本地存储数据格式转换"></a>本地存储数据格式转换</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> todolist = [&#123;</span><br><span class="line">    id: <span class="number">1</span>,</span><br><span class="line">    title: <span class="string">'我要签到'</span>,</span><br><span class="line">    done: <span class="literal">true</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    id: <span class="number">2</span>,</span><br><span class="line">    title: <span class="string">'我要学习'</span>,</span><br><span class="line">    done: <span class="literal">true</span></span><br><span class="line">&#125;]</span><br><span class="line">todolist.push(&#123;</span><br><span class="line">    id: <span class="number">3</span>,</span><br><span class="line">    title: <span class="string">'我要运动'</span>,</span><br><span class="line">    done: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 本地存储里只能存储字符串数据格式，存储数据需要把对象数组转换成字符串数据格式</span></span><br><span class="line">localStorage.setItem(<span class="string">"data"</span>, <span class="built_in">JSON</span>.stringify(todolist))</span><br><span class="line"><span class="comment">// 获取本地存储的数据，需要把字符串数据格式转换成对象数组</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">"data"</span>)))</span><br></pre></td></tr></table></figure>
 
 <h3 id="cookie、sessionStorage、localStorage三者区别"><a href="#cookie、sessionStorage、localStorage三者区别" class="headerlink" title="cookie、sessionStorage、localStorage三者区别"></a>cookie、sessionStorage、localStorage三者区别</h3><ul>
 <li>存储方式不同：<ul>
@@ -673,11 +665,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/05/17/MongoDB/1.png">
 <meta property="article:published_time" content="2020-05-17T05:45:14.000Z">
-<meta property="article:modified_time" content="2021-04-10T07:04:37.148Z">
+<meta property="article:modified_time" content="2021-04-27T03:54:34.800Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="NODEJS">
 <meta name="twitter:card" content="summary">
@@ -246,9 +246,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>MongoDBCompass 连接出现 authentication failed,要进行创建用户！！！,项目或第三方工具才能使用用户名密码连接 MongoDB 指定的数据库！！！(详情参考:<a href="https://www.cnblogs.com/iTlijun/p/7169538.html" target="_blank" rel="noopener">https://www.cnblogs.com/iTlijun/p/7169538.html</a>)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">D:\programs\mongoDB\bin&gt;mongo</span><br><span class="line"> MongoDB shell version v3.4.3</span><br><span class="line"> connecting to: mongodb://127.0.0.1:27017</span><br><span class="line"> MongoDB server version: 3.4.3</span><br><span class="line"> &gt; db</span><br><span class="line"> <span class="built_in">test</span></span><br><span class="line"> &gt; use admin</span><br><span class="line"> switched to db admin　　</span><br><span class="line"> &gt;db.createUser(</span><br><span class="line">    &#123;</span><br><span class="line">      user: <span class="string">"root"</span>,</span><br><span class="line">      <span class="built_in">pwd</span>: <span class="string">"rootpwd"</span>,</span><br><span class="line">      roles: [ &#123;role:<span class="string">"root"</span>, db:<span class="string">"admin"</span>&#125; ]</span><br><span class="line">    &#125;</span><br><span class="line"> )</span><br></pre></td></tr></table></figure>
 
-<blockquote>
 <p>使用用户名root和密码rootpwd登录localhost的zlj数据库<br>mongodb://root:rootpwd@localhost:27017/zlj</p>
-</blockquote>
 <h3 id="MongoDB的-id类型不一致"><a href="#MongoDB的-id类型不一致" class="headerlink" title="MongoDB的_id类型不一致"></a>MongoDB的_id类型不一致</h3><p>MongoDB数据库 <code>_id</code> 是ObjectId类型，而查询数据的 <code>_id</code> 是string类型</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span><br><span class="line"><span class="keyword">const</span> usersSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    <span class="comment">// 在集合和集合规则模块中不能这样定义，否则会出现_id类型不一致，导致查询出错</span></span><br><span class="line">	<span class="comment">// _id: String</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -256,7 +254,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>在bin目录下打开cmd输出mongod –dbpath=D:\MongoDB\data –port=27017</p>
 <p><strong>或者找到MongoDB服务将其启动</strong></p>
 <p><img src="/2020/05/17/MongoDB/1.png" alt></p>
-<h3 id="MongoDB基础命令及操作"><a href="#MongoDB基础命令及操作" class="headerlink" title="MongoDB基础命令及操作"></a><a href="https://www.cnblogs.com/longguoliang/p/9501597.html" target="_blank" rel="noopener">MongoDB基础命令及操作</a></h3><h3 id="MongoDB数据库常用语句"><a href="#MongoDB数据库常用语句" class="headerlink" title="MongoDB数据库常用语句"></a>MongoDB数据库常用语句</h3><p><a href="https://www.cnblogs.com/xiaohuangmao/p/10164111.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaohuangmao/p/10164111.html</a></p>
 
       
 
@@ -372,11 +369,11 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
   
 <nav id="article-nav">
   
-    <a href="/2020/05/19/HTML5CSS3%E6%96%B0%E7%89%B9%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/19/HTML5%20CSS3%E6%96%B0%E7%89%B9%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          HTML5CSS3新特性
+          HTML5 CSS3新特性
         
       </div>
     </a>
@@ -410,7 +407,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB"><span class="toc-number">1.</span> <span class="toc-text">MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-MongoDB"><span class="toc-number">2.</span> <span class="toc-text">安装 MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB的-id类型不一致"><span class="toc-number">3.</span> <span class="toc-text">MongoDB的_id类型不一致</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接-MongoDB出现connect-ECONNREFUSED-127-0-0-1-27017"><span class="toc-number">4.</span> <span class="toc-text">连接 MongoDB出现connect ECONNREFUSED 127.0.0.1:27017</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB基础命令及操作"><span class="toc-number">5.</span> <span class="toc-text">MongoDB基础命令及操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB数据库常用语句"><span class="toc-number">6.</span> <span class="toc-text">MongoDB数据库常用语句</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB"><span class="toc-number">1.</span> <span class="toc-text">MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-MongoDB"><span class="toc-number">2.</span> <span class="toc-text">安装 MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB的-id类型不一致"><span class="toc-number">3.</span> <span class="toc-text">MongoDB的_id类型不一致</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接-MongoDB出现connect-ECONNREFUSED-127-0-0-1-27017"><span class="toc-number">4.</span> <span class="toc-text">连接 MongoDB出现connect ECONNREFUSED 127.0.0.1:27017</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -589,11 +586,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSJQUERYES5ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">NODEJS</a>
               </li>
              
               <li class="article-tag-list-item">
