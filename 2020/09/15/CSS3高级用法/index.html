@@ -16,7 +16,7 @@
 <meta property="og:description" content="CSS3高级用法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-15T02:36:02.000Z">
-<meta property="article:modified_time" content="2021-04-27T03:53:05.763Z">
+<meta property="article:modified_time" content="2021-05-06T09:23:16.578Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -352,8 +352,30 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>实例：在许多网站上过节的时候页面最上层会用canvas绘制雨、雪花等，避免这些悬浮物遮挡住页面从而影响鼠标点击，可以使用pointer-events=none属性，让这些上方的canvas不会遮挡鼠标事件，让鼠标事件可以穿透上方的canvas来点击页面</p>
 <p>场景：将div禁用，不可点击。将pointer-events设置为none</p>
 </li>
+<li><p>background-attachment：决定背景图像的位置是在视口内固定或随着包含它的区块滚动</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scroll</td>
+<td>默认值，背景相对于元素固定，背景随着页面滚动而滚动（即背景和内容绑定）</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>背景图相对于视口固定，页面滚动背景不动（即背景被设置在了body上）</td>
+</tr>
+<tr>
+<td>local</td>
+<td>背景图相对于元素内容固定</td>
+</tr>
+</tbody></table>
+</li>
 </ul>
-<h3 id="CSS属性值initial、inherit、unset关键字区别"><a href="#CSS属性值initial、inherit、unset关键字区别" class="headerlink" title="CSS属性值initial、inherit、unset关键字区别"></a>CSS属性值initial、inherit、unset关键字区别</h3><ul>
+<h3 id="CSS全局属性值initial、inherit、unset关键字区别"><a href="#CSS全局属性值initial、inherit、unset关键字区别" class="headerlink" title="CSS全局属性值initial、inherit、unset关键字区别"></a>CSS全局属性值initial、inherit、unset关键字区别</h3><ul>
 <li>inherit关键字：代表使用指定给父元素的所有值。如果父元素中没有明确的值定义，浏览器搜寻DOM树直到找到相应的属性，最终无法找到的话，它会使用浏览器的默认值。在实际中是很少使用inherit的。许多有用的属性自动继承，例如字体，字体大小，颜色，等</li>
 <li>initial关键字：设置一个属性为它的初始值——浏览器的默认定义值</li>
 <li>unset关键字：它表现地就像有可继承值存在时继承了一样。如果它找不到可继承的，比如它是box-shadow等不可继承的属性时，它表现地是继承了浏览器的默认值</li>
@@ -541,7 +563,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3高级用法"><span class="toc-number">1.</span> <span class="toc-text">CSS3高级用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS属性值initial、inherit、unset关键字区别"><span class="toc-number">2.</span> <span class="toc-text">CSS属性值initial、inherit、unset关键字区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-width中的max-content-min-content-fit-content的区别"><span class="toc-number">3.</span> <span class="toc-text">CSS width中的max-content min-content fit-content的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS中min-height、max-height、min-width、max-width用法"><span class="toc-number">4.</span> <span class="toc-text">CSS中min-height、max-height、min-width、max-width用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">5.</span> <span class="toc-text">参考文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3高级用法"><span class="toc-number">1.</span> <span class="toc-text">CSS3高级用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS全局属性值initial、inherit、unset关键字区别"><span class="toc-number">2.</span> <span class="toc-text">CSS全局属性值initial、inherit、unset关键字区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-width中的max-content-min-content-fit-content的区别"><span class="toc-number">3.</span> <span class="toc-text">CSS width中的max-content min-content fit-content的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS中min-height、max-height、min-width、max-width用法"><span class="toc-number">4.</span> <span class="toc-text">CSS中min-height、max-height、min-width、max-width用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">5.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -712,11 +734,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">

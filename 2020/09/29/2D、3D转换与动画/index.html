@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/09/29/2D%E3%80%813D%E8%BD%AC%E6%8D%A2%E4%B8%8E%E5%8A%A8%E7%94%BB/1.png">
 <meta property="article:published_time" content="2020-09-29T01:39:51.000Z">
-<meta property="article:modified_time" content="2021-04-27T05:11:43.021Z">
+<meta property="article:modified_time" content="2021-05-05T05:31:23.435Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
@@ -239,8 +239,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
       
         <h3 id="2D转换"><a href="#2D转换" class="headerlink" title="2D转换"></a>2D转换</h3><a id="more"></a>
 
-<p><strong>2D转换之移动：translate</strong></p>
-<p>语法：（单位可以是像素px也可以是百分比）</p>
+<p><strong>2D转换之移动 translate</strong></p>
+<p>语法：单位可以是像素px也可以是百分比</p>
 <ul>
 <li><code>transform: translate(x,y)</code></li>
 <li><code>transform: translateX(n)</code></li>
@@ -252,17 +252,17 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>translate的百分比单位是相对于自身</li>
 <li>对行内标签没有效果</li>
 </ul>
-<p><strong>2D转换之旋转：rotate</strong></p>
-<p>语法：(单位只能为deg)</p>
+<p><strong>2D转换之旋转 rotate</strong></p>
+<p>语法：单位只能为deg</p>
 <ul>
 <li><code>transform: rotate(angle)</code></li>
 </ul>
 <p>重点：</p>
 <ul>
-<li>角度为正顺时针旋转，角度为负逆时针旋转，默认的旋转中心点是元素的中心点</li>
+<li>角度为正的话顺时针旋转，角度为负的话逆时针旋转，默认的旋转中心点是元素的中心点</li>
 </ul>
-<p><strong>2D转换之缩放：scale</strong></p>
-<p>语法：(无单位，但只能是宽和高的倍数)</p>
+<p><strong>2D转换之缩放 scale</strong></p>
+<p>语法：无单位，但只能是宽和高的倍数</p>
 <ul>
 <li><code>transform: scale(x,y)</code></li>
 <li><code>transform: scaleX(n)</code></li>
@@ -270,27 +270,25 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 <p>重点：</p>
 <ul>
-<li><code>transform: scale(2,2)</code>可简写为<code>transform: scale(2)</code></li>
+<li><code>transform: scale(2,2)</code>  可简写为 <code>transform: scale(2)</code></li>
 <li>scale缩放是以缩放中心点向两边进行缩放，默认缩放中心点为元素中心点</li>
 <li>scale优势是不会影响其他元素的位置而且可以设置缩放的中心点</li>
 </ul>
-<p><strong>2D转换之倾斜：skew</strong></p>
-<p>语法：（单位只能为deg）</p>
+<p><strong>2D转换之倾斜 skew</strong></p>
+<p>语法：单位只能为deg</p>
 <ul>
 <li><code>transform: skew(angle,angle)</code></li>
-<li><code>transform: skewX(angle)</code>只在水平方向倾斜</li>
-<li><code>transform: skewY(angle)</code>只在垂直方向倾斜</li>
+<li><code>transform: skewX(angle)</code> 只在水平方向倾斜</li>
+<li><code>transform: skewY(angle)</code> 只在垂直方向倾斜</li>
 </ul>
 <p>重点：</p>
 <ul>
-<li><code>transform: skewX(20deg)</code>元素沿y轴逆时针倾斜20度</li>
-<li><code>transform: skewY(20deg)</code>元素沿x轴逆时针倾斜20度</li>
+<li><code>transform: skewX(20deg)</code> 元素沿y轴逆时针倾斜20度</li>
+<li><code>transform: skewY(20deg)</code> 元素沿x轴逆时针倾斜20度</li>
 </ul>
 <p><strong>2D转换综合写法顺序</strong></p>
 <ul>
-<li><p><code>transform: translate(100px,100px) rotate(360deg) scale(1.5)</code></p>
-</li>
-<li><p>实现效果：边移动边旋转边缩放</p>
+<li><p><code>transform: translate(100px,100px) rotate(360deg) scale(1.5)</code> 边移动边旋转边缩放</p>
 </li>
 <li><p>一定要把位移放在最前面，先旋转的话会改变坐标轴方向</p>
 </li>
@@ -298,9 +296,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 </ul>
 <p><strong>transition动画过渡</strong></p>
-<blockquote>
 <p>谁做动画就给谁加过渡</p>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -312,7 +308,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <tbody><tr>
 <td align="left">transition</td>
 <td align="left">简写属性，用于在一个属性中设置四个过渡属性</td>
-<td align="left"><strong>transition: all .5s linear 0s</strong></td>
+<td align="left">transition: all .5s linear 0s</td>
 </tr>
 <tr>
 <td align="left">transition-property</td>
@@ -336,8 +332,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </tr>
 </tbody></table>
 <p><strong>transition动画的局限性和适用场景</strong></p>
+<p>局限性：</p>
 <ul>
-<li>局限性：<ul>
 <li>仅支持有限的CSS属性</li>
 <li>隐式过渡（只能定义开始和结束状态），中途无法控制</li>
 <li>transition需要知道开始状态和结束状态的具体数值<ul>
@@ -349,15 +345,13 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>一次性、不可暂停或反转</li>
 <li>transition需要事件触发，所以无法在网页加载的时候自动发生</li>
 </ul>
-</li>
-<li>适用场景：<ul>
+<p>适用场景：</p>
+<ul>
 <li>元素hover或点击</li>
 <li>弹窗打开或关闭时的效果</li>
 </ul>
-</li>
-</ul>
 <p><strong>2D、3D转换中心点</strong></p>
-<p>语法：（<strong>单位可以是像素px也可以是百分比和方位词center top right bottom left</strong>）</p>
+<p>语法：单位可以是像素px也可以是百分比和方位词center top right bottom left</p>
 <ul>
 <li><code>transform-origin: x-axis y-axis z-axis</code></li>
 </ul>
@@ -385,10 +379,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>语法：</p>
 <ul>
 <li><code>transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg)</code></li>
-<li><code>rotateX(angele)</code>相当于<code>rotate3d(1,0,0,angle)</code>指定在3维空间内的X轴旋转</li>
-<li><code>rotateY(angele)</code>相当于<code>rotate3d(0,1,0,angle)</code>指定在3维空间内的Y轴旋转</li>
-<li><code>rotateZ(angele)</code>相当于<code>rotate3d(0,0,1,angle)</code>指定在3维空间内的Z轴旋转</li>
-<li><code>transform: rotate3d(1,1,0,45deg)</code>沿着屏幕对角线旋转45度</li>
+<li><code>rotateX(angele)</code> 相当于 <code>rotate3d(1,0,0,angle)</code> 指定在3维空间内的X轴旋转</li>
+<li><code>rotateY(angele)</code> 相当于 <code>rotate3d(0,1,0,angle)</code> 指定在3维空间内的Y轴旋转</li>
+<li><code>rotateZ(angele)</code> 相当于 <code>rotate3d(0,0,1,angle)</code> 指定在3维空间内的Z轴旋转</li>
+<li><code>transform: rotate3d(1,1,0,45deg)</code> 沿着屏幕对角线旋转45度</li>
 </ul>
 <p>左手准则：</p>
 <ul>
@@ -398,9 +392,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p><strong>3D转换综合写法</strong></p>
 <p><code>transform: translate3d(100px,100px,100px) rotate3d(1,1,0,45deg)</code></p>
 <p><strong>透视（perspective）</strong></p>
-<blockquote>
 <p>默认值：perspective-origin: 50% 50%;</p>
-</blockquote>
 <ul>
 <li>产生3D效果需要透视</li>
 <li>透视也称为视距：就是人眼睛到屏幕的距离</li>
@@ -411,8 +403,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p><strong>transform-style</strong></p>
 <ul>
 <li>控制子元素是否开启三维立体环境<ul>
-<li><code>transform-style: flat</code>是默认的，子元素不开启3d立体空间</li>
-<li><code>transform-style: preserve-3d</code>，子元素开启立体空间</li>
+<li><code>transform-style: flat</code> 是默认的，子元素不开启3d立体空间</li>
+<li><code>transform-style: preserve-3d</code> 子元素开启立体空间</li>
 </ul>
 </li>
 <li>transform-style是写在父级但是影响的是子盒子</li>
@@ -467,7 +459,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </tr>
 <tr>
 <td align="left">animation-timing-function</td>
-<td align="left">规定动画的速度曲线，默认是 “ease”</td>
+<td align="left">规定动画的速度曲线，默认是 ease</td>
 </tr>
 <tr>
 <td align="left">animation-delay</td>
@@ -479,7 +471,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </tr>
 <tr>
 <td align="left">animation-direction</td>
-<td align="left">规定动画是否在下一周期逆向地播放，默认是 “normal”；alternate逆播放</td>
+<td align="left">规定动画是否在下一周期逆向地播放，默认是 normal，alternate逆播放</td>
 </tr>
 <tr>
 <td align="left">animation-fill-mode</td>
@@ -487,7 +479,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </tr>
 <tr>
 <td align="left">animation-play-state</td>
-<td align="left">规定动画是否正在运行或暂停，默认是 “running”；pause暂停</td>
+<td align="left">规定动画是否正在运行或暂停，默认是 running，pause暂停</td>
 </tr>
 </tbody></table>
 <p><strong>动画的速度曲线：</strong></p>
@@ -547,7 +539,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><p>JS帧动画：通过JS来控制CSS属性值变化：</p>
 <ul>
 <li>JS 切换元素背景图片定位 background-position</li>
-<li>移动元素背景图片位置 transform:translate3d()</li>
+<li>移动元素背景图片位置 transform: translate3d()</li>
 </ul>
 </li>
 <li><p>CSS3帧动画：</p>
@@ -561,7 +553,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 </li>
 </ul>
-<h3 id="Canvas动画"><a href="#Canvas动画" class="headerlink" title="Canvas动画"></a>Canvas动画</h3><h3 id="SVG动画"><a href="#SVG动画" class="headerlink" title="SVG动画"></a>SVG动画</h3><h3 id="动画性能渲染优化"><a href="#动画性能渲染优化" class="headerlink" title="动画性能渲染优化"></a>动画性能渲染优化</h3><p>避免为开销大的属性设置动画</p>
+<h3 id="动画性能渲染优化"><a href="#动画性能渲染优化" class="headerlink" title="动画性能渲染优化"></a>动画性能渲染优化</h3><p>避免为开销大的属性设置动画</p>
 <ul>
 <li>使用切换类名的方式来触发动画</li>
 <li>translate属性替换top/left/right/bottom</li>
@@ -721,7 +713,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2D转换"><span class="toc-number">1.</span> <span class="toc-text">2D转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3D转换"><span class="toc-number">2.</span> <span class="toc-text">3D转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画"><span class="toc-number">3.</span> <span class="toc-text">动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画形式"><span class="toc-number">4.</span> <span class="toc-text">动画形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Canvas动画"><span class="toc-number">5.</span> <span class="toc-text">Canvas动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG动画"><span class="toc-number">6.</span> <span class="toc-text">SVG动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画性能渲染优化"><span class="toc-number">7.</span> <span class="toc-text">动画性能渲染优化</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2D转换"><span class="toc-number">1.</span> <span class="toc-text">2D转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3D转换"><span class="toc-number">2.</span> <span class="toc-text">3D转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画"><span class="toc-number">3.</span> <span class="toc-text">动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画形式"><span class="toc-number">4.</span> <span class="toc-text">动画形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画性能渲染优化"><span class="toc-number">5.</span> <span class="toc-text">动画性能渲染优化</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -892,11 +884,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML5CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
