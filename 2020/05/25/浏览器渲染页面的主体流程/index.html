@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%BB%E4%BD%93%E6%B5%81%E7%A8%8B/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%BB%E4%BD%93%E6%B5%81%E7%A8%8B/2.jpg">
 <meta property="article:published_time" content="2020-05-25T11:29:23.000Z">
-<meta property="article:modified_time" content="2021-05-07T12:15:22.504Z">
+<meta property="article:modified_time" content="2021-05-19T05:34:25.906Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -251,7 +251,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ol>
 <h3 id="浏览器渲染页面的5棵树"><a href="#浏览器渲染页面的5棵树" class="headerlink" title="浏览器渲染页面的5棵树"></a>浏览器渲染页面的5棵树</h3><p><strong>DOM树</strong>：解析HTML创建的是DOM tree，渲染引擎开始解析HTML文档，转换树中的标签到DOM节点，它被称为“内容树”</p>
 <p><strong>CSSOM树</strong>：解析CSS创建的是CSSOM tree，CSSOM的解析过程与DOM的解析过程是并行的</p>
-<p><strong>Render树</strong>：CSSOM与DOM结合，之后我们得到的就是渲染树</p>
+<p><strong>Render树</strong>：DOM与CSSOM结合，之后我们得到的就是渲染树</p>
 <p><strong>布局渲染树</strong>：从根节点递归调用，计算每一个元素的大小、位置等，给每个节点所应该出现在屏幕上的精确坐标，我们便得到了基于渲染树的布局渲染树（Layout of the render tree）</p>
 <p><strong>绘制渲染树</strong>：遍历渲染树，每个节点将使用 UI 后端层来绘制，整个过程叫做绘制渲染树（Painting the render tree）</p>
 <h3 id="重排-回流和重绘是什么"><a href="#重排-回流和重绘是什么" class="headerlink" title="重排/回流和重绘是什么?"></a>重排/回流和重绘是什么?</h3><p><strong>回流：</strong>当Render Tree中部分或全部元素的尺寸、结构或某些属性发生改变时，浏览器重新渲染部分或全部文档的过程称为回流。每个页面至少需要一次回流，就是在页面第一次加载的时候。</p>

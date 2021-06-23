@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/11/13/webpack%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/11/13/webpack%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/2.png">
 <meta property="article:published_time" content="2020-11-13T09:27:48.000Z">
-<meta property="article:modified_time" content="2021-04-30T10:08:49.873Z">
+<meta property="article:modified_time" content="2021-06-21T10:12:36.472Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -320,9 +320,15 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>在实际开发过程中webpack默认只能打包处理以 <code>.js</code> 后缀名结尾的模块，其他非 <code>.js</code> 后缀名结尾的模块，webpack默认处理不了，需要调用loader加载器才可以正常打包，否则会报错</p>
 <p>loader加载器可以协助webpack打包处理特定的文件模块：</p>
 <ul>
-<li>less-loader可以打包处理.less相关的文件</li>
-<li>sass-loader可以打包处理.scss相关的文件</li>
-<li>url-loader可以打包处理 css 中与 url 路径相关的文件</li>
+<li>style-loader将css-loader解析后的css当中插入到DOM中</li>
+<li>css-loader会对 @import 和 url() 进行处理，就像 js 解析 import/require() 一样</li>
+<li>postcss-loader负责进一步处理css文件，比如添加浏览器前缀，压缩css等</li>
+<li>less-loader可以打包处理.less相关的文件，加载less文件并将其编译为css</li>
+<li>sass-loader可以打包处理.scss相关的文件，加载sass/scss文件并将其编译为css</li>
+<li>url-loader可以打包处理 css 中与 url 路径相关的文件，将文件转换为 base64 URI</li>
+<li>file-loader将一个文件中的 import/require() 解析为 url，并且将文件发送到输出文件夹</li>
+<li>babel-loader打包处理js文件中的高级语法</li>
+<li>vue-loader加载和转译 Vue 组件</li>
 </ul>
 <p><strong>loader的调用过程</strong></p>
 <img src="/2020/11/13/webpack%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/2.png" style="zoom:50%;">
@@ -333,8 +339,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </li>
 <li><p>在webpack.config.js的module的rules数组中，添加loader规则如下：</p>
 <p>test 表示匹配的文件类型，use 表示对应要调用的loader</p>
-<p>use 数组中指定的loader顺序是固定的，多个loader的调用顺序是从后往前调用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//所有第三方文件模块的匹配规则</span></span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">use</span>:[<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>] &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>use 数组中指定的loader顺序是固定的，<strong>多个loader的调用顺序是从后往前调用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">use</span>:[<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>] &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -394,6 +400,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 <p><strong>webpack中配置vue组件的加载器</strong></p>
 <p>针对传统组件的问题，Vue提供了一个解决方案：使用Vue单文件组件</p>
+<p>vue-loader实际上底层就是在用<strong>字符串的视角</strong>在看你Vue单文件组件中template中书写的所有html标签</p>
 <ul>
 <li><p><code>npm i vue-loader vue-template-compiler -D</code></p>
 </li>
@@ -416,6 +423,16 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li><code>webpack --color</code>：添加颜色</li>
 <li><code>webpack -d</code>：生成map映射文件，告知哪些模块被最终打包到哪里了</li>
 <li><code>webpack -p</code>：压缩混淆脚本</li>
+</ul>
+<h3 id="Wepack中loader和plugin的区别"><a href="#Wepack中loader和plugin的区别" class="headerlink" title="Wepack中loader和plugin的区别"></a>Wepack中loader和plugin的区别</h3><p>一、从功能作用的角度区分：</p>
+<ul>
+<li>loader从字面是加载的意思。由于Webpack本身只能打包commonjs规范的js文件，所以针对css、图片等格式的文件没法打包，就需要引入第三方的模块进行打包。loader虽然是扩展了webpack，但是它只专注于转化文件这一个领域，完成压缩、打包、语言翻译等。loader是运行在Node.js中，仅仅只是为了打包</li>
+<li>plugin完成的是loader不能完成的功能，plugin也是为了扩展Webpack的功能，但是plugin是作用于webpack本身上的。而且plugin不仅只局限在打包、资源的加载上，它的功能要更加丰富。从打包优化和压缩，到重新定义环境变量，功能强大到可以用来处理各种各样的任务。Webpack提供了很多开箱即用的插件：如CommonChunkPlugin通过将公共模块拆出来，最终合成的文件能够在最开始的时候加载一次，便存到缓存中供后续使用。这个带来页面速度上的提升，因为浏览器会迅速将公共的代码从缓存中取出来，而不是每次访问一个新页面时，再去加载一个更大的文件</li>
+</ul>
+<p>二、从运行时机的角度区分：</p>
+<ul>
+<li>loader运行在打包文件之前</li>
+<li>plugins在整个编译周期都起作用</li>
 </ul>
 <h3 id="什么是SourceMap"><a href="#什么是SourceMap" class="headerlink" title="什么是SourceMap"></a>什么是SourceMap</h3><p>SourceMap本质上是一个信息文件，里面储存着代码转换前后的对应位置信息。它记录了转换压缩后的代码所对应的转换前的源代码位置，是源代码和生产代码的映射。SourceMap解决了在打包过程中，代码经过压缩、去空格以及 babel 编译转化后，由于代码之间差异性过大，造成无法debug的问题。</p>
 <p><strong>SourceMap用法</strong></p>
@@ -579,7 +596,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack"><span class="toc-number">1.</span> <span class="toc-text">webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack中的加载器"><span class="toc-number">2.</span> <span class="toc-text">webpack中的加载器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack打包发布"><span class="toc-number">3.</span> <span class="toc-text">webpack打包发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是SourceMap"><span class="toc-number">4.</span> <span class="toc-text">什么是SourceMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块热替换和热更新"><span class="toc-number">5.</span> <span class="toc-text">模块热替换和热更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">6.</span> <span class="toc-text">参考文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack"><span class="toc-number">1.</span> <span class="toc-text">webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack中的加载器"><span class="toc-number">2.</span> <span class="toc-text">webpack中的加载器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack打包发布"><span class="toc-number">3.</span> <span class="toc-text">webpack打包发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wepack中loader和plugin的区别"><span class="toc-number">4.</span> <span class="toc-text">Wepack中loader和plugin的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是SourceMap"><span class="toc-number">5.</span> <span class="toc-text">什么是SourceMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块热替换和热更新"><span class="toc-number">6.</span> <span class="toc-text">模块热替换和热更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">7.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>

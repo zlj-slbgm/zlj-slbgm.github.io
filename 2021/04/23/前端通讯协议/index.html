@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2021/04/23/%E5%89%8D%E7%AB%AF%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/1.png">
 <meta property="og:image" content="http://yoursite.com/2021/04/23/%E5%89%8D%E7%AB%AF%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/2.png">
 <meta property="article:published_time" content="2021-04-23T02:03:55.000Z">
-<meta property="article:modified_time" content="2021-05-08T06:12:37.833Z">
+<meta property="article:modified_time" content="2021-06-01T15:24:56.846Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -318,9 +318,57 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p>应用场景：无需确保通讯质量且要求速度快、无需确保信息完整（消息收发、语音通话、直播）</p>
 <p>优点：安全、快速、漏洞少</p>
 <p>缺点：不可靠、不稳定、容易丢包</p>
-<h3 id="Websocket"><a href="#Websocket" class="headerlink" title="Websocket"></a>Websocket</h3><p>很多网站都有实时推送的需求，比如聊天、客服咨询等。早期没有websocket时，由于http请求，服务器无法给浏览器主动发送数据，因此需要浏览器定时的给服务器发送请求（通过ajax轮询），服务器把最新的数据响应给浏览器，这种模式的缺点就是浪费性能和资源。</p>
-<p>websocket协议是基于TCP的一种新的网络协议，它实现了浏览器与服务器全双工通信，<strong>允许服务器主动发送信息给客户端</strong></p>
-<p>websocket是一种持久协议，而http是非持久协议</p>
+<h3 id="Websocket"><a href="#Websocket" class="headerlink" title="Websocket"></a>Websocket</h3><p>一种网络传输协议，位于OSI模型的应用层。可在单个TCP连接上进行浏览器与服务器全双工通信，允许服务器主动发送信息给客户端，能更好的节省服务器资源和带宽并达到实时通迅</p>
+<p><strong>Websocket出现之前</strong></p>
+<p>HTTP是非持久协议，开发实时web应用的方式为轮询，不停地向服务器发送 HTTP 请求，问有没有数据，有数据的话服务器就用响应报文回应。如果轮询的频率比较高，那么就可以近似地实现实时通信的效果。轮询的缺点也很明显，反复发送无效查询请求耗费了大量的带宽和CPU资源</p>
+<p><strong>Websocket出现之后</strong></p>
+<p>客户端和服务器只需要完成一次握手，两者之间就可以创建持久性的连接，并进行双向数据传输</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li><p><strong>全双工：</strong>通信允许数据在两个方向上同时传输，它在能力上相当于两个单工通信方式的结合，例如A→B的同时B→A，是瞬时同步的</p>
+</li>
+<li><p><strong>二进制帧：</strong>采用了二进制帧结构，语法和语义与 HTTP 完全不兼容，相比HTTP/2，WebSocket更侧重于实时通信，而HTTP/2更侧重于提高传输效率，所以两者的帧结构也有很大的区别。不像 HTTP/2 那样定义流，也就不存在多路复用、优先级等特性</p>
+</li>
+<li><p><strong>协议名：</strong>引入ws和wss分别代表明文和密文的Websocket协议，且默认端口使用80或443，几乎与http一致</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ws://www.chrono.com</span><br><span class="line">ws://www.chrono.com:8080/srv</span><br><span class="line">wss://www.chrono.com:445/im?user_id=xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>握手：</strong>Websocket也要有一个握手过程，然后才能正式收发数据</p>
+<p>客户端发送的数据格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /chat HTTP/1.1</span><br><span class="line">Host: server.example.com</span><br><span class="line">Upgrade: websocket</span><br><span class="line">Connection: Upgrade</span><br><span class="line">Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==</span><br><span class="line">Origin: http://example.com</span><br><span class="line">Sec-WebSocket-Protocol: chat, superchat</span><br><span class="line">Sec-WebSocket-Version: 13</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Connection：必须设置Upgrade，表示客户端希望连接升级</li>
+<li>Upgrade：必须设置Websocket，表示希望升级到Websocket协议</li>
+<li>Sec-WebSocket-Key：客户端发送的一个 base64 编码的密文，用于简单的认证秘钥，要求服务端必须返回一个对应加密的Sec-WebSocket-Accept应答，否则客户端会抛出错误，并关闭连接</li>
+<li>Sec-WebSocket-Version：表示支持的Websocket版本</li>
+</ul>
+<p>服务端返回的数据格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 101 Switching Protocols</span><br><span class="line">Upgrade: websocket</span><br><span class="line">Connection: Upgrade</span><br><span class="line">Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=Sec-WebSocket-Protocol: chat</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>HTTP/1.1 101 Switching Protocols：表示服务端接受 WebSocket 协议的客户端连接</li>
+<li>Sec-WebSocket-Accep：验证客户端请求报文，同样也是为了防止误连接，具体做法是把请求头里Sec-WebSocket-Key的值，加上一个专用的UUID，再计算摘要</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点：</strong></p>
+<ul>
+<li>较少的控制开销：数据包头部协议较小，不同于http每次请求需要携带完整的头部</li>
+<li>更强的实时性：相对于HTTP请求需要等待客户端发起请求服务端才能响应，延迟明显更少</li>
+<li>保持连接状态：创建通信后，可省略状态信息，不同于HTTP每次请求需要携带身份验证</li>
+<li>更好的二进制支持：定义了二进制帧，更好处理二进制内容</li>
+<li>支持扩展：用户可以扩展Websocket协议，实现部分自定义的子协议</li>
+<li>更好的压缩效果：Websocket在适当的扩展支持下，可以沿用之前内容的上下文，在传递类似的数据时，可以显著地提高压缩率</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>弹幕</li>
+<li>媒体聊天</li>
+<li>协同编辑</li>
+<li>基于位置的应用</li>
+<li>体育实况更新</li>
+<li>股票基金报价实时更新</li>
+</ul>
 <h3 id="从输入URL到页面加载完成过程"><a href="#从输入URL到页面加载完成过程" class="headerlink" title="从输入URL到页面加载完成过程"></a>从输入URL到页面加载完成过程</h3><ol>
 <li>浏览器的地址栏输入URL并按下回车</li>
 <li>浏览器查找当前URL是否存在缓存，并比较缓存是否过期</li>
@@ -457,8 +505,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     </a>
   
   
-    <a href="/2021/04/20/%E4%B8%BB%E6%B5%81%E6%8A%80%E6%9C%AF%E9%A2%86%E5%9F%9F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">主流技术领域</div>
+    <a href="/2021/04/20/%E5%88%86%E6%94%AF%E9%A2%86%E5%9F%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">分支领域</div>
       <i class="icon-circle-right"></i>
     </a>
   

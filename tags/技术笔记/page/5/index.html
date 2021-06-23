@@ -6,19 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>编程思想之设计模式 | 十里不故梦Blog</title>
+  <title>Tag: 技术笔记 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="设计模式">
-<meta property="og:type" content="article">
-<meta property="og:title" content="编程思想之设计模式">
-<meta property="og:url" content="http://yoursite.com/2021/01/14/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E4%B9%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
+  <meta name="description" content="个人技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="十里不故梦Blog">
+<meta property="og:url" content="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/page/5/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="设计模式">
+<meta property="og:description" content="个人技术博客">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-14T02:11:52.000Z">
-<meta property="article:modified_time" content="2021-04-26T03:05:46.418Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="技术笔记">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Html5">
+<meta property="article:tag" content="Css3">
+<meta property="article:tag" content="Js">
+<meta property="article:tag" content="Jquery">
+<meta property="article:tag" content="Nodejs">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="Uniapp">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
@@ -204,158 +209,35 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-编程思想之设计模式" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      编程思想之设计模式
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%BB%E4%BD%93%E6%B5%81%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-05-25T11:29:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%BB%E4%BD%93%E6%B5%81%E7%A8%8B/">浏览器渲染页面的主体流程</a>
     </h1>
   
 
-        <!--显示阅读次数-->
-        
-        <br />
-        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-        </a>
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/01/14/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E4%B9%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2021-01-14T02:11:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><a id="more"></a>
-
-<p>一种书写代码的方式，为了解决特定问题给出的简洁而优化的解决方案</p>
-<p>常用的四种设计模式：</p>
-<ul>
-<li>单例模式</li>
-<li>观察者模式</li>
-<li>发布订阅模式</li>
-<li>策略模式</li>
-</ul>
-<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>单：单一，一个</p>
-<p>例：实例</p>
-<p>一个构造函数一生只能有一个实例，不管new多少次，都是这一个实例</p>
-<p>应用场景：自定义弹出层（如：layui弹出层组件）</p>
-<p>结构：div &gt; xxx，默认隐藏，在一定条件下显示</p>
-<p>实现：每次都是同一个div来回显示，而不是每次都是一个新的div</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'Jack'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="built_in">console</span>.log(p1 == p2) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>单例模式的核心代码</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> instance = <span class="literal">null</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">singleton</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!instance) instance = 实例对象</span><br><span class="line">    <span class="keyword">return</span> instance</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'Jack'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> instance = <span class="literal">null</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">singleTon</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!instance) instance = <span class="keyword">new</span> Person()</span><br><span class="line">    <span class="keyword">return</span> instance</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> p1 = singleTon()</span><br><span class="line"><span class="comment">// 第二次调用singleTon的时候，直接返回第一次new出来实例的地址</span></span><br><span class="line"><span class="keyword">const</span> p2 = singleTon()</span><br><span class="line"><span class="built_in">console</span>.log(p1 === p2) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>单例模式改造：以闭包的形式来保存构造函数和instance变量</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Person = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 真实构造函数体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">'Jack'</span></span><br><span class="line">    &#125;</span><br><span class="line">    Person.prototype.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'hello world'</span>) &#125;</span><br><span class="line">    <span class="keyword">let</span> instance = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">singleTon</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!instance) instance = <span class="keyword">new</span> Person()</span><br><span class="line">        <span class="keyword">return</span> instance</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="comment">// 立即函数执行形式一个私有作用域A，A中返回一个地址xxx，被外面的Person占用了，所有A就不能销毁</span></span><br><span class="line"><span class="keyword">const</span> p1 = Person()</span><br><span class="line"><span class="keyword">const</span> p2 = Person()</span><br><span class="line"><span class="built_in">console</span>.log(p1 === p2) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p><strong>例子</strong></p>
-<p>被观察者：我们坐在教室里就是被观察者</p>
-<p>观察者：监控后面的老师就是观察者</p>
-<p>当被观察者触发一些条件的时候，观察者就会触发技能（监控一个对象的状态，一旦状态发生变化，马上触发技能）</p>
-<p><strong>实现</strong></p>
-<p>创建被观察者</p>
-<ul>
-<li>属性：自己的状态</li>
-<li>队列：记录都有谁观察着自己</li>
-<li>方法：能设置自己的状态，当我们需要改变的时候，要触发这个方法改变状态</li>
-<li>方法：添加观察者和删除观察者</li>
-</ul>
-<p>创建观察者</p>
-<ul>
-<li>属性：一个身份证明</li>
-<li>方法：一个技能</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 观察者构造函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name, fn = () =&gt; &#123;&#125;) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">        <span class="keyword">this</span>.fn = fn</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 被观察者构造函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(state) &#123;</span><br><span class="line">        <span class="comment">// 记录自己的状态</span></span><br><span class="line">        <span class="keyword">this</span>.state = state</span><br><span class="line">        <span class="comment">// 用来保存观察着我的人</span></span><br><span class="line">        <span class="keyword">this</span>.observers = []</span><br><span class="line">    &#125;</span><br><span class="line">    setState(val) &#123;</span><br><span class="line">        <span class="keyword">this</span>.state = val</span><br><span class="line">        <span class="comment">// 就需要把我的所有观察者的技能都触发</span></span><br><span class="line">        <span class="comment">// 触发this.observers一次触发技能</span></span><br><span class="line">        <span class="keyword">this</span>.observers.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 告诉他我改变成什么状态了</span></span><br><span class="line">            item.fn(<span class="keyword">this</span>.state)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 添加观察者</span></span><br><span class="line">    addObserver(obs) &#123;</span><br><span class="line">        <span class="keyword">const</span> res = <span class="keyword">this</span>.observers.find(<span class="function"><span class="params">item</span> =&gt;</span> item === obs)</span><br><span class="line">        <span class="keyword">if</span> (!res) &#123;</span><br><span class="line">            <span class="keyword">this</span>.observers.push(obs)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除观察者</span></span><br><span class="line">    delObserver(obs) &#123;</span><br><span class="line">        <span class="keyword">this</span>.observers = <span class="keyword">this</span>.observers.filter(<span class="function"><span class="params">item</span> =&gt;</span> item !== obs)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建一个被观察者</span></span><br><span class="line"><span class="keyword">const</span> xiaoming = <span class="keyword">new</span> Subject(<span class="string">'学习'</span>)</span><br><span class="line"><span class="comment">// 创建两个观察者</span></span><br><span class="line"><span class="keyword">const</span> bzr = <span class="keyword">new</span> Observer(<span class="string">'班主任'</span>, (state) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`因为<span class="subst">$&#123;state&#125;</span>把你爸叫来`</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> xz = <span class="keyword">new</span> Observer(<span class="string">'校长'</span>, (state) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`因为<span class="subst">$&#123;state&#125;</span>骂你的班主任`</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 给小明添加观察者</span></span><br><span class="line">xiaoming.addObserver(bzr)</span><br><span class="line">xiaoming.addObserver(xz)</span><br><span class="line">xiaoming.setState(<span class="string">'玩手机'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(xiaoming)</span><br></pre></td></tr></table></figure>
-
-<h3 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h3><p><strong>例子</strong></p>
-<p>普通程序员买书</p>
-<ul>
-<li>去书店，问，没有，回家</li>
-<li>过一会再去，问，没有，回家</li>
-<li>过一会再去，问，没有，回家</li>
-</ul>
-<p>发布订阅的程序员</p>
-<ul>
-<li>去书店，问，没有，留下一个联系方式给店员</li>
-<li>一旦有了书，就会接到电话</li>
-<li>触发技能去买书</li>
-</ul>
-<p>创建一个第三方店员的身份（模拟addEventListener()）</p>
-<ul>
-<li><p>属性：消息队列</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	click: [fn1, fn2],</span><br><span class="line">	hover: [fn1, fn2, fn3]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方法：能向消息队列里面添加内容</p>
-</li>
-<li><p>方法：删除消息队列里面的内容</p>
-</li>
-<li><p>方法：触发消息队列里面的内容</p>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="comment">// 消息队列</span></span><br><span class="line">        <span class="keyword">this</span>.message = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向消息队列里面添加内容</span></span><br><span class="line">    on(type, fn) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.message[type]) &#123;</span><br><span class="line">            <span class="keyword">this</span>.message[type] = []</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.message[type].push(fn)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除消息队列里面的内容</span></span><br><span class="line">    off(type, fn) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!fn) &#123;</span><br><span class="line">            <span class="keyword">delete</span> <span class="keyword">this</span>.message[type]</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.message[type]) <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">this</span>.message[type] = <span class="keyword">this</span>.message[type].filter(<span class="function"><span class="params">item</span> =&gt;</span> item !== fn)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 触发消息队列</span></span><br><span class="line">    trigger(type) &#123;</span><br><span class="line">        <span class="comment">// 判断是不是有订阅过</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.message[type]) <span class="keyword">return</span></span><br><span class="line">        <span class="comment">// 找到这个数组，把里面的每一个函数触发</span></span><br><span class="line">        <span class="keyword">this</span>.message[type].forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            item()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person1 = <span class="keyword">new</span> Observer()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerA</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'handlerA'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerB</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'handlerB'</span>)</span><br><span class="line">&#125;</span><br><span class="line">person1.on(<span class="string">'click'</span>, handlerA)</span><br><span class="line">person1.on(<span class="string">'click'</span>, handlerB)</span><br><span class="line"><span class="comment">// 把消息队列里面属于click的数组清空</span></span><br><span class="line"><span class="comment">// person1.off('click')</span></span><br><span class="line"><span class="comment">// 告诉你click发生的时候，不用做handerA这个事情</span></span><br><span class="line">person1.off(<span class="string">'click'</span>, handlerA)</span><br><span class="line"><span class="comment">// 这个人一旦触发click行为，就要把后面的所有事件处理函数执行掉</span></span><br><span class="line">person1.trigger(<span class="string">'click'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person1)</span><br></pre></td></tr></table></figure>
-
-<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>一个问题匹配多个解决方案，不一定要用到哪一个，而且有可能随时还会继续增加多个方案</p>
-<p><strong>例子</strong></p>
-<p>商场有很多中折扣计算方式</p>
-<ul>
-<li>满100减10</li>
-<li>满200减25</li>
-<li>8折</li>
-<li>7折</li>
-<li>…</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以闭包的形式把折扣方案保存下来，同时留下添加折扣和删除折扣的接口</span></span><br><span class="line"><span class="keyword">const</span> calcPrice = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> sale = &#123;</span><br><span class="line">        <span class="string">'100_10'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">price</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> price -= <span class="number">10</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'200_25'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">price</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> price -= <span class="number">25</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'80%'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">price</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> price *= <span class="number">0.8</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 函数也是一个对象，可以把函数名当作一个对象，向里面添加一些成员</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">calcPrice</span>(<span class="params">price, type</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!sale[type]) <span class="keyword">return</span> <span class="string">'没有这种折扣'</span></span><br><span class="line">        <span class="keyword">return</span> sale[type](price)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 添加折扣</span></span><br><span class="line">    calcPrice.add = <span class="function"><span class="keyword">function</span> (<span class="params">type, fn</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (sale[type]) <span class="keyword">return</span> <span class="string">'该折扣已经存在'</span></span><br><span class="line">        sale[type] = fn</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除折扣</span></span><br><span class="line">    calcPrice.delete = <span class="function"><span class="keyword">function</span> (<span class="params">type</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">delete</span> sale[type]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> calcPrice</span><br><span class="line">&#125;)()</span><br><span class="line">calcPrice.add(<span class="string">'70%'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">price</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> price *= <span class="number">0.7</span></span><br><span class="line">&#125;)</span><br><span class="line">calcPrice.delete(<span class="string">'200_25'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(calcPrice(<span class="number">300</span>, <span class="string">'100_10'</span>)) <span class="comment">// 290</span></span><br></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -367,152 +249,137 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img
-        src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=你的主页网址2021/01/14/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E4%B9%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2021/02/03/%E9%80%82%E9%85%8D%E7%BB%8F%E9%AA%8C%E4%BB%A5%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          适配经验以及兼容性
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/01/13/CI-CD%E4%B8%8EDevOps/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CI/CD与DevOps</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/05/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
+  	<time datetime="2020-05-04T23:54:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#设计模式"><span class="toc-number">1.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单例模式"><span class="toc-number">2.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者模式"><span class="toc-number">3.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布订阅模式"><span class="toc-number">4.</span> <span class="toc-text">发布订阅模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">5.</span> <span class="toc-text">策略模式</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/05/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/">VScode快捷键</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/02/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2020-05-02T10:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/02/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hexo博客搭建</a>
+    </h1>
+  
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
 
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/02/MarKdown%E6%96%87%E6%A1%A3%E7%BC%96%E5%86%99/" class="archive-article-date">
+  	<time datetime="2020-05-02T09:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/02/MarKdown%E6%96%87%E6%A1%A3%E7%BC%96%E5%86%99/">MarKdown文档编写</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/page/4/">«Prev</a><a class="page-number" href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/page/3/">3</a><a class="page-number" href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
   
-
-  
-
-  
-
-
-      <div id="gitalk-container"></div>
-      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '6e75a816882be5261996',
-  	clientSecret: 'f687a9656849802b8e201e5f3008fed0d7b5ee7e',
-  	repo: 'zlj-slbgm.github.io',
-  	owner: 'zlj-slbgm',
-  	admin: ['zlj-slbgm'],
-  	id: 'Thu Jan 14 2021 10:11:52 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
 
 
           </div>
@@ -550,9 +417,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

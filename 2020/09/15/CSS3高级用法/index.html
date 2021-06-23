@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="十里不故梦Blog">
 <meta property="og:description" content="CSS3高级用法">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/CSS3%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/1.png">
 <meta property="article:published_time" content="2020-09-15T02:36:02.000Z">
-<meta property="article:modified_time" content="2021-05-06T09:23:16.578Z">
+<meta property="article:modified_time" content="2021-06-23T13:28:42.196Z">
 <meta property="article:author" content="十里不故梦">
-<meta property="article:tag" content="技术笔记">
+<meta property="article:tag" content="HTML5CSS3">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/09/15/CSS3%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
   
@@ -389,7 +391,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p><strong>max-height</strong></p>
 <p>该属性值会对元素的高度设置一个最高限制。因此，元素可以比指定值矮，但不能比其高。不允许指定负值。</p>
 <p><strong>min-width</strong></p>
-<p>该属性值会对元素的宽度设置一个最高限制。因此，元素可以比指定值窄，但不能比其宽。不允许指定负值。</p>
+<p>该属性值会对元素的宽度设置一个最小限制。因此，元素可以比指定值宽，但不能比其窄。不允许指定负值。</p>
 <p><strong>min-width不生效的问题</strong></p>
 <p>min-width会继承父元素的width，而min-height不会<br>如果无父元素，也就是最外层是body，则默认100%</p>
 <p>解决方法：设置为内联属性或者浮动，定位，使之脱离文档流</p>
@@ -409,6 +411,31 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 </ul>
 </li>
 </ul>
+<h3 id="var-和calc-的用法"><a href="#var-和calc-的用法" class="headerlink" title="var()和calc()的用法"></a>var()和calc()的用法</h3><p>calc()用于动态计算长度值，支持 “+”, “-“, “*”, “/“ 运算，支持不同单位混合进行运算而且一次可以进行多个运算以及嵌套运算</p>
+<p>运算符前后都必须空一个格，不然calc()将失效</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 表示设置宽度比100%的宽度少50px */</span></span><br><span class="line"><span class="selector-tag">width</span>: <span class="selector-tag">calc</span>(100% <span class="selector-tag">-</span> 50<span class="selector-tag">px</span>);</span><br></pre></td></tr></table></figure>
+
+<p>通常用于一些值不好直接计算时，如A盒子高度为50px，而B盒子高度不好得知或计算，此时可以使用calc()来动态计算B盒子的高度</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">height</span>: <span class="selector-tag">calc</span>(100% <span class="selector-tag">-</span> 50<span class="selector-tag">px</span>)</span><br><span class="line"><span class="comment">/* 或者 */</span></span><br><span class="line"><span class="selector-tag">height</span>: <span class="selector-tag">calc</span>(100<span class="selector-tag">vh</span> <span class="selector-tag">-</span> 50<span class="selector-tag">px</span>)</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/09/15/CSS3%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/1.png" style="zoom:50%;">
+
+<p>场景一：水平垂直居中</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">padding-top</span>: <span class="built_in">calc</span>(<span class="number">50vh</span> - <span class="number">250px</span>/<span class="number">2</span>);</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="built_in">calc</span>(<span class="number">50vh</span> - <span class="number">400px</span>/<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>场景二：渐变色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">--t</span>: <span class="number">20deg</span>;</span><br><span class="line">    <span class="attribute">background</span>:</span><br><span class="line">        <span class="built_in">linear-gradient</span>(calc(var(--t) * <span class="number">10</span>), <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">8</span>), <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>) <span class="number">70.71%</span>),</span><br><span class="line">        <span class="built_in">linear-gradient</span>(calc(var(--t) * <span class="number">20</span>), <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>,.<span class="number">8</span>), <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>) <span class="number">70.71%</span>),</span><br><span class="line">        <span class="built_in">linear-gradient</span>(calc(var(--t) * <span class="number">30</span>), <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>,.<span class="number">8</span>), <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>) <span class="number">70.71%</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>场景三：两栏布局</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">70%</span> - <span class="number">10px</span>);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>场景四：响应式页面</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">1500px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.a</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">800px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: red;</span><br><span class="line">        <span class="attribute">display</span>: flex;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.b</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> / <span class="number">3</span>);</span><br><span class="line">        <span class="attribute">height</span>: <span class="built_in">calc</span>(<span class="number">100%</span> / <span class="number">3</span>);</span><br><span class="line">        <span class="attribute">background-color</span>: yellow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://blog.csdn.net/quincylk/article/details/80927631" target="_blank" rel="noopener">CSS3超实用属性：pointer-events</a></p>
 
       
@@ -454,7 +481,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML5CSS3</a>
         		</li>
       		
 		</ul>
@@ -563,7 +590,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3高级用法"><span class="toc-number">1.</span> <span class="toc-text">CSS3高级用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS全局属性值initial、inherit、unset关键字区别"><span class="toc-number">2.</span> <span class="toc-text">CSS全局属性值initial、inherit、unset关键字区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-width中的max-content-min-content-fit-content的区别"><span class="toc-number">3.</span> <span class="toc-text">CSS width中的max-content min-content fit-content的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS中min-height、max-height、min-width、max-width用法"><span class="toc-number">4.</span> <span class="toc-text">CSS中min-height、max-height、min-width、max-width用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">5.</span> <span class="toc-text">参考文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3高级用法"><span class="toc-number">1.</span> <span class="toc-text">CSS3高级用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS全局属性值initial、inherit、unset关键字区别"><span class="toc-number">2.</span> <span class="toc-text">CSS全局属性值initial、inherit、unset关键字区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-width中的max-content-min-content-fit-content的区别"><span class="toc-number">3.</span> <span class="toc-text">CSS width中的max-content min-content fit-content的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS中min-height、max-height、min-width、max-width用法"><span class="toc-number">4.</span> <span class="toc-text">CSS中min-height、max-height、min-width、max-width用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-和calc-的用法"><span class="toc-number">5.</span> <span class="toc-text">var()和calc()的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">6.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>

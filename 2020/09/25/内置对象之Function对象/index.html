@@ -16,7 +16,7 @@
 <meta property="og:description" content="内置对象之Function对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-25T04:16:11.000Z">
-<meta property="article:modified_time" content="2021-04-26T08:29:13.454Z">
+<meta property="article:modified_time" content="2021-06-04T10:02:52.493Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -238,10 +238,10 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
         <h3 id="内置对象之Function对象"><a href="#内置对象之Function对象" class="headerlink" title="内置对象之Function对象"></a>内置对象之Function对象</h3><a id="more"></a>
 
 <p>在JS中，每个函数都是一个Function对象</p>
-<h3 id="JS中函数有哪些定义方式"><a href="#JS中函数有哪些定义方式" class="headerlink" title="JS中函数有哪些定义方式"></a>JS中函数有哪些定义方式</h3><p><strong>函数声明：</strong></p>
+<h3 id="JS中函数有哪些定义方式"><a href="#JS中函数有哪些定义方式" class="headerlink" title="JS中函数有哪些定义方式"></a>JS中函数有哪些定义方式</h3><p><strong>函数声明</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">参数</span>)</span>&#123;</span><br><span class="line">	函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>函数表达式：</strong></p>
+<p><strong>函数表达式</strong></p>
 <ul>
 <li><p>命名函数：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">namedFunction</span>(<span class="params"></span>)</span>&#123; &#125;</span><br></pre></td></tr></table></figure>
@@ -254,8 +254,12 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 </li>
 </ul>
-<p><strong>构造函数：</strong></p>
+<p><strong>构造函数</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"return a*b"</span>)</span><br><span class="line"><span class="built_in">console</span>.log(fn(<span class="number">2</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong>立即执行函数</strong></p>
+<p>函数定义完立即被调用，这种函数叫做立即执行函数。立即执行函数往往只会执行一次</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(a+b)</span><br><span class="line">&#125;)(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(a+b)</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意点：</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 命名的函数表达式，它的名字g只在函数体内可见，在函数外部不可见</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">23</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> g()) <span class="comment">// 报错：g is not defined</span></span><br></pre></td></tr></table></figure>
@@ -264,6 +268,18 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">23</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f()) <span class="comment">// number（f函数的返回值类型）</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别"></a>箭头函数和普通函数的区别</h3><p><strong>外形不同：</strong>箭头函数使用箭头定义，普通函数中没有</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="keyword">let</span> func=<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>箭头函数都是匿名函数：</strong>普通函数可以有匿名函数，也可以有具体名函数</p>
+<p><strong>箭头函数不能用于构造函数，不能使用new</strong></p>
+<p><strong>箭头函数中this的指向不同：</strong>箭头函数本身不创建this，也可以说箭头函数本身没有this，但是它在声明时可以捕获其所在上下文的this供自己使用</p>
+<p><strong>箭头函数不绑定arguments：</strong>取而代之用剩余参数…args解决，每一个普通函数调用后都具有一个arguments对象，但是箭头函数并没有此对象</p>
+<p><strong>箭头函数不能Generator函数，不能使用yeild关键字</strong></p>
+<p><strong>箭头函数不具有prototype原型对象</strong></p>
+<p><strong>箭头函数不具有super</strong></p>
+<h3 id="JS参数"><a href="#JS参数" class="headerlink" title="JS参数"></a>JS参数</h3><p>函数的length属性返回该函数形式参数数目，只读属性</p>
+<p>arguments对象获取函数实际参数，为一个伪数组</p>
 <h3 id="JS中函数传参"><a href="#JS中函数传参" class="headerlink" title="JS中函数传参"></a>JS中函数传参</h3><p>函数中传一个形参就相当于在函数作用域中声明一个新的变量</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于如下代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">var a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a) <span class="comment">//undefined</span></span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
 
@@ -277,19 +293,6 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>return把控制权返回给页面</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果程序碰到return false，后面的代码就不会执行了</span></span><br><span class="line"><span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h3><p>函数定义完立即被调用，这种函数叫做立即执行函数。立即执行函数往往只会执行一次</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(a+b)</span><br><span class="line">&#125;)(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(a+b)</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-
-<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义主函数，回调函数名作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">	callback()</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"我是主函数"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	setTimeout(<span class="string">"console.log('我是回调函数')"</span>, <span class="number">3000</span>) <span class="comment">// 模仿耗时操作</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用主函数，将函数B传进去</span></span><br><span class="line">A(B)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我是主函数</span></span><br><span class="line"><span class="comment">// 我是回调函数</span></span><br></pre></td></tr></table></figure>
-
-<p>定义主函数的时候，我们让代码先去执行callback()回调函数，但输出结果却是后输出回调函数的内容。这就说明了主函数不用等待回调函数执行完，可以接着执行自己的代码，所以一般回调函数都用在耗时操作上面，比如ajax请求、处理文件等</p>
-<p>定时器典型用法：将一个函数作为参数传递给了setTimeout方法，setTimeout方法会调用（或者执行）我们传递给它的函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;,<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h3><p>如果一个函数在内部可以调用其本身（函数内部自己调用自己），那么这个函数就是递归函数</p>
-<p>有函数就会有作用域，如果函数中有很多的变量，每次调用函数都会创建新的变量和开辟新的栈内存空间，很容易发生”栈溢出”，由于递归很容易发生”栈溢出”错误，所以必须要加退出条件return。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我要打印6句话"</span>)</span><br><span class="line">    <span class="keyword">if</span> (num == <span class="number">6</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    num++</span><br><span class="line">    fn()</span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
 
       
 
@@ -443,7 +446,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#内置对象之Function对象"><span class="toc-number">1.</span> <span class="toc-text">内置对象之Function对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中函数有哪些定义方式"><span class="toc-number">2.</span> <span class="toc-text">JS中函数有哪些定义方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中函数传参"><span class="toc-number">3.</span> <span class="toc-text">JS中函数传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中return的三种用法"><span class="toc-number">4.</span> <span class="toc-text">JS中return的三种用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#立即执行函数"><span class="toc-number">5.</span> <span class="toc-text">立即执行函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数"><span class="toc-number">6.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归函数"><span class="toc-number">7.</span> <span class="toc-text">递归函数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#内置对象之Function对象"><span class="toc-number">1.</span> <span class="toc-text">内置对象之Function对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中函数有哪些定义方式"><span class="toc-number">2.</span> <span class="toc-text">JS中函数有哪些定义方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#箭头函数和普通函数的区别"><span class="toc-number">3.</span> <span class="toc-text">箭头函数和普通函数的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS参数"><span class="toc-number">4.</span> <span class="toc-text">JS参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中函数传参"><span class="toc-number">5.</span> <span class="toc-text">JS中函数传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中return的三种用法"><span class="toc-number">6.</span> <span class="toc-text">JS中return的三种用法</span></a></li></ol>
                     </div>
                 </span>
             </div>

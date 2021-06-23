@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/06/28/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/06/28/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/2.png">
 <meta property="article:published_time" content="2020-06-28T07:25:24.000Z">
-<meta property="article:modified_time" content="2021-05-05T07:14:30.653Z">
+<meta property="article:modified_time" content="2021-05-12T04:44:00.087Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="JSJQUERYES5ES6">
 <meta name="twitter:card" content="summary">
@@ -260,6 +260,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <li>看看 <code>person.__proto__.__proto__</code> 对象有没有sing属性，没有就走下一步</li>
 <li>直到找到sing属性或者 <code>__proto__</code> 为null</li>
 </ol>
+<h3 id="查找一个对象的原型的几种方式"><a href="#查找一个对象的原型的几种方式" class="headerlink" title="查找一个对象的原型的几种方式"></a>查找一个对象的原型的几种方式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>: <span class="string">'张三'</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.__proto__) <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype) <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(obj)) <span class="comment">// &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="Proto属性"><a href="#Proto属性" class="headerlink" title="Proto属性"></a>Proto属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person.__proto__ === <span class="built_in">Object</span>.getPrototypeOf(person) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
 <p><code>__proto__</code> 的由来：</p>
@@ -437,7 +439,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原型"><span class="toc-number">1.</span> <span class="toc-text">原型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链"><span class="toc-number">2.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proto属性"><span class="toc-number">3.</span> <span class="toc-text">Proto属性</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原型"><span class="toc-number">1.</span> <span class="toc-text">原型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链"><span class="toc-number">2.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找一个对象的原型的几种方式"><span class="toc-number">3.</span> <span class="toc-text">查找一个对象的原型的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proto属性"><span class="toc-number">4.</span> <span class="toc-text">Proto属性</span></a></li></ol>
                     </div>
                 </span>
             </div>

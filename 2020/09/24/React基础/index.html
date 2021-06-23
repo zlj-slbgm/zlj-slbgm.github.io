@@ -8,20 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>React基础 | 十里不故梦Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="虚拟DOM（Virtual Document Object Model）">
+  <meta name="description" content="React脚手架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React基础">
 <meta property="og:url" content="http://yoursite.com/2020/09/24/React%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="十里不故梦Blog">
-<meta property="og:description" content="虚拟DOM（Virtual Document Object Model）">
+<meta property="og:description" content="React脚手架">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/09/24/React%E5%9F%BA%E7%A1%80/1.png">
 <meta property="article:published_time" content="2020-09-24T06:33:21.000Z">
-<meta property="article:modified_time" content="2021-04-27T04:38:15.557Z">
+<meta property="article:modified_time" content="2021-06-22T10:53:47.063Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="VUEReact">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/09/24/React%E5%9F%BA%E7%A1%80/1.png">
   
     <link rel="alternative" href="/atom.xml" title="十里不故梦Blog" type="application/atom+xml">
   
@@ -237,44 +235,9 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="虚拟DOM（Virtual-Document-Object-Model）"><a href="#虚拟DOM（Virtual-Document-Object-Model）" class="headerlink" title="虚拟DOM（Virtual Document Object Model）"></a>虚拟DOM（Virtual Document Object Model）</h3><a id="more"></a>
+        <h3 id="React脚手架"><a href="#React脚手架" class="headerlink" title="React脚手架"></a>React脚手架</h3><a id="more"></a>
 
-<p><strong>DOM的本质：</strong>DOM是浏览器中的概念，用js对象来表示页面上的元素，并提供操作DOM对象的API</p>
-<p><strong>React中的虚拟DOM的本质：</strong>虚拟DOM是框架中的概念，是程序员<strong>用js对象来模拟页面上的DOM和DOM嵌套</strong></p>
-<p><strong>虚拟DOM的目的：</strong>为了实现页面中DOM元素的高效更新</p>
-<p><strong>数据渲染：</strong></p>
 <ul>
-<li>全部重新渲染：如表格价格数据排序，从数据库中查询到的数据以对象数组的形式存放到了浏览器的内存中，点击排序之后，把内存中的对象数组重新排序，再把最新的对象数组重新渲染到页面，该方案可能有些数据并没有任何变化但又重新被渲染了，存在性能问题</li>
-<li>按需渲染：只重新渲染更新的数据所对应的页面元素，该方案性能最优</li>
-</ul>
-<p><strong>实现数据的按需更新：</strong></p>
-<ul>
-<li><p>原理：获取内存中的新旧两颗DOM进行对比，得到需要被按需更新的DOM元素</p>
-</li>
-<li><p>获取：浏览器中并没有直接提供获取DOM树的API，因此我们无法拿到浏览器内存中的DOM树</p>
-</li>
-<li><p>模拟：程序员可以手动模拟新旧两颗DOM树（这就是React中虚拟DOM的概念）</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mydiv"</span> <span class="attr">title</span>=<span class="string">"人名"</span> <span class="attr">data-index</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">	小明</span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var div=&#123;</span><br><span class="line">	tagName: 'div',</span><br><span class="line">	attrs:&#123;</span><br><span class="line">		id: 'mydiv'</span><br><span class="line">		title: '人名',</span><br><span class="line">		'data-index'; '0'</span><br><span class="line">	&#125;,</span><br><span class="line">	childrens:[</span><br><span class="line">		'小明',</span><br><span class="line">		&#123;</span><br><span class="line">			tagName: 'p',</span><br><span class="line">			attrs: &#123;&#125;,</span><br><span class="line">			childrens:[</span><br><span class="line">				"哈哈哈"</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var div=&#123;</span><br><span class="line">	tagName: 'div',</span><br><span class="line">	attrs:&#123;</span><br><span class="line">		id: 'mydiv'</span><br><span class="line">		title: '人名性别',</span><br><span class="line">		'data-index'; '0'</span><br><span class="line">	&#125;,</span><br><span class="line">	childrens:[</span><br><span class="line">		'小明',</span><br><span class="line">		&#123;</span><br><span class="line">			tagName: 'p',</span><br><span class="line">			attrs: &#123;&#125;,</span><br><span class="line">			childrens:[</span><br><span class="line">				"哈哈哈qwq"</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p><strong>Diff算法：</strong></p>
-<ul>
-<li>tree diff：新旧两颗DOM树，逐层对比的过程，就是Tree Diff，当整颗DOM逐层对比完毕，则所有需要被按需更新的元素必然能够找到</li>
-<li>component diff：在进行Tree Diff的时候，每一层中组件级别的对比，叫做Component Diff<ul>
-<li>如果对比前后，组件的类型相同，则暂时认为此组件不需要被更新</li>
-<li>如果对比前后，组件的类型不同，则需要移除旧组件，创建新组件并追加到页面上</li>
-</ul>
-</li>
-<li>element diff：在进行组件对比的时候，如果两个组件的类型相同，则需要进行元素级别的对比，这叫做Element Diff</li>
-</ul>
-<img src="/2020/09/24/React%E5%9F%BA%E7%A1%80/1.png" alt="1" style="zoom: 67%;">
-
-<h3 id="React脚手架"><a href="#React脚手架" class="headerlink" title="React脚手架"></a>React脚手架</h3><ul>
 <li>全局安装脚手架：<code>npm install -g create-react-app</code></li>
 <li>创建项目：<code>create-react-app helloworld</code></li>
 <li>启动项目：<code>npm run start</code></li>
@@ -457,7 +420,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟DOM（Virtual-Document-Object-Model）"><span class="toc-number">1.</span> <span class="toc-text">虚拟DOM（Virtual Document Object Model）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React脚手架"><span class="toc-number">2.</span> <span class="toc-text">React脚手架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsx语法"><span class="toc-number">3.</span> <span class="toc-text">jsx语法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#React脚手架"><span class="toc-number">1.</span> <span class="toc-text">React脚手架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsx语法"><span class="toc-number">2.</span> <span class="toc-text">jsx语法</span></a></li></ol>
                     </div>
                 </span>
             </div>

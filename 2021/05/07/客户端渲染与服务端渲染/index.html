@@ -16,7 +16,7 @@
 <meta property="og:description" content="客户端渲染与服务端渲染">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-07T06:20:48.000Z">
-<meta property="article:modified_time" content="2021-05-07T06:50:46.596Z">
+<meta property="article:modified_time" content="2021-05-18T02:51:23.008Z">
 <meta property="article:author" content="十里不故梦">
 <meta property="article:tag" content="技术笔记">
 <meta name="twitter:card" content="summary">
@@ -308,6 +308,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <p><strong>路由懒加载</strong></p>
 <p><strong>开启gzip配置</strong></p>
 <p><strong>loading效果或者nprogress插件添加进度条效果</strong></p>
+<p><strong>骨架屏</strong></p>
 <p><strong>首页单独做服务端渲染</strong></p>
 <p>如果首页真的有瓶颈，兼考虑SEO问题，那还是用Express做首页渲染，而下面的子页面仍用SPA单页（将Vue打包的dist目录放在public目录下，当静态资源来访问）。这里不推荐直接用Nuxt.js服务端渲染方案，一是增加学习成本，二是服务端组装页面需耗费巨大的内存资源，很容易把服务器搞死，而且这种方案对代码质量要求非常高，如果你不注意资源的回收而造成内存泄露，浏览器重新刷一下就可以了，而服务端呢？重启一下？</p>
 
@@ -424,6 +425,15 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/05/09/MQ%E7%B3%BB%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MQ系列
+        
+      </div>
+    </a>
   
   
     <a href="/2021/04/23/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
